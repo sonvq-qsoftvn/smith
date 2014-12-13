@@ -1,0 +1,22 @@
+<?php $xml = simplexml_load_file(APPLICATION_PATH . '/var/templates.xml'); ?>
+
+<?php foreach ($xml as $key => $data): ?>
+	<div class="template">
+		<img src="<?php echo $data->screenshots->thumbnail ?>" />
+		<strong><?php echo $data->name ?></strong>
+		<br />
+		<br />
+		<?php echo $data->description ?>
+		<br />
+		<br />
+		<div align="right">
+			<input type="radio" name="layout" value="<?php echo $data->id ?>"
+				<?php if ($this->page->getLayout() == $data->id): ?>
+				checked="checked"
+				<?php endif ?>
+			/>
+		</div>
+	</div>
+<?php endforeach ?>
+
+<div style="clear:both;"></div>

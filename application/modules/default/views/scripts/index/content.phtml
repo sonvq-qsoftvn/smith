@@ -1,0 +1,13 @@
+<?php echo $this->render('system/result.phtml') ?>
+
+<?php if ($this->page->getType() == SxCms_Page::ARTICLE): ?>
+	<h1><?php echo $this->page->getTitle() ?></h1>
+	<i><?php echo htmlentities($this->page->getDatePublished("%A %d %B %Y"),ENT_NOQUOTES,'ISO-8859-1')  ?></i><br />
+	<a href="<?php echo $this->url(array(), 'news-archive') ?>"><?php echo $this->glob_tmx->_('overview.back') ?></a>
+
+	<br />
+	<br />
+<?php endif ?>
+<?php echo $this->page->getContent(); ?>
+
+<?php echo $this->action('comments', 'index', null, array('contentpage' => $this->page)) ?>

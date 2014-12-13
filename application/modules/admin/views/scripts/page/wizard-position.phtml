@@ -1,0 +1,14 @@
+<?php $this->headTitle('SxCms - Pagina positie') ?>
+
+<h3><?php echo $this->admin_tmx->_('positionintree') ?></h3>
+
+<p><input type="button" name="back" value="<?php echo $this->admin_tmx->_('back') ?>" onclick="javascript:history.go(-1);" /><p>
+<p>
+<?php foreach ($this->pages as $page): ?>
+	<input type="button" value="<?php echo $this->admin_tmx->_('enterhere') ?>"
+		onclick="window.location = '<?php echo $this->url(array('controller' => 'page', 'action' => 'set-position', 'left' => $page->getId())) ?>'" /><br />
+	<?php echo $page->getTitle() ?><br />
+<?php endforeach ?>
+<input type="submit" value="<?php echo $this->admin_tmx->_('enterhere') ?>"
+	onclick="window.location = '<?php echo $this->url(array('controller' => 'page', 'action' => 'set-position', 'right' => $page->getId())) ?>'" /><br />
+</p>

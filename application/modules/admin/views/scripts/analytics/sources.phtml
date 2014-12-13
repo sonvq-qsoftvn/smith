@@ -1,0 +1,20 @@
+<?php
+
+echo $this->render('analytics/__js.phtml');
+
+$user = Zend_Auth::getInstance()->getIdentity();
+
+$this->headTitle('SxCms - Analytics - '.$this->admin_tmx->_('sources'));
+
+?>
+
+<div style='float: left;'><h3>Analytics - <?php echo $this->admin_tmx->_('sources') ?></h3></div>
+
+<div style='float: right;'><?php echo $this->render('analytics/forms/__top.phtml'); ?></div>
+<div style='clear: both'></div>
+
+<div style='width: 100%;'><?php echo $this->render('analytics/graphs/__keywordsBar.phtml'); ?></div>
+
+<div style='float: left; width: 50%;'><?php echo $this->render('analytics/graphs/__mediumCircle.phtml'); ?></div>
+<div style='float: left; width: 50%;'><?php echo $this->render('analytics/graphs/__sourcesCircle.phtml'); ?></div>
+<div style='clear: both;'></div>

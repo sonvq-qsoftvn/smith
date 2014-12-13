@@ -1,0 +1,111 @@
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce_init.js') ?>
+
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/popup.js') ?>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-title">Titel &amp; Samenvatting
+			<?php $errors = count($this->messages->getTabMessages('title')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+        <li><a href="#tabs-description">Beschrijving
+            <?php $errors = count($this->messages->getTabMessages('description')) ?>
+            <?php if ($errors): ?>
+                <span class="errcount">(<?php echo $errors ?>)</span>
+            <?php endif ?>
+            </a>
+        </li>
+		<li><a href="#tabs-price">Prijs &amp; Categorie
+			<?php $errors = count($this->messages->getTabMessages('price-category')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+	</ul>
+
+	<form method="post" action="<?php echo $this->url() ?>">
+	<div id="tabs-title">
+		<dl>
+			<dt>
+				<label for="title">Titel:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="title" id="title" size="90"
+			    	value="<?php echo $this->escape($this->product->getTitle()) ?>" />
+			    <?php echo $this->messages->getMessagesHtml('title') ?>
+			    <p class="description">
+			        Indien ingevuld, minimum 2 en maximum 255 karakters
+			    </p>
+			</dd>
+			<dt>
+				<label for="summary">Samenvatting:</label>
+			</dt>
+			<dd>
+			    <textarea name="summary" id="summary"><?php echo $this->escape($this->product->getSummary()) ?></textarea>
+			    <?php echo $this->messages->getMessagesHtml('summary') ?>
+			    <p class="description">
+			        Indien ingevuld, minimum 2 en maximum 255 karakters
+			    </p>
+			</dd>
+			<dd style="margin-top: 20px;">
+			    <input class="button" type="submit" value="Opslaan" />
+			</dd>
+		</dl>
+	</div>
+    <div id="tabs-description">
+        <dl>
+            <dt>
+                <label for="description">Volledige beschrijving:</label>
+            </dt>
+            <dd>
+                <textarea name="description" id="description" style="width:100%; height: 500px;" rows="50" class="mceEditor"><?php echo $this->escape($this->product->getDescription()) ?></textarea>
+                <?php echo $this->messages->getMessagesHtml('description') ?>
+                <p class="description">
+                    Indien ingevuld, minimum 2 en maximum 255 karakters
+                </p>
+            </dd>
+            <dd style="margin-top: 20px;">
+                <input class="button" type="submit" value="Opslaan" />
+            </dd>
+        </dl>
+    </div>
+	<div id="tabs-price">
+		<dl>
+			<dt>
+				<label for="price">Prijs:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="price" id="price" size="10"
+			    	value="<?php echo $this->escape($this->product->getPrice()) ?>" />
+			    <?php echo $this->messages->getMessagesHtml('price') ?>
+			    <p class="description">
+			        De eenheidsprijs van het product
+			    </p>
+			</dd>
+			<dt>
+				<label for="menu">Categorie:</label>
+			</dt>
+			<dd>
+				<input type="text" name="category_id" id="category_id" size="90" readonly="readonly"
+					onclick="return popup('<?php echo $this->baseUrl('/admin/ecommerce/category') ?>');"
+					value="<?php echo $this->escape($this->product->getCategory()->getBreadcrumbs(true)) ?>" />
+				<input type="button" value="Selecteer"
+					onclick="return popup('<?php echo $this->baseUrl('/admin/ecommerce/category') ?>');" />
+
+				<?php echo $this->messages->getMessagesHtml('category') ?>
+			    <p class="description">
+			        Verplicht te selecteren. Dit wordt gebruikt om de boomstructuur te bepalen en een
+			        correcte broodkruimel te genereren
+			    </p>
+			</dd>
+			<dd style="margin-top: 20px;">
+			    <input class="button" type="submit" value="Opslaan" onclick="disableConfirm();" />
+			</dd>
+		</dl>
+	</div>
+	</form>
+</div>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigation>
+  <menu id="0" name="Homepage">
+    <menu id="1" name="work"/>
+    <menu id="2" name="about"/>
+    <menu id="3" name="contact"/>
+  </menu>
+</navigation>

@@ -1,0 +1,11 @@
+<?php $this->headTitle('Vacature categorie toevoegen') ?>
+<?php echo $this->render('system/leave.phtml'); ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+    $('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<h3>Vacature categorie toevoegen</h3>
+<?php echo $this->render('vacancy/__category.phtml') ?>

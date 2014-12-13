@@ -1,0 +1,35 @@
+<?php
+
+echo $this->render('analytics/__js.phtml');
+
+$user = Zend_Auth::getInstance()->getIdentity();
+
+$this->headTitle('SxCms - Analytics - Wereldkaart');
+
+?>
+
+<div style='float: left;'><h3>Analytics - <?php echo $this->admin_tmx->_('geo') ?></h3></div>
+
+<div style='float: right;'><?php echo $this->render('analytics/forms/__top.phtml'); ?></div>
+<div style='clear: both'></div>
+
+<h2><?php echo $this->admin_tmx->_('geolocationsvisitors') ?></h2>
+
+<?php if (!$this->country || !$this->iso): ?>
+
+<input type='button' id='world' value='Wereld' style='width: 15.5%; margin-left: 2%;' />
+<input type='button' id='eu' value='Europa' style='width: 15.5%' />
+<input type='button' id='af' value='Afrika' style='width: 15.5%' />
+<input type='button' id='am' value='Amerika' style='width: 15.5%' />
+<input type='button' id='as' value='Azië' style='width: 15.5%' />
+<input type='button' id='oc' value='Oceanië' style='width: 15.5%' />
+
+<div style='width: 100%;'><?php echo $this->render('analytics/graphs/__worldGeo.phtml'); ?></div>
+
+<?php else: ?>
+
+<input type='button' id='back' value='<?php echo $this->admin_tmx->_('backtoworldmap') ?>' />
+
+<div style='width: 100%;'><?php echo $this->render('analytics/graphs/__countryGeo.phtml'); ?></div>
+
+<?php endif; ?>

@@ -1,0 +1,23 @@
+<?php if($this->item) : ?>
+<?php $url =  $this->url(array('lng' => $this->item->getLng()),'webtv-overview', true ); ?>
+<?php echo $this->headLink() ?>
+<?php echo $this->headScript() ?>
+<?php echo $this->headStyle() ?>
+<h2><?php echo $this->item->getTitle(); ?><span><?php echo $this->item->getDatePublished(date("%d/%m/%Y")); ?></span></h2>
+<?php echo $this->item->getDescription(); ?>
+<a href="<?php echo $url; ?>" class="view-video">Terug naar overzicht..</a>
+<br />
+<br />
+<div style="clear: both"></div>
+<div id="videoDetail" class="video" ></div>
+
+<script type="text/javascript">
+$('#videoDetail').youTubeEmbed({
+	video			: '<?php echo $this->item->getYoutube(); ?>',
+	width			: 400, 		// Height is calculated automatically
+	progressBar	: true		// Hide the progress bar
+});
+
+</script>
+
+<?php endif; ?>

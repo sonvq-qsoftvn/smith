@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <?php echo $this->render('__layout/header.phtml') ?>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+<body>
+<div id="wrap">
+    <?php echo $this->render('__layout/left.phtml') ?>
+    
+	<script type='text/javascript'>
+	google.load("visualization", "1", {packages:["corechart"]});
+
+	$.ajax({
+		url: '<?php echo $this->url().'?loading=1'; ?>',
+		context: document.body,
+		dataType: 'json',
+		success: function(data) {
+			$('#main').html(data.html);
+			
+			$('#main').find("script").each(function(i) {
+                eval($(this).text());
+          	});
+		}
+	});
+	</script>
+    
+	<div id="main" style="min-height: 300px;">
+		loading
+		<br /><br /><br />
+	</div>
+</div>
+
+<?php echo $this->render('__layout/footer.phtml') ?>
+</body>
+</html>

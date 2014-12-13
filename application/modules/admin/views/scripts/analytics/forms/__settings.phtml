@@ -1,0 +1,24 @@
+<dl>
+       
+        <dt>
+        <label for="blockname" style='margin-bottom: 0px; padding-bottom: 0px;'><?php echo $this->admin_tmx->_('deletelink') ?></label>
+        </dt>
+        <dd>
+        	
+        	<form method='post' action='<?php echo $this->url() ?>'>
+				<input type='hidden' name='deletelink' value='1' /><br />
+				<input type='submit' value='<?php echo $this->admin_tmx->_('deletelinkbutton') ?>' style='margin-left: 20px;' onclick='return confirm("<?php echo $this->admin_tmx->_('deletelinkconfirm') ?>");'/>
+			</form>
+         
+        </dd>
+       <dt><?php echo $this->admin_tmx->_('deletelinkwarning') ?></dt><br />
+        <dt>
+        <label for="blockname"><?php echo $this->admin_tmx->_('chooseotherprofile') ?></label>
+        </dt>
+        <dd>
+        	
+        	<a href='/admin/analytics/profile'><?php echo $this->admin_tmx->_('chooseotherprofiledescription') ?></a>
+         
+        </dd>
+
+</dl>

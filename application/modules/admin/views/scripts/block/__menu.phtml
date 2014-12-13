@@ -1,0 +1,9 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+<?php if ($user->isAllowed('block', array('block.edit'))): ?>
+<h3 id="menu-block"><a href="#">Content blocks</a></h3>
+<div>
+	<ul class="sidemenu">
+		<li><a href="<?php echo $this->url(array('controller' => 'block', 'action' => 'index')) ?>">Aanpassen</a></li>
+	</ul>
+</div>
+<?php endif ?>

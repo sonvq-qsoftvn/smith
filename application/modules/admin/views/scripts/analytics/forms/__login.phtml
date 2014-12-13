@@ -1,0 +1,31 @@
+<dl>
+       
+        <dt>
+        <?php echo $this->admin_tmx->_('googleloginfirst') ?><br />
+        <?php echo $this->admin_tmx->_('ifyoudonotknow') ?>, <a href='http://www.google.com/analytics/' target='_blank'><?php echo $this->admin_tmx->_('clickhere') ?></a>.<br /><br />
+        </dt>
+       
+        <dt>
+        <label for="blockname"><?php echo $this->admin_tmx->_('email') ?>:</label>
+        </dt>
+        <dd>
+            <input type="text" name="email" id="email" size="90" />
+         
+        </dd>
+  
+    <dt>
+         <dt>
+        <label for="first_name"><?php echo $this->admin_tmx->_('password') ?>:</label>
+        </dt>
+        <dd>
+            <input type="password" name="password" id="password" size="90" />
+      
+        </dd>
+    
+    
+    <br />
+    <dd>
+        <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+    </dd>
+
+</dl>

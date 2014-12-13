@@ -1,0 +1,21 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+
+<?php if ($user->isAllowed('event', array('event.index', 'event.add', 'event.settings'))): ?>
+<h3 id="menu-event"><a href="#"><?php echo $this->admin_menu_tmx->_('ev.event') ?></a></h3>
+<div>
+	<ul class="sidemenu">
+		<?php if ($user->isAllowed('event', 'event.index')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'event', 'action' => 'index')) ?>"><?php echo $this->admin_menu_tmx->_('ev.overview') ?></a></li>
+		<?php endif ?>
+        <?php if ($user->isAllowed('event', 'event.archive')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'event', 'action' => 'archive')) ?>"><?php echo $this->admin_menu_tmx->_('ev.archive') ?></a></li>
+		<?php endif ?>
+		<?php if ($user->isAllowed('event', 'event.add')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'event', 'action' => 'add')) ?>"><?php echo $this->admin_menu_tmx->_('ev.add') ?></a></li>
+		<?php endif ?>
+		<?php if ($user->isAllowed('event', 'event.settings')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'event_settings', 'action' => 'index')) ?>"><?php echo $this->admin_menu_tmx->_('ev.settings') ?></a></li>
+		<?php endif ?>
+	</ul>
+</div>
+<?php endif ?>

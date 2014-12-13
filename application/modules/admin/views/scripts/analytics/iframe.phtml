@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="<?php echo $this->baseUrl('/css/SxCms.css') ?>" type="text/css" />
+
+<div class="left-box" style="background: white; padding: 10px 5px; height: 100%">
+	
+	<?php if ($this->iframeLogout == 'false'): ?>
+		
+		<strong><?php echo $this->admin_tmx->_('numbervisits') ?></strong><span style='float: right'><?php echo $this->visitslastweek["visits"]; ?></span><br />
+		<br /><strong><?php echo $this->admin_tmx->_('mostvisitedpages') ?></strong><br />
+		<?php
+			foreach ($this->pageslastweek["path"] AS $key => $value) {
+				$title = $this->excerpt($this->pageslastweek["title"][$key], 16, '...');
+				echo "<a href='http://$value' target='_blank' title='".$this->pageslastweek["title"][$key]."'>$title</a>";
+				echo "<span style='float: right'>".$this->pageslastweek["visits"][$key]."</span><br />";
+			}
+		?><br />
+	
+	<?php else: ?>
+		
+		<?php echo $this->admin_tmx->_('loginfirst') ?>
+	
+	<?php endif; ?>
+
+</div>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+         adminlang="en-us" srclang="en-us" o-tmf="abc">
+	</header>
+	<body>
+		<tu tuid='itemcreated'>
+			<tuv xml:lang="nl"><seg>Item werd succesvol aangemaakt!</seg></tuv>
+			<tuv xml:lang="en"><seg>Item was successfully created!</seg></tuv>
+		</tu>
+		<tu tuid='itemedited'>
+			<tuv xml:lang="nl"><seg>Item werd succesvol aangepast!</seg></tuv>
+			<tuv xml:lang="en"><seg>Item was successfully edited!</seg></tuv>
+		</tu>
+		<tu tuid='itemdeleted'>
+			<tuv xml:lang="nl"><seg>Item werd succesvol verwijderd!</seg></tuv>
+			<tuv xml:lang="en"><seg>Item was successfully deleted!</seg></tuv>
+		</tu>
+		<tu tuid='statusedited'>
+			<tuv xml:lang="nl"><seg>De status van het item werd succesvol aangepast!</seg></tuv>
+			<tuv xml:lang="en"><seg>The status of the item has successfully been edited!</seg></tuv>
+		</tu>
+		<tu tuid='description'>
+			<tuv xml:lang="nl"><seg>Omschrijving</seg></tuv>
+			<tuv xml:lang="en"><seg>Description</seg></tuv>
+		</tu>
+		<tu tuid='activein'>
+			<tuv xml:lang="nl"><seg>Actief in</seg></tuv>
+			<tuv xml:lang="en"><seg>Active in</seg></tuv>
+		</tu>
+		<tu tuid='ifpublicationpassed'>
+			<tuv xml:lang="nl"><seg>als publicatiedatum gepasseerd is.</seg></tuv>
+			<tuv xml:lang="en"><seg>if publication date is passed.</seg></tuv>
+		</tu>
+		<tu tuid='requiredmin2chars'>
+			<tuv xml:lang="nl"><seg>Verplicht in te vullen. Minstens 2 karakters.</seg></tuv>
+			<tuv xml:lang="en"><seg>Required, minimum 2 characters.</seg></tuv>
+		</tu>
+		<tu tuid='youtubelink'>
+			<tuv xml:lang="nl"><seg>Youtube-link</seg></tuv>
+			<tuv xml:lang="en"><seg>Youtube-link</seg></tuv>
+		</tu>
+		<tu tuid='example'>
+			<tuv xml:lang="nl"><seg>bv.</seg></tuv>
+			<tuv xml:lang="en"><seg>e.g.</seg></tuv>
+		</tu>
+		<tu tuid='date'>
+			<tuv xml:lang="nl"><seg>Datum</seg></tuv>
+			<tuv xml:lang="en"><seg>Date</seg></tuv>
+		</tu>
+		<tu tuid='daterequired'>
+			<tuv xml:lang="nl"><seg>Verplicht een datum te selecteren</seg></tuv>
+			<tuv xml:lang="en"><seg>Date is required</seg></tuv>
+		</tu>
+		<tu tuid='allfieldsrequired'>
+			<tuv xml:lang="nl"><seg>Alle velden zijn verplicht in te vullen</seg></tuv>
+			<tuv xml:lang="en"><seg>All fields are required</seg></tuv>
+		</tu>
+		<tu tuid='settings'>
+			<tuv xml:lang="nl"><seg>Instellingen</seg></tuv>
+			<tuv xml:lang="en"><seg>Settings</seg></tuv>
+		</tu>
+		<tu tuid='content'>
+			<tuv xml:lang="nl"><seg>Inhoud</seg></tuv>
+			<tuv xml:lang="en"><seg>Content</seg></tuv>
+		</tu>
+		<tu tuid='save'>
+			<tuv xml:lang="nl"><seg>Opslaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Save</seg></tuv>
+		</tu>
+		<tu tuid='webtv'>
+			<tuv xml:lang="nl"><seg>Web TV</seg></tuv>
+			<tuv xml:lang="en"><seg>Web TV</seg></tuv>
+		</tu>
+		<tu tuid='overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		<tu tuid='newwebtv'>
+			<tuv xml:lang="nl"><seg>Nieuwe Web TV</seg></tuv>
+			<tuv xml:lang="en"><seg>New Web TV</seg></tuv>
+		</tu>
+		<tu tuid='addwebtv'>
+			<tuv xml:lang="nl"><seg>Web TV toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add Web TV</seg></tuv>
+		</tu>
+		<tu tuid='editwebtv'>
+			<tuv xml:lang="nl"><seg>Web TV aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit Web TV</seg></tuv>
+		</tu>
+		<tu tuid='webtvoverview'>
+			<tuv xml:lang="nl"><seg>Web TV overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Web TV overview</seg></tuv>
+		</tu>
+		<tu tuid='deleteconfirm'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u dit item wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this item?</seg></tuv>
+		</tu>
+		<tu tuid='name'>
+			<tuv xml:lang="nl"><seg>Naam</seg></tuv>
+			<tuv xml:lang="en"><seg>Name</seg></tuv>
+		</tu>
+		<tu tuid='publicationdateifactive'>
+			<tuv xml:lang="nl"><seg>Publicatiedatum (als actief)</seg></tuv>
+			<tuv xml:lang="en"><seg>Publicationdate (if active)</seg></tuv>
+		</tu>
+		<tu tuid='active'>
+			<tuv xml:lang="nl"><seg>Actief</seg></tuv>
+			<tuv xml:lang="en"><seg>Active</seg></tuv>
+		</tu>
+		<tu tuid='action'>
+			<tuv xml:lang="nl"><seg>Actie</seg></tuv>
+			<tuv xml:lang="en"><seg>Action</seg></tuv>
+		</tu>
+		<tu tuid='activatedeactivate'>
+			<tuv xml:lang="nl"><seg>Activeren/Deactiveren</seg></tuv>
+			<tuv xml:lang="en"><seg>Activate/Deactivate</seg></tuv>
+		</tu>
+		<tu tuid='deactivate'>
+			<tuv xml:lang="nl"><seg>De-activeer</seg></tuv>
+			<tuv xml:lang="en"><seg>De-activate</seg></tuv>
+		</tu>
+		<tu tuid='activate'>
+			<tuv xml:lang="nl"><seg>Activeer</seg></tuv>
+			<tuv xml:lang="en"><seg>Activate</seg></tuv>
+		</tu>
+		<tu tuid='edit'>
+			<tuv xml:lang="nl"><seg>Aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit</seg></tuv>
+		</tu>
+		<tu tuid='delete'>
+			<tuv xml:lang="nl"><seg>Verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete</seg></tuv>
+		</tu>
+		<tu tuid='loading'>
+			<tuv xml:lang="nl"><seg>Laden</seg></tuv>
+			<tuv xml:lang="en"><seg>Loading</seg></tuv>
+		</tu>
+		<tu tuid='cms'>
+			<tuv xml:lang="nl"><seg>Content Management Systeem</seg></tuv>
+			<tuv xml:lang="en"><seg>Content Management System</seg></tuv>
+		</tu>
+	</body>
+</tmx>

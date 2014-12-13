@@ -1,0 +1,131 @@
+<?php $this->headScript()->appendFile('/js/sortable.js') ?>
+<?php 
+$user = Zend_Auth::getInstance()->getIdentity();
+$canDelete = $user->isAllowed('securedocs', 'securedocs.delete');
+?>
+<?php $this->headTitle($this->admin_tmx->_('securedocs')) ?>
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+
+function showDialog(link, action) {
+
+	$("#dialog-"+action).dialog({
+		bgiframe: true,
+		resizable: false,
+		height: 160,
+		width: 500,
+		modal: true,
+		position: ['center', 65],
+		overlay: {
+			backgroundColor: '#000',
+			opacity: 0.5
+		},
+		buttons: {
+			'Bevestigen': function() {
+				window.location = link;
+				$(this).dialog('close');
+			},
+			Annuleren: function() {
+				$(this).dialog('destroy');
+			}
+		}
+	});
+}
+<?php $this->headScript()->captureEnd() ?>
+
+<div id="dialog-delete" title="<?php echo $this->admin_tmx->_('deletefile') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deletefileconfirm') ?></p>
+</div>
+
+<?php echo $this->render('system/result.phtml') ?>
+
+<h3><?php echo $this->admin_tmx->_('docsoverview') ?></h3>
+<table width="98%">
+	<tr>
+		<th>
+			<a href="/admin/securedocs/index/path/">..</a>
+			<?php foreach($this->showpath as $path) : ?>
+				:: <a href="/admin/securedocs/index/path/<?php echo base64_encode($path['path']) ?>"> <?php echo $path['name'] ?></a>
+			<?php endforeach; ?>
+		</th>
+	</tr>
+</table>
+
+<table width="98%" class="sortable">
+	<thead>
+		<tr>
+			<th width="15">T</th>
+			<th><?php echo $this->admin_tmx->_('filename') ?></th>
+			<th><?php echo $this->admin_tmx->_('size') ?></th>
+			<th><?php echo $this->admin_tmx->_('lastedit') ?></th>
+			<th><?php echo $this->admin_tmx->_('action') ?></th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php if ($this->path): ?>
+	<tr>
+		<td><img src="/images/cms/actions/folder.png" /></td>
+		<td><a href="/admin/securedocs/index/path/<?php echo base64_encode($this->topdir) ?>">..</a></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<?php endif ?>
+	
+	<?php foreach ($this->files as $file): ?>
+		<?php $fileinfo = $this->it->seek($file); ?>
+		<?php if ($fileinfo->isDot() or $fileinfo->isHidden()) continue; ?>
+		<tr>
+			<td>
+				<img src="/images/cms/filetypes/<?php echo $fileinfo->getFileType() ?>" />
+			</td>
+			<td>
+			<?php $url = base64_encode($this->path . '/' . $fileinfo->getFilename()) ?>
+			<?php if ($fileinfo->isDir()): ?>
+				<a href="/admin/securedocs/index/path/<?php echo $url ?>"><?php echo $fileinfo->getFilename() ?></a>
+			<?php else: ?>
+				<a href="/securedocs/<?php echo base64_decode($url) ?>"><?php echo $fileinfo->getFilename() ?></a>
+			<?php endif ?>
+			</td>
+			<td><?php echo $fileinfo->getSizeString() ?></td>
+			<td><?php echo date('d-m-Y H:i:s', $fileinfo->getMTime()) ?></td>
+			<td>
+				<a title="<?php echo $this->admin_tmx->_('edit') ?>" href="/admin/securedocs/edit/path/<?php echo base64_encode($this->path) ?>/file/<?php echo $url ?>">
+					<img src="/images/cms/actions/page_white_edit.png" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+				</a>
+				<?php if($canDelete):?><a title="<?php echo $this->admin_tmx->_('delete') ?>" href="#" onclick="showDialog('/admin/securedocs/delete/path/<?php echo base64_encode($this->path) ?>/file/<?php echo $url ?>', 'delete');">
+					<?php endif ?><img src="/images/cms/actions/page_white_delete.png" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
+				<?php if($canDelete): ?></a><?php endif ?>
+			</td>
+		</tr>
+	<?php endforeach ?>
+	</tbody>
+</table>
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-add-folder"><?php echo $this->admin_tmx->_('addfolder') ?></a></li>
+	</ul>
+
+	<div id="tabs-add-folder">
+		<form method="post" action="<?php echo $this->url() ?>">
+		<dl>
+			<dt>
+				<label for="folder"><?php echo $this->admin_tmx->_('foldername') ?>:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="folder" id="folder" size="45" />
+			    <p class="description">
+			        <?php echo $this->admin_tmx->_('enterfoldername') ?>
+			    </p>
+			</dd>
+			<dd style="margin-top: 20px;">
+			    <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('create') ?>" />
+			</dd>
+		</dl>
+		</form>
+	</div>
+</div> 

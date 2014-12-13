@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+         adminlang="en-us" srclang="en-us" o-tmf="abc">
+	</header>
+	<body>
+		<tu tuid='settingsedited'>
+			<tuv xml:lang="nl"><seg>De instellingen werden succesvol aangepast.</seg></tuv>
+			<tuv xml:lang="en"><seg>The settings have successfully been edited.</seg></tuv>
+		</tu>
+		<tu tuid='subscriptiondeleted'>
+			<tuv xml:lang="nl"><seg>De inschrijving werd succesvol verwijderd.</seg></tuv>
+			<tuv xml:lang="en"><seg>The subscription has successfully been deleted.</seg></tuv>
+		</tu>
+		<tu tuid='subscriptionsforevent'>
+			<tuv xml:lang="nl"><seg>Inschrijvingen voor event:</seg></tuv>
+			<tuv xml:lang="en"><seg>Subscriptions for event:</seg></tuv>
+		</tu>
+		<tu tuid='eventcreated'>
+			<tuv xml:lang="nl"><seg>Het evenement werd succesvol aangemaakt.</seg></tuv>
+			<tuv xml:lang="en"><seg>The event was successfully created.</seg></tuv>
+		</tu>
+		<tu tuid='eventedited'>
+			<tuv xml:lang="nl"><seg>Het evenement werd succesvol bewerkt.</seg></tuv>
+			<tuv xml:lang="en"><seg>The event was successfully edited.</seg></tuv>
+		</tu>
+		<tu tuid='eventdeleted'>
+			<tuv xml:lang="nl"><seg>Het evenement werd succesvol verwijderd.</seg></tuv>
+			<tuv xml:lang="en"><seg>The event was successfully deleted.</seg></tuv>
+		</tu>
+		<tu tuid='lists'>
+			<tuv xml:lang="nl"><seg>Lijsten</seg></tuv>
+			<tuv xml:lang="en"><seg>Lists</seg></tuv>
+		</tu>
+		<tu tuid='field'>
+			<tuv xml:lang="nl"><seg>Veld</seg></tuv>
+			<tuv xml:lang="en"><seg>Field</seg></tuv>
+		</tu>
+		<tu tuid='lable'>
+			<tuv xml:lang="nl"><seg>Label</seg></tuv>
+			<tuv xml:lang="en"><seg>Label</seg></tuv>
+		</tu>
+		<tu tuid='value'>
+			<tuv xml:lang="nl"><seg>Waarde</seg></tuv>
+			<tuv xml:lang="en"><seg>Value</seg></tuv>
+		</tu>
+		<tu tuid='fieldname'>
+			<tuv xml:lang="nl"><seg>Veldnaam</seg></tuv>
+			<tuv xml:lang="en"><seg>Field name</seg></tuv>
+		</tu>
+		<tu tuid='type'>
+			<tuv xml:lang="nl"><seg>Type</seg></tuv>
+			<tuv xml:lang="en"><seg>Type</seg></tuv>
+		</tu>
+		<tu tuid='time'>
+			<tuv xml:lang="nl"><seg>Tijdstip</seg></tuv>
+			<tuv xml:lang="en"><seg>Time</seg></tuv>
+		</tu>
+		<tu tuid='requiredfuturedate'>
+			<tuv xml:lang="nl"><seg>Verplicht in te vullen, datum in de toekomst.</seg></tuv>
+			<tuv xml:lang="en"><seg>Required, date in the future.</seg></tuv>
+		</tu>
+		<tu tuid='location'>
+			<tuv xml:lang="nl"><seg>Locatie</seg></tuv>
+			<tuv xml:lang="en"><seg>Location</seg></tuv>
+		</tu>
+		<tu tuid='requiredformataddress'>
+			<tuv xml:lang="nl"><seg>Verplicht in te vullen volgens formaat: "straat huisnummer, postcode, gemeente".</seg></tuv>
+			<tuv xml:lang="en"><seg>Required with format: "street number, postal code, town"</seg></tuv>
+		</tu>
+		<tu tuid='title'>
+			<tuv xml:lang="nl"><seg>Titel</seg></tuv>
+			<tuv xml:lang="en"><seg>Title</seg></tuv>
+		</tu>
+		<tu tuid='requiredmin2chars'>
+			<tuv xml:lang="nl"><seg>Verplicht in te vullen, minimum 2 karakters</seg></tuv>
+			<tuv xml:lang="en"><seg>Required, minimum 2 characters</seg></tuv>
+		</tu>
+		<tu tuid='description'>
+			<tuv xml:lang="nl"><seg>Omschrijving</seg></tuv>
+			<tuv xml:lang="en"><seg>Description</seg></tuv>
+		</tu>
+		<tu tuid='descriptionofevent'>
+			<tuv xml:lang="nl"><seg>Omschrijving van het evenement.</seg></tuv>
+			<tuv xml:lang="en"><seg>Description of the event.</seg></tuv>
+		</tu>
+		<tu tuid='form'>
+			<tuv xml:lang="nl"><seg>Formulier</seg></tuv>
+			<tuv xml:lang="en"><seg>Form</seg></tuv>
+		</tu>
+		<tu tuid='text'>
+			<tuv xml:lang="nl"><seg>tekst</seg></tuv>
+			<tuv xml:lang="en"><seg>text</seg></tuv>
+		</tu>
+		<tu tuid='select'>
+			<tuv xml:lang="nl"><seg>select</seg></tuv>
+			<tuv xml:lang="en"><seg>select</seg></tuv>
+		</tu>
+		<tu tuid='checkbox'>
+			<tuv xml:lang="nl"><seg>checkbox</seg></tuv>
+			<tuv xml:lang="en"><seg>checkbox</seg></tuv>
+		</tu>
+		<tu tuid='textarea'>
+			<tuv xml:lang="nl"><seg>textarea</seg></tuv>
+			<tuv xml:lang="en"><seg>textarea</seg></tuv>
+		</tu>
+		<tu tuid='radio'>
+			<tuv xml:lang="nl"><seg>radio</seg></tuv>
+			<tuv xml:lang="en"><seg>radio</seg></tuv>
+		</tu>
+		<tu tuid='add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		<tu tuid='reminderemail'>
+			<tuv xml:lang="nl"><seg>Herinneringsmail</seg></tuv>
+			<tuv xml:lang="en"><seg>Reminder email</seg></tuv>
+		</tu>
+		<tu tuid='confirmationemail'>
+			<tuv xml:lang="nl"><seg>Bevestingsmail</seg></tuv>
+			<tuv xml:lang="en"><seg>Confirmation email</seg></tuv>
+		</tu>
+		<tu tuid='subscriptionsallowed'>
+			<tuv xml:lang="nl"><seg>Inschrijvingen toestaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Subscriptions allowed</seg></tuv>
+		</tu>
+		<tu tuid='maxsubscriptions'>
+			<tuv xml:lang="nl"><seg>Maximale inschrijvingen</seg></tuv>
+			<tuv xml:lang="en"><seg>Maximum subscriptions</seg></tuv>
+		</tu>
+		<tu tuid='startdatesubscriptions'>
+			<tuv xml:lang="nl"><seg>Startdatum inschrijvingen</seg></tuv>
+			<tuv xml:lang="en"><seg>Start date subscriptions</seg></tuv>
+		</tu>
+		<tu tuid='enddatesubscriptions'>
+			<tuv xml:lang="nl"><seg>Einddatum inschrijvingen</seg></tuv>
+			<tuv xml:lang="en"><seg>End date subscriptions</seg></tuv>
+		</tu>
+		<tu tuid='daysreminder'>
+			<tuv xml:lang="nl"><seg>Hoeveel dagen voor de aanvang van het evenement moet er een herinneringsmail gestuurd worden naar de geregistreerde?</seg></tuv>
+			<tuv xml:lang="en"><seg>How many days before the start of the event should a reminder email be sent to the subscribers?</seg></tuv>
+		</tu>
+		<tu tuid='confirmation'>
+			<tuv xml:lang="nl"><seg>Bevestiging</seg></tuv>
+			<tuv xml:lang="en"><seg>Confirmation</seg></tuv>
+		</tu>
+		<tu tuid='ifcheckedconfirmationemail'>
+			<tuv xml:lang="nl"><seg>Indien aangevinkt, krijgt de geregistreerde een mail met een link die hij moet aanklikken om zijn registratie te bevestigen.</seg></tuv>
+			<tuv xml:lang="en"><seg>If checked, the subscriber gets an email with a link to confirm his/her registration.</seg></tuv>
+		</tu>
+		<tu tuid='internalcontrol'>
+			<tuv xml:lang="nl"><seg>Interne controle</seg></tuv>
+			<tuv xml:lang="en"><seg>Internal control</seg></tuv>
+		</tu>
+		<tu tuid='ifcheckedadminchecks'>
+			<tuv xml:lang="nl"><seg>Indien aangevinkt, moet de registratie eerst nagekeken worden door de admin voor de registratie definitief is.</seg></tuv>
+			<tuv xml:lang="en"><seg>If checked, an admin has to confirm the registration.</seg></tuv>
+		</tu>
+		<tu tuid='email'>
+			<tuv xml:lang="nl"><seg>E-mail</seg></tuv>
+			<tuv xml:lang="en"><seg>Email</seg></tuv>
+		</tu>
+		<tu tuid='personmailregistration'>
+			<tuv xml:lang="nl"><seg>Deze persoon krijgt een melding indien er een inschrijving is binnengekomen.</seg></tuv>
+			<tuv xml:lang="en"><seg>This person gets an email if a registration has been entered.</seg></tuv>
+		</tu>
+		<tu tuid='editeventsettings'>
+			<tuv xml:lang="nl"><seg>Evenementinstellingen aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit event settings</seg></tuv>
+		</tu>
+		<tu tuid='save'>
+			<tuv xml:lang="nl"><seg>Opslaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Save</seg></tuv>
+		</tu>
+		<tu tuid='selectstatus'>
+			<tuv xml:lang="nl"><seg>Selecteer een status</seg></tuv>
+			<tuv xml:lang="en"><seg>Select a status</seg></tuv>
+		</tu>
+		<tu tuid='selectstatusdescription'>
+			<tuv xml:lang="nl"><seg>Indien u de status aanpast naar geaccepteerd zal de persoon een bevestigingsemail hiervan ontvangen</seg></tuv>
+			<tuv xml:lang="en"><seg>If you edit the status to accepted, the person will receive a confirmation email.</seg></tuv>
+		</tu>
+		<tu tuid='waiting'>
+			<tuv xml:lang="nl"><seg>Wachtend</seg></tuv>
+			<tuv xml:lang="en"><seg>Waiting</seg></tuv>
+		</tu>
+		<tu tuid='accepted'>
+			<tuv xml:lang="nl"><seg>Geaccepteerd</seg></tuv>
+			<tuv xml:lang="en"><seg>Accepted</seg></tuv>
+		</tu>
+		<tu tuid='rejected'>
+			<tuv xml:lang="nl"><seg>Afgewezen</seg></tuv>
+			<tuv xml:lang="en"><seg>Rejected</seg></tuv>
+		</tu>
+		<tu tuid='formvalidation'>
+			<tuv xml:lang="nl"><seg>Formulier validatie</seg></tuv>
+			<tuv xml:lang="en"><seg>Form validation</seg></tuv>
+		</tu>
+		<tu tuid='allfieldsrequired'>
+			<tuv xml:lang="nl"><seg>Alle velden zijn verplicht in te vullen.</seg></tuv>
+			<tuv xml:lang="en"><seg>All fields are required.</seg></tuv>
+		</tu>
+		<tu tuid='details'>
+			<tuv xml:lang="nl"><seg>Details</seg></tuv>
+			<tuv xml:lang="en"><seg>Details</seg></tuv>
+		</tu>
+		<tu tuid='status'>
+			<tuv xml:lang="nl"><seg>Status</seg></tuv>
+			<tuv xml:lang="en"><seg>Status</seg></tuv>
+		</tu>
+		<tu tuid='subscriptionoverview'>
+			<tuv xml:lang="nl"><seg>Overzicht inschrijvingen</seg></tuv>
+			<tuv xml:lang="en"><seg>Subscription overview</seg></tuv>
+		</tu>
+		<tu tuid='deleteevent'>
+			<tuv xml:lang="nl"><seg>Event verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete event</seg></tuv>
+		</tu>
+		<tu tuid='deleteeventconfirm'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u dit event wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this event?</seg></tuv>
+		</tu>
+		<tu tuid='overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='export'>
+			<tuv xml:lang="nl"><seg>Exporteer</seg></tuv>
+			<tuv xml:lang="en"><seg>Export</seg></tuv>
+		</tu>
+		<tu tuid='action'>
+			<tuv xml:lang="nl"><seg>Actie</seg></tuv>
+			<tuv xml:lang="en"><seg>Action</seg></tuv>
+		</tu>
+		<tu tuid='editsubscription'>
+			<tuv xml:lang="nl"><seg>Inschrijving aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit subscription</seg></tuv>
+		</tu>
+		<tu tuid='settings'>
+			<tuv xml:lang="nl"><seg>Instellingen</seg></tuv>
+			<tuv xml:lang="en"><seg>Settings</seg></tuv>
+		</tu>
+		<tu tuid='event'>
+			<tuv xml:lang="nl"><seg>Evenement</seg></tuv>
+			<tuv xml:lang="en"><seg>Event</seg></tuv>
+		</tu>
+		<tu tuid='fields'>
+			<tuv xml:lang="nl"><seg>Velden</seg></tuv>
+			<tuv xml:lang="en"><seg>Fields</seg></tuv>
+		</tu>
+		<tu tuid='event'>
+			<tuv xml:lang="nl"><seg>Evenement</seg></tuv>
+			<tuv xml:lang="en"><seg>Event</seg></tuv>
+		</tu>
+		<tu tuid='archive'>
+			<tuv xml:lang="nl"><seg>Archief</seg></tuv>
+			<tuv xml:lang="en"><seg>Archive</seg></tuv>
+		</tu>
+		<tu tuid='addevent'>
+			<tuv xml:lang="nl"><seg>Event toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add event</seg></tuv>
+		</tu>
+		<tu tuid='eventoverview'>
+			<tuv xml:lang="nl"><seg>Evenementen overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Event overview</seg></tuv>
+		</tu>
+		<tu tuid='eventarchive'>
+			<tuv xml:lang="nl"><seg>Evenementenarchief</seg></tuv>
+			<tuv xml:lang="en"><seg>Event archive</seg></tuv>
+		</tu>
+		<tu tuid='date'>
+			<tuv xml:lang="nl"><seg>Datum</seg></tuv>
+			<tuv xml:lang="en"><seg>Date</seg></tuv>
+		</tu>
+		<tu tuid='edit'>
+			<tuv xml:lang="nl"><seg>Aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit</seg></tuv>
+		</tu>
+		<tu tuid='subscriptions'>
+			<tuv xml:lang="nl"><seg>Inschrijvingen</seg></tuv>
+			<tuv xml:lang="en"><seg>Subscriptions</seg></tuv>
+		</tu>
+		<tu tuid='delete'>
+			<tuv xml:lang="nl"><seg>Verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete</seg></tuv>
+		</tu>
+		<tu tuid='editevent'>
+			<tuv xml:lang="nl"><seg>Evenement aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit event</seg></tuv>
+		</tu>
+		<tu tuid='refused'>
+			<tuv xml:lang="nl"><seg>Geweigerd</seg></tuv>
+			<tuv xml:lang="en"><seg>Refused</seg></tuv>
+		</tu>
+	</body>
+</tmx>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+         adminlang="en-us" srclang="en-us" o-tmf="abc">
+	</header>
+	<body>
+		<tu tuid='itemcreated'>
+			<tuv xml:lang="nl"><seg>Item werd succesvol aangemaakt!</seg></tuv>
+			<tuv xml:lang="en"><seg>Item was successfully created!</seg></tuv>
+		</tu>
+		<tu tuid='itemedited'>
+			<tuv xml:lang="nl"><seg>Item werd succesvol aangepast!</seg></tuv>
+			<tuv xml:lang="en"><seg>Item was successfully edited!</seg></tuv>
+		</tu>
+		<tu tuid='itemdeleted'>
+			<tuv xml:lang="nl"><seg>Item werd succesvol verwijderd!</seg></tuv>
+			<tuv xml:lang="en"><seg>Item was successfully deleted!</seg></tuv>
+		</tu>
+		<tu tuid='blockname'>
+			<tuv xml:lang="nl"><seg>Bloknaam</seg></tuv>
+			<tuv xml:lang="en"><seg>Blockname</seg></tuv>
+		</tu>
+		<tu tuid='min2max255chars'>
+			<tuv xml:lang="nl"><seg>Minimum 2 en maximum 255 karakters</seg></tuv>
+			<tuv xml:lang="en"><seg>Minimum 2 and maximum 255 characters</seg></tuv>
+		</tu>
+		<tu tuid='title'>
+			<tuv xml:lang="nl"><seg>Titel</seg></tuv>
+			<tuv xml:lang="en"><seg>Title</seg></tuv>
+		</tu>
+		<tu tuid='content'>
+			<tuv xml:lang="nl"><seg>Inhoud</seg></tuv>
+			<tuv xml:lang="en"><seg>Content</seg></tuv>
+		</tu>
+		<tu tuid='url'>
+			<tuv xml:lang="nl"><seg>Link</seg></tuv>
+			<tuv xml:lang="en"><seg>URL</seg></tuv>
+		</tu>
+		<tu tuid='clickselectinternal'>
+			<tuv xml:lang="nl"><seg>Klik hier om een interne pagina te selecteren</seg></tuv>
+			<tuv xml:lang="en"><seg>Click here to select an internal page</seg></tuv>
+		</tu>
+		<tu tuid='clickselectinternaldescription'>
+			<tuv xml:lang="nl"><seg>Indien je naar een bestaande pagina wenst te linken kan je hier deze pagina selecteren.</seg></tuv>
+			<tuv xml:lang="en"><seg>If you want to link to an existing page, you can select it here.</seg></tuv>
+		</tu>
+		<tu tuid='picture'>
+			<tuv xml:lang="nl"><seg>Afbeelding</seg></tuv>
+			<tuv xml:lang="en"><seg>Picture</seg></tuv>
+		</tu>
+		<tu tuid='picturesizerestrictions'>
+			<tuv xml:lang="nl"><seg>De afbeelding is best groter dan 1263x565. Afbeelding moet kleiner zijn dan 1MB!</seg></tuv>
+			<tuv xml:lang="en"><seg>Optimally, the picture should be bigger then 1263x565. It has to be smaller then 1MB.</seg></tuv>
+		</tu>
+		<tu tuid='save'>
+			<tuv xml:lang="nl"><seg>Opslaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Save</seg></tuv>
+		</tu>
+		<tu tuid='formvalidation'>
+			<tuv xml:lang="nl"><seg>Formulier validatie</seg></tuv>
+			<tuv xml:lang="en"><seg>Validation form</seg></tuv>
+		</tu>
+		<tu tuid='allfieldsrequired'>
+			<tuv xml:lang="nl"><seg>Alle velden zijn verplicht in te vullen.</seg></tuv>
+			<tuv xml:lang="en"><seg>All fields are required.</seg></tuv>
+		</tu>
+		<tu tuid='contentblock'>
+			<tuv xml:lang="nl"><seg>Tekstblok</seg></tuv>
+			<tuv xml:lang="en"><seg>Content block</seg></tuv>
+		</tu>
+		<tu tuid='topcontentblocks'>
+			<tuv xml:lang="nl"><seg>Top Tekstblokken</seg></tuv>
+			<tuv xml:lang="en"><seg>Top Content Blocks</seg></tuv>
+		</tu>
+		<tu tuid='add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		<tu tuid='overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='textblockshomepageadd'>
+			<tuv xml:lang="nl"><seg>Tekstblokken homepagina toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add content blocks to homepage</seg></tuv>
+		</tu>
+		<tu tuid='textblockshomepageedit'>
+			<tuv xml:lang="nl"><seg>Tekstblokken homepagina aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit content blocks on homepage</seg></tuv>
+		</tu>
+		<tu tuid='hometextblocks'>
+			<tuv xml:lang="nl"><seg>Tekstblokken Homepagina</seg></tuv>
+			<tuv xml:lang="en"><seg>Textblocks Homepage</seg></tuv>
+		</tu>
+		<tu tuid='overviewhometextblocks'>
+			<tuv xml:lang="nl"><seg>Overzicht van tekstblokjes op de homepage</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview of content blocks on homepage</seg></tuv>
+		</tu>
+		<tu tuid='deletefolder'>
+			<tuv xml:lang="nl"><seg>Album verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete folder</seg></tuv>
+		</tu>
+		<tu tuid='deletefolderconfirm'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u deze top tekstblok wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this top content block?</seg></tuv>
+		</tu>
+		<tu tuid='textblockshomepageoverview'>
+			<tuv xml:lang="nl"><seg>Tekstblokken homepagina overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Content blocks homepage overview</seg></tuv>
+		</tu>
+		<tu tuid='blockname'>
+			<tuv xml:lang="nl"><seg>Bloknaam</seg></tuv>
+			<tuv xml:lang="en"><seg>Blockname</seg></tuv>
+		</tu>
+		<tu tuid='title'>
+			<tuv xml:lang="nl"><seg>Titel</seg></tuv>
+			<tuv xml:lang="en"><seg>Title</seg></tuv>
+		</tu>
+		<tu tuid='action'>
+			<tuv xml:lang="nl"><seg>Actie</seg></tuv>
+			<tuv xml:lang="en"><seg>Action</seg></tuv>
+		</tu>
+		<tu tuid='edit'>
+			<tuv xml:lang="nl"><seg>Aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit</seg></tuv>
+		</tu>
+		<tu tuid='delete'>
+			<tuv xml:lang="nl"><seg>Verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete</seg></tuv>
+		</tu>
+	</body>
+</tmx>

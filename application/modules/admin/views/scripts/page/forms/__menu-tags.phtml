@@ -1,0 +1,67 @@
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/popup.js') ?>
+
+<dl>
+	<?php if ($this->page->getId() === false or $this->page->getId() > 1): ?>
+	<dt>
+		<label for="menu"><?php echo $this->admin_tmx->_('home') ?>:</label>
+	</dt>
+	<dd>
+		<input type="text" name="parent_id" id="parent_id" size="90" readonly="readonly"
+			onclick="return popup('<?php echo $this->baseUrl('/admin/page/wizard-parent-page') ?>');"
+			value="<?php echo $this->escape($this->page->getBreadcrumbs($_SESSION['System']['lng']))  ?>" />
+		<input type="button" value="<?php echo $this->admin_tmx->_('select') ?>"
+			onclick="return popup('<?php echo $this->baseUrl('/admin/page/wizard-parent-page') ?>');" />
+
+		<?php echo $this->messages->getMessagesHtml('parent') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('requiredusedforbreadcrumbs') ?>
+	    </p>
+	</dd>
+	<?php endif ?>
+	<dt>
+		<label for="menu">Menu &amp; Sitemap:</label>
+	</dt>
+	<dd>
+		<input type="checkbox" name="menu" value="1"
+			<?php echo $this->page->isInNavigation() ? 'checked="checked"' : '' ?> /> <?php echo $this->admin_tmx->_('showinnavigation') ?><br />
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('pagevisiblenavstructure') ?>
+	    </p>
+       
+		<input type="checkbox" name="sitemap" value="1"
+			<?php echo $this->page->isInSitemap() ? 'checked="checked"' : '' ?> /> <?php echo $this->admin_tmx->_('showinsitemap') ?><br />
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('pagevisiblesitemap') ?>
+	    </p>
+        
+        
+	</dd>
+    
+<dt>
+<label for="menu"><?php echo $this->admin_tmx->_('donotshowpagein') ?> [<?php echo $_SESSION['System']['lng'] ?>]</label></dt>
+<dd> 
+
+<input type="checkbox" name="invisible" value="1" <?php if($this->page->getInvisible()): ?>checked="checked"<?php endif ?> /> <?php echo $this->admin_tmx->_('pagenotinlanguage') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('ifselectedpageinvisiblelanguage') ?>
+	    </p>
+
+</dd>
+
+    <!--
+	<dt>
+		<label for="tags">Tags:</label>
+	</dt>
+	<dd>
+	    <textarea name="tags" id="tags" cols="90" rows="10"><?php echo implode("\n", $this->page->getTags()) ?></textarea>
+	    <?php echo $this->messages->getMessagesHtml('tags') ?>
+	    <p class="description">
+	        Tags zijn steekwoorden van een bepaald onderwerp of steekwoorden uit een bepaalde
+	        categorie die je aan je pagina toe kan voegen. Hierdoor kunnen pagina's met hetzelfde
+	        onderwerp of uit dezelfde categorie makkelijker gevonden worden.<br />
+	        <br />
+	        Per regel kan u 1 tag opgeven
+	    </p>
+	</dd>
+	 -->
+</dl>

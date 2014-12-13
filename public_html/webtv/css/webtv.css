@@ -1,0 +1,7 @@
+.video-item{width: 100%; float: left; margin: 10px 0;}
+.video{width: 255px; float: left;}
+.video-content{float: left; width: 400px; margin: 0 25px 25px 25px;}
+.video-content h3{float: left; width: 100%; margin: 0; padding: 0 0 10px 0; font-weight: bold; font-size: 14px;}
+.video-content p{margin: 0; padding: 0 0 15px 0;}
+a.view-video{float: left; display: block; padding: 5px 15px; background: aqua; color: #fff; font-weight: bold;}
+

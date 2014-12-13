@@ -1,0 +1,68 @@
+<dl>
+	<dt>
+		<label for="datetimeEvent"><?php echo $this->admin_tmx->_('time') ?>:</label>
+	</dt>
+	<dd>
+		<?php
+		$datetimeH    = $this->event->getTimeEvent('%H');
+		$datetimeI    = $this->event->getTimeEvent('%M');
+		?>
+		<input type="text" name="dateEvent" id="dateEvent" 
+			value="<?php echo $this->event->getDateEvent('%d-%m-%Y') ?>" />
+	    	&nbsp; Om &nbsp;
+	    	<select name="datetimeH">
+	    		<?php for ($i = 0; $i <= 23; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $datetimeH) { echo 'selected="selected"'; } ?>><?php echo $iformat ?></option>
+	    		<?php endfor ?>
+	    	</select>
+	    	:
+	    	<select name="datetimeI">
+	    		<?php for ($i = 0; $i <= 59; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $datetimeI) { echo 'selected="selected"'; } ?>><?php echo $iformat ?></option>
+	    		<?php endfor ?>
+	    	</select>
+	    <?php echo $this->messages->getMessagesHtml('dateEvent') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('requiredfuturedate') ?>
+	    </p>
+	</dd>
+
+	<dt>
+		<label for="location"><?php echo $this->admin_tmx->_('location') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="location" id="location"
+	    	value="<?php echo $this->event->getLocation() ?>" style="width: 250px;" />
+	    <?php echo $this->messages->getMessagesHtml('location') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('requiredformataddress') ?>
+	    </p>
+	</dd>
+
+	<dt>
+		<label for="title"><?php echo $this->admin_tmx->_('title') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="title" id="title"
+	    	value="<?php echo $this->event->getTitle() ?>" />
+	    <?php echo $this->messages->getMessagesHtml('title') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('requiredmin2chars') ?>
+	    </p>
+	</dd>
+
+	<dt>
+		<label for="description"><?php echo $this->admin_tmx->_('description') ?>:</label>
+	</dt>
+	<dd>
+		<div id="content_">
+			<textarea name="description" id="description" style="width:100%; height: 500px;" rows="50" class="mceEditor"><?php echo $this->escape($this->event->getDescription()) ?></textarea>
+		</div>
+	    <?php echo $this->messages->getMessagesHtml('description') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('descriptionofevent') ?>
+	    </p>
+	</dd>
+</dl>

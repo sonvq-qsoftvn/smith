@@ -1,0 +1,15 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+<h3 id="menu-ecommerce"><a href="#">Ecommerce</a></h3>
+<div>
+	<strong>Producten</strong>
+	<ul class="sidemenu">
+		<li><a href="<?php echo $this->url(array('controller' => 'ecommerce', 'action' => 'list-products')) ?>">Overzicht</a></li>
+		<li><a href="<?php echo $this->url(array('controller' => 'ecommerce', 'action' => 'add-product', 'reset' => 'true')) ?>">Toevoegen</a></li>
+	</ul>
+
+	<strong>Categorie&euml;n</strong>
+	<ul class="sidemenu">
+		<li><a href="<?php echo $this->url(array('controller' => 'ecommerce', 'action' => 'list-categories')) ?>">Overzicht</a></li>
+		<li><a href="<?php echo $this->url(array('controller' => 'ecommerce', 'action' => 'add-category', 'reset' => 'true')) ?>">Toevoegen</a></li>
+	</ul>
+</div>

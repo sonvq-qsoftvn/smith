@@ -1,0 +1,91 @@
+<dl>
+    <?php /*<!--
+	<dt class="editor">
+		<label for="type">Type bericht</label>
+	</dt>
+	<dd>
+		<select name="type" size="1">
+        <option value="">(Selecteer een type...)
+        <option value="news" <?php //if ($this->item->getType() == "news") {echo "selected = 'selected'";} ?>>Nieuwsbericht</option>
+        <option value="press" <?php //if ($this->item->getType() == "press") {echo "selected = 'selected'";} ?>>Persbericht</option>
+        </select>
+	    <?php //echo $this->messages->getMessagesHtml('type') ?>
+	    <p class="description">
+	        Verplicht type te selecteren
+	    </p>
+	</dd>-->*/ ?>
+    <dt>
+		<label for="stop"><?php echo $this->admin_tmx->_('activein') ?> [<?php echo strtoupper($_SESSION['System']['lng']); ?>] <?php echo $this->admin_tmx->_('whenpublicationpassed') ?></label>
+	</dt>
+	<dd>
+    	<input type="checkbox" name="active" id="active" value="1" <?php if($this->item->getActive()): ?>checked="checked"<?php endif ?> />
+	    <p class="description"></p>
+	</dd>
+    <dt>
+		<label for="date_published"><?php echo $this->admin_tmx->_('publicationdate') ?>:</label>
+	</dt>
+	<dd>
+		<?php
+		$publish    = $this->item->getDatePublished();
+		$publishYmd = $this->item->getDatePublished('%Y/%m/%d');
+		if($publish) { $publishH   = $this->item->getDatePublished('%H'); }else{ $publishH   = date('H');} 
+		if($publish) { $publishI   = $this->item->getDatePublished('%M'); }else{ $publishI   = date('i');} 
+	
+		?>
+	    <input type="text" name="date_published" id="date_published" size="10"
+	    	value="<?php echo $publish ? $publishYmd : date('Y/m/d') ?>" />
+	    	&nbsp; Om &nbsp;
+	    	<select name="publish_h">
+	    		<?php for ($i = 0; $i <= 23; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $publishH) { echo 'selected="selected"'; } ?>><?php echo $iformat ?>&nbsp;&nbsp;</option>
+	    		<?php endfor ?>
+	    	</select>
+	    	:
+	    	<select name="publish_i">
+	    		<?php for ($i = 0; $i <= 59; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $publishI) { echo 'selected="selected"'; } ?>><?php echo $iformat ?>&nbsp;&nbsp;</option>
+	    		<?php endfor ?>
+	    	</select>
+	    <?php echo $this->messages->getMessagesHtml('date_published') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('datepagepublished') ?>
+	    </p>
+	</dd>
+	<dt>
+		<label for="date_expired"><?php echo $this->admin_tmx->_('expirationdate') ?>:</label>
+	</dt>
+	<dd>
+	<div id="datepicker"></div>
+		<?php
+		$expire    = $this->item->getDateExpired();
+		$expireYmd = $this->item->getDateExpired('%Y/%m/%d');
+		$expireH   = $this->item->getDateExpired('%H');
+		$expireI   = $this->item->getDateExpired('%M');
+		?>
+
+	    <input type="text" name="date_expired" id="date_expired" size="10"
+	    	value="<?php echo $expire ? $expireYmd : '' ?>" />
+	    	&nbsp; Om &nbsp;
+	    	<select name="expire_h">
+	    		<?php for ($i = 0; $i <= 23; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $expireH) { echo 'selected="selected"'; } ?>><?php echo $iformat ?>&nbsp;&nbsp;</option>
+	    		<?php endfor ?>
+	    	</select>
+	    	:
+	    	<select name="expire_i">
+	    		<?php for ($i = 0; $i <= 59; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $expireI) { echo 'selected="selected"'; } ?>><?php echo $iformat ?>&nbsp;&nbsp;</option>
+	    		<?php endfor ?>
+	    	</select>
+	    <?php echo $this->messages->getMessagesHtml('date_expired') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('expirationdatedescription') ?>
+	    </p>
+	</dd>
+
+
+</dl>

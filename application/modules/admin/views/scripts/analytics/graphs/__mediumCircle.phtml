@@ -1,0 +1,40 @@
+<h2><?php echo $this->admin_tmx->_('medium') ?></h2>
+<div id="mediumcircle" style="width: 100%; height: 150px;"></div>
+
+<script type="text/javascript">
+
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawMediumCircle);
+
+function drawMediumCircle() {
+
+    var data = google.visualization.arrayToDataTable([
+        ['<?php echo $this->admin_tmx->_('medium') ?>', '<?php echo $this->admin_tmx->_('visits') ?>'],
+        <?php
+
+        $total = count($this->medium["medium"]);
+        foreach ($this->medium["visits"] AS $key => $value) {
+
+            echo "['".addslashes($this->medium["medium"][$key])."', ".$value."]";
+            if ($key < $total-1) echo ",";
+
+        }
+
+        ?>
+    ]);
+
+    var options = {
+        
+        chartArea: {left: 0, top: 0, width: '99%', height: 140},
+        colors: ['#D7E8F7','#BBD0E3', '#9CB7CF', '#6A8BAB', '#375D81'],
+        pieSliceTextStyle: {color: 'darkslategray'},
+        is3D: true
+                
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('mediumcircle'));
+    chart.draw(data, options);
+
+}
+
+</script>

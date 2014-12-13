@@ -1,0 +1,28 @@
+<?php echo $this->Doctype('HTML5'); ?>
+<!--[if lt IE 7 ]> <html lang="nl" class="ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="nl" class="ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="nl" class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="nl" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="nl"> <!--<![endif]-->
+<head>
+	<?php echo $this->action('head' , 'index' , null , array('page' => $this->page, 'lng' => $this->lng)) ?>
+</head>
+<body>
+
+<div id="container">
+	<div id="wrap">
+        <?php echo $this->render('__layout/headerfull.phtml') ?>
+		<div id="content">
+			<div id="main" class="full">
+				<?php echo $this->action('breadcrumbs', 'index', null, array('page' => $this->page, 'lng' => $this->lng) ) ?>
+				<?php echo $this->layout()->content ?>
+			</div>
+
+			<div style="clear: both;"></div>
+		</div>
+
+		<?php echo $this->render('__layout/footer.phtml') ?>
+	</div>
+</div>
+</body>
+</html>

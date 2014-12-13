@@ -1,0 +1,27 @@
+<?php
+
+$maxmonths = 6;
+
+?>
+
+<script type="text/javascript">
+$(function(){
+    $.datepicker.setDefaults(
+        $.extend($.datepicker.regional["nl"])
+    );
+    $(".datepicker").datepicker({
+    	dateFormat: 'yy-mm-dd',
+    	minDate: '-0m -0w -<?php echo $maxmonths; ?>m',
+    	maxDate: '+0m +0w'
+    });
+});
+</script>
+
+<div style='float: right;'>
+	<form method='post' action='<?php echo $this->url() ?>'>
+		<div style='float: right; padding-right: 10px;'><label for='save' style='margin-bottom: 0px;'>&nbsp;</label><input type='submit' name='save' id='save' value='<?php echo $this->admin_tmx->_('save') ?>'/></div>
+		<div style='text-align: center; float: right; padding-right: 10px;'><label for='toDate' style='margin-bottom: 0px;'><?php echo $this->admin_tmx->_('to') ?></label><input type='text' name='toDate' id='toDate' class='datepicker' style="text-align: center;" value="<?php echo $this->endDate; ?>" /></div>
+		<div style='text-align: center; float: right; padding-right: 10px;'><label for='fromDate' style='margin-bottom: 0px;'><?php echo $this->admin_tmx->_('from') ?></label><input type='text' name='fromDate' id='fromDate' class='datepicker' style="text-align: center;" value="<?php echo $this->startDate; ?>" /></div>
+	</form>
+</div>
+<div style='clear: both; margin-bottom: 15px;'></div>

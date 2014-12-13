@@ -1,0 +1,12 @@
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js'); ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(document).ready(function() {
+	showDialog('dialog_1', '<?php echo $this->url(array('controller' => 'lucene', 'action' => 'index', 'confirm' => 'true')) ?>');
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<div id="dialog_1" title="Zoekindex resetten" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	Weet u zeker dat u de zoekindex wilt resetten?</p>
+</div>

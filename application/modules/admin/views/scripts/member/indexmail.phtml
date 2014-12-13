@@ -1,0 +1,41 @@
+<?php
+$user = Zend_Auth::getInstance()->getIdentity();
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+
+$this->headTitle('SxCms - '.$this->admin_tmx->_('membermailoverview'));
+echo $this->render('system/result.phtml');
+$canEdit     = $user->isAllowed('members', 'members.edit');
+$canDelete   = $user->isAllowed('members', 'members.delete');
+?>
+
+<div id="dialog" title="<?php echo $this->admin_tmx->_('deletedetail') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deletedetailconfirm') ?></p>
+</div>
+<h3><?php echo $this->admin_tmx->_('membermailoverview') ?></h3>
+<table width="98%">
+	<tr>
+        <th><?php echo $this->admin_tmx->_('subject') ?></th>
+		<th><?php echo $this->admin_tmx->_('sender') ?></th>
+        <th><?php echo $this->admin_tmx->_('replyto') ?></th>
+		<th width="70px"><?php echo $this->admin_tmx->_('action') ?></th>
+	</tr>
+	<?php foreach ($this->paginator as $id => $item): ?>
+	<tr>
+		<td><?php echo $this->escape($item->getSubject()) ?></td>
+        <td><?php echo $this->escape($item->getFromName()) ?> <?php if($this->escape($item->getFromEmail())) : ?>(<?php echo $this->escape($item->getFromEmail()) ?>)<?php endif; ?></td>
+        <td><?php echo $this->escape($item->getReplyName()) ?> <?php if($this->escape($item->getReply())) : ?>(<?php echo $this->escape($item->getReply()) ?>)<?php endif; ?></td>
+		<td>
+			<a title="<?php echo $this->admin_tmx->_('edit') ?>" href="<?php echo $this->url(array('action' => 'editemail', 'id' => $item->getId())) ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+			</a>
+            
+			<?php if($canDelete){?><a title="<?php echo $this->admin_tmx->_('delete') ?>" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'deletemail', 'id' => $item->getId())) ?>');">
+			<?php } ?>	<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
+			<?php if($canDelete){?></a><?php } ?>
+		</td>
+	</tr>
+	<?php endforeach ?>
+</table>
+
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?>

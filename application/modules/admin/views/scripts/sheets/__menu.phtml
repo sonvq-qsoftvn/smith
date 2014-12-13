@@ -1,0 +1,12 @@
+<h3 id="menu-sheets"><a href="#"><?php echo $this->admin_menu_tmx->_('sh.folders') ?></a></h3>
+<div>
+    <ul class="sidemenu">
+        <li><a href="<?php echo $this->url(array('controller' => 'sheets', 'action' => 'index'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('sh.overview') ?></a></li>
+        <li><a href="<?php echo $this->url(array('controller' => 'sheets', 'action' => 'add'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('sh.add') ?></a></li>
+    </ul>
+    <strong><?php echo $this->admin_menu_tmx->_('sh.types') ?></strong>
+    <ul class="sidemenu">
+        <li><a href="<?php echo $this->url(array('controller' => 'sheets_type', 'action' => 'index'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('sh.overview') ?></a></li>
+        <li><a href="<?php echo $this->url(array('controller' => 'sheets_type', 'action' => 'add'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('sh.add') ?></a></li>
+    </ul>
+</div>

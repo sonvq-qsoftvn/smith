@@ -1,0 +1,30 @@
+<?php echo $this->page->getContent(); ?>
+<?php if($this->paginator) : ?>
+<?php echo $this->headLink() ?>
+<?php echo $this->headScript() ?>
+<?php echo $this->headStyle() ?>
+<?php $i = '1'; ?>
+<?php foreach($this->paginator as $item) : ?>
+<?php $url =  $this->url(array('id' => $item->getId(),'url' => $item->getUrl(),'lng' => $item->getLng()),'webtv-detail', true ); ?>
+<div class="video-item">
+<div id="video<?php echo $i; ?>" class="video" ></div>
+<div class="video-content">
+    <h3><?php echo $item->getTitle(); ?></h3>
+    <p><?php echo $this->excerpt(strip_tags($item->getDescription()), '120'); ?></p>
+    <a href="<?php echo $url; ?>" class="view-video">Meer..</a>
+</div>
+</div>
+
+<script type="text/javascript">
+$('#video<?php echo $i?>').youTubeEmbed({
+	video			: '<?php echo $item->getYoutube(); ?>',
+	width			: 255, 		// Height is calculated automatically
+	progressBar	: true		// Hide the progress bar
+});
+
+</script>
+<?php $i++; ?>
+<?php endforeach; ?>
+
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?>
+<?php endif; ?>

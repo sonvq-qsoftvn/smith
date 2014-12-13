@@ -1,0 +1,56 @@
+<?php $this->headScript()->captureStart() ?>
+function disableGroupBoxes(anonymous) {
+	if (anonymous.checked) {
+		$("#group-boxes input[type='checkbox']").attr('checked', false);
+	}
+}
+
+function disableAnonymousBox() {
+	var checked  = false;
+	$("#group-boxes input[type='checkbox']").each(function() {
+		if (this.checked) {
+			checked = true;
+		}
+	});
+
+	if (checked) {
+		$("input[name='anonymous']").attr('checked', '');
+	} else {
+		$("input[name='anonymous']").attr('checked', 'checked');
+	}
+}
+
+$(document).ready(function () {
+	disableAnonymousBox();
+});
+
+<?php $this->headScript()->captureEnd() ?>
+
+<?php $groups = $this->page->getPermissions() ?>
+
+<dl>
+	<dd>
+		<input type="checkbox" name="anonymous" value="0" onclick="disableGroupBoxes(this);" /> &nbsp;
+			<?php echo $this->admin_tmx->_('allowanonymous') ?>
+		<p class="description">
+			<?php echo $this->admin_tmx->_('allowanonymousdescription') ?>
+		</p>
+	</dd>
+	<dt>
+		<label for="acl"><?php echo $this->admin_tmx->_('pagevisibleselectedgroups') ?></label>
+	</dt>
+	
+		<?php foreach ($this->groups as $group): ?>
+		<dd id="group-boxes">
+			<input type="checkbox" name="group[]" value="<?php echo $group->getId() ?>"
+				<?php if (isset($groups[$group->getId()])) { echo 'checked="checked"'; } ?> onclick="disableAnonymousBox(this);" /> &nbsp;
+				<?php echo $group->getName() ?>
+		</dd>
+		<?php endforeach ?>
+
+		<dd>
+		    <p class="description">
+		        <?php echo $this->admin_tmx->_('selectgroupsaccess') ?>
+		    </p>
+		 </dd>
+</dl>

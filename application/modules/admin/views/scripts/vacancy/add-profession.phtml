@@ -1,0 +1,11 @@
+<?php $this->headTitle('Vacature beroepscategorie toevoegen') ?>
+<?php echo $this->render('system/leave.phtml'); ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+    $('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<h3>Beroepscategorie toevoegen</h3>
+<?php echo $this->render('vacancy/__profession.phtml') ?>

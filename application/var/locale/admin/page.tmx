@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+         adminlang="en-us" srclang="en-us" o-tmf="abc">
+	</header>
+	<body>
+		<tu tuid='page'>
+			<tuv xml:lang="nl"><seg>Pagina</seg></tuv>
+			<tuv xml:lang="en"><seg>Page</seg></tuv>
+		</tu>
+		<tu tuid='newpagecreated'>
+			<tuv xml:lang="nl"><seg>Nieuwe pagina aangemaakt</seg></tuv>
+			<tuv xml:lang="en"><seg>New page created</seg></tuv>
+		</tu>
+		<tu tuid='pageedited'>
+			<tuv xml:lang="nl"><seg>Pagina aangepast</seg></tuv>
+			<tuv xml:lang="en"><seg>Page edited</seg></tuv>
+		</tu>
+		<tu tuid='pagesavesuccess'>
+			<tuv xml:lang="nl"><seg>Pagina werd succesvol opgslagen!</seg></tuv>
+			<tuv xml:lang="en"><seg>Page successfully saved!</seg></tuv>
+		</tu>
+		<tu tuid='pagedeletesuccess'>
+			<tuv xml:lang="nl"><seg>Pagina werd succesvol verwijderd!</seg></tuv>
+			<tuv xml:lang="en"><seg>Page successfully deleted!</seg></tuv>
+		</tu>
+		<tu tuid='messageeditedsuccess'>
+			<tuv xml:lang="nl"><seg>Bericht werd succesvol aangepast!</seg></tuv>
+			<tuv xml:lang="en"><seg>Message has been successfully edited!</seg></tuv>
+		</tu>
+		<tu tuid='messagedeletedsuccess'>
+			<tuv xml:lang="nl"><seg>Bericht werd succesvol verwijderd!</seg></tuv>
+			<tuv xml:lang="en"><seg>Message has been successfully deleted!</seg></tuv>
+		</tu>
+		<tu tuid='allowanonymous'>
+			<tuv xml:lang="nl"><seg>Anonieme gebruikers toestaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Allow anonymous users</seg></tuv>
+		</tu>
+		<tu tuid='allowanonymousdescription'>
+			<tuv xml:lang="nl"><seg>Indien u dit aanvinkt is het overbodig om specifieke groepen te selecteren, gezien iedereen automatisch toegang heeft.</seg></tuv>
+			<tuv xml:lang="en"><seg>If you select this, it becomes unnecessary to choose specific groups, because everyone will have access automatically.</seg></tuv>
+		</tu>
+		<tu tuid='pagevisibleselectedgroups'>
+			<tuv xml:lang="nl"><seg>Pagina zichtbaar maken voor specifieke groepen:</seg></tuv>
+			<tuv xml:lang="en"><seg>Make page visible for specific groups:</seg></tuv>
+		</tu>
+		<tu tuid='selectgroupsaccess'>
+			<tuv xml:lang="nl"><seg>Selecteer de gebruikersgroepen die toegang hebben tot deze pagina</seg></tuv>
+			<tuv xml:lang="en"><seg>Select the usergroups who have access to this page</seg></tuv>
+		</tu>
+		<tu tuid='usedutchtranslation'>
+			<tuv xml:lang="nl"><seg>Nederlandse vertaling gebruiken</seg></tuv>
+			<tuv xml:lang="en"><seg>Use Dutch translation</seg></tuv>
+		</tu>
+		<tu tuid='2to255charsifnotempty'>
+			<tuv xml:lang="nl"><seg>Indien ingevuld, minimum 2 en maximum 255 karakters</seg></tuv>
+			<tuv xml:lang="en"><seg>If not empty, minimum 2 and maximum 255 characters</seg></tuv>
+		</tu>
+		<tu tuid='requiredmin2chars'>
+			<tuv xml:lang="nl"><seg>Verplicht in te vullen, minimum 2 karakters</seg></tuv>
+			<tuv xml:lang="en"><seg>Required, minimum 2 characters</seg></tuv>
+		</tu>
+		<tu tuid='externalurl'>
+			<tuv xml:lang="nl"><seg>Externe link van de pagina:</seg></tuv>
+			<tuv xml:lang="en"><seg>External URL of the page:</seg></tuv>
+		</tu>
+		<tu tuid='requiredmin1char'>
+			<tuv xml:lang="nl"><seg>Verplicht in te vullen, minimum 1 karakter</seg></tuv>
+			<tuv xml:lang="en"><seg>Required, minimum 1 character</seg></tuv>
+		</tu>
+		<tu tuid='home'>
+			<tuv xml:lang="nl"><seg>Hoofdpagina</seg></tuv>
+			<tuv xml:lang="en"><seg>Home</seg></tuv>
+		</tu>
+		<tu tuid='select'>
+			<tuv xml:lang="nl"><seg>Selecteer</seg></tuv>
+			<tuv xml:lang="en"><seg>Select</seg></tuv>
+		</tu>
+		<tu tuid='requiredusedforbreadcrumbs'>
+			<tuv xml:lang="nl"><seg>Verplicht te selecteren. Dit wordt gebruikt om de boomstructuur te bepalen en een correcte broodkruimel te genereren</seg></tuv>
+			<tuv xml:lang="en"><seg>Required. This is used to determine the treestructure and to generate a correct breadcrumb</seg></tuv>
+		</tu>
+		<tu tuid='showinnavigation'>
+			<tuv xml:lang="nl"><seg>Opnemen in de navigatiestructuur</seg></tuv>
+			<tuv xml:lang="en"><seg>Show in navigationstructure</seg></tuv>
+		</tu>
+		<tu tuid='pagevisiblenavstructure'>
+			<tuv xml:lang="nl"><seg>De pagina zal zichtbaar zijn in de navigatiestructuur (alle talen)</seg></tuv>
+			<tuv xml:lang="en"><seg>The page will be visible in the navigationstructure (in all languages)</seg></tuv>
+		</tu>
+		<tu tuid='showinsitemap'>
+			<tuv xml:lang="nl"><seg>Opnemen in de sitemap</seg></tuv>
+			<tuv xml:lang="en"><seg>Show in sitemap</seg></tuv>
+		</tu>
+		<tu tuid='pagevisiblesitemap'>
+			<tuv xml:lang="nl"><seg>De pagina zal zichtbaar zijn in de sitemap</seg></tuv>
+			<tuv xml:lang="en"><seg>The page will be visible in the sitemap</seg></tuv>
+		</tu>
+		<tu tuid='donotshowpagein'>
+			<tuv xml:lang="nl"><seg>Pagina niet tonen in</seg></tuv>
+			<tuv xml:lang="en"><seg>Do not show page in</seg></tuv>
+		</tu>
+		<tu tuid='pagenotinlanguage'>
+			<tuv xml:lang="nl"><seg>De pagina niet tonen in deze taal</seg></tuv>
+			<tuv xml:lang="en"><seg>Do not show the page in this language</seg></tuv>
+		</tu>
+		<tu tuid='ifselectedpageinvisiblelanguage'>
+			<tuv xml:lang="nl"><seg>Indien aangevinkt zal de pagina niet getoond worden in de menu en de sitemap bij de huidige taal.</seg></tuv>
+			<tuv xml:lang="en"><seg>If selected, the page will not be visible in the menu and sitemap in the current language.</seg></tuv>
+		</tu>
+		<tu tuid='makerevisionaskpermission'>
+			<tuv xml:lang="nl"><seg>Revisie aanmaken &amp; goedkeuring vragen</seg></tuv>
+			<tuv xml:lang="en"><seg>Make revision &amp; ask permission</seg></tuv>
+		</tu>
+		<tu tuid='revisionchangesnotautomatic'>
+			<tuv xml:lang="nl"><seg>Indien er een revisie aangemaakt wordt, dan worden de wijzigingen die u heeft aangebracht niet automatisch live gezet.</seg></tuv>
+			<tuv xml:lang="en"><seg>If a revision gets committed, the changes will not become live automatically.</seg></tuv>
+		</tu>
+		<tu tuid='markasedit'>
+			<tuv xml:lang="nl"><seg>Vertaling markeren als "aan te passen"</seg></tuv>
+			<tuv xml:lang="en"><seg>Mark translation as "to edit"</seg></tuv>
+		</tu>
+		<tu tuid='markaseditdescription'>
+			<tuv xml:lang="nl"><seg>Door dit aan te vinken zal de vertaalde pagina gemarkeerd worden als "aan te passen"</seg></tuv>
+			<tuv xml:lang="en"><seg>By selecting this, the translated page will be marked as "to edit"</seg></tuv>
+		</tu>
+		<tu tuid='allowcomments'>
+			<tuv xml:lang="nl"><seg>Reacties toestaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Allow comments</seg></tuv>
+		</tu>
+		<tu tuid='allowcommentsdescription'>
+			<tuv xml:lang="nl"><seg>Als u dit aanvinkt zullen bezoekers van de website in staat zijn om reacties te posten op dit nieuwsbericht.</seg></tuv>
+			<tuv xml:lang="en"><seg>If you select this, visitors of the website will be able to place comments on this newsitem.</seg></tuv>
+		</tu>
+		<tu tuid='comments'>
+			<tuv xml:lang="nl"><seg>Opmerkingen</seg></tuv>
+			<tuv xml:lang="en"><seg>Comments</seg></tuv>
+		</tu>
+		<tu tuid='requiredmin2max255chars'>
+			<tuv xml:lang="nl"><seg>Verplicht in te vullen, minimum 2, maximum 255 karakters</seg></tuv>
+			<tuv xml:lang="en"><seg>Required, minimum 2, maximum 255 characters</seg></tuv>
+		</tu>
+		<tu tuid='publicationdate'>
+			<tuv xml:lang="nl"><seg>Publicatiedatum</seg></tuv>
+			<tuv xml:lang="en"><seg>Publicationdate</seg></tuv>
+		</tu>
+		<tu tuid='at'>
+			<tuv xml:lang="nl"><seg>Om</seg></tuv>
+			<tuv xml:lang="en"><seg>At</seg></tuv>
+		</tu>
+		<tu tuid='datepagepublished'>
+			<tuv xml:lang="nl"><seg>Datum waarop de pagina gepubliceerd zal worden.</seg></tuv>
+			<tuv xml:lang="en"><seg>Date on which the page will be published.</seg></tuv>
+		</tu>
+		<tu tuid='expirationdate'>
+			<tuv xml:lang="nl"><seg>Vervaldatum</seg></tuv>
+			<tuv xml:lang="en"><seg>Expiration date</seg></tuv>
+		</tu>
+		<tu tuid='expirationdatedescription'>
+			<tuv xml:lang="nl"><seg>De datum waarop de pagina zal komen te vervallen. Op deze datum zal de pagina niet langer beschikbaar zijn voor bezoekers.</seg></tuv>
+			<tuv xml:lang="en"><seg>The date on which the page will be expired. On this date, the page will no longer be visible to visitors.</seg></tuv>
+		</tu>
+		<tu tuid='title'>
+			<tuv xml:lang="nl"><seg>Titel</seg></tuv>
+			<tuv xml:lang="en"><seg>title</seg></tuv>
+		</tu>
+		<tu tuid='metatags'>
+			<tuv xml:lang="nl"><seg>Meta-tags</seg></tuv>
+			<tuv xml:lang="en"><seg>Meta-tags</seg></tuv>
+		</tu>
+		<tu tuid='seotagsdescription'>
+			<tuv xml:lang="nl"><seg>Indien ingevuld, minimum 2 en maximum 255 karakters, scheiden door komma's (bv. lorem, ipsum, dolor, sit...)</seg></tuv>
+			<tuv xml:lang="en"><seg>If not empty, minimum 2 and maximum 255 characters, seperated by commas (eg. lorem, ipsum, dolor, ...)</seg></tuv>
+		</tu>
+		<tu tuid='metadescription'>
+			<tuv xml:lang="nl"><seg>Meta-uitleg</seg></tuv>
+			<tuv xml:lang="en"><seg>Meta-description</seg></tuv>
+		</tu>
+		<tu tuid='briefsummarypage'>
+			<tuv xml:lang="nl"><seg>Korte samenvatting van de pagina. </seg></tuv>
+			<tuv xml:lang="en"><seg>Brief summary of the page.</seg></tuv>
+		</tu>
+		<tu tuid='titledescription'>
+			<tuv xml:lang="nl"><seg>Titel van de pagina. Deze zal gebruikt worden in het browservenster en voor het bepalen van de broodkruimel.</seg></tuv>
+			<tuv xml:lang="en"><seg>Title of the page. This will be used in the browser window and to determine the breadcrumb.</seg></tuv>
+		</tu>
+		<tu tuid='briefsummarypageexport'>
+			<tuv xml:lang="nl"><seg>Korte samenvatting van de pagina. Wordt getoond tijdens het zoeken en het exporteren van pagina's.</seg></tuv>
+			<tuv xml:lang="en"><seg>Brief summary of the page. Will be showed in searches and while exporting pages.</seg></tuv>
+		</tu>
+		<tu tuid='thumbnail'>
+			<tuv xml:lang="nl"><seg>Thumbnail</seg></tuv>
+			<tuv xml:lang="en"><seg>Thumbnail</seg></tuv>
+		</tu>
+		<tu tuid='picturedescription'>
+			<tuv xml:lang="nl"><seg>U kan hier een foto opladen, deze zal dan getoond worden bij pagina type "overzicht". De gekozen foto zal automatisch verkleind worden</seg></tuv>
+			<tuv xml:lang="en"><seg>You can upload a picture here, which will be showed at pagetype "overview". The chosen picture will be scaled down automatically</seg></tuv>
+		</tu>
+		<tu tuid='internalpage'>
+			<tuv xml:lang="nl"><seg>Interne pagina</seg></tuv>
+			<tuv xml:lang="en"><seg>Internal page</seg></tuv>
+		</tu>
+		<tu tuid='internalpagedescription'>
+			<tuv xml:lang="nl"><seg>Dit type pagina kan volledig intern beheerd worden (inhoud, titel, tags, etc...)</seg></tuv>
+			<tuv xml:lang="en"><seg>This type of page can be fully controlled internally (content, title, tags, ...)</seg></tuv>
+		</tu>
+		<tu tuid='externalinternalpage'>
+			<tuv xml:lang="nl"><seg>Externe pagina / Interne pagina zonder inhoud</seg></tuv>
+			<tuv xml:lang="en"><seg>External page / Internal page without content</seg></tuv>
+		</tu>
+		<tu tuid='externalinternalpagedescription'>
+			<tuv xml:lang="nl"><seg>Dit type pagina is een link naar een interne of externe pagina, die u niet zelf kan beheren. 	        Deze kan gebruikt worden om bijvoorbeeld naar een module zoals een contactformulier te linken.</seg></tuv>
+			<tuv xml:lang="en"><seg>This type of page is a link to an internal or external page, which you cannot control. This can be used by example to link to a module, such as a contact form.</seg></tuv>
+		</tu>
+		<tu tuid='overviewpage'>
+			<tuv xml:lang="nl"><seg>Overzichtspagina</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview page</seg></tuv>
+		</tu>
+		<tu tuid='overviewpagedescription'>
+			<tuv xml:lang="nl"><seg>Deze pagina toont een lijst van alle subpagina's met samenvatting &amp; thumbnail.</seg></tuv>
+			<tuv xml:lang="en"><seg>This page shows a list of all the subpages with summary &amp; thumbnail.</seg></tuv>
+		</tu>
+		<tu tuid='oops'>
+			<tuv xml:lang="nl"><seg>Foutje</seg></tuv>
+			<tuv xml:lang="en"><seg>Oops</seg></tuv>
+		</tu>
+		<tu tuid='wrongextension'>
+			<tuv xml:lang="nl"><seg>Ongeldige extensie. Enkel .jpg, .png, .gif zijn geldig</seg></tuv>
+			<tuv xml:lang="en"><seg>Invalid extension. Only .jpg, .png, .gif are valid</seg></tuv>
+		</tu>
+		<tu tuid='photo'>
+			<tuv xml:lang="nl"><seg>Foto</seg></tuv>
+			<tuv xml:lang="en"><seg>Photo</seg></tuv>
+		</tu>
+		<tu tuid='description'>
+			<tuv xml:lang="nl"><seg>Omschrijving</seg></tuv>
+			<tuv xml:lang="en"><seg>Description</seg></tuv>
+		</tu>
+		<tu tuid='upload'>
+			<tuv xml:lang="nl"><seg>Upload</seg></tuv>
+			<tuv xml:lang="en"><seg>Upload</seg></tuv>
+		</tu>
+		<tu tuid='selectpicturefirst'>
+			<tuv xml:lang="nl"><seg>Selecteer eerst een foto</seg></tuv>
+			<tuv xml:lang="en"><seg>Select a picture first</seg></tuv>
+		</tu>
+		<tu tuid='somethingwrong'>
+			<tuv xml:lang="nl"><seg>Er is iets fout gegaan. Probeer opnieuw of contacteer uw beheerder</seg></tuv>
+			<tuv xml:lang="en"><seg>Something went wrong. Please try again or contact your administrator</seg></tuv>
+		</tu>
+		<tu tuid='text'>
+			<tuv xml:lang="nl"><seg>Tekst</seg></tuv>
+			<tuv xml:lang="en"><seg>Text</seg></tuv>
+		</tu>
+		<tu tuid='save'>
+			<tuv xml:lang="nl"><seg>Opslaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Save</seg></tuv>
+		</tu>
+		<tu tuid='saving'>
+			<tuv xml:lang="nl"><seg><?php $this->admin_tmx->_('save') ?></seg></tuv>
+			<tuv xml:lang="en"><seg>Saving</seg></tuv>
+		</tu>
+		<tu tuid='confirmdelete'>
+			<tuv xml:lang="nl"><seg>Ben je zeker dat je deze foto wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this picture?</seg></tuv>
+		</tu>
+		<tu tuid='deleting'>
+			<tuv xml:lang="nl"><seg>Bezig met verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Deleting</seg></tuv>
+		</tu>
+		<tu tuid='general'>
+			<tuv xml:lang="nl"><seg>Algemeen</seg></tuv>
+			<tuv xml:lang="en"><seg>General</seg></tuv>
+		</tu>
+		<tu tuid='winter'>
+			<tuv xml:lang="nl"><seg>Winter</seg></tuv>
+			<tuv xml:lang="en"><seg>Winter</seg></tuv>
+		</tu>
+		<tu tuid='spring'>
+			<tuv xml:lang="nl"><seg>Lente</seg></tuv>
+			<tuv xml:lang="en"><seg>Spring</seg></tuv>
+		</tu>
+		<tu tuid='summer'>
+			<tuv xml:lang="nl"><seg>Zomer</seg></tuv>
+			<tuv xml:lang="en"><seg>Summer</seg></tuv>
+		</tu>
+		<tu tuid='fall'>
+			<tuv xml:lang="nl"><seg>Herst</seg></tuv>
+			<tuv xml:lang="en"><seg>Fall</seg></tuv>
+		</tu>
+		<tu tuid='pictures'>
+			<tuv xml:lang="nl"><seg>Foto\'s</seg></tuv>
+			<tuv xml:lang="en"><seg>Pictures</seg></tuv>
+		</tu>
+		<tu tuid='uploadpictures'>
+			<tuv xml:lang="nl"><seg>Upload foto\'s</seg></tuv>
+			<tuv xml:lang="en"><seg>Upload pictures</seg></tuv>
+		</tu>
+		<tu tuid='deletepicture'>
+			<tuv xml:lang="nl"><seg>Verwijder foto</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete picture</seg></tuv>
+		</tu>
+		<tu tuid='updatepicture'>
+			<tuv xml:lang="nl"><seg>Wijzig foto</seg></tuv>
+			<tuv xml:lang="en"><seg>Update picture</seg></tuv>
+		</tu>
+		<tu tuid='uploadpicturesforpage'>
+			<tuv xml:lang="nl"><seg>Foto's uploaden voor pagina</seg></tuv>
+			<tuv xml:lang="en"><seg>Upload pictures for page</seg></tuv>
+		</tu>
+		<tu tuid='picture'>
+			<tuv xml:lang="nl"><seg>Foto</seg></tuv>
+			<tuv xml:lang="en"><seg>Picture</seg></tuv>
+		</tu>
+		<tu tuid='allpages'>
+			<tuv xml:lang="nl"><seg>Alle pagina's</seg></tuv>
+			<tuv xml:lang="en"><seg>All pages</seg></tuv>
+		</tu>
+		<tu tuid='expiredpages'>
+			<tuv xml:lang="nl"><seg>Vervallen pagina's</seg></tuv>
+			<tuv xml:lang="en"><seg>Expired pages</seg></tuv>
+		</tu>
+		<tu tuid='almostexpiredpages'>
+			<tuv xml:lang="nl"><seg>Bijna vervallen pagina's</seg></tuv>
+			<tuv xml:lang="en"><seg>Almost expired pages</seg></tuv>
+		</tu>
+		<tu tuid='unpublishedpages'>
+			<tuv xml:lang="nl"><seg>Niet-gepubliceerde pagina's</seg></tuv>
+			<tuv xml:lang="en"><seg>Unpublished pages</seg></tuv>
+		</tu>
+		<tu tuid='inactivepages'>
+			<tuv xml:lang="nl"><seg>Inactieve pagina's</seg></tuv>
+			<tuv xml:lang="en"><seg>Inactive pages</seg></tuv>
+		</tu>
+		<tu tuid='pagestotranslate'>
+			<tuv xml:lang="nl"><seg>Te vertalen pagina's</seg></tuv>
+			<tuv xml:lang="en"><seg>Pages to translate</seg></tuv>
+		</tu>
+		<tu tuid='typepagename'>
+			<tuv xml:lang="nl"><seg>Typ de pagina naam om te zoeken</seg></tuv>
+			<tuv xml:lang="en"><seg>Type the page name to search</seg></tuv>
+		</tu>
+		<tu tuid='errorcheck'>
+			<tuv xml:lang="nl"><seg>Foutcontrole</seg></tuv>
+			<tuv xml:lang="en"><seg>Error check</seg></tuv>
+		</tu>
+		<tu tuid='preview'>
+			<tuv xml:lang="nl"><seg>Voorbeeld</seg></tuv>
+			<tuv xml:lang="en"><seg>Preview</seg></tuv>
+		</tu>
+		<tu tuid='edit'>
+			<tuv xml:lang="nl"><seg>Aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit</seg></tuv>
+		</tu>
+		<tu tuid='delete'>
+			<tuv xml:lang="nl"><seg>Verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete</seg></tuv>
+		</tu>
+		<tu tuid='content'>
+			<tuv xml:lang="nl"><seg>Inhoud</seg></tuv>
+			<tuv xml:lang="en"><seg>Content</seg></tuv>
+		</tu>
+		<tu tuid='page'>
+			<tuv xml:lang="nl"><seg>Pagina</seg></tuv>
+			<tuv xml:lang="en"><seg>Page</seg></tuv>
+		</tu>
+		<tu tuid='overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		<tu tuid='news'>
+			<tuv xml:lang="nl"><seg>Nieuws</seg></tuv>
+			<tuv xml:lang="en"><seg>news</seg></tuv>
+		</tu>
+		<tu tuid='editpage'>
+			<tuv xml:lang="nl"><seg>Pagina bewerken</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit page</seg></tuv>
+		</tu>
+		<tu tuid='addpage'>
+			<tuv xml:lang="nl"><seg>Pagina - Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Page - Edit</seg></tuv>
+		</tu>
+		<tu tuid='titlesummary'>
+			<tuv xml:lang="nl"><seg>Titel &amp; Samenvatting</seg></tuv>
+			<tuv xml:lang="en"><seg>Title &amp; Summary</seg></tuv>
+		</tu>
+		<tu tuid='menu'>
+			<tuv xml:lang="nl"><seg>Menu</seg></tuv>
+			<tuv xml:lang="en"><seg>Menu</seg></tuv>
+		</tu>
+		<tu tuid='layout'>
+			<tuv xml:lang="nl"><seg>Layout</seg></tuv>
+			<tuv xml:lang="en"><seg>Layout</seg></tuv>
+		</tu>
+		<tu tuid='rights'>
+			<tuv xml:lang="nl"><seg>Rechten</seg></tuv>
+			<tuv xml:lang="en"><seg>Rights</seg></tuv>
+		</tu>
+		<tu tuid='publication'>
+			<tuv xml:lang="nl"><seg>Publicatie</seg></tuv>
+			<tuv xml:lang="en"><seg>Publication</seg></tuv>
+		</tu>
+		<tu tuid='seo'>
+			<tuv xml:lang="nl"><seg>Zoekmachineoptimalisatie (SEO)</seg></tuv>
+			<tuv xml:lang="en"><seg>Search Engine Optimalisation (SEO)</seg></tuv>
+		</tu>
+		<tu tuid='editcomment'>
+			<tuv xml:lang="nl"><seg>Comment - Aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Comment - Edit</seg></tuv>
+		</tu>
+		<tu tuid='message'>
+			<tuv xml:lang="nl"><seg>Bericht</seg></tuv>
+			<tuv xml:lang="en"><seg>Message</seg></tuv>
+		</tu>
+		<tu tuid='name'>
+			<tuv xml:lang="nl"><seg>Naam</seg></tuv>
+			<tuv xml:lang="en"><seg>Name</seg></tuv>
+		</tu>
+		<tu tuid='email'>
+			<tuv xml:lang="nl"><seg>E-mail</seg></tuv>
+			<tuv xml:lang="en"><seg>Email</seg></tuv>
+		</tu>
+		<tu tuid='website'>
+			<tuv xml:lang="nl"><seg>Website</seg></tuv>
+			<tuv xml:lang="en"><seg>Website</seg></tuv>
+		</tu>
+		<tu tuid='approved'>
+			<tuv xml:lang="nl"><seg>Goedgekeurd</seg></tuv>
+			<tuv xml:lang="en"><seg>Approved</seg></tuv>
+		</tu>
+		<tu tuid='deletesurvey'>
+			<tuv xml:lang="nl"><seg>Enquête verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete survey</seg></tuv>
+		</tu>
+		<tu tuid='deletecommentconfirm'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u deze comment wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this comment?</seg></tuv>
+		</tu>
+		<tu tuid='commentsneedapproved'>
+			<tuv xml:lang="nl"><seg>Goed te keuren berichten</seg></tuv>
+			<tuv xml:lang="en"><seg>Comments that need approval</seg></tuv>
+		</tu>
+		<tu tuid='allcomments'>
+			<tuv xml:lang="nl"><seg>Alle berichten</seg></tuv>
+			<tuv xml:lang="en"><seg>All comments</seg></tuv>
+		</tu>
+		<tu tuid='date'>
+			<tuv xml:lang="nl"><seg>Datum</seg></tuv>
+			<tuv xml:lang="en"><seg>Date</seg></tuv>
+		</tu>
+		<tu tuid='author'>
+			<tuv xml:lang="nl"><seg>Auteur</seg></tuv>
+			<tuv xml:lang="en"><seg>Author</seg></tuv>
+		</tu>
+		<tu tuid='action'>
+			<tuv xml:lang="nl"><seg>Actie</seg></tuv>
+			<tuv xml:lang="en"><seg>Action</seg></tuv>
+		</tu>
+		<tu tuid='editcontent'>
+			<tuv xml:lang="nl"><seg>Inhoud aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit content</seg></tuv>
+		</tu>
+		<tu tuid='pageoverview'>
+			<tuv xml:lang="nl"><seg>Pagina overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Page overview</seg></tuv>
+		</tu>
+		<tu tuid='followingerrors'>
+			<tuv xml:lang="nl"><seg>Volgende fouten werden gevonden</seg></tuv>
+			<tuv xml:lang="en"><seg>The following errors were found</seg></tuv>
+		</tu>
+		<tu tuid='errorcheckexecuted'>
+			<tuv xml:lang="nl"><seg>Foutcontrole wordt uitgevoerd</seg></tuv>
+			<tuv xml:lang="en"><seg>Error check is being executed</seg></tuv>
+		</tu>
+		<tu tuid='errorcheckpages'>
+			<tuv xml:lang="nl"><seg>Pagina's worden momenteel gecontroleerd op fouten. Een ogenblik geduld aub.</seg></tuv>
+			<tuv xml:lang="en"><seg>Pages are being checked for errors. Please wait.</seg></tuv>
+		</tu>
+		<tu tuid='close'>
+			<tuv xml:lang="nl"><seg>Sluiten</seg></tuv>
+			<tuv xml:lang="en"><seg>close</seg></tuv>
+		</tu>
+		<tu tuid='pleasewait'>
+			<tuv xml:lang="nl"><seg>Een ogenblik geduld aub</seg></tuv>
+			<tuv xml:lang="en"><seg>Please wait</seg></tuv>
+		</tu>
+		<tu tuid='loading'>
+			<tuv xml:lang="nl"><seg>Loading</seg></tuv>
+			<tuv xml:lang="en"><seg>Laden</seg></tuv>
+		</tu>
+		<tu tuid='checkready'>
+			<tuv xml:lang="nl"><seg>Controle afgerond</seg></tuv>
+			<tuv xml:lang="en"><seg>Error check ready</seg></tuv>
+		</tu>
+		<tu tuid='pageserrorcount'>
+			<tuv xml:lang="nl"><seg> pagina's bevatten één of meerdere fouten. De pagina's met fouten worden in het rood weergegeven.</seg></tuv>
+			<tuv xml:lang="en"><seg> pages contain one or more errors. The pages with errors are colored red.</seg></tuv>
+		</tu>
+		<tu tuid='deletepage'>
+			<tuv xml:lang="nl"><seg>Pagina verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete page</seg></tuv>
+		</tu>
+		<tu tuid='deletepageconfirm'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u deze pagina wilt verwijderen? Alle onderliggende pagina's zullen tevens verwijderd worden.</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this page? All underlying pages will be deleted as well.</seg></tuv>
+		</tu>
+		<tu tuid='deleteactivepage'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u deze pagina wilt aanpassen? Deze pagina wordt momenteel door een andere gebruiker aangepast.</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this page? This page is currently being edited by another user.</seg></tuv>
+		</tu>
+		<tu tuid='newsoverview'>
+			<tuv xml:lang="nl"><seg>Nieuws overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>News overview</seg></tuv>
+		</tu>
+		<tu tuid='deletenewsarticle'>
+			<tuv xml:lang="nl"><seg>Nieuws artikel verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete news article</seg></tuv>
+		</tu>
+		<tu tuid='deletenewsarticleconfirm'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u dit artikel wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this news article?</seg></tuv>
+		</tu>
+		<tu tuid='editactivepage'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u deze artikel wilt aanpassen? Dit artikel wordt momenteel door een andere gebruiker aangepast.</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to edit this page? This page is currently being edited by another user.</seg></tuv>
+		</tu>
+		<tu tuid='menutags'>
+			<tuv xml:lang="nl"><seg>Menu &amp; Tags</seg></tuv>
+			<tuv xml:lang="en"><seg>Menu &amp; Tags</seg></tuv>
+		</tu>
+		<tu tuid='pagerevision'>
+			<tuv xml:lang="nl"><seg>Pagina - Revisie</seg></tuv>
+			<tuv xml:lang="en"><seg>Page - Revision</seg></tuv>
+		</tu>
+		<tu tuid='summary'>
+			<tuv xml:lang="nl"><seg>Samenvatting</seg></tuv>
+			<tuv xml:lang="en"><seg>Summary</seg></tuv>
+		</tu>
+		<tu tuid='source'>
+			<tuv xml:lang="nl"><seg>Bron</seg></tuv>
+			<tuv xml:lang="en"><seg>Source</seg></tuv>
+		</tu>
+		<tu tuid='referencetodutch'>
+			<tuv xml:lang="nl"><seg>Referentie naar NL versie</seg></tuv>
+			<tuv xml:lang="en"><seg>Reference to Dutch version</seg></tuv>
+		</tu>
+		<tu tuid='url'>
+			<tuv xml:lang="nl"><seg>Link</seg></tuv>
+			<tuv xml:lang="en"><seg>URL</seg></tuv>
+		</tu>
+		<tu tuid='backoverview'>
+			<tuv xml:lang="nl"><seg>Terug naar het overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Back to overview</seg></tuv>
+		</tu>
+		<tu tuid='Approve'>
+			<tuv xml:lang="nl"><seg>Goedkeuren</seg></tuv>
+			<tuv xml:lang="en"><seg>Approve</seg></tuv>
+		</tu>
+		<tu tuid='version'>
+			<tuv xml:lang="nl"><seg>Versie</seg></tuv>
+			<tuv xml:lang="en"><seg>Version</seg></tuv>
+		</tu>
+		<tu tuid='dateapproved'>
+			<tuv xml:lang="nl"><seg>Datum goedkeuring</seg></tuv>
+			<tuv xml:lang="en"><seg>Date approved</seg></tuv>
+		</tu>
+		<tu tuid='approvedby'>
+			<tuv xml:lang="nl"><seg>Goedgekeurd door</seg></tuv>
+			<tuv xml:lang="en"><seg>Approved by</seg></tuv>
+		</tu>
+		<tu tuid='remarks'>
+			<tuv xml:lang="nl"><seg>Opmerkingen</seg></tuv>
+			<tuv xml:lang="en"><seg>Comments</seg></tuv>
+		</tu>
+		<tu tuid='norevisions'>
+			<tuv xml:lang="nl"><seg>Er zijn momenteel nog geen revisies van deze pagina</seg></tuv>
+			<tuv xml:lang="en"><seg>There currently are no revisions of this page</seg></tuv>
+		</tu>
+		<tu tuid='choosepage'>
+			<tuv xml:lang="nl"><seg>Kies de pagina</seg></tuv>
+			<tuv xml:lang="en"><seg>Choose the page</seg></tuv>
+		</tu>
+		<tu tuid='choose'>
+			<tuv xml:lang="nl"><seg>Kies</seg></tuv>
+			<tuv xml:lang="en"><seg>Choose</seg></tuv>
+		</tu>
+		<tu tuid='choosehome'>
+			<tuv xml:lang="nl"><seg>Kies de hoofdpagina</seg></tuv>
+			<tuv xml:lang="en"><seg>Choose the homepage</seg></tuv>
+		</tu>
+		<tu tuid='positionintree'>
+			<tuv xml:lang="nl"><seg>Pagina - Positie in boomstructuur [alle talen]</seg></tuv>
+			<tuv xml:lang="en"><seg>Page - Position in tree structure [all languages]</seg></tuv>
+		</tu>
+		<tu tuid='back'>
+			<tuv xml:lang="nl"><seg>Terug</seg></tuv>
+			<tuv xml:lang="en"><seg>Back</seg></tuv>
+		</tu>
+		<tu tuid='enterhere'>
+			<tuv xml:lang="nl"><seg>Hier invoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Enter here</seg></tuv>
+		</tu>
+		<tu tuid='pagetype'>
+			<tuv xml:lang="nl"><seg>Pagina type</seg></tuv>
+			<tuv xml:lang="en"><seg>Page type</seg></tuv>
+		</tu>
+		<tu tuid='nextstep'>
+			<tuv xml:lang="nl"><seg>Volgende stap</seg></tuv>
+			<tuv xml:lang="en"><seg>Next step</seg></tuv>
+		</tu>
+	</body>
+</tmx>

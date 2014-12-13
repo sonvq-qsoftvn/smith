@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zones>
+  <zone>
+    <id>home-nl</id>
+    <name>Home NL</name>
+    <content><![CDATA[<p>NL_Ut leo sem, pellentesque vitae facilisis id, lobortis sed nisi. Donec vulputate placerat lectus, et mollis nibh venenatis ac. Pellentesque auctor sapien in ipsum consectetur et commodo dolor iaculis. Nam magna diam, lacinia sed condimentum sed, sagittis nec mauris. Sed vitae sodales sem. Nulla aliquet mauris eu nunc pharetra in placerat sapien mattis. Cras sodales vestibulum imperdiet. Nunc molestie elit eget libero tincidunt sodales. Quisque mollis nunc non dui interdum et semper neque posuere. Vivamus id leo nisi, eu auctor nisl.</p>]]></content>
+  </zone>
+  
+  <zone>
+    <id>home-fr</id>
+    <name>Home FR</name>
+    <content><![CDATA[<p>FR_Ut leo sem, pellentesque vitae facilisis id, lobortis sed nisi. Donec vulputate placerat lectus, et mollis nibh venenatis ac. Pellentesque auctor sapien in ipsum consectetur et commodo dolor iaculis. Nam magna diam, lacinia sed condimentum sed, sagittis nec mauris. Sed vitae sodales sem. Nulla aliquet mauris eu nunc pharetra in placerat sapien mattis. Cras sodales vestibulum imperdiet. Nunc molestie elit eget libero tincidunt sodales. Quisque mollis nunc non dui interdum et semper neque posuere. Vivamus id leo nisi, eu auctor nisl.</p>]]></content>
+  </zone>
+
+</zones>

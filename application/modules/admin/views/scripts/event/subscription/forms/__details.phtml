@@ -1,0 +1,49 @@
+<?php foreach ($this->event->getFields() as $field): ?>
+
+<dl>
+	<dt><label for="<?php echo $field->getName() ?>"><?php echo $field->getLabel() ?></label></dt>
+    <dd>
+    <!-- Type text -->
+    <?php if($field->getType() == 'text') : ?>
+       <?php echo $this->formText($field->getName(), $this->subscription->getFields($field->getName())) ?>
+       
+     <!-- Type select -->
+	<?php elseif($field->getType() == 'select') : ?>
+		  <?php 
+		  	   $options =array();
+   			   foreach ($field->getList() as $option): 
+          			 $options[$option->getValue()] = $option->getLabel(); 
+         		endforeach;
+		   ?>
+           <?php echo $this->formSelect($field->getName(), $this->subscription->getFields($field->getName()), null, $options) ?>
+           
+     <!-- Type checkbox -->
+     <?php elseif($field->getType() == 'checkbox') : ?> 
+  		    <?php 
+   			   foreach ($field->getList() as $option): 
+			   		
+			   		if (is_array($this->subscription->getFields($field->getName())) && in_array($option->getValue(),$this->subscription[$field->getName()]))
+          			 echo $this->formCheckbox($field->getName().'[]', $option->getValue(), array('checked' => true)) . ' ' . $option->getLabel() . '<br />'; 
+					else
+					 echo $this->formCheckbox($field->getName().'[]', $option->getValue()) . ' ' . $option->getLabel() . '<br />';
+         		endforeach;
+		    ?>
+            
+     <!-- Type radio -->
+     <?php elseif($field->getType() == 'radio') : ?>  
+     		  <?php 
+		  	   $options =array();
+   			   foreach ($field->getList() as $option): 
+          			 $options[$option->getValue()] = $option->getLabel(); 
+         		endforeach ;
+				$attr = array('label_style' => 'color: #666; font-weight: normal; padding-left: 20px');
+		   ?>
+           <?php echo $this->formRadio($field->getName(), $this->subscription->getFields($field->getName()), $attr, $options, $seplist= NULL) ?>
+           
+     <!-- Type textarea -->
+	<?php elseif($field->getType() == 'textarea') : ?>
+			<?php echo $this->formTextarea($field->getName(), $this->subscription[$field->getName()]) ?> 
+     <?php endif ?>
+    </dd>
+</dl>
+<?php endforeach ?>

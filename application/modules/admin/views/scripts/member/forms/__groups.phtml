@@ -1,0 +1,21 @@
+<dl>
+    <dt>
+		<label for="boardmember"><?php echo $this->admin_tmx->_('managementmember') ?></label>
+	</dt>
+    <dd>
+    	<input type="checkbox" name="boardmember" id="boardmember" value="1" <?php if($this->item->getBoardMember()): ?>checked="checked"<?php endif ?> />
+	    <p class="description"></p>
+	</dd>
+	<dt>
+        <label for="groups"><?php echo $this->admin_tmx->_('selectfoldersaccess') ?></label>
+    </dt>
+    <dt>
+        <?php foreach($this->groups as $group) : ?>
+        <span style="width: 40%; float: left; margin: 0 5% 2% 0;">
+            <input type="checkbox" name="groups[]" id="groups" value="<?php echo $group->getGroupId(); ?>" <?php if(in_array($group->getGroupId(), $this->item->getGroups())): ?>checked="checked"<?php endif ?> /> <?php echo $group->getGroup(); ?>
+        </span>
+        <?php endforeach; ?>
+        <span style="clear: both;"></span>
+    </dt>
+    <div style="clear: both"></div>
+</dl>

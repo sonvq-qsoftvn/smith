@@ -1,0 +1,134 @@
+<?php echo $this->render('system/leave.phtml'); ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-common"><?php echo $this->admin_tmx->_('general') ?>
+			<?php $errors = count($this->messages->getTabMessages('common')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-password"><?php echo $this->admin_tmx->_('password') ?>
+			<?php $errors = count($this->messages->getTabMessages('password')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-group"><?php echo $this->admin_tmx->_('usergroups') ?>
+			<?php $errors = count($this->messages->getTabMessages('groups')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+	</ul>
+	<form method="post" action="<?php echo $this->url() ?>">
+	<div id="tabs-common">
+		<dl>
+		    <dt>
+		        <label for="first_name"><?php echo $this->admin_tmx->_('firstname') ?>:</label>
+		    </dt>
+		    <dd>
+		        <input type="text" name="first_name" id="first_name" size="45"
+		            value="<?php echo $this->escape($this->user->getFirstName()) ?>" />
+		        <?php echo $this->messages->getMessagesHtml('first_name') ?>
+		        <p class="description">
+		            <?php echo $this->admin_tmx->_('requiredmin2max255chars') ?>
+		        </p>
+		    </dd>
+		    <dt>
+		        <label for="last_name"><?php echo $this->admin_tmx->_('name') ?>:</label>
+		    </dt>
+		    <dd>
+		        <input type="text" name="last_name" id="last_name" size="45"
+		            value="<?php echo $this->escape($this->user->getLastName()) ?>" />
+		        <?php echo $this->messages->getMessagesHtml('last_name') ?>
+		        <p class="description">
+		            <?php echo $this->admin_tmx->_('requiredmin2max255chars') ?>
+		        </p>
+		    </dd>
+		    <dt>
+		        <label for="email"><?php echo $this->admin_tmx->_('email') ?>:</label>
+		    </dt>
+		    <dd>
+		        <input type="text" name="email" id="email" size="90"
+		            value="<?php echo $this->escape($this->user->getEmail()) ?>" />
+		        <?php echo $this->messages->getMessagesHtml('email') ?>
+		        <p class="description">
+		            <?php echo $this->admin_tmx->_('requiredemail') ?>
+		        </p>
+		    </dd>
+		    <dd style="margin-top: 25px;">
+		        <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+		    </dd>
+		</dl>
+	</div>
+	<div id="tabs-password">
+		<dl>
+		    <?php if ($this->user->getId()): ?>
+		    <dt>
+		        <label for="old_password"><?php echo $this->admin_tmx->_('lastpassword') ?>:</label>
+		    </dt>
+		    <dd>
+		        <input type="password" name="old_password" id="old_password" size="45" value="" />
+		        <?php echo $this->messages->getMessagesHtml('old_password') ?>
+		        <p class="description">
+		            <?php echo $this->admin_tmx->_('requiredmin6max255chars') ?>
+		        </p>
+		    </dd>
+		    <?php endif ?>
+		    <dt>
+		        <label for="foo"><?php echo $this->admin_tmx->_('password') ?>:</label>
+		    </dt>
+		    <dd>
+		        <input type="password" name="password" id="password" size="45" value="" />
+		        <?php echo $this->messages->getMessagesHtml('password') ?>
+		        <p class="description">
+		            <?php echo $this->admin_tmx->_('requiredmin6max255chars') ?>
+		        </p>
+		    </dd>
+		    <dt>
+		        <label for="password_repeat"><?php echo $this->admin_tmx->_('repeatpassword') ?>:</label>
+		    </dt>
+		    <dd>
+		        <input type="password" name="password_repeat" id="password_repeat" size="45" value="" />
+		        <?php echo $this->messages->getMessagesHtml('password_repeat') ?>
+		        <p class="description">
+		            <?php echo $this->admin_tmx->_('requiredmin6max255chars') ?>
+		        </p>
+		    </dd>
+		    <dd style="margin-top: 25px;">
+		        <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+		    </dd>
+		</dl>
+	</div>
+	<div id="tabs-group">
+		<dl>
+		<?php $groups = $this->user->getGroups() ?>
+			<?php foreach ($this->groups as $group): ?>
+		    <dd>
+		        <input type="checkbox" name="group[]"
+		            value="<?php echo $group->getId() ?>"
+		            <?php echo isset($groups[$group->getId()]) ? 'checked="checked"' : ''; ?> />
+		        &nbsp; <?php echo $this->escape($group->getName()) ?>
+		    </dd>
+			<?php endforeach ?>
+
+	        <p class="description">
+	            <?php echo $this->admin_tmx->_('selectusergroups') ?>
+	        </p>
+		    <dd style="margin-top: 25px;">
+		        <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+		    </dd>
+		</dl>
+	</div>
+	</form>
+</div>

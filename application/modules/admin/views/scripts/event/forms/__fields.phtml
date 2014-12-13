@@ -1,0 +1,105 @@
+<?php $this->headScript()->captureStart() ?>
+$(function() {
+	$("#fieldtable").load("<?php echo $this->url(array('controller' => 'event_field', 'action' => 'add-field')) ?>");
+
+	$('.addfield').click(function() {
+		label = $("#label").val();
+		name = $("#name").val();
+		type = $("#type").val();
+		key = $("#key").val();
+
+		if(label.length < 2 || name.length < 2) {
+			$("#alert").dialog({
+				bgiframe: true,
+				resizable: false,
+				height: 160,
+				width: 500,
+				modal: true,
+				overlay: {
+					backgroundColor: '#000',
+					opacity: 0.5
+				},
+				buttons: {
+					'Ok': function() {
+						$(this).dialog('destroy');
+					}
+				}
+			});
+		} else {
+			$.ajax({
+				type: 'POST',
+				url: '<?php echo $this->url(array('controller' => 'event_field', 'action' => 'add-field')) ?>',
+				data: {'key' : key, 'label' : label, 'name' : name, 'type' : type},
+				success: function(msg){
+					$("#fieldtable").html(msg);
+					$("#key").val("");
+					$("#label").val("");
+					$("#name").val("");
+					$("#type").val("");
+					reload();
+				}
+			});
+		}
+	});
+	reload();
+});
+
+function reload() {
+	$.getJSON('<?php echo $this->url(array('controller' => 'event_field', 'action' => 'get-list-fields')) ?>', null,
+		function(data){
+			var input = "";
+			if(data != null) {
+				$.each(data, function(i,item){
+					input += "<option value='"+item['id']+"'>"+item['name']+"</option>";
+				});
+			}
+			$("#fieldId").html(input);
+		}
+	);
+}
+<?php $this->headScript()->captureEnd() ?>
+<div id="fieldtable"></div>
+
+<h3><?php echo $this->admin_tmx->_('form') ?></h3>
+<dl>
+	<dt>
+		<label for="label"><?php echo $this->admin_tmx->_('label') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="label" id="label"
+	    	value="<?php echo $this->field->getLabel() ?>" style="width: 250px;" />
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('requiredmin2chars') ?>
+	    </p>
+	</dd>
+
+	<dt>
+		<label for="name">Veldnaam:</label>
+	</dt>
+	<dd>
+		<input type="text" name="name" id="name"
+			value="<?php echo $this->field->getName() ?>" style="width: 250px;" />
+		<p class="description">
+			<?php echo $this->admin_tmx->_('requiredmin2chars') ?>
+		</p>
+	</dd>
+
+	<dt>
+		<label for="type"><?php echo $this->admin_tmx->_('type') ?>:</label>
+	</dt>
+	<dd>
+		<select name="type" id="type">
+			<option value="text" <?php if($this->field->getType() == "text") { echo 'selected="selected"'; } ?> ><?php echo $this->admin_tmx->_('text') ?></option>
+			<option value="select" <?php if($this->field->getType() == "select") { echo 'selected="selected"'; } ?>><?php echo $this->admin_tmx->_('select') ?></option>
+		
+			<option value="checkbox" <?php if($this->field->getType() == "checkbox") { echo 'selected="selected"'; } ?>><?php echo $this->admin_tmx->_('checkbox') ?></option>
+			<option value="textarea" <?php if($this->field->getType() == "textarea") { echo 'selected="selected"'; } ?>><?php echo $this->admin_tmx->_('textarea') ?></option>
+            <option value="radio" <?php if($this->field->getType() == "radio") { echo 'selected="selected"'; } ?>><?php echo $this->admin_tmx->_('radio') ?></option>
+		</select>
+	</dd>
+
+	<dd>
+		<input type="hidden" id="key" value="">
+	    <input type="button" class="addfield" value="<?php echo $this->admin_tmx->_('add') ?>" />
+	</dd>
+</dl>

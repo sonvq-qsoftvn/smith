@@ -1,0 +1,36 @@
+<?php if ($this->pageCount > 1): ?>
+
+<table width="98%">
+	<tr>
+		<th>
+			<div class="paginationControl">
+				<strong><?php echo $this->totalItemCount ?> resultaten</strong> :
+
+				<!-- Previous page link -->
+				<?php if (isset($this->previous)): ?>
+				  <a href="<?php echo $this->url(array('page' => $this->previous)); ?>">&lt;  Vorige</a> |
+				<?php else: ?>
+				  <span class="disabled">&lt; Vorige</span>
+				<?php endif; ?>
+
+				<!-- Numbered page links -->
+				<?php foreach ($this->pagesInRange as $page): ?>
+				  <?php if ($page != $this->current): ?>
+				    <a href="<?php echo $this->url(array('page' => $page)); ?>"><?php echo $page; ?></a> |
+				  <?php else: ?>
+				    <strong><?php echo $page; ?> |</strong>
+				  <?php endif; ?>
+				<?php endforeach; ?>
+
+				<!-- Next page link -->
+				<?php if (isset($this->next)): ?>
+				  <a href="<?php echo $this->url(array('page' => $this->next)); ?>">Volgende &gt;</a>
+				<?php else: ?>
+				  <span class="disabled">Volgende &gt;</span>
+				<?php endif; ?>
+			</div>
+		</th>
+	</tr>
+</table>
+
+<?php endif; ?>

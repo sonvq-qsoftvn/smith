@@ -1,0 +1,4 @@
+<option style="font-weight: bold;" value=""><?php echo $this->admin_tmx->_('selectsubcat') ?></option>
+<?php foreach($this->subcat as $subcat) : ?>
+           <option value="<?php echo $subcat->getId(); ?>"><?php echo $subcat->getName(); ?></option>
+<?php endforeach; ?>

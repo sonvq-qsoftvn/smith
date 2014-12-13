@@ -1,0 +1,64 @@
+<?php
+
+echo $this->render('analytics/__js.phtml');
+
+$user = Zend_Auth::getInstance()->getIdentity();
+
+$this->headTitle('SxCms - Analytics - '.$this->admin_tmx->_('keywords'));
+
+$page = $this->page;
+$minpage = $page-4;
+$maxpage = $page+4;
+
+if (in_array("last", $this->allkeywords['searches'])) $maxpage = $page;
+
+$pages = array();
+
+$pages[] = "<div style='width: 100%; text-align: center;'>";
+
+if ($page>1) $pages[] = "<span style='font-size: 14px; padding: 10px; font-weight: bold;'><a href='/admin/analytics/allkeywords/page/".($page-1)."'><</a></span>";
+
+for ($i = $minpage; $i <= $maxpage; $i++) {
+	
+	if ($i>0) {
+		if ($i == $page) {
+			$pages[] = "<span style='font-size: 16px; padding: 5px; font-weight: bold;'>$page</span>";
+		} else {
+			$pages[] = "<span style='padding: 5px;'><a href='/admin/analytics/allkeywords/page/".($i)."'>$i</a></span>";
+		}
+	}
+	
+}
+
+if ($page != $maxpage)
+	$pages[] = "<span style='font-size: 14px; padding: 10px; font-weight: bold;'><a href='/admin/analytics/allkeywords/page/".($page+1)."'>></a></span></div>";
+
+$pagination = implode('', $pages);
+
+?>
+
+<div style='float: left;'><h3>Analytics - <?php echo $this->admin_tmx->_('keywords') ?></h3></div>
+
+<div style='float: right;'><?php echo $this->render('analytics/forms/__top.phtml'); ?></div>
+<div style='clear: both'></div>
+
+<?php echo $pagination ?>
+
+<table style='width: 97%;'>
+	
+	<thead>
+		<tr><th><?php echo $this->admin_tmx->_('keyword') ?></th><th><?php echo $this->admin_tmx->_('visits') ?></th></tr>
+	</thead>
+	
+	<tbody>
+		<?php foreach ($this->allkeywords['keyword'] AS $key => $value): ?>
+			<?php if ($value != "last"): ?>
+				<tr><td title='<?php echo $this->allkeywords['keyword'][$key] ?>'><a target="_blank" href="http://www.google.com/search?q=<?php echo urlencode($this->allkeywords['keyword'][$key]); ?>"><?php echo $this->allkeywords['keyword'][$key]; ?></a></td>
+				<td><?php echo $this->allkeywords['searches'][$key] ?></td>
+			<?php endif; ?>
+		<?php endforeach; ?>
+	</tbody>
+	
+</table>
+
+<?php echo $pagination ?>

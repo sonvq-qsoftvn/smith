@@ -1,0 +1,6 @@
+<h1>Authenticatie nodig!</h1>
+
+<p>De server kon niet controleren of u gemachtigd bent om toegang te krijgen tot de url. U hebt zich onvoldoende geauthenticeerd.
+    Om toegang te verkrijgen tot deze pagina kan u zich inloggen door op onderstaande knop te klikken.</p>
+
+<input type="button" value="Inloggen" onclick="window.location = '<?php echo $this->url(array('url' => base64_encode($this->url())), 'login') ?>'" />

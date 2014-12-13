@@ -1,0 +1,72 @@
+<?php echo $this->render('system/leave.phtml'); ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+	$("#date_published").datepicker({ dateFormat: 'dd/mm/yy' });
+	$("#date_expired").datepicker({ dateFormat: 'dd/mm/yy' });
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<h3><?php echo $this->admin_tmx->_('editcomment') ?></h3>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-edit"><?php echo $this->admin_tmx->_('message') ?>
+			<?php $errors = count($this->messages->getTabMessages('edit')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+	</ul>
+	<form name="add" method="post" action="<?php echo $this->url() ?>">
+	<?php $author = $this->comment->getCommenter(); ?>
+	<div id="tabs-edit">
+		<dl>
+			<dt>
+				<label for="name"><?php echo $this->admin_tmx->_('name') ?>:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="name" id="name" size="45"
+			    	value="<?php echo $this->escape($author->getName()) ?>" />
+			    <?php echo $this->messages->getMessagesHtml('name') ?>
+			</dd>
+			<dt>
+				<label for="name"><?php echo $this->admin_tmx->_('email') ?>:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="email" id="email" size="45"
+			    	value="<?php echo $this->escape($author->getEmail()) ?>" />
+			    <?php echo $this->messages->getMessagesHtml('email') ?>
+			</dd>
+			<dt>
+				<label for="name"><?php echo $this->admin_tmx->_('website') ?>:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="website" id="website" size="45"
+			    	value="<?php echo $this->escape($author->getWebsite()) ?>" />
+			    <?php echo $this->messages->getMessagesHtml('website') ?>
+			</dd>
+			<dt>
+				<label for="name"><?php echo $this->admin_tmx->_('message') ?>:</label>
+			</dt>
+			<dd>
+			    <textarea name="message" ><?php echo $this->escape($this->comment->getMessage()) ?></textarea>
+			    <?php echo $this->messages->getMessagesHtml('message') ?>
+			</dd>
+			<dt>
+				<label></label>
+			</dt>
+			<dd>
+			    <input type="checkbox" name="approved" id="approved"
+			    	value="1" <?php if ($this->comment->isApproved()) { echo 'checked="checked"'; } ?> />
+			    	<?php echo $this->admin_tmx->_('approved') ?>
+			</dd>
+
+			<dd style="margin-top: 25px;">
+			    <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+			</dd>
+		</dl>
+	</div>
+	</form>
+</div>

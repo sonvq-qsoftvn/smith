@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+         adminlang="en-us" srclang="en-us" o-tmf="abc">
+	</header>
+	<body>
+		<tu tuid='newsstatusedited'>
+			<tuv xml:lang="nl"><seg>De status van het nieuwsbericht werd succesvol aangepast!</seg></tuv>
+			<tuv xml:lang="en"><seg>The status of the newsitem has been successfully edited!</seg></tuv>
+		</tu>
+		<tu tuid='newscreated'>
+			<tuv xml:lang="nl"><seg>Het nieuwsbericht werd succesvol aangemaakt!</seg></tuv>
+			<tuv xml:lang="en"><seg>The newsitem has been successfully created!</seg></tuv>
+		</tu>
+		<tu tuid='newsedited'>
+			<tuv xml:lang="nl"><seg>Het nieuwsbericht werd succesvol aangepast!</seg></tuv>
+			<tuv xml:lang="en"><seg>The newsitem has been successfully edited!</seg></tuv>
+		</tu>
+		<tu tuid='newsdeleted'>
+			<tuv xml:lang="nl"><seg>Het nieuwsbericht werd succesvol verwijderd!</seg></tuv>
+			<tuv xml:lang="en"><seg>The newsitem has been successfully deleted!</seg></tuv>
+		</tu>
+		<tu tuid='datewithnews'>
+			<tuv xml:lang="nl"><seg>Datum bij nieuwsbericht</seg></tuv>
+			<tuv xml:lang="en"><seg>Date with newsitem</seg></tuv>
+		</tu>
+		<tu tuid='datewithnewsdescription'>
+			<tuv xml:lang="nl"><seg>De datum die bij het bericht gepubliceerd zal worden.</seg></tuv>
+			<tuv xml:lang="en"><seg>The date that will be published with the message.</seg></tuv>
+		</tu>
+		<tu tuid='titlenews'>
+			<tuv xml:lang="nl"><seg>Titel nieuwsbericht</seg></tuv>
+			<tuv xml:lang="en"><seg>Title newsitem</seg></tuv>
+		</tu>
+		<tu tuid='min2max255chars'>
+			<tuv xml:lang="nl"><seg>Minimum 2 en maximum 255 karakters</seg></tuv>
+			<tuv xml:lang="en"><seg>Minimum 2 and maximum 255 characters</seg></tuv>
+		</tu>
+		<tu tuid='summarynews'>
+			<tuv xml:lang="nl"><seg>Samenvatting nieuwsbericht</seg></tuv>
+			<tuv xml:lang="en"><seg>Summary of newsitem</seg></tuv>
+		</tu>
+		<tu tuid='summarynewsdescription'>
+			<tuv xml:lang="nl"><seg>Korte samenvatting van het bericht.</seg></tuv>
+			<tuv xml:lang="en"><seg>Short summary of the newsitem.</seg></tuv>
+		</tu>
+		<tu tuid='message'>
+			<tuv xml:lang="nl"><seg>Bericht</seg></tuv>
+			<tuv xml:lang="en"><seg>Message</seg></tuv>
+		</tu>
+		<tu tuid='requiredmin2chars'>
+			<tuv xml:lang="nl"><seg>Verplicht in te vullen, minimum 2 karakters</seg></tuv>
+			<tuv xml:lang="en"><seg>Required, minimum 2 characters</seg></tuv>
+		</tu>
+		<tu tuid='picture'>
+			<tuv xml:lang="nl"><seg>Afbeelding</seg></tuv>
+			<tuv xml:lang="en"><seg>Picture</seg></tuv>
+		</tu>
+		<tu tuid='picturedescription'>
+			<tuv xml:lang="nl"><seg>Hier kan u een gerelateerde afbeelding uploaden. Deze afbeelding moet 640x430 zijn.</seg></tuv>
+			<tuv xml:lang="en"><seg>Upload a related picture here. The picture has to be 640x430.</seg></tuv>
+		</tu>
+		<tu tuid='newspicture'>
+			<tuv xml:lang="nl"><seg>Nieuwsbericht afbeelding</seg></tuv>
+			<tuv xml:lang="en"><seg>Newsitem picture</seg></tuv>
+		</tu>
+		<tu tuid='title'>
+			<tuv xml:lang="nl"><seg>Titel</seg></tuv>
+			<tuv xml:lang="en"><seg>Title</seg></tuv>
+		</tu>
+		<tu tuid='2to255charsifnotempty'>
+			<tuv xml:lang="nl"><seg>Indien ingevuld, minimum 2 en maximum 255 karakters</seg></tuv>
+			<tuv xml:lang="en"><seg>If not empty, minimum 2 and maximum 255 characters</seg></tuv>
+		</tu>
+		<tu tuid='seotagsdescription'>
+			<tuv xml:lang="nl"><seg>Indien ingevuld, minimum 2 en maximum 255 karakters, scheiden door komma's (bv. lorem, ipsum, dolor, sit...)</seg></tuv>
+			<tuv xml:lang="en"><seg>If not empty, minimum 2 and maximum 255 characters, seperated by commas (eg. lorem, ipsum, dolor, ...)</seg></tuv>
+		</tu>
+		<tu tuid='metadescription'>
+			<tuv xml:lang="nl"><seg>Meta-uitleg</seg></tuv>
+			<tuv xml:lang="en"><seg>Meta-description</seg></tuv>
+		</tu>
+		<tu tuid='shortsummarymax255'>
+			<tuv xml:lang="nl"><seg>Korte samenvatting van de pagina. Maximaal 255 karakters lang (+- 2 zinnen)</seg></tuv>
+			<tuv xml:lang="en"><seg>Short summary of the page. Maximum 255 characters long (+- 2 sentences)</seg></tuv>
+		</tu>
+		<tu tuid='metatags'>
+			<tuv xml:lang="nl"><seg>Meta-tags</seg></tuv>
+			<tuv xml:lang="en"><seg>Meta-tags</seg></tuv>
+		</tu>
+		<tu tuid='activein'>
+			<tuv xml:lang="nl"><seg>Actief in</seg></tuv>
+			<tuv xml:lang="en"><seg>Active in</seg></tuv>
+		</tu>
+		<tu tuid='whenpublicationpassed'>
+			<tuv xml:lang="nl"><seg>als publicatiedatum gepasseerd is.</seg></tuv>
+			<tuv xml:lang="en"><seg>when publication date has passed.</seg></tuv>
+		</tu>
+		<tu tuid='publicationdate'>
+			<tuv xml:lang="nl"><seg>Publicatiedatum</seg></tuv>
+			<tuv xml:lang="en"><seg>Publicationdate</seg></tuv>
+		</tu>
+		<tu tuid='datepagepublished'>
+			<tuv xml:lang="nl"><seg>Datum waarop de pagina gepubliceerd zal worden.</seg></tuv>
+			<tuv xml:lang="en"><seg>Date on which the page will be published.</seg></tuv>
+		</tu>
+		<tu tuid='expirationdate'>
+			<tuv xml:lang="nl"><seg>Vervaldatum</seg></tuv>
+			<tuv xml:lang="en"><seg>Expiration date</seg></tuv>
+		</tu>
+		<tu tuid='expirationdatedescription'>
+			<tuv xml:lang="nl"><seg>De datum waarop de pagina zal komen te vervallen. Op deze datum zal de pagina niet langer beschikbaar zijn voor bezoekers.</seg></tuv>
+			<tuv xml:lang="en"><seg>The date on which the page will be expired. On this date, the page will no longer be visible to visitors.</seg></tuv>
+		</tu>
+		<tu tuid='formvalidation'>
+			<tuv xml:lang="nl"><seg>Formulier validatie</seg></tuv>
+			<tuv xml:lang="en"><seg>Validation form</seg></tuv>
+		</tu>
+		<tu tuid='allfieldsrequired'>
+			<tuv xml:lang="nl"><seg>Alle velden zijn verplicht in te vullen.</seg></tuv>
+			<tuv xml:lang="en"><seg>All fields are required.</seg></tuv>
+		</tu>
+		<tu tuid='settings'>
+			<tuv xml:lang="nl"><seg>Instellingen</seg></tuv>
+			<tuv xml:lang="en"><seg>Settings</seg></tuv>
+		</tu>
+		<tu tuid='message'>
+			<tuv xml:lang="nl"><seg>Bericht</seg></tuv>
+			<tuv xml:lang="en"><seg>Message</seg></tuv>
+		</tu>
+		<tu tuid='seo'>
+			<tuv xml:lang="nl"><seg>Zoekmachineoptimalisatie (SEO)</seg></tuv>
+			<tuv xml:lang="en"><seg>Search Engine Optimalisation (SEO)</seg></tuv>
+		</tu>
+		<tu tuid='save'>
+			<tuv xml:lang="nl"><seg>Opslaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Save</seg></tuv>
+		</tu>
+		<tu tuid='newsitems'>
+			<tuv xml:lang="nl"><seg>Nieuwsberichten</seg></tuv>
+			<tuv xml:lang="en"><seg>News items</seg></tuv>
+		</tu>
+		<tu tuid='overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		<tu tuid='addnewsitem'>
+			<tuv xml:lang="nl"><seg>Nieuwsbericht toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add news item</seg></tuv>
+		</tu>
+		<tu tuid='editnewsitem'>
+			<tuv xml:lang="nl"><seg>Nieuwsbericht aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit news item</seg></tuv>
+		</tu>
+		<tu tuid='newsoverview'>
+			<tuv xml:lang="nl"><seg>Nieuwsberichten overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>News overview</seg></tuv>
+		</tu>
+		<tu tuid='deletenewsarticleconfirm'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u dit artikel wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this news article?</seg></tuv>
+		</tu>
+		<tu tuid='deletenewsarticle'>
+			<tuv xml:lang="nl"><seg>Nieuws artikel verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete news article</seg></tuv>
+		</tu>
+		<tu tuid='publishfrom'>
+			<tuv xml:lang="nl"><seg>Publiceren vanaf...</seg></tuv>
+			<tuv xml:lang="en"><seg>Publish from...</seg></tuv>
+		</tu>
+		<tu tuid='active'>
+			<tuv xml:lang="nl"><seg>Actief</seg></tuv>
+			<tuv xml:lang="en"><seg>Active</seg></tuv>
+		</tu>
+		<tu tuid='published'>
+			<tuv xml:lang="nl"><seg>Gepubliceerd</seg></tuv>
+			<tuv xml:lang="en"><seg>Published</seg></tuv>
+		</tu>
+		<tu tuid='action'>
+			<tuv xml:lang="nl"><seg>Actie</seg></tuv>
+			<tuv xml:lang="en"><seg>Action</seg></tuv>
+		</tu>
+		<tu tuid='activate'>
+			<tuv xml:lang="nl"><seg>Activeren</seg></tuv>
+			<tuv xml:lang="en"><seg>Activate</seg></tuv>
+		</tu>
+		<tu tuid='edit'>
+			<tuv xml:lang="nl"><seg>Aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit</seg></tuv>
+		</tu>
+	</body>
+</tmx>

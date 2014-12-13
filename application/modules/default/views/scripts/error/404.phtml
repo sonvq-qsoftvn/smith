@@ -1,0 +1,14 @@
+<!--Add breadcrumbs to site-->
+<?php $this->placeholder('breadcrumbs')->captureStart(); ?>
+<a class="link-first" href="/<?php echo $this->lng ?>"><?php echo $this->glob_tmx->_('breadcrumbs.homepage'); ?></a>
+&nbsp; - &nbsp; 
+<?php echo $this->glob_tmx->_('notfound.title'); ?>
+<?php $this->placeholder('breadcrumbs')->captureEnd() ?>
+<!--End breadcrumbs-->
+
+<?php $this->headTitle($this->glob_tmx->_('notfound.head.title')) ?>
+<div class="grid_12 main-content">
+	<h1 class="page-title"><?php echo strtoupper($this->glob_tmx->_('notfound.title')); ?></h1>
+	<p><?php echo $this->glob_tmx->_('notfound.message') ?></p>
+</div>
+<div class="clear"></div>

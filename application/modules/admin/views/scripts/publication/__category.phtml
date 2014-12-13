@@ -1,0 +1,45 @@
+
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-common">Algemeen
+            <?php $errors = count($this->messages->getTabMessages('common')) ?>
+            <?php if ($errors): ?>
+                <span class="errcount">(<?php echo $errors ?>)</span>
+            <?php endif ?>
+            </a>
+        </li>
+    </ul>
+    <form name="category" method="post" action="<?php echo $this->url() ?>">
+    <div id="tabs-common">
+        <dl>
+            <dt>
+                <label for="name">Naam:</label>
+            </dt>
+            <dd>
+                <input type="text" name="name" id="name" size="45"
+                    value="<?php echo $this->escape($this->category->getName()) ?>" />
+                <?php echo $this->messages->getMessagesHtml('name') ?>
+                <p class="description">
+                    Verplicht in te vullen, minimum 2 en maximum 255 karakters
+                </p>
+            </dd>
+          
+            <dt>
+                <label for="description">Omschrijving:</label>
+            </dt>
+            <dd>
+                <textarea name="description" id="description" cols="90" rows="15" style="width:100%; height: 150px;"><?php echo $this->escape($this->category->getDescription()) ?></textarea>
+                <?php echo $this->messages->getMessagesHtml('description') ?>
+                <p class="description">
+                    Verplicht in te vullen, minimum 2 en maximum 255 karakters
+                </p>
+            </dd>
+            </dd>
+            <dd style="margin-top: 20px;">
+                <input class="button" type="submit" value="Opslaan" onclick="disableConfirm();" />
+            </dd>
+        </dl>
+    </div>
+    </form>
+</div>

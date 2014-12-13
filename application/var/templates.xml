@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+	<template>
+		<id>default</id>
+		<name>Default pagina</name>
+		<description>Pagina die bestaat uit xxxxxxxx.
+		</description>
+		<screenshots>
+			<thumbnail>/images/cms/templates/default/thumbnail.jpg</thumbnail>
+			<large>/images/cms/templates/default/large.jpg</large>
+		</screenshots>
+	</template>
+	
+	<template>
+		<id>full</id>
+		<name>Full pagina</name>
+		<description>Pagina die bestaat uit xxxxxxxx.</description>
+		<screenshots>
+			<thumbnail>/images/cms/templates/homepage/thumbnail.jpg</thumbnail>
+			<large>/images/cms/templates/homepage/large.jpg</large>
+		</screenshots>
+	</template>
+	
+	<template>
+		<id>homepage</id>
+		<name>Home pagina</name>
+		<description>Pagina die bestaat uit xxxxxxxx.</description>
+		<screenshots>
+			<thumbnail>/images/cms/templates/homepage/thumbnail.jpg</thumbnail>
+			<large>/images/cms/templates/homepage/large.jpg</large>
+		</screenshots>
+	</template>
+	
+	
+</templates>

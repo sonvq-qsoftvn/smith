@@ -1,0 +1,15 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+
+<?php if ($user->isAllowed('group', array('group.index', 'group.add'))): ?>
+<h3 id="menu-group"><a href="#"><?php echo $this->admin_menu_tmx->_('gr.groups') ?></a></h3>
+<div>
+    <ul class="sidemenu">
+    	<?php if ($user->isAllowed('group', 'group.index')): ?>
+        	<li><a href="<?php echo $this->url(array('controller' => 'group', 'action' => 'index')) ?>"><?php echo $this->admin_menu_tmx->_('gr.overview') ?></a></li>
+        <?php endif ?>
+        <?php if ($user->isAllowed('group', 'group.add')): ?>
+        	<li><a href="<?php echo $this->url(array('controller' => 'group', 'action' => 'add')) ?>"><?php echo $this->admin_menu_tmx->_('gr.add') ?></a></li>
+        <?php endif ?>
+    </ul>
+</div>
+<?php endif ?>

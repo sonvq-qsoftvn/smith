@@ -1,0 +1,89 @@
+<?php $this->headScript()->captureStart() ?>
+$(function() {
+	$("#listtable").load("<?php echo $this->url(array('controller' => 'event_field_list', 'action' => 'add-list')) ?>");
+
+	$('.addlist').click(function() {
+		key = $("#key").val();
+		fieldId = $("#fieldId").val();
+		label = $("#listlabel").val();
+		value = $("#value").val();
+
+		if(label.length < 2 || value.length < 2 || fieldId == null) {
+			$("#alert").dialog({
+				bgiframe: true,
+				resizable: false,
+				height: 160,
+				width: 500,
+				modal: true,
+				overlay: {
+					backgroundColor: '#000',
+					opacity: 0.5
+				},
+				buttons: {
+					'Ok': function() {
+						$(this).dialog('destroy');
+					}
+				}
+			});
+		} else {
+			$.ajax({
+				type: 'POST',
+				url: '<?php echo $this->url(array('controller' => 'event_field_list', 'action' => 'add-list')) ?>',
+				data: {'key' : key, 'fieldId' : fieldId, 'label' : label, 'value' : value},
+				success: function(msg){
+					$("#listtable").html(msg);
+					$("#key").val("");
+					$("#fieldId").val("");
+					$("#listlabel").val("");
+					$("#value").val("");
+				}
+			});
+		}
+	});
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<div id="listtable"></div>
+
+<h3>Formulier</h3>
+<dl>
+	<dt>
+		<label for="fieldId">Veld:</label>
+	</dt>
+	<dd>
+		<select name="fieldId" id="fieldId">
+			<?php foreach($this->event->getFields() as $key => $value): ?>
+				<?php if($value->getType() == 'select' || $value->getType() == 'multiselect'): ?>
+					<option value="<?php echo $key ?>" <?php if($this->list->getEventFieldId() == $key) { echo 'selected="selected"'; } ?>><?php echo $value->getName() ?></option>
+				<?php endif; ?>
+			<?php endforeach; ?>
+		</select>
+	</dd>
+
+	<dt>
+		<label for="label">Label:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="listlabel" id="listlabel"
+	    	value="<?php echo $this->list->getLabel() ?>" style="width: 250px;" />
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('requiredmin2chars') ?>
+	    </p>
+	</dd>
+
+	<dt>
+		<label for="value"><?php echo $this->admin_tmx->_('value') ?>:</label>
+	</dt>
+	<dd>
+		<input type="text" name="value" id="value"
+			value="<?php echo $this->list->getValue() ?>" style="width: 250px;" />
+		<p class="description">
+			<?php echo $this->admin_tmx->_('requiredmin2chars') ?>
+		</p>
+	</dd>
+
+	<dd>
+		<input type="hidden" id="key" value="">
+	    <input type="button" class="addlist" value="<?php echo $this->admin_tmx->_('add') ?>" />
+	</dd>
+</dl>

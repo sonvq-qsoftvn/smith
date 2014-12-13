@@ -1,0 +1,55 @@
+<?php
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+$user = Zend_Auth::getInstance()->getIdentity();
+$canDelete   = $user->isAllowed('faq', 'faq.delete');
+$canActivate   = $user->isAllowed('faq', 'faq.activate');
+$this->headTitle('SxCms - FAQ overzicht');
+echo $this->render('system/result.phtml');
+?>
+
+<div id="dialog" title="Detail verwijderen" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	Weet u zeker dat u deze vraag wilt verwijderen?</p>
+</div>
+
+<table width="98%">
+	<tr>
+		<th>Naam</th>
+        <th>Type</th>
+        <th width="40px">Actief</th>
+		<th width="70px">Actie</th>
+	</tr>
+	<?php foreach ($this->paginator as $id => $item): ?>
+        <?php if(isset($type) && $type != $item->getType()) :?>
+               <tr>
+    	<td colspan="4">&nbsp;<br /></td>
+    </tr>
+    <?php endif?>
+     <?php $type = $item->getType() ?>
+	<tr>
+		<td><?php echo $this->escape($item->getQuestion()) ?></td>
+        <td><?php echo $item->getTypeName() ?></td>
+        <td>
+            <a title="Activeren/Deactiveren" href="<?php echo $this->url(array('action' => 'activate', 'id' => $item->getId())) ?>">
+	 			<?php if($item->getActive()) : ?>
+	                <center><img src="<?php echo $this->baseUrl('/ico/tick-circle.png') ?>" alt="de-actief?" /></center>
+	            <?php else : ?>
+	                <center><img src="<?php echo $this->baseUrl('/ico/minus-circle.png') ?>" alt="activeer?" /></center>
+	            <?php endif ?> 
+            </a>
+		</td>
+		<td>
+			<a title="Aanpassen" href="<?php echo $this->url(array('action' => 'edit', 'id' => $item->getId())) ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="Aanpassen" />
+			</a>
+            
+			<?php if($canDelete){?><a title="Verwijderen" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'delete', 'id' => $item->getId())) ?>');">
+			<?php }?>	<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="Verwijderen" />
+			<?php if($canDelete) {?></a><?php }?>
+		</td>
+	</tr>
+
+	<?php endforeach ?>
+</table>
+
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?>

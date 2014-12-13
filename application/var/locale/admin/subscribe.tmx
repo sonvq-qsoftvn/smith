@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+         adminlang="en-us" srclang="en-us" o-tmf="abc">
+	</header>
+	<body>
+		<tu tuid='itemdeleted'>
+			<tuv xml:lang="nl"><seg>Item werd succesvol verwijderd!</seg></tuv>
+			<tuv xml:lang="en"><seg>Item was successfully deleted!</seg></tuv>
+		</tu>
+		<tu tuid='itemcreated'>
+			<tuv xml:lang="nl"><seg>Item werd succesvol aangemaakt!</seg></tuv>
+			<tuv xml:lang="en"><seg>Item was successfully created!</seg></tuv>
+		</tu>
+		<tu tuid='itemcreated'>
+			<tuv xml:lang="nl"><seg>Mail werd succesvol aangemaakt!</seg></tuv>
+			<tuv xml:lang="en"><seg>Mail was successfully created!</seg></tuv>
+		</tu>
+		<tu tuid='exportresults'>
+			<tuv xml:lang="nl"><seg>Exporteer resultaten abonnees</seg></tuv>
+			<tuv xml:lang="en"><seg>Export results subcriptions</seg></tuv>
+		</tu>
+		<tu tuid='page'>
+			<tuv xml:lang="nl"><seg>pagina</seg></tuv>
+			<tuv xml:lang="en"><seg>page</seg></tuv>
+		</tu>
+		<tu tuid='from'>
+			<tuv xml:lang="nl"><seg>van</seg></tuv>
+			<tuv xml:lang="en"><seg>from</seg></tuv>
+		</tu>
+		<tu tuid='id'>
+			<tuv xml:lang="nl"><seg>ID</seg></tuv>
+			<tuv xml:lang="en"><seg>ID</seg></tuv>
+		</tu>
+		<tu tuid='name'>
+			<tuv xml:lang="nl"><seg>Naam</seg></tuv>
+			<tuv xml:lang="en"><seg>Name</seg></tuv>
+		</tu>
+		<tu tuid='firstname'>
+			<tuv xml:lang="nl"><seg>Voornaam</seg></tuv>
+			<tuv xml:lang="en"><seg>First name</seg></tuv>
+		</tu>
+		<tu tuid='email'>
+			<tuv xml:lang="nl"><seg>E-mail</seg></tuv>
+			<tuv xml:lang="en"><seg>Email</seg></tuv>
+		</tu>
+		<tu tuid='language'>
+			<tuv xml:lang="nl"><seg>Taal</seg></tuv>
+			<tuv xml:lang="en"><seg>Language</seg></tuv>
+		</tu>
+		<tu tuid='active'>
+			<tuv xml:lang="nl"><seg>Actief</seg></tuv>
+			<tuv xml:lang="en"><seg>Active</seg></tuv>
+		</tu>
+		<tu tuid='registrations'>
+			<tuv xml:lang="nl"><seg>registraties</seg></tuv>
+			<tuv xml:lang="en"><seg>registrations</seg></tuv>
+		</tu>
+		<tu tuid='subject'>
+			<tuv xml:lang="nl"><seg>Onderwerp e-mail</seg></tuv>
+			<tuv xml:lang="en"><seg>Subject email</seg></tuv>
+		</tu>
+		<tu tuid='subjectdescription'>
+			<tuv xml:lang="nl"><seg>Stel het onderwerp van de e-mail in.</seg></tuv>
+			<tuv xml:lang="en"><seg>Set a subject for the email.</seg></tuv>
+		</tu>
+		<tu tuid='content'>
+			<tuv xml:lang="nl"><seg>Inhoud</seg></tuv>
+			<tuv xml:lang="en"><seg>Content</seg></tuv>
+		</tu>
+		<tu tuid='contentdescription'>
+			<tuv xml:lang="nl"><seg>Je kan verschillende parameters doorgeven in de mails</seg></tuv>
+			<tuv xml:lang="en"><seg>You can give multiple parameters to the mails</seg></tuv>
+		</tu>
+		<tu tuid='url'>
+			<tuv xml:lang="nl"><seg>Link</seg></tuv>
+			<tuv xml:lang="en"><seg>URL</seg></tuv>
+		</tu>
+		<tu tuid='sendername'>
+			<tuv xml:lang="nl"><seg>Afzender naam</seg></tuv>
+			<tuv xml:lang="en"><seg>Sender name</seg></tuv>
+		</tu>
+		<tu tuid='sendernamedescription'>
+			<tuv xml:lang="nl"><seg>Indien geen afzender naam is opgegeven, wordt de standaard gebruikt.</seg></tuv>
+			<tuv xml:lang="en"><seg>If no sender name gets declared, the default will be used.</seg></tuv>
+		</tu>
+		<tu tuid='senderemail'>
+			<tuv xml:lang="nl"><seg>Afzender e-mailadres</seg></tuv>
+			<tuv xml:lang="en"><seg>Sender email address</seg></tuv>
+		</tu>
+		<tu tuid='senderemaildescription'>
+			<tuv xml:lang="nl"><seg>Indien geen afzender e-mail adres is opgegeven, wordt de standaard gebruikt.</seg></tuv>
+			<tuv xml:lang="en"><seg>If no sender email address gets declared, the default will be used.</seg></tuv>
+		</tu>
+		<tu tuid='replytoname'>
+			<tuv xml:lang="nl"><seg>ReplyTo naam</seg></tuv>
+			<tuv xml:lang="en"><seg>ReplyTo name</seg></tuv>
+		</tu>
+		<tu tuid='replytonamedescription'>
+			<tuv xml:lang="nl"><seg>Indien geen ReplyTo naam is opgegeven, wordt de standaard gebruikt.</seg></tuv>
+			<tuv xml:lang="en"><seg>If no ReplyTo name gets declared, the default will be used.</seg></tuv>
+		</tu>
+		<tu tuid='replytoemail'>
+			<tuv xml:lang="nl"><seg>ReplyTo naam</seg></tuv>
+			<tuv xml:lang="en"><seg>ReplyTo name</seg></tuv>
+		</tu>
+		<tu tuid='replytoemaildescription'>
+			<tuv xml:lang="nl"><seg>Indien geen ReplyTo naam is opgegeven, wordt de standaard gebruikt.</seg></tuv>
+			<tuv xml:lang="en"><seg>If no ReplyTo name gets declared, the default will be used.</seg></tuv>
+		</tu>
+		<tu tuid='formvalidation'>
+			<tuv xml:lang="nl"><seg>Formulier validatie</seg></tuv>
+			<tuv xml:lang="en"><seg>Validation form</seg></tuv>
+		</tu>
+		<tu tuid='allfieldsrequired'>
+			<tuv xml:lang="nl"><seg>Alle velden zijn verplicht in te vullen.</seg></tuv>
+			<tuv xml:lang="en"><seg>All fields are required.</seg></tuv>
+		</tu>		<tu tuid='save'>
+			<tuv xml:lang="nl"><seg>Opslaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Save</seg></tuv>
+		</tu>
+		<tu tuid='settings'>
+			<tuv xml:lang="nl"><seg>Instellingen</seg></tuv>
+			<tuv xml:lang="en"><seg>Settings</seg></tuv>
+		</tu>
+		<tu tuid='subscribe'>
+			<tuv xml:lang="nl"><seg>Inschrijven</seg></tuv>
+			<tuv xml:lang="en"><seg>Subscribe</seg></tuv>
+		</tu>
+		<tu tuid='managesmails'>
+			<tuv xml:lang="nl"><seg>Beheer registratiemails</seg></tuv>
+			<tuv xml:lang="en"><seg>Manage registrationmails</seg></tuv>
+		</tu>
+		<tu tuid='newmail'>
+			<tuv xml:lang="nl"><seg>Nieuwe registratiemail</seg></tuv>
+			<tuv xml:lang="en"><seg>New registrationmail</seg></tuv>
+		</tu>
+		<tu tuid='exportsubscribers'>
+			<tuv xml:lang="nl"><seg>Exporteer abbonees</seg></tuv>
+			<tuv xml:lang="en"><seg>Export subscribers</seg></tuv>
+		</tu>
+		<tu tuid='addnewmail'>
+			<tuv xml:lang="nl"><seg>Nieuwe registratiemail toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add new registrationmail</seg></tuv>
+		</tu>
+		<tu tuid='editmail'>
+			<tuv xml:lang="nl"><seg>Registratiemail aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit registrationmail</seg></tuv>
+		</tu>
+		<tu tuid='registrationmailoverview'>
+			<tuv xml:lang="nl"><seg>Registratiemail overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Registrationmail overview</seg></tuv>
+		</tu>
+		<tu tuid='deletedetail'>
+			<tuv xml:lang="nl"><seg>Verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete</seg></tuv>
+		</tu>
+		<tu tuid='deletedetailconfirm'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u deze mail wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this mail?</seg></tuv>
+		</tu>
+		<tu tuid='sender'>
+			<tuv xml:lang="nl"><seg>Afzender</seg></tuv>
+			<tuv xml:lang="en"><seg>Sender</seg></tuv>
+		</tu>
+		<tu tuid='replyto'>
+			<tuv xml:lang="nl"><seg>ReplyTo</seg></tuv>
+			<tuv xml:lang="en"><seg>ReplyTo</seg></tuv>
+		</tu>
+		<tu tuid='action'>
+			<tuv xml:lang="nl"><seg>Actie</seg></tuv>
+			<tuv xml:lang="en"><seg>Action</seg></tuv>
+		</tu>
+		<tu tuid='edit'>
+			<tuv xml:lang="nl"><seg>Aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit</seg></tuv>
+		</tu>
+		<tu tuid='delete'>
+			<tuv xml:lang="nl"><seg>Verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete</seg></tuv>
+		</tu>
+	</body>
+</tmx>

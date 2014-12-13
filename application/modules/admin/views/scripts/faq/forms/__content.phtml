@@ -1,0 +1,47 @@
+<dl>
+    <dt>
+	<label for="stop"><?php echo $this->admin_tmx->_('activein') ?> [<?php echo strtoupper($_SESSION['System']['lng']); ?>].</label>
+    </dt>
+    <dd>
+    	<input type="checkbox" name="active" id="active" value="1" <?php if($this->item->getActive() != '0'): ?>checked="checked"<?php endif ?> />
+	<p class="description"></p>
+    </dd>
+
+    <dt>
+	<label for="parentID"><?php echo $this->admin_tmx->_('maincat') ?></label>
+    </dt>
+    <dd>
+        <select id="parentID" name="parentID">
+            <?php foreach($this->cats as $c):?>
+                <option value="<?php echo $c->getId();?>"<?php if($c->getId()==$this->item->getParentId()):?> selected="selected"<?php endif;?>><?php echo $c->getTitle();?></option>
+            <?php endforeach;?>
+        </select>
+    </dd>
+
+    <dt>
+        <label for="question"><?php echo $this->admin_tmx->_('question') ?>:</label>
+    </dt>
+    <dd>
+        <input type="text" name="question" id="question" size="90"
+               value="<?php echo $this->escape($this->item->getQuestion()) ?>" />
+               <?php echo $this->messages->getMessagesHtml('question') ?>
+        <p class="description">
+            <?php echo $this->admin_tmx->_('min2max255chars') ?>
+        </p>
+    </dd>
+
+
+    <dt class="editor">
+        <label for="answer"><?php echo $this->admin_tmx->_('answer') ?></label>
+    </dt>
+    <dd>
+        <textarea name="answer" id="answer" style="width:100%;height:350px;" class="mceEditor"><?php echo $this->escape($this->item->getAnswer());?></textarea>
+        <?php echo $this->messages->getMessagesHtml('answer') ?>
+    </dd>
+
+
+    <dd>
+        <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+    </dd>
+
+</dl>

@@ -1,0 +1,85 @@
+<dl>
+	<dt>
+		<label for="subscriptionAllow"><?php echo $this->admin_tmx->_('subscriptionsallowed') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="checkbox" name="subscriptionAllow" id="subscriptionAllow" value="1"
+	    	<?php echo !$this->event->isSubscriptionAllow() ? '' : 'checked="checked"' ?> />
+	</dd>
+
+	<dt>
+		<label for="subscriptionMax"><?php echo $this->admin_tmx->_('maxsubscriptions') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="subscriptionMax" id="subscriptionMax"
+	    	value="<?php echo $this->event->getSubscriptionMax() ?>" />
+	    <?php echo $this->messages->getMessagesHtml('subscriptionMax') ?>
+	    <p class="description">
+	        Maximale toegestane inschrijvingen.
+	    </p>
+	</dd>
+
+	<dt>
+		<label for="dateStart"><?php echo $this->admin_tmx->_('startdatesubscriptions') ?>:</label>
+	</dt>
+	<dd>
+		<input type="text" name="dateStart" id="dateStart" 
+			value="<?php echo $this->event->getDateStart('%d-%m-%Y') ?>" class="ExtDateField" readonly="readonly" />
+		<?php echo $this->messages->getMessagesHtml('dateStart') ?>
+	</dd>
+
+	<dt>
+		<label for="dateEnd"><?php echo $this->admin_tmx->_('enddatesubscriptions') ?>:</label>
+	</dt>
+	<dd>
+		<input type="text" name="dateEnd" id="dateEnd" 
+			value="<?php echo $this->event->getDateEnd('%d-%m-%Y') ?>" class="ExtDateField" readonly="readonly" />
+		<?php echo $this->messages->getMessagesHtml('dateEnd') ?>
+	</dd>
+
+	<dt>
+		<label for="rememberDays">Herinnering:</label>
+	</dt>
+	<dd>
+		<input type="text" name="rememberDays" id="rememberDays" 
+			value="<?php echo $this->event->getRememberDays() ?>" />
+		<?php echo $this->messages->getMessagesHtml('rememberDays') ?>
+		<p class="description">
+			<?php echo $this->admin_tmx->_('daysreminder') ?>
+		</p>
+	</dd>
+
+	<dt>
+		<label for="confirmationLink"><?php echo $this->admin_tmx->_('confirmation') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="checkbox" name="confirmationLink" id="confirmationLink" value="1"
+	    	<?php echo !$this->event->isConfirmationLink() ? '' : 'checked="checked"' ?> />
+		<p class="description">
+			<?php echo $this->admin_tmx->_('ifcheckedconfirmationemail') ?>
+		</p>
+	</dd>
+	<dt>
+		<label for="validateIntern"><?php echo $this->admin_tmx->_('internalcontrol') ?>:</label>	    <input type="checkbox" name="validateIntern" id="validateIntern" value="1"
+	    	<?php echo !$this->event->isValidateIntern() ? '' : 'checked="checked"' ?> />
+	</dt>
+	<dd>
+
+		<p class="description">
+			<?php echo $this->admin_tmx->_('ifcheckedadminchecks') ?>
+		</p>
+	</dd>
+    
+    
+    <dt>
+		<label for="notifyEmail"><?php echo $this->admin_tmx->_('email') ?>:</label>	    
+	    	
+	</dt>
+	<dd>
+   
+		<input type="text" name="notifyEmail" id="notifyEmail" value="<?php echo $this->event->getNotifyEmail() ?>" />
+        <p class="description">
+			<?php echo $this->admin_tmx->_('personmailregistration') ?>
+		</p>
+	</dd>
+</dl>

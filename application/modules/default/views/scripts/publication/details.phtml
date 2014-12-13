@@ -1,0 +1,26 @@
+<?php $this->headTitle($this->publication->getName()) ?>
+
+<div id="sidebar" class="sub">
+    <h1>Publicaties</h1>
+    <ul>
+        <?php foreach ($this->categories as $cat): ?>
+        <?php $url = $this->url(array('category' => $cat->getId(), 'page' => 1), 'publications'); ?>
+        <li <?php if ($cat->getId() == $this->category->getId()) { echo 'class="active"'; } ?>>
+            <a title="Toon de publicaties in de categorie <?php echo $cat->getName() ?>" href="<?php echo $url ?>"><?php echo $cat->getName() ?></a>
+        </li>
+        <?php endforeach ?>
+    </ul>
+</div>
+
+<?php $this->placeholder('breadcrumbs')->captureStart(); ?>
+> <?php echo $this->category->getName() ?>
+<?php $this->placeholder('breadcrumbs')->captureEnd() ?>
+
+<div id="main" class="sub">
+    <?php echo $this->action('breadcrumbs', 'index', null, array('page' => $this->page, 'lng' => $this->lng) ) ?>
+
+    <h1><?php echo $this->publication->getName() ?></h1>
+    <i><a href="<?php echo $this->url(array('category' => $this->category->getId()), 'publications') ?>"><?php echo $this->glob_tmx->_('overview.back') ?></a></i>
+    <br /><br />
+    <?php echo $this->publication->getContent() ?>
+</div>

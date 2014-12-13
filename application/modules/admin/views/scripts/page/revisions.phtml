@@ -1,0 +1,47 @@
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/popup.js') ?>
+<?php $this->headTitle('SxCms - ' . $this->escape($this->page->getTitle()). ' - Revisies') ?>
+
+<h3><?php echo $this->escape($this->page->getTitle()) ?> - Revisies [<?php echo $this->page->getLanguage() ?>]</h3>
+
+<?php if ($this->revisions): ?>
+<table width="95%">
+	<tr>
+		<th><?php echo $this->admin_tmx->_('version') ?></th>
+		<th width="80"><?php echo $this->admin_tmx->_('date') ?></th>
+		<th><?php echo $this->admin_tmx->_('author') ?></th>
+		<th><?php echo $this->admin_tmx->_('dateapproved') ?></th>
+		<th><?php echo $this->admin_tmx->_('approvedby') ?></th>
+		<th><?php echo $this->admin_tmx->_('remarks') ?></th>
+		<th width="15"><img src="<?php echo $this->baseUrl('/images/cms/labels/current_version.png') ?>" alt="" /></th>
+		<th width="50"><?php echo $this->admin_tmx->_('action') ?></th>
+	</tr>
+	<?php $cnt = count($this->revisions) ?>
+	<?php foreach ($this->revisions as $revision): ?>
+	<tr>
+		<td><?php echo $cnt ?></td>
+		<td width="80"><?php echo $this->escape($revision->getDateCreated("%d/%m/%Y")) ?></td>
+		<td><?php echo $this->escape($this->getuser($revision->getAuthorId())); ?></td>
+		<td><?php echo $this->escape($revision->getDateRevised("%d/%m/%Y")) ?></td>
+		<td><?php echo $this->escape($this->getuser($revision->getReviewerId())); ?></td>
+		<td><?php echo $this->escape($revision->getNotes()) ?></td>
+		<td><?php if ($revision->isApproved()): ?>
+				<center><img src="<?php echo $this->baseUrl('/images/cms/actions/16-square-green-check.png') ?>" alt="" /></center>
+			<?php else: ?>
+				<center><img src="<?php echo $this->baseUrl('/images/cms/actions/16-square-red-check.png') ?>" alt="" /></center>
+			<?php endif ?>
+		</td>
+		<td>
+			<a title="<?php echo $this->admin_tmx->_('preview') ?>"  onclick="popup('<?php echo $this->url(array('controller' => 'page', 'action' => 'preview-revision', 'id' => $revision->getId())) ?>', 1024, 600);" style="cursor: pointer">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/document-text-image.png') ?>" alt="Preview" />
+			</a>
+			<a href="<?php echo $this->url(array('controller' => 'page', 'action' => 'initialize-revision', 'id' => $revision->getId(), 'go' => 'admin.page.revision')) ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/search-edit.png') ?>" alt="" />
+			</a>
+		</td>
+	</tr>
+	<?php $cnt--; ?>
+	<?php endforeach ?>
+</table>
+<?php else: ?>
+<p><?php echo $this->admin_tmx->_('norevisions') ?></p>
+<?php endif ?>

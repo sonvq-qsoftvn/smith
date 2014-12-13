@@ -1,0 +1,23 @@
+<?php echo $this->page->getContent(); ?>
+<h1>Forgot your password ?</h1>
+<?php if($this->message): ?>
+<p><?php echo $this->message ?></p>
+<?php else : ?>
+<?php if($this->error) : ?>
+<p>	<?php echo $this->error ?></p>
+<?php endif ?>
+<form id="form" name="form" method="post" action="">
+  <table>
+    <tr>
+      <td>E-mail</td>
+      <td width="20">:</td>
+      <td><input type="text" name="email" class="input" size="30" value="" /></td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+      <td><br /><input type="submit" value="Send" name="submit" class="input" />
+      </td>
+    </tr>
+  </table>
+</form>
+<?php endif ?>

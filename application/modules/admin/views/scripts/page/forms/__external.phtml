@@ -1,0 +1,13 @@
+<dl>
+	<dt>
+		<label for="link"><?php echo $this->admin_tmx->_('externalurl') ?></label>
+	</dt>
+	<dd>
+	    <input type="text" name="link" id="link" size="90"
+	    	value="<?php echo $this->escape($this->page->getLink()) ?>" />
+	    <?php echo $this->messages->getMessagesHtml('link') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('requiredmin1char') ?>
+	    </p>
+	</dd>
+</dl>

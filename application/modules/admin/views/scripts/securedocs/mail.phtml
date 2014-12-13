@@ -1,0 +1,28 @@
+<?php $groups = explode ("/", $this->file->getPath()); ?>
+Dear <?php echo $this->member->getFullName() ?>,
+<br />
+<br />
+The following document has been published in the <b><?php echo $groups[1] ?></b> section of the FTP intranet: <?php echo $this->file->getFilename() ?>.
+<br />
+<br />
+<?php if($this->file->getSummary() != ''){
+    echo "<b>Subject</b><br/>". $this->file->getSummary();
+}
+?>
+<br />
+<br />
+Click <a href="http://forest.preview.sanmax.be/file/download/filename/<?php echo base64_encode($this->file->getPath() . "/" . $this->file->getFilename()) ?>">here</a> to download it.
+<br />
+<br />
+Best regards,
+<br />
+<br />
+Forest Platform secretariat
+<br />
+<br />
+**************************************************
+<br />
+<img src="http://forest.preview.sanmax.be/images/website/logo.jpg" alt="Forest Based Platform" align="left" height="70" />
+Rue du Luxembourg 66 - BE-1000 Brussels<br />
+Tel: +32 (0)2 239 2306<br />
+mail@forestplatform.org - <a href="http://www.forestplatformorg">www.forestplatform.org</a>

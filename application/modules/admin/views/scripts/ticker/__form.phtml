@@ -1,0 +1,34 @@
+
+<?php $this->headScript()->appendFile('/js/tiny_mce/tiny_mce.js') ?>
+<?php $this->headScript()->appendFile('/js/tiny_mce/tiny_mce_init.js') ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$("#date").datepicker({ dateFormat: 'yy/mm/dd' });
+	
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<div id="tabs" style="padding:10px;">
+	
+
+	<form name="add" method="post" action="<?php echo $this->url() ?>" enctype="multipart/form-data">
+	
+		<label for="title">Boodschap</label>
+        <input type="text" name="title" value="<?php echo $this->ticker->getTitle() ?>" size="100" />
+        <label for="url">Url</label>
+        <input type="text" name="url" value="<?php echo $this->ticker->getUrl() ?>"  size="100" />
+          <label for="date">Tonen tot</label>
+          
+           <?php
+				$pubdate = $this->ticker->getDate();
+				$pubdateYmd =  strftime('%Y/%m/%d',strtotime($pubdate)); 
+			?>
+        <input type="text" name="date" id="date" value="<?php echo $pubdate ? $pubdateYmd : date('Y/m/d') ?>" size="9" />
+        
+      	
+        	<label></label>
+        <input type="submit" value="Opslaan" />
+	
+	</form>
+</div>

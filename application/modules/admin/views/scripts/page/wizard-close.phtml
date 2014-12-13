@@ -1,0 +1,5 @@
+<?php $this->headScript()->captureStart() ?>
+window.opener.document.getElementById('parent_id').value = '<?php echo addslashes($this->page->getBreadcrumbs($_SESSION['System']['lng'])) ?>';
+window.close();
+window.opener.generateUrl();
+<?php $this->headScript()->captureEnd() ?>

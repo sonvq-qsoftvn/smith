@@ -1,0 +1,46 @@
+<dl>
+    <dt>
+		<label for="stop"><?php echo $this->admin_tmx->_('activein') ?> [<?php echo strtoupper($_SESSION['System']['lng']); ?>] <?php echo $this->admin_tmx->_('ifpublicationpassed') ?></label>
+	</dt>
+    <dd>
+    	<input type="checkbox" name="active" id="active" value="1" <?php if($this->item->getActive()): ?>checked="checked"<?php endif ?> />
+	    <p class="description"></p>
+	</dd>
+	<dt>
+		<label for="title">Titel:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="title" id="title"
+	    	value="<?php echo $this->item->getTitle() ?>" style="width: 250px;" />
+	    <?php echo $this->messages->getMessagesHtml('title') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('requiredmin2chars') ?><br />
+	    </p>
+	</dd>
+    <dt>
+		<label for="youtube"><?php echo $this->admin_tmx->_('youtubelink') ?>:</label>
+	</dt>
+	<dd>
+	   <input id="url" name="youtube" type="text" value="<?php echo $this->item->getYoutube() ?>" style="width:350px"/><br />
+       <?php echo $this->messages->getMessagesHtml('youtube') ?>
+       <p class="description">
+	        <?php echo $this->admin_tmx->_('example') ?>  http://www.youtube.com/v/3rdpVm1yHy4
+	    </p>
+	</dd>
+    <dt>
+		<label for="date"><?php echo $this->admin_tmx->_('date') ?>:</label>
+	</dt>
+    <?php
+		$date    = $this->item->getDatePublished();
+		$dateYmd = $this->item->getDatePublished('%Y/%m/%d');
+    ?>
+	<dd>
+        <div id="datepicker"></div>
+        <input type="text" name="date_published" id="date_published" size="10"
+	    	value="<?php echo $date ? $dateYmd :  date('Y/m/d') ?>" />
+	    <?php echo $this->messages->getMessagesHtml('date_published') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('daterequired') ?>.<br />
+	    </p>
+	</dd>
+</dl>

@@ -1,0 +1,11 @@
+<?php
+
+$user = Zend_Auth::getInstance()->getIdentity();
+
+$this->headTitle('SxCms - Analytics - Login');
+
+?>
+
+<h3>Analytics - <?php echo $this->admin_tmx->_('login') ?></h3>
+
+<?php echo $this->render('analytics/__form.phtml'); ?>

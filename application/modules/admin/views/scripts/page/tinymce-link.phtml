@@ -1,0 +1,45 @@
+<?php $this->headTitle('SxCms - Pagina selecteren') ?>
+
+<?php $this->headScript()->captureStart() ?>
+function sxCmsSetPage(id)
+{
+	window.opener.document.getElementById('href').value = '<?php echo $this->baseUrl('/index/quick/lng/' . $this->lng . '/id/') ?>' + id;
+	window.close();
+}
+<?php $this->headScript()->captureEnd() ?>
+
+<h3><?php echo $this->admin_tmx->_('choosepage') ?></h3>
+<table width="95%">
+	<tr>
+		<th><?php echo $this->admin_tmx->_('title') ?></th>
+		<th width="20"><?php echo $this->admin_tmx->_('choose') ?></th>
+	</tr>
+
+<?php foreach ($this->siteTree as $page) : ?>
+<tr>
+	<?php $n = ($this->xmlMapper->getDepth($page->getId()) - 1) * 8 ?>
+	<?php $n = $n < 0 ? $n = 0 : $n ?>
+	<td><?php echo str_repeat('&nbsp;', $n) ?>
+		<?php if ($page->getId() === 0): ?>
+			<img src="<?php echo $this->baseUrl('/images/cms/actions/home.png') ?>" alt="" />
+		<?php elseif ($this->xmlMapper->hasChildren($page->getId())): ?>
+			<img src="<?php echo $this->baseUrl('/images/cms/actions/folder.png') ?>" alt="" />
+		<?php elseif ($page->getType() == SxCms_Page::EXTERNAL): ?>
+			<img src="<?php echo $this->baseUrl('/images/cms/actions/page_go.png') ?>" alt="" />
+		<?php else: ?>
+			<img src="<?php echo $this->baseUrl('/images/cms/actions/page.png') ?>" alt="" />
+		<?php endif ?>
+		<a href="#" onclick="sxCmsSetPage('<?php echo $page->getid() ?>');">
+			<?php echo $this->escape($page->getTitle()) ?>
+		</a>
+	</td>
+	<td align="center">
+		<center>
+			<a href="#" onclick="sxCmsSetPage('<?php echo $page->getid() ?>');">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/save_labled_go.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+			</a>
+		</center>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>

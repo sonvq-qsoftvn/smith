@@ -1,0 +1,25 @@
+<dl>
+	<dt>
+		<label for="groupname"><?php echo $this->admin_tmx->_('groupname') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="groupname" id="groupname"
+	    	value="<?php echo $this->item->getGroup() ?>" style="width: 250px;" />
+	    <?php echo $this->messages->getMessagesHtml('group') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('groupnamedescription') ?><br />
+	    </p>
+	</dd>
+    <dt>
+        <label for="maps"><?php echo $this->admin_tmx->_('selectfoldersaccess') ?>:</label>
+    </dt>
+    <dt>
+        <?php foreach($this->folders as $folder) : ?>
+        <span style="width: 40%; float: left; margin: 0 5% 2% 0;">
+            <input type="checkbox" name="maps[]" id="maps" value="<?php echo $folder->getFolderId(); ?>" <?php if(in_array($folder->getFolderId(), $this->item->getMaps())): ?>checked="checked"<?php endif ?> /> <?php echo $folder->getFoldername(); ?>
+        </span>
+        <?php endforeach; ?>
+        <span style="clear: both;"></span>
+    </dt>
+    <div style="clear: both"></div>
+</dl>

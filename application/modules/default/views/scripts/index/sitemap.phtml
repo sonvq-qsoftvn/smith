@@ -1,0 +1,56 @@
+<?php $n = count($this->topmenus); ?>
+<?php $i = 0;  $lastpage='0';?>
+<?php $count = 2; ?>
+  
+<?php do { ?>
+ 
+	<?php $page = current($this->menus);
+	
+	if($page !== false): ?>
+		<?php if(substr($page->getLink(),0,7) == 'http://') : ?>
+			<?php $url = $page->getLink(); ?>
+			  <?php $target = 'target="_blank"'; ?>
+		<?php else : ?>
+			<?php $url = $this->url(array('url' => $page->getLink(), 'lng' => $this->lng), 'content', false, false);  ?>
+			<?php $target = ''; ?>
+		<?php endif ?>
+		
+		
+		<?php if($page) : ?>
+		<?php if ($page->getId() == 0) : ?>
+			 <div class="parent"><a href="<?php echo $url ?>" <?php echo $target ?>><?php echo $page->getTitle() ?></a></div>
+		
+		<?php endif?>
+		
+		<?php if(!$page->hasChildren() && $page->getLevel() == 2) : ?>
+			 <div class="parent"><a href="<?php echo $url ?>" <?php echo $target ?>><?php echo $page->getTitle() ?></a></div>
+		<?php endif ?>
+		
+		<?php if($page->hasChildren() && $page->getLevel() == 2) : ?>
+			<?php $amountChildren = count($page->getChildren()); ?>
+			 <?php $i = 0; ?>
+			<div class="parent-wrap">
+				<div class="parent"><a href="<?php echo $url ?>" <?php echo $target ?>><?php echo $page->getTitle() ?></a> </div>
+				  <ul>
+		<?php endif; ?>
+
+		 <?php if($page->getLevel() == 3) : ?>
+			 <li class="subpage"><a href="<?php echo $url ?>" <?php echo $target ?>><?php echo $page->getTitle() ?></a></li>
+			 <?php if($amountChildren == $i): ?>
+				</ul>
+				</div>
+			 <?php endif ?>
+		 <?php endif ?>
+		 
+		 <?php if($n % 7 == 0) : ?>
+			<div style="clear:both"></div>
+		 <?php endif ?>
+		
+		<?php if($page->getLevel() == 2) : ?>
+			<?php $count++ ?>
+		<?php endif ?>
+		
+		<?php $i++; ?>   
+		<?php endif ?>
+	<?php endif; ?>
+<?php } while(next($this->menus)) ?>

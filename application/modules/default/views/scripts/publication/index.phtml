@@ -1,0 +1,48 @@
+<div id="sidebar" class="sub">
+
+    <h1><?php echo $this->glob_tmx->_('publi') ?></h1>
+    <ul>
+        <?php foreach ($this->categories as $cat): ?>
+        <?php $url = $this->url(array('category' => $cat->getId(), 'page' => 1), 'publications'); ?>
+        <li <?php if ($cat->getId() == $this->category->getId()) { echo 'class="active"'; } ?>><a href="<?php echo $url ?>"><?php echo $cat->getName() ?></a></li>
+        <?php endforeach ?>
+    </ul>
+</div>
+
+<?php $this->placeholder('breadcrumbs')->captureStart(); ?>
+> <?php echo $this->category->getName() ?>
+<?php $this->placeholder('breadcrumbs')->captureEnd() ?>
+
+<div id="main" class="sub">
+    <?php echo $this->action('breadcrumbs', 'index', null, array('page' => $this->page, 'lng' => $this->lng) ) ?>
+
+    <?php if ($this->category->getName()): ?>
+	<h1><?php echo $this->category->getName() ?></h1>
+	<?php $this->headTitle($this->category->getName()) ?>
+	<?php else: ?>
+    <!--<h1><?php echo $this->glob_tmx->_('publi') ?></h1>-->
+    <?php echo $this->page->getContent() ?>
+	<?php endif ?>
+
+    <?php if (!$this->category->getId()): ?>
+    <p><?php echo $this->glob_tmx->_('choose.left') ?></p>
+    <?php endif ?>
+    <?php if (!$this->paginator->getTotalItemCount() && $this->category->getId()): ?>
+    <p>Geen publicaties gevonden</p>
+    <?php endif ?>
+    <br />
+
+
+	<?php foreach ($this->paginator as $pub): ?>
+	<div class="event-index">
+	    <h2><a title="Lees de volledige inhoud van deze publicatie" href="<?php echo $this->url(array('id' => $pub->getId()), 'publication-detail') ?>"><?php echo $pub->getName() ?></a></h2>
+     
+	    <i><?php echo htmlentities(strftime("%A %d %B %Y", strtotime($pub->getPublicationDate())),ENT_NOQUOTES,'UTF-8') ?></i>
+	    <p><?php echo nl2br($pub->getDescription())?></p>
+	    <div style="clear: both; padding: 0; margin: 5px 0 5px 0; border-bottom: 1px solid #eeeeee"></div>
+	</div>
+
+	<?php endforeach ?>
+
+	<center><?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?></center>
+</div>

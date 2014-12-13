@@ -1,0 +1,8 @@
+<dl>
+    <dt>
+        <label for="description"><?php echo $this->admin_tmx->_('description') ?>:</label>
+    </dt>
+    <dd>
+        <textarea name="description" id="description" style="width:100%; height: 500px;" rows="50" class="mceEditor"><?php echo $this->escape($this->item->getDescription()) ?></textarea>
+    </dd>
+</dl>

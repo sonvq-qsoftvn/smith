@@ -1,0 +1,36 @@
+<dl>
+    <dt>
+    <label for="title"><?php echo $this->admin_tmx->_('titlenews') ?>:</label>
+    </dt>
+    <dd>
+        <input type="text" name="title" id="title" size="90"
+               value="<?php echo $this->escape($this->item->getTitle()) ?>" />
+<?php echo $this->messages->getMessagesHtml('title') ?>
+        <p class="description">
+            <?php echo $this->admin_tmx->_('min2max255chars') ?>
+        </p>
+    </dd>
+
+    <dt>
+    <label for="summary"><?php echo $this->admin_tmx->_('summarynews') ?>:</label>
+    </dt>
+    <dd>
+        <div id="summary_">
+            <textarea name="summary" id="summary" cols="90"><?php echo $this->escape($this->item->getSummary()) ?></textarea></div>
+<?php echo $this->messages->getMessagesHtml('summary') ?>
+        <p class="description">
+            <?php echo $this->admin_tmx->_('summarynewsdescription') ?>
+        </p>
+    </dd>
+
+    <dt class="editor">
+    <label for="content"><?php echo $this->admin_tmx->_('message') ?>:</label>
+    </dt>
+    <dd>
+        <textarea name="content" id="content" style="width:100%; height: 500px;" rows="50" class="mceEditor"><?php echo $this->escape($this->item->getContent()) ?></textarea>
+<?php echo $this->messages->getMessagesHtml('content') ?>
+        <p class="description">
+            <?php echo $this->admin_tmx->_('requiredmin2chars') ?>
+        </p>
+    </dd>
+</dl>

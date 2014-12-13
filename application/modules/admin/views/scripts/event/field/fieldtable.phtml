@@ -1,0 +1,49 @@
+<script type="text/javascript">
+$(function() {
+	$('.deletefield').click(function() {
+		key = $(this).attr('id');
+		$.ajax({
+			type: 'POST',
+            url: '<?php echo $this->url(array('controller' => 'event_field', 'action' => 'remove-field')) ?>',
+			data: {'key' : key },
+			success: function(msg) {
+				$("#fieldtable").html(msg);
+				reload();
+				$("#listtable").load("<?php echo $this->url(array('controller' => 'event_field_list', 'action' => 'add-list')) ?>")
+			}
+		});
+	});
+	$('.editfield').click(function() {
+		key = $(this).attr("id");
+		$("#key").val(key);
+		$.getJSON('<?php echo $this->url(array('controller' => 'event_field', 'action' => 'get-field')) ?>', {'key' : key},
+			function(data){
+				$("#label").val(data["label"]);
+				$("#name").val(data["name"]);
+				$("#type").val(data["type"]);
+			}
+		);
+	});
+});
+</script>
+
+<h3><?php echo $this->admin_tmx->_('field') ?></h3>
+<table width="95%" id="table">
+	<tr>
+		<th><?php echo $this->admin_tmx->_('label') ?></th>
+		<th><?php echo $this->admin_tmx->_('fieldname') ?></th>
+		<th><?php echo $this->admin_tmx->_('type') ?></th>
+		<th style="width: 60px;"></th>
+	</tr>
+	<?php foreach($this->event->getFields() as $key => $field): ?>
+	<tr>
+		<td><?php echo $field->getLabel() ?></td>
+		<td><?php echo $field->getName() ?></td>
+		<td><?php echo $field->getType() ?></td>
+		<td>
+			<img src="<?php echo $this->baseUrl('/images/cms/actions/delete.png') ?>" class="deletefield" id="<?php echo $key ?>"  alt="" />
+			<img src="<?php echo $this->baseUrl('/images/cms/actions/page_edit.png') ?>" class="editfield" id="<?php echo $key ?>" alt="" />
+		</td>
+	</tr>
+	<?php endforeach; ?>
+</table>

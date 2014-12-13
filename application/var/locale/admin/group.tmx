@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+         adminlang="en-us" srclang="en-us" o-tmf="abc">
+	</header>
+	<body>
+		<tu tuid='usergroupsaved'>
+			<tuv xml:lang="nl"><seg>De gebruikersgroep werd succesvol opgeslagen!</seg></tuv>
+			<tuv xml:lang="en"><seg>The usergroup has successfully been saved!</seg></tuv>
+		</tu>
+		<tu tuid='usergroupdeleted'>
+			<tuv xml:lang="nl"><seg>De gebruikersgroep werd succesvol verwijderd!</seg></tuv>
+			<tuv xml:lang="en"><seg>The usergroup has successfully been deleted!</seg></tuv>
+		</tu>
+		<tu tuid='general'>
+			<tuv xml:lang="nl"><seg>Algemeen</seg></tuv>
+			<tuv xml:lang="en"><seg>General</seg></tuv>
+		</tu>
+		<tu tuid='rights'>
+			<tuv xml:lang="nl"><seg>Rechten</seg></tuv>
+			<tuv xml:lang="en"><seg>Rights</seg></tuv>
+		</tu>
+		<tu tuid='name'>
+			<tuv xml:lang="nl"><seg>Naam</seg></tuv>
+			<tuv xml:lang="en"><seg>Name</seg></tuv>
+		</tu>
+		<tu tuid='requiredmin2max255chars'>
+			<tuv xml:lang="nl"><seg>Verplicht in te vullen, minimum 2 en maximum 255 karakters</seg></tuv>
+			<tuv xml:lang="en"><seg>Required, minimum 2, maximum 255 characters</seg></tuv>
+		</tu>
+		<tu tuid='save'>
+			<tuv xml:lang="nl"><seg>Opslaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Save</seg></tuv>
+		</tu>
+		<tu tuid='assignrightsauto'>
+			<tuv xml:lang="nl"><seg>Automatisch alle rechten van dit onderdeel toekennen</seg></tuv>
+			<tuv xml:lang="en"><seg>Assign all rights for this section automatically</seg></tuv>
+		</tu>
+		<tu tuid='addusergroup'>
+			<tuv xml:lang="nl"><seg>Gebruikersgroep toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add usergroup</seg></tuv>
+		</tu>
+		<tu tuid='editusergroup'>
+			<tuv xml:lang="nl"><seg>Gebruikersgroep aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit usergroup</seg></tuv>
+		</tu>
+		<tu tuid='usergroupsoverview'>
+			<tuv xml:lang="nl"><seg>Gebruikersgroepen overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Usergroups overview</seg></tuv>
+		</tu>
+		<tu tuid='deleteusergroup'>
+			<tuv xml:lang="nl"><seg>Gebruikersgroep verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete usergroup</seg></tuv>
+		</tu>
+		<tu tuid='deleteusergroupconfirm'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u deze gebruikersgroep wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this usergroup?</seg></tuv>
+		</tu>
+		<tu tuid='action'>
+			<tuv xml:lang="nl"><seg>Actie</seg></tuv>
+			<tuv xml:lang="en"><seg>Action</seg></tuv>
+		</tu>
+		<tu tuid='edit'>
+			<tuv xml:lang="nl"><seg>Aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit</seg></tuv>
+		</tu>
+		<tu tuid='delete'>
+			<tuv xml:lang="nl"><seg>Verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete</seg></tuv>
+		</tu>
+	</body>
+</tmx>

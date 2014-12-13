@@ -1,0 +1,22 @@
+<dl>
+	<dt>
+		<label for="name"><?php echo $this->admin_tmx->_('title') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="name" id="name"
+	    	value="<?php echo $this->subtype->getName() ?>" style="width: 250px;" />
+	    <?php echo $this->messages->getMessagesHtml('name') ?>
+	    <p class="description">
+	      
+	    </p>
+	</dd>
+
+     <dt>
+		<label for="stop"><?php echo $this->admin_tmx->_('active') ?></label>
+	</dt>
+	<dd>
+    	<input type="checkbox" name="active" id="active" value="1" <?php if($this->subtype->getActive()): ?>checked="checked"<?php endif ?> />
+	    <p class="description"></p>
+	</dd>
+	
+</dl>

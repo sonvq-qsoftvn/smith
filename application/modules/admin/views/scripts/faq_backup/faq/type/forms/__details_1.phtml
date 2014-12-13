@@ -1,0 +1,37 @@
+<dl>
+	<dt>
+		<label for="name">Titel:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="name" id="name"
+	    	value="<?php echo $this->type->getName() ?>" style="width: 250px;" />
+	    <?php echo $this->messages->getMessagesHtml('name') ?>
+	    <p class="description">
+	      
+	    </p>
+	</dd>
+    <input type="hidden" name="scheme" value="none" />
+   <!-- <dt>
+		<label for="name">Kleurenschema:</label>
+	</dt>
+	<dd>
+	    <select name="scheme" style="width: 265px;">
+        		<option value="orange" <?php if($this->type->getScheme() == 'orange'): ?> selected="selected" <?php endif ?>>Oranje</option>
+                <option value="green" <?php if($this->type->getScheme() == 'green'): ?> selected="selected" <?php endif ?>>Groen</option>
+                <option value="purple" <?php if($this->type->getScheme() == 'purple'): ?> selected="selected" <?php endif ?>>Paars</option>
+                <option value="blue" <?php if($this->type->getScheme() == 'blue'): ?> selected="selected" <?php endif ?>>Blauw</option>
+        </select>
+         <p class="description">
+	       
+	    </p>
+	</dd>
+    -->
+     <dt>
+		<label for="stop">Actief</label>
+	</dt>
+	<dd>
+    	<input type="checkbox" name="active" id="active" value="1" <?php if($this->type->getActive()): ?>checked="checked"<?php endif ?> />
+	    <p class="description"></p>
+	</dd>
+	
+</dl>

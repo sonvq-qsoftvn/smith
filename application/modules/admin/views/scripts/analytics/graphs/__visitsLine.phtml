@@ -1,0 +1,46 @@
+<h2><?php echo $this->admin_tmx->_('dailyvisits') ?></h2>
+<div id="visitsline" style="width: 100%; height: 200px;"></div>
+
+<script type="text/javascript">
+
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawVisitsLine);
+
+function drawVisitsLine() {
+
+    var data = google.visualization.arrayToDataTable([
+        ['<?php echo $this->admin_tmx->_('day') ?>', '<?php echo $this->admin_tmx->_('visits') ?>'],
+        <?php
+
+        $total = count($this->visits["day"]);
+        foreach ($this->visits["visits"] AS $key => $value) {
+
+			if (!isset($smallest)) $smallest = $value;
+			else { if($value < $smallest) $smallest = $value; }
+            echo "['".substr(addslashes($this->visits["day"][$key]), -2)."/".substr(addslashes($this->visits["day"][$key]), -4, 2)."', ".$value."]";
+            if ($key < $total-1) echo ",";
+
+        }
+
+        ?>
+    ]);
+
+    var options = {
+        
+        legend: 'none',
+        chartArea: {left: 10, top: 0, width: '99%', height: 140},
+        areaOpacity: 0.10,
+        hAxis: {slantedText: true, slantedTextAngle: 90},
+        vAxis: {textPosition: 'in', minValue: <?php echo round($smallest/1.7); ?>},
+        lineSize: 4,
+        colors: ['#6A8BAB'],
+        pointSize: 0
+        
+    };
+
+    var chart = new google.visualization.AreaChart(document.getElementById('visitsline'));
+    chart.draw(data, options);
+
+}
+
+</script>

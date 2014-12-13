@@ -1,0 +1,26 @@
+<?php echo $this->render('system/leave.phtml'); ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<?php $this->headTitle('SxCms - '.$this->admin_tmx->_('pagetype')) ?>
+
+<h3>Type instellen</h3>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1"><?php echo $this->admin_tmx->_('pagetype') ?></a></li>
+	</ul>
+	<form method="post" action="<?php echo $this->url() ?>">
+	<div id="tabs-1">
+		<?php echo $this->render('page/forms/__type.phtml') ?>
+		<dl style="margin-top: 20px;">
+			<dd>
+			    <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('nextstep') ?>" onclick="disableConfirm();" />
+			</dd>
+		</dl>
+	</div>
+	</form>
+</div>

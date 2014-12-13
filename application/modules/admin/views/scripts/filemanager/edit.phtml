@@ -1,0 +1,153 @@
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/popup.js') ?>
+<?php echo $this->render('system/leave.phtml'); ?>
+
+<?php $this->headTitle('Document beheer ' . $this->file->getFilename()) ?>
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+
+function disableGroupBoxes(anonymous) {
+    if (anonymous.checked) {
+        $("#group-boxes input[type='checkbox']").attr('checked', false);
+    }
+}
+
+function disableAnonymousBox() {
+    var checked  = 0;
+    $("#group-boxes input[type='checkbox']").each(function() {
+        if (!this.checked) {
+            checked = checked + 1;
+        }
+    });
+
+    if (checked == 0) {
+        $("input[name='anonymous']").attr('checked', '');
+    } else {
+        $("input[name='anonymous']").attr('checked', 'checked');
+    }
+}
+
+$(document).ready(function () {
+    disableAnonymousBox();
+});
+
+<?php $this->headScript()->captureEnd() ?>
+
+<h3><?php echo $this->file->getFilename() ?> - Aanpassen</h3>
+
+<table width="98%">
+	<tr>
+		<th><?php echo base64_decode($this->path) ?>/<?php echo $this->file->getFilename() ?>
+		</th>
+	</tr>
+</table>
+
+<form method="post" action="<?php echo $this->url() ?>">
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-edit">Aanpassen</a></li>
+        <?php if ($this->file->isFile()): ?>
+		<li><a href="#tabs-acl">Rechten</a></li>
+        <?php endif ?>
+	</ul>
+	<div id="tabs-edit">
+
+		<?php if ($this->file->isFile()): ?>
+		<dl>
+			<dt>
+				<label for="source">Bestandsnaam:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="filename" id="filename" size="90"
+			    	value="<?php echo $this->file->getFilename() ?>" />
+			    <p class="description">
+			        Indien ingevuld, minimum 2 en maximum 255 karakters
+			    </p>
+			</dd>
+			<dt>
+				<label for="source">Vertaling:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="link" id="link" size="75"
+			    	value="<?php echo $this->file->getLink() ?>" />
+			    <input type="button" name="tslselect" value="Selecteren" onclick="return popup('<?php echo $this->url(array('controller' => 'filemanager', 'action' => 'index', 'full' => true)) ?>');" />
+			</dd>
+			<dt>
+				<label for="source">Titel:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="title" id="title" size="90"
+			    	value="<?php echo $this->file->getTitle() ?>" />
+			    <p class="description">
+			        Indien ingevuld, minimum 2 en maximum 255 karakters
+			    </p>
+			</dd>
+			<dt>
+				<label for="source">Samenvatting:</label>
+			</dt>
+			<dd>
+			    <textarea name="summary" id="summary" cols="90"><?php echo $this->file->getSummary() ?></textarea>
+			    <p class="description">
+			        Verplicht in te vullen, minimum 2 en maximum 255 karakters
+			    </p>
+			</dd>
+		<?php else: ?>
+			<dt>
+				<label for="source">Mapnaam:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="filename" id="filename" size="90"
+			    	value="<?php echo $this->file->getFilename() ?>" />
+			    <p class="description">
+			        Indien ingevuld, minimum 2 en maximum 255 karakters
+			    </p>
+			</dd>
+		<?php endif ?>
+			<dd>
+				<input type="hidden" name="path" value="<?php echo $this->path ?>" />
+				<input class=delete type="button" value="Annuleren" onclick="disableConfirm(); window.location = '<?php echo $this->url(array('controller' => 'filemanager', 'action' => 'index', 'path' => $this->path)) ?>'" />
+			    <input class="button" type="submit" value="Opslaan" onclick="disableConfirm();" />
+			</dd>
+		</dl>
+	</div>
+    <?php if ($this->file->isFile()): ?>
+    <div id="tabs-acl">
+		<?php $groups = $this->file->getPermissions() ?>
+		<dl>
+		    <dd>
+		        <input type="checkbox" name="anonymous" value="0" onclick="disableGroupBoxes(this);" /> &nbsp;
+		            Anonieme gebruikers toestaan
+		        <p class="description">
+		            Indien u dit aanvinkt is het overbodig om specifieke groepen
+		            te selecteren, gezien iedereen automatisch toegang heeft.
+		        </p>
+		    </dd>
+		    <dt>
+		        <label for="acl">Bestand zichtbaar maken voor specifieke groepen:</label>
+		    </dt>
+		    <div id="group-boxes">
+		        <?php foreach ($this->groups as $group): ?>
+		        <dd>
+		            <input type="checkbox" name="group[]" value="<?php echo $group->getId() ?>"
+		                <?php if (isset($groups[$group->getId()])) { echo 'checked="checked"'; } ?> onclick="disableAnonymousBox(this);" /> &nbsp;
+		                <?php echo $group->getName() ?>
+		        </dd>
+		        <?php endforeach ?>
+
+		        <dd>
+		            <p class="description">
+		                Selecteer de gebruikersgroepen die toegang hebben tot dit bestand
+		            </p>
+		         </dd>
+            <dd>
+                <input type="hidden" name="path" value="<?php echo $this->path ?>" />
+                <input class=delete type="button" value="Annuleren" onclick="disableConfirm(); window.location = '<?php echo $this->url(array('controller' => 'filemanager', 'action' => 'index', 'path' => $this->path)) ?>'" />
+                <input class="button" type="submit" value="Opslaan" onclick="disableConfirm();" />
+            </dd>
+		    </div>
+		</dl>
+    </div>
+    <?php endif ?>
+</div>
+</form>

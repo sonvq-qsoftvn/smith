@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+    <header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+                adminlang="en-us" srclang="en-us" o-tmf="abc">
+    </header>
+    <body>
+        <tu tuid='error.verplicht.min'>
+            <tuv xml:lang="nl"><seg>Dit is verplicht in te vullen, minstens 2 tekens</seg></tuv>
+            <tuv xml:lang="fr"><seg>Dit is verplicht in te vullen, minstens 2 tekens</seg></tuv>
+            <tuv xml:lang="en"><seg>This field is required, minimum 2 characters</seg></tuv>
+            <tuv xml:lang="de"><seg>Dit is verplicht in te vullen, minstens 2 tekens</seg></tuv>
+        </tu>
+         <tu tuid='error.verplicht.max'>
+            <tuv xml:lang="nl"><seg>Dit is verplicht in te vullen, maximum 255 tekens</seg></tuv>
+            <tuv xml:lang="fr"><seg>Dit is verplicht in te vullen, maximum 255 tekens</seg></tuv>
+            <tuv xml:lang="en"><seg>This field is required, maximum 255 characters</seg></tuv>
+            <tuv xml:lang="de"><seg>Dit is verplicht in te vullen, maximum 255 tekens</seg></tuv>
+        </tu>
+           <tu tuid='error.verplicht'>
+            <tuv xml:lang="nl"><seg>Dit is verplicht in te vullen</seg></tuv>
+            <tuv xml:lang="fr"><seg>Dit is verplicht in te vullen</seg></tuv>
+            <tuv xml:lang="en"><seg>This is required</seg></tuv>
+            <tuv xml:lang="de"><seg>Dit is verplicht in te vullen</seg></tuv>
+        </tu>
+         <tu tuid='error.minimum'>
+            <tuv xml:lang="nl"><seg>Dit veld vereist minimum 2 tekens</seg></tuv>
+            <tuv xml:lang="fr"><seg>Dit veld vereist minimum 2 tekens</seg></tuv>
+            <tuv xml:lang="en"><seg>This field needs minimum 2 characters</seg></tuv>
+            <tuv xml:lang="de"><seg>Dit veld vereist minimum 2 tekens</seg></tuv>
+        </tu>
+       <tu tuid='hdr.errors'>
+            <tuv xml:lang="nl"><seg>Oeps.. Foutje</seg></tuv>
+            <tuv xml:lang="fr"><seg>Oups.. Erreur</seg></tuv>
+            <tuv xml:lang="en"><seg>Oops.. Mistake</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+
+        <!--Fieldlabels-->
+        <tu tuid='name'>
+            <tuv xml:lang="nl"><seg>Naam</seg></tuv>
+            <tuv xml:lang="fr"><seg>Nom</seg></tuv>
+            <tuv xml:lang="en"><seg>Name</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='fname'>
+            <tuv xml:lang="nl"><seg>Voornaam</seg></tuv>
+            <tuv xml:lang="fr"><seg>Prénom</seg></tuv>
+            <tuv xml:lang="en"><seg>First Name</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.email.exist'>
+            <tuv xml:lang="nl"><seg>E-mail bestaat al</seg></tuv>
+            <tuv xml:lang="fr"><seg>E-mail EXIST</seg></tuv>
+            <tuv xml:lang="en"><seg>E-mail already exists</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv></tu>
+       
+        <tu tuid='error.email.format'>
+            <tuv xml:lang="nl"><seg>E-mail formaat</seg></tuv>
+            <tuv xml:lang="fr"><seg>E-mail EXIST</seg></tuv>
+            <tuv xml:lang="en"><seg>E-mail format</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv></tu>
+        <tu tuid='error.password.min'>
+            <tuv xml:lang="nl"><seg>Verplicht veld, minimum 6 tekens</seg></tuv>
+            <tuv xml:lang="fr"><seg>Verplicht veld, minimum 6 tekens</seg></tuv>
+            <tuv xml:lang="en"><seg>Field required, minimum 6 characters</seg></tuv>
+            <tuv xml:lang="de"><seg>Verplicht veld, minimum 6 tekens</seg></tuv>
+        </tu>
+            <tu tuid='error.password.max'>
+            <tuv xml:lang="nl"><seg>Verplicht veld, maximum 32 tekens</seg></tuv>
+            <tuv xml:lang="fr"><seg>Verplicht veld, maximum 32 tekens</seg></tuv>
+            <tuv xml:lang="en"><seg>Field required, maximum 32 characters</seg></tuv>
+            <tuv xml:lang="de"><seg>Verplicht veld, maximum 32 tekens</seg></tuv>
+            </tu>
+        
+        <tu tuid='street'>
+            <tuv xml:lang="nl"><seg>Straat</seg></tuv>
+            <tuv xml:lang="fr"><seg>Rue</seg></tuv>
+            <tuv xml:lang="en"><seg>Street</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='number'>
+            <tuv xml:lang="nl"><seg>Nr.</seg></tuv>
+            <tuv xml:lang="fr"><seg>N.</seg></tuv>
+            <tuv xml:lang="en"><seg>Nr.</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='postalcode'>
+            <tuv xml:lang="nl"><seg>Postcode</seg></tuv>
+            <tuv xml:lang="fr"><seg>Code Postal</seg></tuv>
+            <tuv xml:lang="en"><seg>Zip code</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='city'>
+            <tuv xml:lang="nl"><seg>Locatie</seg></tuv>
+            <tuv xml:lang="fr"><seg>Emplacement</seg></tuv>
+            <tuv xml:lang="en"><seg>Location</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='country'>
+            <tuv xml:lang="nl"><seg>Land</seg></tuv>
+            <tuv xml:lang="fr"><seg>Pays</seg></tuv>
+            <tuv xml:lang="en"><seg>Country</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+
+        <!--errors-->
+        <tu tuid='error.name.short'>
+            <tuv xml:lang="nl"><seg>Je naam is te kort</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre nom est trop court</seg></tuv>
+            <tuv xml:lang="en"><seg>Your name is too short</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.name.long'>
+            <tuv xml:lang="nl"><seg>Je naam is te lang</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre nom est trop long</seg></tuv>
+            <tuv xml:lang="en"><seg>Your name is too long</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.fname.short'>
+            <tuv xml:lang="nl"><seg>Je voornaam is te kort</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre prénom est trop court</seg></tuv>
+            <tuv xml:lang="en"><seg>Your first name is too short</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.bon.short'>
+            <tuv xml:lang="nl"><seg>Kies een cadeaubon</seg></tuv>
+            <tuv xml:lang="fr"><seg>Kies een cadeaubon</seg></tuv>
+            <tuv xml:lang="en"><seg>Kies een cadeaubon</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.fname.long'>
+            <tuv xml:lang="nl"><seg>Je voornaam is te lang</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre prénom est trop long</seg></tuv>
+            <tuv xml:lang="en"><seg>Your first name is too long</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.street.short'>
+            <tuv xml:lang="nl"><seg>Je straatnaam is te kort</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre nom de rue est trop court</seg></tuv>
+            <tuv xml:lang="en"><seg>Your streetname is too short</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.street.long'>
+            <tuv xml:lang="nl"><seg>Je straatnaam is te lang</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre nom de rue est trop long</seg></tuv>
+            <tuv xml:lang="en"><seg>Your streetname is too long</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.number.short'>
+            <tuv xml:lang="nl"><seg>Je nummer is te kort</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre nombre est trop court</seg></tuv>
+            <tuv xml:lang="en"><seg>Your number is too short</seg></tuv>
+        <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.number.long'>
+            <tuv xml:lang="nl"><seg>Je nummer is te lang</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre nombre est trop long</seg></tuv>
+            <tuv xml:lang="en"><seg>Your number is too long</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.postalcode.short'>
+            <tuv xml:lang="nl"><seg>Je postcode is te kort</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre code postal est trop court</seg></tuv>
+            <tuv xml:lang="en"><seg>Your zip code is too short</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.postalcode.long'>
+            <tuv xml:lang="nl"><seg>Je postcode is te lang</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre code postal est trop long</seg></tuv>
+            <tuv xml:lang="en"><seg>Your zip code is too long</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.city.short'>
+            <tuv xml:lang="nl"><seg>Je locatie is te kort</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre emplacement est trop court</seg></tuv>
+            <tuv xml:lang="en"><seg>Your location is too short</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.city.long'>
+            <tuv xml:lang="nl"><seg>Je locatie is te lang</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre emplacement est trop long</seg></tuv>
+            <tuv xml:lang="en"><seg>Your location is too long</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.country.short'>
+            <tuv xml:lang="nl"><seg>Je land is te kort</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre pays est trop court</seg></tuv>
+            <tuv xml:lang="en"><seg>Your country is too short</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.country.long'>
+            <tuv xml:lang="nl"><seg>Je land is te lang</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre pays est trop long</seg></tuv>
+            <tuv xml:lang="en"><seg>Your country is too long</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.amount.format'>
+            <tuv xml:lang="nl"><seg>Je bedrag is niet juist geformuleerd bv. 20,50</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre montant n'est pas fixé correctement, par exemple 20,50</seg></tuv>
+            <tuv xml:lang="en"><seg>Your amount is not set correctly eg. 20,50</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.email.format'>
+            <tuv xml:lang="nl"><seg>Je e-mailadres is niet geldig</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre adresse e-mail n'est pas valide</seg></tuv>
+            <tuv xml:lang="en"><seg>Your email address is not valid</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.email.exist'>
+            <tuv xml:lang="nl"><seg>Je e-mailadres is al geregistreerd</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre adresse e-mail est déjà enregistré</seg></tuv>
+            <tuv xml:lang="en"><seg>Your e-mail address is already registered</seg></tuv>
+            <tuv xml:lang="de"><seg>Ihre E-Mail-Adresse ist bereits registriert</seg></tuv>
+        </tu>
+        <tu tuid='error.conditions'>
+            <tuv xml:lang="nl"><seg>Je moet de algemene voorwaarden goedkeuren</seg></tuv>
+            <tuv xml:lang="fr"><seg>Vous devez approuver les termes et conditions</seg></tuv>
+            <tuv xml:lang="en"><seg>You must approve the terms and conditions</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='send'>
+            <tuv xml:lang="nl"><seg>Verstuur</seg></tuv>
+            <tuv xml:lang="fr"><seg>Send</seg></tuv>
+            <tuv xml:lang="en"><seg>Send</seg></tuv>
+        <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='phone'>
+            <tuv xml:lang="nl"><seg>Telefoon/GSM</seg></tuv>
+            <tuv xml:lang="fr"><seg>Phone</seg></tuv>
+            <tuv xml:lang="en"><seg>Phone</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.wachtwoord.short'>
+            <tuv xml:lang="nl"><seg>Je gekozen paswoord is te kort</seg></tuv>
+            <tuv xml:lang="fr"><seg>Je gekozen paswoord is te kort</seg></tuv>
+            <tuv xml:lang="en"><seg>Je gekozen paswoord is te kort</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.wachtwoord.long'>
+            <tuv xml:lang="nl"><seg>Je gekozen paswoord is te lang</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre mot de passe est trop long</seg></tuv>
+            <tuv xml:lang="en"><seg>Your password is too long</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.phone.short'>
+            <tuv xml:lang="nl"><seg>Je telefoonnummer is te kort</seg></tuv>
+            <tuv xml:lang="fr"><seg>Je telefoonnummer is te kort</seg></tuv>
+            <tuv xml:lang="en"><seg>Your phonenumber is to short</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='error.phone.long'>
+            <tuv xml:lang="nl"><seg>Je telefoonnummer is te lang</seg></tuv>
+            <tuv xml:lang="fr"><seg>Votre numero de telephone est trop long</seg></tuv>
+            <tuv xml:lang="en"><seg>Your phone number is too long</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='address'>
+            <tuv xml:lang="nl"><seg>Adresgegevens</seg></tuv>
+            <tuv xml:lang="fr"><seg>l'adresse</seg></tuv>
+            <tuv xml:lang="en"><seg>Address</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='amount.pay'>
+            <tuv xml:lang="nl"><seg>Gelieve uw betaling te doen binnen de 5 werkdagen met de onderstaande info.</seg></tuv>
+            <tuv xml:lang="fr"><seg>S'il vous plaît effectuer votre paiement dans les 5 jours avec les informations suivantes.</seg></tuv>
+            <tuv xml:lang="en"><seg>Please make your payment within 5 days with the following info.</seg></tuv>
+            <tuv xml:lang="de"><seg></seg></tuv>
+        </tu>
+        <tu tuid='subscribe'>
+            <tuv xml:lang="nl"><seg>Inschrijven</seg></tuv>
+            <tuv xml:lang="fr"><seg>Inschrijven</seg></tuv>
+            <tuv xml:lang="en"><seg>Subscribe</seg></tuv>
+            <tuv xml:lang="de"><seg>Inschrijven</seg></tuv>
+        </tu>
+        <tu tuid='status.ok'>
+            <tuv xml:lang="nl"><seg>Bedankt voor je inschrijving.</seg></tuv>
+            <tuv xml:lang="fr"><seg>Bedankt voor je inschrijving.</seg></tuv>
+            <tuv xml:lang="en"><seg>Thank you for your subscription.</seg></tuv>
+            <tuv xml:lang="de"><seg>Bedankt voor je inschrijving.</seg></tuv>
+        </tu>
+    </body>
+</tmx>

@@ -1,0 +1,47 @@
+<?php $this->headTitle($this->admin_tmx->_('eventoverview')) ?>
+<?php echo $this->render('system/leave.phtml'); ?>
+<?php //$this->headScript()->appendFile($this->baseUrl() . '/js/leave.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce_init.js') ?>
+
+<?php $this->headLink()->appendStylesheet('/js/jquery/jquery.autocomplete.css') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/jquery.bgiframe.min.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/jquery.autocomplete.min.js') ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<h3><?php echo $this->admin_tmx->_('subscriptionsforevent') ?> "<?php echo $this->event->getTitle() ?>"</h3>
+
+<div id="tabs">
+<ul>	
+	<li><a href="#tabs-overview"><?php echo $this->admin_tmx->_('overview') ?></a></li>
+    <li><a href="#tabs-refused"><?php echo $this->admin_tmx->_('refused') ?></a></li>
+    <li><a href="#tabs-export"><?php echo $this->admin_tmx->_('export') ?></a></li>
+</ul>
+<div id="tabs-overview">
+		<table width="100%">
+        	<tr>
+				<?php foreach ($this->fields as $field): ?>
+                 <th><?php echo $field->getLabel() ?></th>
+                <?php endforeach ?>
+                <th><?php echo $this->admin_tmx->_('status') ?></th>
+            </tr>
+            <?php foreach ($this->subscriptions as $sub) : ?>
+            <tr>
+            	<?php foreach ($this->fields as $field): ?>
+                 <td><?php echo $sub[$field->getName()] ?></td>
+                <?php endforeach ?>
+                <td><img src="<?php echo $this->baseUrl('/ico/tick-circle.png') ?>" alt="" /></td>
+            </tr>
+            <?php endforeach ?>
+        </table>
+</div>
+<div id="tabs-refused">
+</div>
+<div id="tabs-export">
+</div>
+</div>

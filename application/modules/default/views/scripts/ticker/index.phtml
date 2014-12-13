@@ -1,0 +1,18 @@
+<?php if ($this->ticks) : ?>
+
+<ul id="ticker01" > 
+<?php foreach($this->ticks as $tick): ?>
+    <li><a href=""><?php echo $tick->getTitle() ?></a></li> 
+<?php endforeach ?>
+    
+</ul> 
+
+<script type="text/javascript">
+$(function(){ 
+		   
+    $("ul#ticker01").liScroll(); 	 
+	
+}); 
+</script> 
+
+<?php endif ?>

@@ -1,0 +1,14 @@
+<!--Add breadcrumbs to site-->
+<?php $this->placeholder('breadcrumbs')->captureStart(); ?>
+<a href="/<?php echo $this->lng ?>"><?php echo $this->glob_tmx->_('breadcrumbs.homepage'); ?></a>
+&nbsp;-&nbsp; 
+<?php echo $this->tmx->_('breadcrumbs.contact') ?>
+<?php $this->placeholder('breadcrumbs')->captureEnd() ?>
+<!--End breadcrumbs-->
+
+<?php $this->headTitle($this->tmx->_('sent.head.title')) ?>
+<div class="grid_12 main-content">
+    <h1><?php echo $this->tmx->_('sent.title') ?></h1>
+    <p><?php echo $this->tmx->_('sent.message') ?></p>
+</div>
+<div class="clear"></div>

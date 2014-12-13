@@ -1,0 +1,30 @@
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+<div id="alert" title="<?php echo $this->admin_tmx->_('formvalidation') ?>"<?php if(!isset($this->error)): ?> style="display: none;"<?php endif; ?>>
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->error; ?></p>
+</div>
+
+<div id="tabs">
+	<ul>
+    	<li>
+    		<a href="#tabs-login"><?php echo $this->admin_tmx->_('settings') ?></a>
+		</li>
+    </ul>
+	<form name="add" method="post" action="<?php echo $this->url() ?>" enctype="multipart/form-data">
+    <div id="tabs-login">
+    	
+		<?php
+		
+		if (!isset($this->step)) echo $this->render('analytics/forms/__login.phtml');
+		else if ($this->step == '2') echo $this->render('analytics/forms/__profile.phtml');
+		
+		?>
+		
+	</div>
+
+	</form>
+</div>

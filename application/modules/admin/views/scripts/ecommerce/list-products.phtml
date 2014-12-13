@@ -1,0 +1,40 @@
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js'); ?>
+<?php echo $this->render('system/result.phtml') ?>
+
+<div id="dialog" title="Product verwijderen" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	Weet u zeker dat u dit product wilt verwijderen?</p>
+</div>
+
+<h3>Producten overzicht</h3>
+<table width="98%">
+	<tr>
+		<th width="15"></th>
+		<th>Naam</th>
+		<th>Categorie</th>
+		<th width="60">Prijs</th>
+		<th width="60">Actie</th>
+	</tr>
+	<?php foreach ($this->paginator as $id => $item): ?>
+	<tr>
+		<td width="15"><img src="<?php echo $this->baseUrl('/images/cms/actions/page.png') ?>" alt="" /></td>
+		<td><?php echo $this->escape($item->getTitle()) ?></td>
+		<td><?php echo $this->escape($item->getCategory()->getTitle()) ?></td>
+		<td width="60">&euro; <?php echo $this->escape($item->getPrice()) ?></td>
+		<td width="60">
+			<a title="Beheer productfotos van <?php echo $this->escape($item->getTitle()) ?>" href="<?php echo $this->url(array('action' => 'initialize.product', 'id' => $item->getId(), 'go' => 'admin.ecommerce.product-pictures')) ?>">
+				<img src="<?php echo $this->baseUrl('/ico/images.png') ?>" alt="Product afbeeldingen" />
+			</a>
+			<a title="<?php echo $this->escape($item->getTitle()) ?> aanpassen" href="<?php echo $this->url(array('action' => 'initialize.product', 'id' => $item->getId(), 'go' => 'admin.ecommerce.edit-product')) ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="Aanpassen" />
+			</a>
+			<a title="Verwijder <?php echo $this->escape($item->getTitle()) ?>" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'initialize.product', 'id' => $item->getId(), 'go' => 'admin.ecommerce.delete-product')) ?>');">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="Verwijderen" />
+			</a>
+		</td>
+	</tr>
+	<?php endforeach ?>
+</table>
+
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?>
+

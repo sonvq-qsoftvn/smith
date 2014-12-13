@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+    <header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+     adminlang="en-us" srclang="en-us" o-tmf="abc">
+    </header>
+    <body>
+        <tu tuid='sitename'>
+            <tuv xml:lang="nl"><seg>Site name</seg></tuv>
+            <tuv xml:lang="en"><seg>Site name</seg></tuv>
+            <tuv xml:lang="fr"><seg>Site name</seg></tuv>
+        </tu>
+        <tu tuid='language.switch.nl'>
+            <tuv xml:lang="nl"><seg>nl</seg></tuv>
+            <tuv xml:lang="fr"><seg>nl</seg></tuv>
+            <tuv xml:lang="en"><seg>nl</seg></tuv>
+        </tu>
+        <tu tuid='language.switch.fr'>
+            <tuv xml:lang="nl"><seg>fr</seg></tuv>
+            <tuv xml:lang="fr"><seg>fr</seg></tuv>
+            <tuv xml:lang="en"><seg>fr</seg></tuv>
+        </tu>
+        <tu tuid='language.switch.en'>
+            <tuv xml:lang="nl"><seg>en</seg></tuv>
+            <tuv xml:lang="fr"><seg>en</seg></tuv>
+            <tuv xml:lang="en"><seg>en</seg></tuv>
+        </tu>
+        <tu tuid='notfound.head.title'>
+            <tuv xml:lang="nl"><seg>404 - Page not found</seg></tuv>
+            <tuv xml:lang="fr"><seg>404 - Page not found</seg></tuv>
+            <tuv xml:lang="en"><seg>404 - Page not found</seg></tuv>
+        </tu>
+        <tu tuid='notfound.title'>
+            <tuv xml:lang="nl"><seg>404 - page not found</seg></tuv>
+            <tuv xml:lang="fr"><seg>404 - page not found</seg></tuv>
+            <tuv xml:lang="en"><seg>404 - page not found</seg></tuv>
+        </tu>
+        <tu tuid='notfound.message'>
+            <tuv xml:lang="nl"><seg>Sorry the page you requested may have been moved or deleted. Please return to homepage or contact the administration for more information!</seg></tuv>
+            <tuv xml:lang="fr"><seg>Sorry the page you requested may have been moved or deleted. Please return to homepage or contact the administration for more information!</seg></tuv>
+            <tuv xml:lang="en"><seg>Sorry the page you requested may have been moved or deleted. Please return to homepage or contact the administration for more information!</seg></tuv>
+        </tu>
+        <tu tuid='footer.text-disclaimer'>
+            <tuv xml:lang="nl"><seg>disclaimer</seg></tuv>
+            <tuv xml:lang="fr"><seg>disclaimer</seg></tuv>
+            <tuv xml:lang="en"><seg>disclaimer</seg></tuv>
+        </tu>
+        <tu tuid='footer.text-privacy'>
+            <tuv xml:lang="nl"><seg>privacy policy</seg></tuv>
+            <tuv xml:lang="fr"><seg>privacy policy</seg></tuv>
+            <tuv xml:lang="en"><seg>privacy policy</seg></tuv>
+        </tu>
+        <tu tuid='footer.text-sanmax-website'>
+            <tuv xml:lang="nl"><seg>webdesign © sanmax</seg></tuv>
+            <tuv xml:lang="fr"><seg>webdesign © sanmax</seg></tuv>
+            <tuv xml:lang="en"><seg>webdesign © sanmax</seg></tuv>
+        </tu>
+        <tu tuid='breadcrumbs.homepage'>
+            <tuv xml:lang="nl"><seg>home</seg></tuv>
+            <tuv xml:lang="fr"><seg>home</seg></tuv>
+            <tuv xml:lang="en"><seg>home</seg></tuv>
+        </tu>
+        <tu tuid='subscribe.success.thank'>
+            <tuv xml:lang="nl"><seg>Thank you</seg></tuv>
+            <tuv xml:lang="fr"><seg>Thank you</seg></tuv>
+            <tuv xml:lang="en"><seg>Thank you</seg></tuv>
+        </tu>
+        <tu tuid='subscribe.success.message'>
+            <tuv xml:lang="nl"><seg>Thank you for subscribing! From now, You will receive our newsletter!</seg></tuv>
+            <tuv xml:lang="fr"><seg>Thank you for subscribing! From now, You will receive our newsletter!</seg></tuv>
+            <tuv xml:lang="en"><seg>Thank you for subscribing! From now, You will receive our newsletter!</seg></tuv>
+        </tu>
+    </body>
+</tmx>

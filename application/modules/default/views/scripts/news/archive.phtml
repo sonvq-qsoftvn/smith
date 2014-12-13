@@ -1,0 +1,9 @@
+<?php $this->headTitle('Nieuws') ?>
+
+<?php foreach($this->news as $news): ?>
+	<h2><?php echo $news->getTitle(); ?></h2>
+
+	<?php echo $news->getContent(); ?>
+<?php endforeach; ?>
+
+<?php echo $this->paginationControl($this->news, 'Sliding', 'system/pagination.phtml'); ?>

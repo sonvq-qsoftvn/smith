@@ -1,0 +1,25 @@
+<?php
+
+echo $this->render('analytics/__js.phtml');
+
+$user = Zend_Auth::getInstance()->getIdentity();
+
+$this->headTitle('SxCms - Analytics - '.$this->admin_tmx->_('mobile'));
+
+?>
+
+<div style='float: left;'><h3>Analytics - <?php echo $this->admin_tmx->_('mobile') ?></h3></div>
+
+<div style='float: right;'><?php echo $this->render('analytics/forms/__top.phtml'); ?></div>
+<div style='clear: both'></div>
+
+<div style='width: 95%; border: 3px solid white; outline: 2px solid whitesmoke; background-color: whitesmoke; font-size: 1.1em; text-align: center; padding: 4px 0; margin-left: 20px;'>
+	<h2 style='text-transform: none;'>
+		<?php echo $this->admin_tmx->_('statsblockmobile1') ?> <span style='font-size: 14px;'><?php echo number_format($this->mobile["yes"], 0, ',', '.'); ?> <?php echo $this->admin_tmx->_('times') ?></span> <?php echo $this->admin_tmx->_('statsblockmobile2') ?><br />
+		<?php echo $this->admin_tmx->_('statsblockmobile3') ?> <span style='font-size: 14px;'><?php echo round(100/(($this->mobile["no"]<1?"1":$this->mobile["no"])/($this->mobile["yes"]<1?"1":$this->mobile["yes"])), 2); ?>%</span> <?php echo $this->admin_tmx->_('statsblockmobile4') ?>
+	</h2>
+</div>
+
+<div style='float: left; width: 50%;'><?php echo $this->render('analytics/graphs/__mobileBar.phtml'); ?></div>
+<div style='float: left; width: 50%;'><?php echo $this->render('analytics/graphs/__devicesBar.phtml'); ?></div>
+<div style='clear: both;'></div>

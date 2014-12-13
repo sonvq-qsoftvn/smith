@@ -1,0 +1,69 @@
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+<?php echo $this->render('system/leave.phtml'); ?>
+
+<?php $this->headTitle($this->admin_tmx->_('editsecuredoc')) ?>
+
+<h3><?php echo $this->admin_tmx->_('editsecuredoc') ?></h3>
+
+<?php if ($this->file instanceOf SxModule_Securedocs_File) : ?>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-file"><?php echo $this->admin_tmx->_('file') ?>
+			<?php $errors = count($this->messages->getTabMessages('file')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-save"><?php echo $this->admin_tmx->_('save') ?></a></li>
+	</ul>
+
+	<form name="add" method="post" action="<?php echo $this->url() ?>" enctype="multipart/form-data">
+	<div id="tabs-file">
+		<dl>
+			<dt><label><?php echo $this->admin_tmx->_('file') ?>:</label></dt>
+			<dd><input type="text" name="newfilename" id="newfilename" size="80" value="<?php echo $this->filename; ?>" /> .<?php echo $this->extensie; ?></dd>
+			<dt><label></label></dt>
+			<dd><input type="checkbox" name="mail" <?php if ($this->file->getMail()) : ?>checked="checked"<?php endif; ?>/> <?php echo $this->admin_tmx->_('sendautomaticemail') ?></dd>
+			<dt><label><?php echo $this->admin_tmx->_('summary') ?></label></dt>
+			<dd><textarea name="samenvatting"><?php echo $this->file->getSummary() ?></textarea></dd>
+		</dl>
+	</div>
+
+	<div id="tabs-save">
+		<dl><dd>
+			<input type="hidden" name="path" value="<?php echo $this->path ?>" />
+			<input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+		</dd></dl>
+	</div>
+	</form>
+</div>
+<?php elseif ($this->file instanceOf SxModule_Securedocs_Dir) : ?>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-add-folder"><?php echo $this->admin_tmx->_('editfolder') ?></a></li>
+	</ul>
+	<div id="tabs-add-folder">
+		<form name="edit" method="post" action="<?php echo $this->url() ?>" enctype="multipart/form-data">
+		<dl>
+			<dt>
+				<label for="folder"><?php echo $this->admin_tmx->_('foldername') ?>:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="folder" id="folder" size="45" value="<?php echo $this->mapname; ?>" />
+			    <p class="description">
+			        <?php echo $this->admin_tmx->_('enterfoldername') ?>
+			    </p>
+			</dd>
+			<dd style="margin-top: 20px;">
+			    <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('edit') ?>" onclick="disableConfirm();" />
+			</dd>
+		</dl>
+		</form>
+	</div>
+</div>
+<?php endif; ?>

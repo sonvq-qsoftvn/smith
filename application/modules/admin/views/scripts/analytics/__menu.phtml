@@ -1,0 +1,12 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+
+<h3 id="menu-analytics"><a href="#">Analytics</a></h3>
+<div>
+    <ul class="sidemenu">
+        <li><a href="<?php echo $this->url(array('module' => 'admin', 'controller' => 'analytics', 'action' => 'index'), 'admin', true) ?>"><?php echo $this->admin_tmx->_('dashboard') ?></a></li>
+        <li><a href="<?php echo $this->url(array('module' => 'admin', 'controller' => 'analytics', 'action' => 'mobile'), 'admin', true) ?>"><?php echo $this->admin_tmx->_('mobile') ?></a></li>
+        <li><a href="<?php echo $this->url(array('module' => 'admin', 'controller' => 'analytics', 'action' => 'sources'), 'admin', true) ?>"><?php echo $this->admin_tmx->_('sources') ?></a></li>
+        <li><a href="<?php echo $this->url(array('module' => 'admin', 'controller' => 'analytics', 'action' => 'geo'), 'admin', true) ?>"><?php echo $this->admin_tmx->_('worldmap') ?></a></li>
+        <li><a href="<?php echo $this->url(array('module' => 'admin', 'controller' => 'analytics', 'action' => 'settings'), 'admin', true) ?>"><?php echo $this->admin_tmx->_('settings') ?></a></li>
+    </ul>
+</div>

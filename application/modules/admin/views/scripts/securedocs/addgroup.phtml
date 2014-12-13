@@ -1,0 +1,37 @@
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+<?php echo $this->render('system/leave.phtml'); ?>
+<?php $this->headTitle($this->admin_tmx->_('addgroup')) ?>
+<h3><?php echo $this->admin_tmx->_('addgroup') ?></h3>
+
+<div id="alert" title="<?php echo $this->admin_tmx->_('formvalidation') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('allfieldsrequired') ?></p>
+</div>
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-settings"><?php echo $this->admin_tmx->_('group') ?>
+			<?php $errors = count($this->messages->getTabMessages('settings')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-save"><?php echo $this->admin_tmx->_('save') ?></a></li>
+	</ul>
+
+	<form name="add" method="post" action="<?php echo $this->url() ?>" enctype="multipart/form-data">
+	<div id="tabs-settings">
+		<?php echo $this->render('securedocs/forms/__group.phtml') ?>
+	</div>
+	<div id="tabs-save">
+		<dl><dd>
+			<input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+		</dd></dl>
+	</div>
+	</form>
+</div>

@@ -1,0 +1,10 @@
+<h3 id="menu-securedocs"><a href="#"><?php echo $this->admin_menu_tmx->_('sd.securedocs') ?></a></h3>
+<div>
+	<ul class="sidemenu">
+		<li><a href="/admin/securedocs"><?php echo $this->admin_menu_tmx->_('sd.overview') ?></a></li>
+		<li><a href="/admin/securedocs/add/path/<?php echo base64_encode($this->path) ?>"><?php echo $this->admin_menu_tmx->_('sd.adddocs') ?></a></li>
+        <br />
+        <li><a href="<?php echo $this->url(array('controller' => 'securedocs', 'action' => 'groupoverview'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('sd.groupoverview') ?></a></li>
+        <li><a href="<?php echo $this->url(array('controller' => 'securedocs', 'action' => 'addgroup'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('sd.addgroup') ?></a></li>
+    </ul>
+</div>

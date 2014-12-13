@@ -1,0 +1,56 @@
+<?php
+
+$user = Zend_Auth::getInstance()->getIdentity();
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+
+$this->headTitle('SxCms - '.$this->admin_tmx->_('accountoverview'));
+echo $this->render('system/result.phtml');
+
+$canEdit     = $user->isAllowed('account', 'account.edit');
+$canDelete   = $user->isAllowed('account', 'account.delete');
+$canActivate = $user->isAllowed('account', 'account.activate');
+
+?>
+
+<div id="dialog" title="<?php echo $this->admin_tmx->_('accountoverview') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deleteaccountconfirm') ?> </p>
+</div>
+
+<h3><?php echo $this->admin_tmx->_('accountoverview') ?></h3>
+<table width="98%">
+    <tr>
+        <th><?php echo $this->admin_tmx->_('email') ?></th>
+        <th><?php echo $this->admin_tmx->_('name') ?></th>
+        <th width="60"><?php echo $this->admin_tmx->_('action') ?></th>
+    </tr>
+    <?php foreach ($this->paginator as $id => $item): ?>
+    <tr>
+        <td><?php echo $this->escape($item->getEmail()) ?></td>
+        <td><?php echo $this->escape($item->getFullName()) ?></td>
+        <td width="55">
+        	<?php if ($canActivate): ?>
+            <a title="Activeren" href="<?php echo $this->url(array('action' => 'activate', 'id' => $item->getId())) ?>">
+                <?php if ($item->isActive()): ?>
+                    <img src="<?php echo $this->baseUrl('/ico/tick-circle.png') ?>" alt="<?php echo $this->admin_tmx->_('deactivate') ?>" />
+                <?php else: ?>
+                    <img src="<?php echo $this->baseUrl('/ico/minus-circle.png') ?>" alt="<?php echo $this->admin_tmx->_('activate') ?>" />
+                <?php endif; ?>
+            </a>
+            <?php endif ?>
+            <?php if ($canEdit): ?>
+            <a title="<?php echo $this->admin_tmx->_('edit') ?>" href="<?php echo $this->url(array('action' => 'edit', 'id' => $item->getId())) ?>">
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+            </a>
+            <?php endif ?>
+            <?php if ($canDelete): ?>
+			<a title="<?php echo $this->admin_tmx->_('delete') ?>" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'delete', 'id' => $item->getId())) ?>');">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
+			</a>
+			<?php endif ?>
+        </td>
+    </tr>
+    <?php endforeach ?>
+</table>
+
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?>

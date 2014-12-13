@@ -1,0 +1,15 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+
+<?php if ($user->isAllowed('news', array('news.index', 'news.add'))): ?>
+<h3 id="menu-news"><a href="#"><?php echo $this->admin_menu_tmx->_('news.newsitems') ?></a></h3>
+<div>
+	<ul class="sidemenu">
+		<?php if ($user->isAllowed('news', 'news.index')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'index')) ?>"><?php echo $this->admin_menu_tmx->_('news.overview') ?></a></li>
+		<?php endif ?>
+		<?php if ($user->isAllowed('news', 'news.add')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'add')) ?>"><?php echo $this->admin_menu_tmx->_('news.add') ?></a></li>
+		<?php endif ?>
+	</ul>
+</div>
+<?php endif ?>

@@ -1,0 +1,12 @@
+<?php if($this->block && $this->block->getActive() == '1') : ?>
+	<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jcookie.js') ?>
+	<?php $this->headScript()->appendFile($this->baseUrl() . '/js/intropop.js') ?>
+
+	<div id="vakantie-pop" >
+	    <div class="v-inhoud">
+	    <h1 class="title"><?php echo $this->block->getTitle(); ?></h1>
+	    <?php echo $this->block->getContent(); ?>
+	    </div>
+	    <h2 class="close">Verken onze website</h2>
+	</div>
+<?php endif; ?>

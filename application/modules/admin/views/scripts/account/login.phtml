@@ -1,0 +1,66 @@
+<?php
+
+$this->headScript()->appendFile($this->baseUrl() . '/js/jquery-1.3.2.min.js');
+$this->headScript()->appendFile($this->baseUrl() . '/js/jquery-ui/js/jquery-ui-1.7.2.custom.min.js');
+
+echo $this->render('system/result.phtml');
+
+?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+	$('#username').focus();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<h3><?php echo $this->admin_tmx->_('securedarea') ?></h3>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1"><?php echo $this->admin_tmx->_('login') ?></a></li>
+	</ul>
+	<form method="post" action="<?php echo $this->url() ?>">
+	<div id="tabs-1">
+		<dl>
+			<dt>
+				<label for="username"><?php echo $this->admin_tmx->_('email') ?>:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="username" id="username" size="45"
+			    	value="<?php echo $this->user->getEmail() ?>" />
+			    <?php echo $this->messages->getMessagesHtml('email') ?>
+			    <p class="description">
+			        <?php echo $this->admin_tmx->_('requiredvalidusername') ?>
+			    </p>
+			</dd>
+			<dt>
+				<label for="password"><?php echo $this->admin_tmx->_('password') ?>:</label>
+			</dt>
+			<dd>
+			    <input type="password" name="password" id="password" size="45"
+			    	value="" />
+			    <?php echo $this->messages->getMessagesHtml('password') ?>
+			    <p class="description">
+			        <?php echo $this->admin_tmx->_('requiredvalidpassword') ?>
+			    </p>
+			</dd>
+			<dt>
+				<label for="systemAdminLng"><?php echo $this->admin_tmx->_('adminlanguage') ?>:</label>
+			</dt>
+			<dd>
+				<select name="systemAdminLng" id="systemAdminLng">
+					<?php foreach ($this->sytemadminlng as $lng => $name): ?>
+						<option value="<?php echo $lng; ?>"><?php echo $name; ?></option>
+					<?php endforeach; ?>
+				</select>
+			    <p class="description">
+			        <?php echo $this->admin_tmx->_('adminlanguagedescription') ?>
+			    </p>
+			</dd>
+			<dd>
+			    <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('login') ?>" />
+			</dd>
+		</dl>
+	</div>
+	</form>
+</div>

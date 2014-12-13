@@ -1,0 +1,37 @@
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js'); ?>
+
+<div id="dialog" title="Publicatie verwijderen" style="display: none;">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+    Weet u zeker dat u deze publicatie wilt verwijderen?
+    tevens verwijderd worden.</p>
+</div>
+
+<?php echo $this->render('system/result.phtml') ?>
+
+<h3>Publicaties overzicht</h3>
+<p><a href="<?php echo $this->url(array('controller' => 'publication', 'action' => 'add')) ?>">Nieuwe publicatie toevoegen</a></p>
+
+<table width="98%">
+    <tr>
+        <th>Naam</th>
+        <th>Datum</th>
+        <th width="50">Actie</th>
+    </tr>
+
+    <?php foreach ($this->paginator as $pub): ?>
+    <tr>
+        <td><?php echo $this->escape($pub->getName()) ?></td>
+        <td><?php echo strftime("%A %d %B %Y", strtotime($pub->getPublicationDate())) ?></td>
+        <td width="60">
+            <a title="Aanpassen" href="<?php echo $this->url(array('controller' => 'publication', 'action' => 'edit', 'id' => $pub->getId())) ?>">
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="Aanpassen" />
+            </a>
+            <a title="Verwijderen" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('controller' => 'publication', 'action' => 'delete', 'id' => $pub->getId())) ?>');">
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="Verwijderen" />
+            </a>
+        </td>
+    </tr>
+    <?php endforeach ?>
+</table>
+
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?></th>

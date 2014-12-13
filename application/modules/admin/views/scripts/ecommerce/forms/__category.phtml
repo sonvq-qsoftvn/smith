@@ -1,0 +1,58 @@
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/popup.js') ?>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-title">Titel &amp; Beschrijving</a></li>
+		<li><a href="#tabs-category">Hoofdcategorie &amp; Opslaan</a></li>
+	</ul>
+
+	<form method="post" action="<?php echo $this->url() ?>">
+	<div id="tabs-title">
+		<dl>
+			<dt>
+				<label for="title">Titel:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="title" id="title" size="90"
+			    	value="<?php echo $this->escape($this->category->getTitle()) ?>" />
+			    <?php echo $this->messages->getMessagesHtml('title') ?>
+			    <p class="description">
+			        Indien ingevuld, minimum 2 en maximum 255 karakters
+			    </p>
+			</dd>
+			<dt>
+				<label for="description">Beschrijving:</label>
+			</dt>
+			<dd>
+			    <textarea name="description" id="descriptions"><?php echo $this->escape($this->category->getDescription()) ?></textarea>
+			    <?php echo $this->messages->getMessagesHtml('description') ?>
+			    <p class="description">
+			        Indien ingevuld, minimum 2 en maximum 255 karakters
+			    </p>
+			</dd>
+		</dl>
+	</div>
+	<div id="tabs-category">
+		<dl>
+			<dt>
+				<label for="menu">Hoofcategorie:</label>
+			</dt>
+			<dd>
+				<input type="text" name="parent_id" id="parent_id" size="90" readonly="readonly"
+					onclick="return popup('<?php echo $this->url(array('controller' => 'ecommerce', 'action' => 'parent-category')) ?>');"
+					value="<?php echo $this->category->getBreadcrumbs() ?>" />
+				<input type="button" value="Selecteer"
+					onclick="return popup('<?php echo $this->url(array('controller' => 'ecommerce', 'action' => 'parent-category')) ?>');" />
+
+				<?php echo $this->messages->getMessagesHtml('parent') ?>
+			    <p class="description">
+			        Verplicht te selecteren. Dit wordt gebruikt om de boomstructuur te bepalen en een
+			        correcte broodkruimel te genereren
+			    </p>
+			</dd>
+			<dd style="margin-top: 20px;">
+			    <input class="button" type="submit" value="Opslaan" onclick="disableConfirm();" />
+			</dd>
+		</dl>
+	</div>
+	</form>
+</div>

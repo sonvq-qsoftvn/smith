@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+         adminlang="en-us" srclang="en-us" o-tmf="abc">
+	</header>
+	<body>
+		<tu tuid='cb.contentblocks'>
+			<tuv xml:lang="nl"><seg>Tekstblokken</seg></tuv>
+			<tuv xml:lang="en"><seg>Content blocks</seg></tuv>
+		</tu>
+		<tu tuid='cb.overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='cb.add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		
+		<tu tuid='tcb.topcontentblocks'>
+			<tuv xml:lang="nl"><seg>Top Tekstblokken</seg></tuv>
+			<tuv xml:lang="en"><seg>Top Content Blocks</seg></tuv>
+		</tu>
+		<tu tuid='tcb.add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		<tu tuid='tcb.overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		
+		<tu tuid='page.content'>
+			<tuv xml:lang="nl"><seg>Inhoud</seg></tuv>
+			<tuv xml:lang="en"><seg>Content</seg></tuv>
+		</tu>
+		<tu tuid='page.page'>
+			<tuv xml:lang="nl"><seg>Pagina</seg></tuv>
+			<tuv xml:lang="en"><seg>Page</seg></tuv>
+		</tu>
+		<tu tuid='page.overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='page.add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		<tu tuid='page.news'>
+			<tuv xml:lang="nl"><seg>Nieuws</seg></tuv>
+			<tuv xml:lang="en"><seg>news</seg></tuv>
+		</tu>
+		<tu tuid='page.comments'>
+			<tuv xml:lang="nl"><seg>Opmerkingen</seg></tuv>
+			<tuv xml:lang="en"><seg>Comments</seg></tuv>
+		</tu>
+		
+		<tu tuid='news.newsitems'>
+			<tuv xml:lang="nl"><seg>Nieuwsberichten</seg></tuv>
+			<tuv xml:lang="en"><seg>News items</seg></tuv>
+		</tu>
+		<tu tuid='news.overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='news.add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		
+		<tu tuid='ec.eyecatchers'>
+			<tuv xml:lang="nl"><seg>Eyecatchers</seg></tuv>
+			<tuv xml:lang="en"><seg>Eyecatchers</seg></tuv>
+		</tu>
+		<tu tuid='ec.overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='ec.add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		
+		<tu tuid='sub.subscribe'>
+			<tuv xml:lang="nl"><seg>Abbonees</seg></tuv>
+			<tuv xml:lang="en"><seg>Subscribe</seg></tuv>
+		</tu>
+		<tu tuid='sub.managesmails'>
+			<tuv xml:lang="nl"><seg>Beheer registratiemails</seg></tuv>
+			<tuv xml:lang="en"><seg>Manage registrationmails</seg></tuv>
+		</tu>
+		<tu tuid='sub.newmail'>
+			<tuv xml:lang="nl"><seg>Nieuwe registratiemail</seg></tuv>
+			<tuv xml:lang="en"><seg>New registrationmail</seg></tuv>
+		</tu>
+		<tu tuid='sub.exportsubscribers'>
+			<tuv xml:lang="nl"><seg>Exporteer abbonees</seg></tuv>
+			<tuv xml:lang="en"><seg>Export subscribers</seg></tuv>
+		</tu>
+		
+		<tu tuid='sd.securedocs'>
+			<tuv xml:lang="nl"><seg>Beveiligd Documentbeheer</seg></tuv>
+			<tuv xml:lang="en"><seg>Secure Documents</seg></tuv>
+		</tu>
+		<tu tuid='sd.overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='sd.adddocs'>
+			<tuv xml:lang="nl"><seg>Documenten toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add documents</seg></tuv>
+		</tu>
+		<tu tuid='sd.groupoverview'>
+			<tuv xml:lang="nl"><seg>Overzicht groepen</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview groups</seg></tuv>
+		</tu>
+		<tu tuid='sd.addgroup'>
+			<tuv xml:lang="nl"><seg>Groep toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add group</seg></tuv>
+		</tu>
+		
+		<tu tuid='faq.faq'>
+			<tuv xml:lang="nl"><seg>Veelgestelde vragen</seg></tuv>
+			<tuv xml:lang="en"><seg>FAQ</seg></tuv>
+		</tu>
+		<tu tuid='faq.overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='faq.addqa'>
+			<tuv xml:lang="nl"><seg>Vraag/antwoord toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add question/answer</seg></tuv>
+		</tu>
+		<tu tuid='faq.addcat'>
+			<tuv xml:lang="nl"><seg>Categorie toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add category</seg></tuv>
+		</tu>
+		
+		<tu tuid='sh.actions'>
+			<tuv xml:lang="nl"><seg>Acties</seg></tuv>
+			<tuv xml:lang="en"><seg>Actions</seg></tuv>
+		</tu>
+		<tu tuid='sh.types'>
+			<tuv xml:lang="nl"><seg>Types</seg></tuv>
+			<tuv xml:lang="en"><seg>Types</seg></tuv>
+		</tu>
+		<tu tuid='sh.overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='sh.add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		<tu tuid='sh.folders'>
+			<tuv xml:lang="nl"><seg>Folders</seg></tuv>
+			<tuv xml:lang="en"><seg>Folders</seg></tuv>
+		</tu>
+		
+		<tu tuid='ev.event'>
+			<tuv xml:lang="nl"><seg>Evenement</seg></tuv>
+			<tuv xml:lang="en"><seg>Event</seg></tuv>
+		</tu>
+		<tu tuid='ev.archive'>
+			<tuv xml:lang="nl"><seg>Archief</seg></tuv>
+			<tuv xml:lang="en"><seg>Archive</seg></tuv>
+		</tu>
+		<tu tuid='ev.overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='ev.add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		<tu tuid='ev.settings'>
+			<tuv xml:lang="nl"><seg>Instellingen</seg></tuv>
+			<tuv xml:lang="en"><seg>Settings</seg></tuv>
+		</tu>
+		
+		<tu tuid='wtv.webtv'>
+			<tuv xml:lang="nl"><seg>Web TV</seg></tuv>
+			<tuv xml:lang="en"><seg>Web TV</seg></tuv>
+		</tu>
+		<tu tuid='wtv.overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='wtv.add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		
+		<tu tuid='mem.members'>
+			<tuv xml:lang="nl"><seg>Gebruikers</seg></tuv>
+			<tuv xml:lang="en"><seg>Members</seg></tuv>
+		</tu>
+		<tu tuid='mem.overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='mem.add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		<tu tuid='mem.overviewmails'>
+			<tuv xml:lang="nl"><seg>Overzicht e-mails</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview emails</seg></tuv>
+		</tu>
+		<tu tuid='mem.addemail'>
+			<tuv xml:lang="nl"><seg>E-mail toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add email</seg></tuv>
+		</tu>
+		
+		<tu tuid='gr.groups'>
+			<tuv xml:lang="nl"><seg>Groepen</seg></tuv>
+			<tuv xml:lang="en"><seg>Groups</seg></tuv>
+		</tu>
+		<tu tuid='gr.overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='gr.add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		
+		<tu tuid='ac.accounts'>
+			<tuv xml:lang="nl"><seg>Accounts</seg></tuv>
+			<tuv xml:lang="en"><seg>Accounts</seg></tuv>
+		</tu>
+		<tu tuid='ac.overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='ac.add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+
+	</body>
+</tmx>

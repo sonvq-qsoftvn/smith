@@ -1,0 +1,10 @@
+<?php //$user = Zend_Auth::getInstance()->getIdentity() ?>
+<?php //if ($user->isAllowed('block', array('block.edit'))): ?>
+<h3 id="menu-block"><a href="#"><?php echo $this->admin_menu_tmx->_('cb.contentblocks') ?></a></h3>
+<div>
+	<ul class="sidemenu">
+		<li><a href="<?php echo $this->url(array('controller' => 'contentblock', 'action' => 'index')) ?>"><?php echo $this->admin_menu_tmx->_('cb.overview') ?></a></li>
+		<?php /*<li><a href="<?php echo $this->url(array('controller' => 'contentblock', 'action' => 'add')) ?>"><?php echo $this->admin_menu_tmx->_('cb.add') ?></a></li>
+	-->*/ ?></ul>
+</div>
+<?php //endif; ?>

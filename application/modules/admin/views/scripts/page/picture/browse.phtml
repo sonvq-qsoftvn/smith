@@ -1,0 +1,430 @@
+<?php
+	$this->headLink()->appendStylesheet('/js/extjs/resources/css/ext-all.css');
+	$this->headLink()->appendStylesheet('/css/Extjs.css');
+	//$this->headScript()->appendFile('/js/extjs/adapter/jquery/ext-jquery-adapter.js');
+	$this->headScript()->appendFile('/js/extjs/adapter/ext/ext-base.js');
+	$this->headScript()->appendFile('/js/extjs/ext-all.js');
+	$this->headScript()->appendFile('/js/extjs/data-view-plugins.js');
+?>
+
+
+<script type="text/javascript">
+/*
+ * Ext JS Library 2.2.1
+ * Copyright(c) 2006-2009, Ext JS, LLC.
+ * licensing@extjs.com
+ *
+ * http://extjs.com/license
+ */
+
+Ext.namespace("net.drasill.plugins");
+net.drasill.plugins.SortableDataView = function(config) {
+	Ext.apply(this, config || {}, {
+		dragCls : 'x-view-sortable-drag',
+		viewDragCls : 'x-view-sortable-dragging'
+	});
+	net.drasill.plugins.SortableDataView.superclass.constructor.call(this);
+};
+
+Ext.extend(net.drasill.plugins.SortableDataView, Ext.util.Observable, {
+	events : {
+		'drop' : true
+	},
+
+	init : function(view) {
+		window.sdv = this;
+		this.view = view;
+		view.on('render', this.onRender, this);
+	},
+
+	onRender : function() {
+		var self        = this,
+		    v           = this.view,
+		    ds          = v.store,
+		    dd          = new Ext.dd.DragDrop(v.el),
+		    dragCls     = this.dragCls
+		    viewDragCls = this.viewDragCls;
+
+		// onMouseDown : if found an element, record it for future startDrag
+		dd.onMouseDown = function(e) {
+
+			var t,idx,record;
+			this.dragData = null;
+
+			try {
+				t = e.getTarget(v.itemSelector);
+				idx = v.indexOf(t);
+				record = ds.getAt(idx);
+
+				// Found a record to move
+				if (t && record) {
+					this.dragData = {
+						origIdx : idx,
+						lastIdx : idx,
+						record  : record
+					};
+					return true;
+				}
+			} catch (ex) { this.dragData = null; }
+			return false;
+		};
+
+		// startDrag: add dragCls to the element
+		dd.startDrag = function(x, y) {
+			if (!this.dragData) { return false; }
+			Ext.fly(v.getNode(this.dragData.origIdx)).addClass(dragCls);
+			v.el.addClass(viewDragCls);
+		};
+
+		// endDrag : remove dragCls and fire "drop" event
+		dd.endDrag = function(e) {
+			if (!this.dragData) { return true; }
+			Ext.fly(v.getNode(this.dragData.lastIdx)).removeClass(dragCls);
+			v.el.removeClass(viewDragCls);
+			self.fireEvent('drop', this.dragData.origIdx,
+				this.dragData.lastIdx, this.dragData.record);
+			return true;
+		};
+
+		// onDrag : if correct position, move record
+		dd.onDrag = function(e) {
+
+			var t,idx,record,data = this.dragData;
+			if (!data) { return false; }
+
+			try {
+				t = e.getTarget(v.itemSelector);
+				idx = v.indexOf(t);
+				record = ds.getAt(idx);
+
+				if (idx === data.lastIdx) { return true; }
+
+				// found new position : move record and re-add dragCls
+				if (t && record) {
+					data.lastIdx = idx;
+					ds.remove(data.record);
+					ds.insert(idx, [data.record]);
+					Ext.fly(v.getNode(idx)).addClass(dragCls);
+					return true;
+				}
+			} catch (ex) { return false; }
+			return false;
+		};
+
+		this.dd = dd;
+
+	}
+});
+
+
+Ext.onReady(function(){
+    Ext.QuickTips.init();
+	var page_id	= Ext.get('page_id').getValue();
+    var file;
+    var selected;
+
+
+	function handleUpload() {
+		var uploadform = function(){
+			uploadform.getForm().submit({
+				method		: 'POST',
+				waitTitle	: 'Uploaden',
+				waitMsg		: 'Foto uploaden...',
+			    failure:function(response,options){
+			    	Ext.MessageBox.alert('<?php echo $this->admin_tmx->_('oops') ?>','<?php echo $this->admin_tmx->_('wrongextension') ?>');
+			    },
+				success:function(){
+					view_images.store.reload();
+					win.close();
+				}
+			});
+		};
+	    var uploadform = new Ext.FormPanel({
+	        url		: '/admin/page_picture/upload/',
+	        frame	: true,
+	        title	: '',
+	        enctype	: 'multipart/form-data',
+	        isUpload: true,
+	        fileUpload	: true,
+	        defaultType	: 'textfield',
+			monitorValid: true,
+            items	:[{
+					fieldLabel	: '<?php echo $this->admin_tmx->_('photo') ?>',
+					name		: 'picture[]',
+					inputType	: 'file',
+					allowBlank	: false
+				},
+                {
+					fieldLabel	: '<?php echo $this->admin_tmx->_('description') ?>',
+					name		: 'text[]',
+					inputType	: 'text',
+					allowBlank	: true,
+					value		: ''
+				},
+
+				{
+					fieldLabel	: '<?php echo $this->admin_tmx->_('photo') ?>',
+					name		: 'picture[]',
+					inputType	: 'file',
+					allowBlank	: true
+				},
+                {
+					fieldLabel	: '<?php echo $this->admin_tmx->_('description') ?>',
+					name		: 'text[]',
+					inputType	: 'text',
+					allowBlank	: true,
+					value		: ''
+				},
+
+				{
+					fieldLabel	: '<?php echo $this->admin_tmx->_('photo') ?>',
+					name		: 'picture[]',
+					inputType	: 'file',
+					allowBlank	: true
+				},
+                {
+					fieldLabel	: '<?php echo $this->admin_tmx->_('description') ?>',
+					name		: 'text[]',
+					inputType	: 'text',
+					allowBlank	: true,
+					value		: ''
+				},
+
+				{
+					fieldLabel	: '<?php echo $this->admin_tmx->_('photo') ?>',
+					name		: 'picture[]',
+					inputType	: 'file',
+					allowBlank	: true
+				},
+                {
+					fieldLabel	: '<?php echo $this->admin_tmx->_('description') ?>',
+					name		: 'text[]',
+					inputType	: 'text',
+					allowBlank	: true,
+					value		: ''
+				},
+
+				{
+					fieldLabel	: '<?php echo $this->admin_tmx->_('photo') ?>',
+					name		: 'picture[]',
+					inputType	: 'file',
+					allowBlank	: true
+				},
+                {
+					fieldLabel	: '<?php echo $this->admin_tmx->_('description') ?>',
+					name		: 'text[]',
+					inputType	: 'text',
+					allowBlank	: true,
+					value		: ''
+				},
+
+				{
+					name		: 'page_id',
+					inputType	: 'hidden',
+					value		: page_id
+				}
+			],
+	        buttons	:[{
+				text		:'<?php echo $this->admin_tmx->_('upload') ?>',
+				formBind	: true,
+				handler		: uploadform
+			}],
+			keys	:[{
+				key		: Ext.EventObject.ENTER,
+				fn		: uploadform,
+				scope	: this
+			}]
+	    });
+	    win = new Ext.Window({
+	        layout	: 'fit',
+	        width	: 400,
+	        height	: 450,
+	        closable	: true,
+	        resizable	: false,
+	        plain	: true,
+	        modal	: true,
+	        items	: [uploadform]
+		});
+		win.show();
+	}
+
+	function handleUpdate() {
+		if(view_images.getSelectionCount() == 0) {
+			Ext.MessageBox.alert('<?php echo $this->admin_tmx->_('oops') ?>','<?php echo $this->admin_tmx->_('selectpicturefirst') ?>...');
+			return;
+		} else {
+			data = view_images.getSelectedRecords()[0].data;
+			picture_id	= data['picture_id'];
+			text		= data['text'];
+            season      = data['season'];
+		}
+		var updateform = function(){
+			updateform.getForm().submit({
+				method		: 'POST',
+				waitTitle	: 'Update',
+				waitMsg		: 'Foto updaten...',
+			    failure:function(response,options){
+			    	Ext.MessageBox.alert('<?php echo $this->admin_tmx->_('oops') ?>','<?php echo $this->admin_tmx->_('somethingwrong') ?>');
+			    },
+				success:function(){
+					view_images.store.reload();
+					win.close();
+				}
+			});
+		};
+	    var updateform = new Ext.FormPanel({
+	        url		: '/admin/page_picture/textupdate/',
+	        frame	: true,
+	        title	: '',
+	        defaultType	: 'textfield',
+			monitorValid: true,
+	        items	:[
+				{
+					name		: 'picture_id',
+					inputType	: 'hidden',
+					value		: picture_id
+				},
+				{
+					fieldLabel	: '<?php echo $this->admin_tmx->_('text') ?>',
+					name		: 'text',
+					inputType	: 'textfield',
+					allowBlank	: true,
+					value		: text
+				}
+
+			],
+	        buttons	:[{
+				text		:'<?php echo $this->admin_tmx->_('save') ?>',
+				formBind	: true,
+				handler		: updateform
+			}],
+			keys	:[{
+				key		: Ext.EventObject.ENTER,
+				fn		: updateform,
+				scope	: this
+			}]
+	    });
+	    win = new Ext.Window({
+	        layout	: 'fit',
+	        width	: 400,
+	        height	: 150,
+	        closable	: true,
+	        resizable	: false,
+	        plain	: true,
+	        modal	: true,
+	        items	: [updateform]
+		});
+		win.show();
+	}
+
+	function handleDrop() {
+		var ids = new Array;
+		view_images.store.each(function(record)  { ids.push(record.get('picture_id')); });
+		params	= Ext.util.JSON.encode(ids);
+
+		Ext.Ajax.request({
+			waitMsg	: '<?php echo $this->admin_tmx->_('saving') ?>...',
+			url		: '/admin/page_picture/order',
+			params	: {
+				'ids' : params
+			},
+			success:function(response,options){	}
+		});
+	}
+
+	function handleDelete() {
+		if(view_images.getSelectionCount() == 0) {
+			Ext.MessageBox.alert('<?php echo $this->admin_tmx->_('error') ?>','<?php echo $this->admin_tmx->_('selectpicturefirst') ?>...');
+			return;
+		}
+		Ext.Msg.confirm('Message', '<?php echo $this->admin_tmx->_('confirmdelete') ?>', function(btn){
+		    if (btn == 'yes'){
+		    	data = view_images.getSelectedRecords()[0].data;
+				Ext.Ajax.request({
+					waitMsg	: '<?php echo $this->admin_tmx->_('deleting') ?>...',
+					url		: '/admin/page_picture/remove',
+					params	: {
+				        'id' : data['picture_id']
+				    },
+				    success:function(response,options){
+						view_images.store.reload();
+				    }
+				});
+		    }
+		});
+	}
+
+	// Set up images view
+	var view_images= new Ext.DataView({
+		itemSelector	: 'div.thumb-wrap',
+		style			: 'overflow:auto',
+		singleSelect	: true,
+
+		store			: new Ext.data.JsonStore({
+			url		: '/admin/page_picture/browse/',
+			baseParams	: {'id':page_id, 'json':1},
+			autoLoad: true,
+			root	: 'images',
+			id		: 'picture_id',
+			fields	:['picture_id',	'file',	'text',	'page_id', {name: 'shortName', mapping: 'text', convert: shortName}, 'season']
+		}),
+
+		tpl			: new Ext.XTemplate(
+			'<tpl for=".">',
+			'<div class="thumb-wrap" id="{picture_id}">',
+			'<div class="thumb"><img src="/images/page/page_{page_id}/100x100/{file}" class="thumb-img"></div>',
+            '<span>{shortName}</span><tpl if="season == 0"><span><?php echo $this->admin_tmx->_('general') ?></span></tpl><tpl if="season == 1"><span><?php echo $this->admin_tmx->_('winter') ?></span></tpl><tpl if="season == 2"><span><?php echo $this->admin_tmx->_('spring') ?></span></tpl><tpl if="season == 3"><span><?php echo $this->admin_tmx->_('summer') ?></span></tpl><tpl if="season == 4"><span><?php echo $this->admin_tmx->_('fall') ?></span></tpl></div>',
+			'</tpl>'
+		),
+
+		plugins		: new net.drasill.plugins.SortableDataView({
+			listeners: { 'drop': handleDrop }
+		}),
+
+		indexOf : function(node){
+			node = this.getNode(node);
+			if(node && typeof node.viewIndex == "number"){
+				return node.viewIndex;
+			}
+			return this.all.indexOf(node);
+		}
+	});
+
+	// main panel render
+    var layout = new Ext.Panel({
+        id		: 'images',
+		layout	: 'fit',
+        title	: '<?php echo $this->admin_tmx->_('pictures') ?>',
+		width	: 850,
+		height	: 400,
+		items	: view_images,
+		tbar	: new Ext.Toolbar({
+			items:[{
+				text	: '<?php echo $this->admin_tmx->_('uploadpictures') ?>',
+				handler	: handleUpload
+			},{
+				text	: '<?php echo $this->admin_tmx->_('deletepicture') ?>',
+				handler	: handleDelete
+			},
+			{
+				text	: '<?php echo $this->admin_tmx->_('updatepicture') ?>',
+				handler	: handleUpdate
+			}]
+		})
+
+    });
+	layout.render('layout');
+});
+function shortName(name){
+    if(name.length > 15){
+        return name.substr(0, 12) + '...';
+    }
+    return name;
+};
+</script>
+<div style="margin: 5px 0 0 15px;">
+<h3 style="font-size: 13px; margin-bottom: 5px;"><?php echo $this->admin_tmx->_('uploadpicturesforpage') ?> <?php echo $this->page->getTitle() ?> [<?php echo $_SESSION['System']['lng'] ?>]</h3>
+<input type="hidden" value="<?php echo $this->page_id ?>" id="page_id" name="page_id" />
+<input type="hidden" value="<?php echo $_SESSION['System']['lng'] ?>" id="language" name="language" />
+<div id="layout"></div>
+</div>

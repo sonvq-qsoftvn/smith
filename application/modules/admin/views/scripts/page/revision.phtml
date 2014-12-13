@@ -1,0 +1,42 @@
+<?php $this->headTitle('SxCms - Pagina Revisie') ?>
+
+<h3><?php echo $this->admin_tmx->_('pagerevision') ?></h3>
+<table width="95%">
+	<tr>
+		<td class="label" width="200"><?php echo $this->admin_tmx->_('title') ?></td>
+		<td><?php echo $this->diff->getTitle() ?></td>
+	</tr>
+	<tr>
+		<td class="label"><?php echo $this->admin_tmx->_('summary') ?></td>
+		<td><?php echo $this->diff->getSummary() ?></td>
+	</tr>
+	<tr>
+		<td class="label"><?php echo $this->admin_tmx->_('source') ?></td>
+		<td><?php if ($this->diff->hasTitleFallback()): ?>
+			<span style="color: green;"><?php echo $this->admin_tmx->_('referencetodutch') ?></span>
+			<?php endif ?>
+			<?php echo $this->diff->getSource() ?></td>
+	</tr>
+	<tr>
+		<td class="label"><?php echo $this->admin_tmx->_('url') ?></td>
+		<td><?php echo $this->diff->getLink() ?></td>
+	</tr>
+	<tr>
+		<td colspan="2"></td>
+	</tr>
+	<tr>
+		<td class="label" colspan="2"><?php echo $this->admin_tmx->_('content') ?></td>
+	</tr>
+	<tr>
+		<td colspan="2"><?php echo $this->diff->getContent() ?></td>
+	</tr>
+</table>
+
+<form class="no-markup" name="delete-page" method="post" action="<?php echo $this->url() ?>">
+<p>
+	<input class="delete" type="button" value="<?php echo $this->admin_tmx->_('backoverview') ?>" onclick="window.location = '<?php echo $this->url(array('controller' => 'page', 'action' => 'revisions', 'lng' => $this->diff->getLanguage())) ?>'" />
+	<?php if (!$this->diff->isApproved()): ?>
+	<input class="button" type="submit" value="<?php echo $this->admin_tmx->_('Approve') ?>" />
+	<?php endif ?>
+</p>
+</form>

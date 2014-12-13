@@ -1,0 +1,56 @@
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js'); ?>
+<?php echo $this->render('system/result.phtml') ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+    $('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<div id="dialog-file" title="Foto verwijderen" style="display: none;">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+    Weet u zeker dat u deze foto wilt verwijderen ?</p>
+</div>
+
+<?php echo $this->render('system/result.phtml') ?>
+
+<h3>Foto's overzicht</h3>
+
+<?php if ($this->pictures): ?>
+<div style="padding: 5px 0 25px 5px;">
+<?php foreach ($this->pictures as $fileInfo): ?>
+<?php if($fileInfo->isDot() or !$fileInfo->isFile()) continue; ?>
+<div style="float: left; margin: 5px; width: 70px; height : 90px; background-image: url('<?php echo $this->baseUrl('/images/products/product_' . $this->product->getId(). '/thumbs/' . $fileInfo->getBasename()) ?>');">
+    <a href="#" title="Deze foto verwijderen" onclick="showDialog('#dialog-file', '<?php echo $this->url(array('controller' => 'ecommerce', 'action' => 'delete-picture', 'product' => $this->product->getId(), 'file' => $fileInfo->getBasename())) ?>', 'file');">
+        <img src="<?php echo $this->baseUrl('/images/cms/actions/delete.png') ?>" style="padding: 70px 0 0 50px" />
+    </a>
+</div>
+<?php endforeach ?>
+</div>
+<div style="clear: both; margin-bottom: 10px;"></div>
+<?php endif ?>
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-add-file">Foto toevoegen</a></li>
+    </ul>
+
+    <div id="tabs-add-file">
+        <form method="post" enctype="multipart/form-data" action="<?php echo $this->url() ?>">
+        <dl>
+            <dt>
+                <label for="file">Bestand:</label>
+            </dt>
+            <dd>
+                <input type="file" name="filename" id="filename" size="45"  />
+                <p class="description">
+                    Selecteer het bestand dat u wenst te uploaden
+                </p>
+            </dd>
+            <dd style="margin-top: 20px;">
+                <input class="button" type="submit" value="Opladen" />
+            </dd>
+        </dl>
+        </form>
+    </div>
+</div>

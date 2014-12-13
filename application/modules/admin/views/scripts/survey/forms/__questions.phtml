@@ -1,0 +1,102 @@
+<?php $this->headScript()->captureStart() ?>
+$(function() {
+	$("#questiontable").load("<?php echo $this->url(array('controller' => 'survey_question', 'action' => 'add-question')) ?>");
+	$('.addquestion').click(function() {
+		question = $("#question").val();
+		type = $("#type").val();
+		comment = $("#comment").val();
+		key = $("#key").val();
+
+		if(question.length < 2) {
+			$("#alert").dialog({
+				bgiframe: true,
+				resizable: false,
+				height: 160,
+				width: 500,
+				modal: true,
+				overlay: {
+					backgroundColor: '#000',
+					opacity: 0.5
+				},
+				buttons: {
+					'Ok': function() {
+						$(this).dialog('destroy');
+					}
+				}
+			});
+		} else {
+			$.ajax({
+				type: 'POST',
+				url: '<?php echo $this->url(array('controller' => 'survey_question', 'action' => 'add-question')) ?>',
+				data: {'key' : key, 'question' : question, 'type' : type, 'comment' : comment},
+				success: function(msg){
+					$("#questiontable").html(msg);
+					$("#key").val("");
+					$("#question").val("");
+					$("#type").val("");
+					$("#comment").val("");
+					reload();
+				}
+			});
+		}
+	});
+	reload();
+});
+
+function reload() {
+	$.getJSON('<?php echo $this->url(array('controller' => 'survey_question', 'action' => 'get-list-questions')) ?>', null,
+		function(data){
+			var input = "";
+			if(data != null) {
+				$.each(data, function(i,item){
+					input += "<option value='"+item['id']+"'>"+item['question']+"</option>";
+				});
+			}
+			$("#questionId").html(input);
+		}
+	);
+}
+<?php $this->headScript()->captureEnd() ?>
+
+<div id="questiontable"></div>
+
+<h3>Formulier</h3>
+<dl>
+	<dt>
+		<label for="question">Vraag:</label>
+	</dt>
+	<dd>
+		<input type="text" name="question" id="question"
+			value="<?php echo $this->question->getQuestion() ?>" style="width: 250px;" />
+		<p class="description">
+			Verplicht in te vullen, minimum 2 karakters
+		</p>
+	</dd>
+
+	<dt>
+		<label for="type">Type:</label>
+	</dt>
+	<dd>
+		<select name="type" id="type">
+			<option value="text" <?php if($this->question->getType() == "text") { echo 'selected="selected"'; } ?> >tekst</option>
+			<option value="select" <?php if($this->question->getType() == "select") { echo 'selected="selected"'; } ?>>select</option>
+			<option value="multiselect" <?php if($this->question->getType() == "multiselect") { echo 'selected="selected"'; } ?>>multiselect</option>
+			<option value="checkbox" <?php if($this->question->getType() == "checkbox") { echo 'selected="selected"'; } ?>>checkbox</option>
+			<option value="textarea" <?php if($this->question->getType() == "textarea") { echo 'selected="selected"'; } ?>>textarea</option>
+		</select>
+	</dd>
+
+	<dt>
+		<label for="comment">Comment:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="comment" id="comment"
+	    	value="<?php echo $this->question->getComment() ?>" style="width: 250px;" />
+	</dd>
+
+	<dd>
+		<input type="hidden" id="key" value="">
+		<?php echo $this->messages->getMessagesHtml('questions') ?>
+	    <input type="button" class="addquestion" value="toevoegen" />
+	</dd>
+</dl>

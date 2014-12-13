@@ -1,0 +1,27 @@
+<?php $identity = Zend_Auth::getInstance()->getIdentity() ?>
+
+<?php $n = count($this->menus); ?>
+<?php $i = 0;  ?>
+<?php do { ?>
+	<?php $i++; ?>
+	<?php $page = current($this->menus); ?>
+	<ul>
+	   <?php if ($page->isAllowed($identity)): ?>
+		<li>
+			<?php if ($page->getId() === 0 ) : ?>
+				<a href="<?php echo $this->url(array('url' => null, 'lng' => $this->lng), 'content', false, false) ?>">
+					<?php if (!$this->isBot): ?>
+						<?php echo $page->getTitle() ?>
+					<?php endif ?>
+				</a>
+			<?php else : ?>
+				<a href="<?php echo $this->url(array('url' => $page->getLink(), 'lng' => $this->lng), 'content', false, false) ?>">
+					<?php if (!$this->isBot): ?>
+						<?php echo $page->getTitle() ?>
+					<?php endif ?>
+				</a>
+			<?php endif; ?>
+		</li>
+		<?php endif ?>
+	</ul>
+<?php } while(next($this->menus)) ?>

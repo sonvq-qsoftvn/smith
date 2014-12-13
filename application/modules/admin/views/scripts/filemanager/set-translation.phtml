@@ -1,0 +1,4 @@
+<?php $this->headScript()->captureStart() ?>
+window.opener.document.getElementById('link').value = '<?php echo $this->file ?>';
+window.close();
+<?php $this->headScript()->captureEnd() ?>

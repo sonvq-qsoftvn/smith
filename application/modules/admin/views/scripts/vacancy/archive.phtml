@@ -1,0 +1,38 @@
+<?php
+
+$user = Zend_Auth::getInstance()->getIdentity();
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+
+$this->headTitle('SxCms - Vacatures archief');
+echo $this->render('system/result.phtml');
+
+?>
+
+<h3>Vacatures archief <?php echo $this->year ?></h3>
+<table width="98%">
+    <?php if ($this->years): ?>
+    <thead>
+        <tr>
+            <th>Kies jaar</th>
+        </tr>
+    </thead>
+    <?php foreach ($this->years as $year): ?>
+    <tr>
+        <td><a href="<?php echo $this->url(array('year' => $year)) ?>"><?php echo $year ?></a></td>
+    </tr>
+    <?php endforeach ?>
+    <?php endif ?>
+
+    <?php if ($this->months): ?>
+    <thead>
+        <tr>
+            <th>Kies maand</th>
+        </tr>
+    </thead>
+    <?php foreach ($this->months as $month): ?>
+    <tr>
+        <td><a href="<?php echo $this->url(array('action' => 'index', 'month' => $month)) ?>"><?php echo strftime("%B", strtotime('2010-' . $month . '-01')) ?></a></td>
+    </tr>
+    <?php endforeach ?>
+    <?php endif ?>
+</table>

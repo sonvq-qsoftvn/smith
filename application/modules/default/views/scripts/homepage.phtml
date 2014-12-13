@@ -1,0 +1,32 @@
+<?php
+    $basePathLanguage = '/' . $this->lng; 
+    $basePath = '/'; 
+?>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<?php echo $this->action('head' , 'index' , null , array('page' => $this->page, 'lng' => $this->lng)) ?>
+	</head>
+	<body>	
+        <div id="main-container">
+            <hr class="top-hr"></hr>
+            <div class ="logo-container container_12">
+                <a href="<?php echo $this->baseUrl($basePathLanguage); ?>" class="logo"></a>
+            </div>
+            <div class="menu-container container_12">
+                <?php echo $this->action('multilevelmenu' , 'index' , null , array('page' => $this->page, 'lng' => $this->lng)) ?>
+            </div>
+            <div id="pt-main" class="pt-perspective">
+                <div class="pt-page pt-page-1">
+                    <?php echo $this->page->getContent(); ?>
+                    <?php echo $this->page->getContent(); ?>
+                    <?php echo $this->page->getContent(); ?>
+                   
+                    <?php echo $this->render('__layout/footer.phtml'); ?>
+                </div>
+            </div>
+            
+        </div>
+        
+	</body>
+</html>

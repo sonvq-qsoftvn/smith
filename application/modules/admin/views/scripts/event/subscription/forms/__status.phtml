@@ -1,0 +1,16 @@
+<dl>
+	<dt><label for="status"><?php echo $this->admin_tmx->_('selectstatus') ?></label></dt>
+    <dd>
+     <p class="description">
+	       <?php echo $this->admin_tmx->_('selectstatusdescription') ?>
+	    </p>
+    	<label class="label-radio"><img src="<?php echo $this->baseUrl('/ico/question.png') ?>" alt="<?php echo $this->admin_tmx->_('waiting') ?>" /> <input name="status" type="radio" value="0" <?php if($this->subscription->getStatus() == 0) : ?>checked="checked"<?php endif ?>/> <?php echo $this->admin_tmx->_('waiting') ?>  </label>
+        
+        <label class="label-radio"><img src="<?php echo $this->baseUrl('/ico/tick-circle.png') ?>" alt="<?php echo $this->admin_tmx->_('accepted') ?>" /> <input name="status" type="radio" value="1" <?php if($this->subscription->getStatus() == 1) : ?>checked="checked"<?php endif ?> />  <?php echo $this->admin_tmx->_('accepted') ?> </label>
+        
+        <label class="label-radio"><img src="<?php echo $this->baseUrl('/ico/cross-circle.png') ?>" alt="<?php echo $this->admin_tmx->_('rejected') ?>" /> <input name="status" type="radio" value="2" <?php if($this->subscription->getStatus() == 2) : ?>checked="checked"<?php endif ?>/>  <?php echo $this->admin_tmx->_('rejected') ?></label>
+        
+    </dd>
+</dl>
+
+

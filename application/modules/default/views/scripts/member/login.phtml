@@ -1,0 +1,31 @@
+<?php echo $this->page->getContent(); ?>
+<?php if(!$this->identity) : ?>
+<h1>Login</h1>
+<form name="login" method="post" action="">
+    <dl>
+        <dt>
+            <label for="login">Login:</label>
+        </dt>
+        <dd>
+            <input type="text" name="login" id="login"
+                value="<?php echo $this->member->getEmail() ?>" />
+            <?php echo $this->messages->getMessagesHtml('login') ?>
+        </dd>
+        <dt>
+            <label for="password">Paswoord:</label>
+        </dt>
+        <dd>
+	    <input type="password" name="password" id="password"
+	    	value="" />
+	    <?php echo $this->messages->getMessagesHtml('password') ?>
+        </dd>
+        <dt></dt>
+        <dl>
+            <input type="submit" value="Login" name="submit" class="input" />
+        </dl>
+    </dl>
+</form>
+<a id="button" href="<?php echo $this->url(array('lng' => $this->lng),'forgotten', true ); ?>">Forgot password?</a>
+<?php else : ?>
+<a id="button" href="<?php echo $this->url(array('lng' => $this->lng),'logout', true ); ?>">Log-out</a>
+<?php endif; ?>

@@ -1,0 +1,108 @@
+<?php echo $this->render('system/leave.phtml'); ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+
+function jqCheckAll(element)
+{
+	$(element).parents('dl:eq(0)').find(':checkbox').attr('checked', element.checked);
+}
+<?php $this->headScript()->captureEnd() ?>
+
+<?php $acl = $this->group->getAcl() ?>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-group"><?php echo $this->admin_tmx->_('general') ?>
+			<?php $errors = count($this->messages->getTabMessages('common')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-acl"><?php echo $this->admin_tmx->_('rights') ?></a></li>
+	</ul>
+	<form method="post" action="<?php echo $this->url() ?>">
+	<div id="tabs-group">
+		<dl>
+		    <dt>
+		        <label for="name"><?php echo $this->admin_tmx->_('name') ?>:</label>
+		    </dt>
+		    <dd>
+		        <input type="text" name="name" id="name" size="45" 
+		            value="<?php echo $this->escape($this->group->getName()) ?>" <?php if($this->group->getId()): ?>readonly="readonly"<?php endif ?> />
+		        <?php echo $this->messages->getMessagesHtml('name') ?>
+		        <p class="description">
+		            <?php echo $this->admin_tmx->_('requiredmin2max255chars') ?>
+		        </p>
+		    </dd>
+            <input type="hidden" value="none" name="identifier" />
+            <!--
+		    <dt>
+		        <label for="identifier">SAML ID:</label>
+		    </dt>
+		    <dd>
+		        <input type="text" name="identifier" id="identifier" size="45"
+		            value="<?php echo $this->escape($this->group->getIdentifier()) ?>" />
+		        <?php echo $this->messages->getMessagesHtml('identifier') ?>
+		        <p class="description">
+		            Verplicht in te vullen, minimum 2 en maximum 255 karakters
+		        </p>
+		    </dd>-->
+
+		    <dd style="margin-top: 25px;">
+		        <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+		    </dd>
+		</dl>
+	</div>
+	<div id="tabs-acl">
+		<?php
+
+		$index = 0;
+		foreach ($this->acl as $resource) {
+			if ($index % 2 == 0) {
+				echo '<div style="clear:both"></div>';
+			}
+
+			$attributes = $resource->attributes();
+			$resourceId = (string) $attributes->id;
+		?>
+
+		<div style="float: left; width:350px; margin-right: 25px;">
+			<h3 style="background-color: #eee; margin: 0 0 5px 0; padding: 5px"><?php echo $resource->name ?></h3>
+			<dl>
+				<dd>
+					<input type="checkbox" onclick="jqCheckAll(this);" /> &nbsp; geef alle rechten
+			        <p class="description">
+			            <?php echo $this->admin_tmx->_('assignrightsauto') ?>
+			        </p>
+				</dd>
+				<?php foreach ($resource->privilege as $privilege): ?>
+				<?php $pAttr = $privilege->attributes(); ?>
+				<?php $privilegeId = (string) $pAttr->id ?>
+			    <dd>
+			        <input type="checkbox" name="acl[<?php echo $resourceId ?>][]"
+			            value="<?php echo $privilegeId ?>"
+						<?php if ($this->group->isAllowed($resourceId, $privilegeId)) echo 'checked="checked"'; ?>/>
+			        &nbsp; <?php echo $this->escape($privilege->name) ?>
+
+			        <p class="description">
+			            <?php echo $this->escape($privilege->description) ?>
+			        </p>
+			    </dd>
+				<?php endforeach ?>
+			</dl>
+		</div>
+
+		<?php $index++; } ?>
+		<div style="clear: both;"></div>
+
+		<dl>
+		    <dd style="margin-top: 25px;">
+		        <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+		    </dd>
+		</dl>
+	</div>
+	</form>
+</div>

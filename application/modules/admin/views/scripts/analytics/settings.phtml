@@ -1,0 +1,29 @@
+<?php
+
+$user = Zend_Auth::getInstance()->getIdentity();
+
+$this->headTitle('SxCms - Analytics - '.$this->admin_tmx->_('settings'));
+
+$this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<h3>Analytics - <?php echo $this->admin_tmx->_('settings') ?></h3>
+
+<div id="tabs">
+	<ul>
+    	<li>
+    		<a href="#tabs-login"><?php echo $this->admin_tmx->_('settings') ?></a>
+		</li>
+    </ul>
+    <div id="tabs-login">
+    	
+		<?php
+		echo $this->render('analytics/forms/__settings.phtml');
+		
+		?>
+		
+	</div>
+</div>

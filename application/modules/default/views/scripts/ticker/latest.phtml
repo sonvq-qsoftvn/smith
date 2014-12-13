@@ -1,0 +1,6 @@
+<?php if($this->ref) : ?>
+	<p><img src="/files/refs/ref_<?php echo $this->ref->getRefId() ?>/100x100/<?php echo $this->picture['file'] ?>"  border="1" /></p>
+	<img src="/images/website/eyecatcher-arrow.png" alt="" />
+	<h1><?php echo strtoupper($this->escape($this->ref->getDate('%A %d.%m.%Y'))) ?></h1>
+	<?php echo $this->ref->getDescription() ?>
+<?php endif ?>

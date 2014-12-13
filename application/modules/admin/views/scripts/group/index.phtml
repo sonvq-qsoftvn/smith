@@ -1,0 +1,43 @@
+<?php
+
+$user = Zend_Auth::getInstance()->getIdentity();
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+
+$this->headTitle('SxCms - '.$this->admin_tmx->_('usergroupsoverview'));
+echo $this->render('system/result.phtml');
+
+$canEdit    = $user->isAllowed('group', 'group.edit');
+$canDelete  = $user->isAllowed('group', 'group.delete');
+
+?>
+
+<div id="dialog" title="<?php echo $this->admin_tmx->_('deleteusergroup') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deleteusergroupconfirm') ?></p>
+</div>
+
+<h3><?php echo $this->admin_tmx->_('usergroupsoverview') ?></h3>
+<table width="98%">
+    <tr>
+        <th><?php echo $this->admin_tmx->_('name') ?></th>
+        
+        <th width="60"><?php echo $this->admin_tmx->_('action') ?></th>
+    </tr>
+    <?php foreach ($this->groups as $group): ?>
+    <tr>
+        <td><?php echo $this->escape($group->getName()) ?></td>
+        <td width="55">
+        	<?php if ($canEdit): ?>
+            <a title="<?php echo $this->admin_tmx->_('edit') ?>" href="<?php echo $this->url(array('controller' => 'group', 'action' => 'edit', 'id' => $group->getId())) ?>">
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+            </a>
+            <?php endif ?>
+            <?php if ($canDelete): ?>
+            <a title="<?php echo $this->admin_tmx->_('delete') ?>" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('controller' => 'group', 'action' => 'delete', 'id' => $group->getId())) ?>');">
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
+            </a>
+            <?php endif ?>
+        </td>
+    </tr>
+    <?php endforeach ?>
+</table>

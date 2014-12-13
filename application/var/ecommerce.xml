@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigation>
+  <menu id="0" name="Hoofdcategorie">
+    <menu id="6" name="Smartphones">
+      <menu id="7" name="HTC"/>
+    </menu>
+  </menu>
+</navigation>

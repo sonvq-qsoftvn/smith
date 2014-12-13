@@ -1,0 +1,9 @@
+<?php $this->headScript()->captureStart() ?>
+<?php if (isset($this->category)): ?>
+	window.opener.document.getElementById('parent_id').value = '<?php echo $this->category->getBreadcrumbs() ?>';
+	window.close();
+<?php else: ?>
+	window.opener.document.getElementById('category_id').value = '<?php echo $this->product->getCategory()->getBreadcrumbs(true) ?>';
+	window.close();
+<?php endif ?>
+<?php $this->headScript()->captureEnd() ?>

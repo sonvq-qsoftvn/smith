@@ -1,0 +1,17 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+
+<?php if ($user->isAllowed('account', array('account.index', 'account.add'))): ?>
+<h3 id="menu-account"><a href="#"><?php echo $this->admin_menu_tmx->_('ac.accounts') ?></a></h3>
+<div>
+    <ul class="sidemenu">
+    	<?php if ($user->isAllowed('account', 'account.index')): ?>
+        	<li><a href="<?php echo $this->url(array('controller' => 'account', 'action' => 'index')) ?>"><?php echo $this->admin_menu_tmx->_('ac.overview') ?></a></li>
+        <?php endif ?>
+        <?php if ($user->isAllowed('account', 'account.add')): ?>
+        	<li><a href="<?php echo $this->url(array('controller' => 'account', 'action' => 'add')) ?>"><?php echo $this->admin_menu_tmx->_('ac.add') ?></a></li>
+        <?php endif ?>
+    </ul>
+</div>
+<?php endif ?>
+
+<?php echo $this->render('group/__menu.phtml') ?>

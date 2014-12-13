@@ -1,0 +1,8 @@
+<?php $this->headTitle($this->admin_tmx->_('addnewmembermail'));
+$user = Zend_Auth::getInstance()->getIdentity();
+$canAdd     = $user->isAllowed('members', 'members.add');
+?>
+
+
+<h3><?php echo $this->admin_tmx->_('addnewmembermail') ?></h3>
+<?php echo $this->render('member/__mailform.phtml') ?>

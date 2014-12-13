@@ -1,0 +1,15 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+
+<?php if ($user->isAllowed('survey', array('survey.index', 'survey.add'))): ?>
+<h3 id="menu-survey"><a href="#">Enqu&#234;tes</a></h3>
+<div>
+	<ul class="sidemenu">
+		<?php if ($user->isAllowed('survey', 'survey.index')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'survey', 'action' => 'index')) ?>">Overzicht</a></li>
+		<?php endif ?>
+		<?php if ($user->isAllowed('survey', 'survey.add')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'survey', 'action' => 'add')) ?>">Toevoegen</a></li>
+		<?php endif ?>
+	</ul>
+</div>
+<?php endif ?>

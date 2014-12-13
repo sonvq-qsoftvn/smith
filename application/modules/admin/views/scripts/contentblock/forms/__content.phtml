@@ -1,0 +1,40 @@
+<dl>
+    <?php if($this->hidden != 'hidden') : ?>
+    <dt>
+        <label for="blockname">Blockname:</label>
+    </dt>
+    <dd>
+        <input type="text" name="blockname" id="blockname" size="90"
+               value="<?php echo $this->escape($this->block->getBlockname()) ?>" />
+               <?php echo $this->messages->getMessagesHtml('blockname') ?>
+        <p class="description">
+	        <?php echo $this->admin_tmx->_('min2max255chars') ?>
+        </p>
+    </dd>
+<?php endif; ?>
+    <dt>
+        <label for="title"><?php echo $this->admin_tmx->_('title') ?>:</label>
+    </dt>
+    <dd>
+        <input type="text" name="title" id="title" size="90"
+               value="<?php echo $this->escape($this->block->getTitle()) ?>" />
+               <?php echo $this->messages->getMessagesHtml('title') ?>
+        <p class="description">
+	        <?php echo $this->admin_tmx->_('min2max255chars') ?>
+        </p>
+    </dd>
+
+    <dt class="editor">
+        <label for="content"><?php echo $this->admin_tmx->_('content') ?></label>
+    </dt>
+    <dd>
+        <textarea name="content" id="content" style="width:100%; height: 500px; color:#333;" rows="50" class="mceEditor"><?php echo $this->escape($this->block->getContent()) ?></textarea>
+        <?php echo $this->messages->getMessagesHtml('content') ?>
+
+    </dd>
+    <br />
+    <dd>
+        <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('Save') ?>" onclick="disableConfirm();" />
+    </dd>
+
+</dl>

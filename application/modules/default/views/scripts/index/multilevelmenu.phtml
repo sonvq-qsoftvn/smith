@@ -1,0 +1,142 @@
+<?php
+
+$n = count($this->menus);
+$i = 0; $j = 0; // $i = level 2 items; $j = level 3 items 
+$inMenu = true;
+$inSubMenu = true;
+
+?>
+<ul class="grid_12">
+	<?php
+
+	do {
+	
+		$page = current($this->menus);	
+		$class = (isset($this->page) && is_object($this->page) && ($this->page->getId() == $page->getId() || (is_object($this->page->getParent()) && $this->page->getParent()->getId() != 0 && $this->page->getParent()->getId() == $page->getId() ))) ? 'active' : '';
+		if($page->getInvisible() == 1) { continue; }
+	
+		if(substr($page->getLink(),0,7) == 'http://'):
+			$url = $page->getLink();
+	        $target = 'target="_blank"';
+	    else:
+	    	$url = $this->url(array('url' => $page->getLink(), 'lng' => $this->lng), 'content', false, false);
+	    	$target = '';
+	    endif;
+	   
+	   /**
+	    * HOMEPAGE
+	    */
+	    if($page->getId() == 0) : //level 1 - homepagina ?>
+	         <li class="home"><a class="<?php echo $class; ?>" href="<?php echo $url ?>" <?php echo $target?>><?php echo $page->getTitle() ?></a></li>
+	         <?php continue;
+		endif;
+
+		/**
+		 * LEVEL 2
+		 */
+		if(!$page->hasChildren() && $page->getLevel() == 2) : // level 2 - pagina zonder subpagina
+			if(isset($open2)): ?>
+				</ul>
+				<?php unset($open2);
+			endif;
+	
+			$inMenu = $page->isInNavigation();
+	
+			if($inMenu): ?>
+		   		 <li><a class="<?php echo $class; ?>" href="<?php echo $url ?>" <?php echo $target?>><?php echo $page->getTitle() ?></a></li>
+		         <?php continue;
+			endif;
+		endif;
+
+		/**
+		 * LEVEL 2 - CHILDREN
+		 */
+		if($page->hasChildren() && $page->getLevel() == 2) : // level 3 - pagina met subpagina
+			if(isset($open2)): ?>
+				</ul>
+				<?php unset($open2);
+			endif;
+	
+			$amountChildrenLevel2 = count($page->getChildren());
+			$inMenu = $page->isInNavigation();
+	
+			if($inMenu) : ?>
+	         <li><a class="<?php echo $class; ?>" href="<?php echo $url ?>" <?php echo $target?>><?php echo $page->getTitle() ?></a>
+	      		 <ul>
+				<?php $open2 = true;
+			endif;
+		endif;
+
+		/**
+		 * LEVEL 3
+		 */
+		if(!$page->hasChildren() && $page->getLevel() == 3) : //level 3 - pagina zonder subpagina
+			if(isset($open2)) { unset($open2); }
+			if(isset($open3)): ?>
+				</ul>
+				<?php unset($open3);
+			endif;
+	
+			$inSubMenu = $page->isInNavigation();
+	     	$i++;
+	
+		 	if($inMenu && $inSubMenu) : ?>
+				<li><a class="<?php echo $class; ?>" href="<?php echo $url ?>" <?php echo $target?>><?php echo $page->getTitle() ?></a></li>
+			<?php endif;
+	
+			if($amountChildrenLevel2 == $i):  
+			 	// indien laatste subpagina van pagina, submenu level 2 afsluiten
+			 	$i = 0;
+	
+		        if($inMenu) : ?>
+		     		</ul></li>
+		        <?php endif;
+	        endif;
+		endif;
+
+		/**
+		 * LEVEL 3 - CHILDREN
+		 */
+		if($page->hasChildren() && $page->getLevel() == 3) : //level 3 - pagina met subpagina
+			if(isset($open2)) { unset($open2); }
+			if(isset($open3)): ?>
+				</ul>
+				<?php unset($open3);
+			endif;
+	
+			$inSubMenu = $page->isInNavigation();
+			$i++;
+			
+			if($inMenu && $inSubMenu):
+				$amountChildrenLevel3 = count($page->getChildren());
+				$j = 0; ?>
+	     			<li><a class="<?php echo $class; ?>" href="<?php echo $url ?>" <?php echo $target?>><?php echo $page->getTitle() ?></a>
+	        	<ul>
+				<?php $open3 = true;
+			endif;
+		endif;
+
+		/**
+		 * LEVEL 4
+		 */
+		if($page->getLevel() == 4) : //level 4 - pagina zonder subpagina 
+			if(isset($open2)) { unset($open2); }
+			if(isset($open3)) { unset($open3); }
+			?> 
+	       	<li><a class="<?php echo $class; ?>" href="<?php echo $url ?>" <?php echo $target?>><?php echo $page->getTitle() ?></a></li>
+	
+	        <?php if($amountChildrenLevel3 == $j): // indien laatste subpagina van pagina, submenu level 3 afsluiten ?>
+		         </ul></li>
+	        <?php endif;
+	
+	        if($amountChildrenLevel3 == $j && $amountChildrenLevel2 == $i): // indien laatste subpagina van pagina, submenu level 2 afsluiten ?>
+		         </ul></li>
+	             <?php $i = 0; ?>
+	        <?php endif;
+		endif;
+	
+		$j++;
+	} while(next($this->menus));
+
+	?>
+</ul>

@@ -1,0 +1,35 @@
+<dl>
+	<dt>
+		<label for="seo_title"><?php echo $this->admin_tmx->_('title') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="seo_title" id="seo_title" size="90"
+	    	value="<?php echo $this->escape($this->item->getSeoTitle()) ?>" />
+	    <?php echo $this->messages->getMessagesHtml('seo_title') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('2to255charsifnotempty') ?>
+	    </p>
+	</dd>
+    <dt>
+		<label for="seo_keywords"><?php echo $this->admin_tmx->_('metatags') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="seo_keywords" id="seo_keywords" size="90"
+	    	value="<?php echo $this->escape($this->item->getSeoKeywords()) ?>" />
+	    <?php echo $this->messages->getMessagesHtml('seo_keywords') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('seotagsdescription') ?>
+	    </p>
+	</dd>
+
+    <dt>
+		<label for="seo_description"><?php echo $this->admin_tmx->_('metadescription') ?>:</label>
+	</dt>
+	<dd>
+	    <textarea name="seo_description" id="seo_description" cols="90"><?php echo $this->escape($this->item->getSeoDescription()) ?></textarea>
+	    <?php echo $this->messages->getMessagesHtml('seo_description') ?>
+	    <p class="description">
+	    	<?php echo $this->admin_tmx->_('shortsummarymax255') ?>
+	    </p>
+	</dd>
+</dl>

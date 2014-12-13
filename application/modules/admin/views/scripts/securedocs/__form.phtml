@@ -1,0 +1,46 @@
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+<div id="alert" title="<?php echo $this->admin_tmx->_('formvalidation') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('allfieldsrequired') ?></p>
+</div>
+
+<div id="tabs">
+	<ul>
+		<?php for ($i = 1; $i < 6; $i++) : ?>
+		<li><a href="#tabs-file<?php echo $i ?>"><?php echo $this->admin_tmx->_('file') ?> <?php echo $i ?>
+			<?php $errors = count($this->messages->getTabMessages('file'.$i)) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<?php endfor; ?>
+		<li><a href="#tabs-save"><?php echo $this->admin_tmx->_('save') ?></a></li>
+	</ul>
+
+	<form name="add" method="post" action="<?php echo $this->url() ?>" enctype="multipart/form-data">
+	<?php for ($i = 1; $i < 6; $i++) : ?>
+	<div id="tabs-file<?php echo $i ?>">
+		<dl>
+			<dt><label><?php echo $this->admin_tmx->_('file') ?>:</label></dt>
+			<dd><input type="file" name="file[<?php echo $i ?>]" id="file<?php echo $i ?>" size="90" /></dd>
+			<dt><label></label></dt>
+			<dd><input type="checkbox" name="mail[<?php echo $i ?>]" /> <?php echo $this->admin_tmx->_('sendautomaticemail') ?></dd>
+			<dt><label><?php echo $this->admin_tmx->_('summary') ?></label></dt>
+			<dd><textarea name="samenvatting[<?php echo $i ?>]"></textarea></dd>
+		</dl>
+	</div>
+	<?php endfor; ?>
+
+	<div id="tabs-save">
+		<dl><dd>
+			<input type="hidden" name="path" value="<?php echo $this->path ?>" />
+			<input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+		</dd></dl>
+	</div>
+	</form>
+</div>

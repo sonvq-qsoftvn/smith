@@ -1,0 +1,72 @@
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce.js') ?>
+<?php include('tiny_mce_init.php'); ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(document).ready(function () {
+	$('#source_fb').click(function () {
+		$('#source').toggle();
+	});
+
+	$('#content_fb').click(function () {
+		$('#content_').toggle();
+	});
+    
+    $('#summary_fb').click(function () {
+		$('#summary_').toggle();
+	});
+
+	<?php if ($this->page->hasSourceFallback()): ?>
+	$('#source_fb').attr('checked', true);
+	$('#source').hide();
+	<?php endif ?>
+
+	<?php if ($this->page->hasContentFallback()): ?>
+	$('#content_fb').attr('checked', true);
+	$('#content_').hide();
+	<?php endif ?>
+    
+    <?php if ($this->page->hasSummaryFallback()): ?>
+	$('#summary_fb').attr('checked', true);
+	$('#summary_').hide();
+	<?php endif ?>
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<dl>
+	<dt>
+		<label for="source">Bron:</label>
+	</dt>
+	<?php if ($this->page->isTranslation()): ?>
+	<dd>
+		<input type="checkbox" name="source_fb" id="source_fb" value="nl" />
+		<?php echo $this->admin_tmx->_('usedutchtranslation') ?>
+	</dd>
+	<?php endif ?>
+	<dd>
+	    <input type="text" name="source" id="source" size="90"
+	    	value="<?php echo $this->escape($this->page->getSource()) ?>" />
+	    <?php echo $this->messages->getMessagesHtml('source') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('2to255charsifnotempty') ?>
+	    </p>
+	</dd>
+	<dt class="editor">
+		<label for="source">Inhoud:</label>
+	</dt>
+	<?php if ($this->page->isTranslation()): ?>
+	<dd>
+		<input type="checkbox" name="content_fb" id="content_fb" value="nl" />
+		<?php echo $this->admin_tmx->_('usedutchtranslation') ?>
+	</dd>
+	<?php endif ?>
+	<dd>
+		<div id="content_">
+			<textarea name="contenti" id="contenti" style="width:100%; height: 500px;" rows="50" class="mceEditor"><?php echo $this->escape($this->page->getContent()) ?></textarea>
+		</div>
+ 
+	    <?php echo $this->messages->getMessagesHtml('content') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('requiredmin2chars') ?>
+	    </p>
+	</dd>
+</dl>

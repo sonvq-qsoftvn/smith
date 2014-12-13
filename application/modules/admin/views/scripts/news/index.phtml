@@ -1,0 +1,72 @@
+<?php
+
+$user = Zend_Auth::getInstance()->getIdentity();
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+
+$this->headTitle($this->admin_tmx->_('newsoverview'));
+echo $this->render('system/result.phtml');
+
+$canEdit     = $user->isAllowed('news', 'news.edit');
+$canDelete   = $user->isAllowed('news', 'news.delete');
+$canActivate = $user->isAllowed('news', 'news.activate');
+
+?>
+
+<div id="dialog" title="<?php echo $this->admin_tmx->_('deletenewsarticle') ?>" style="display: none;">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deletenewsarticleconfirm') ?></p>
+</div>
+
+<h3><?php echo $this->admin_tmx->_('newsoverview') ?> [<?php echo $_SESSION['System']['lng'] ?>]</h3>
+<table width="98%">
+    <tr>
+        <th><?php echo $this->admin_tmx->_('title') ?></th>
+        <th width="30"><?php echo $this->admin_tmx->_('publishfrom') ?></th>
+        <th width="30"><?php echo $this->admin_tmx->_('active') ?></th>
+        <th><?php echo $this->admin_tmx->_('published') ?>?</th>
+        <th><?php echo $this->admin_tmx->_('action') ?></th>
+    </tr>
+    <?php foreach ($this->paginator as $id => $item): ?>
+    <tr>
+        <td><?php echo $this->escape($item->getTitle()) ?></td>
+        <td><?php echo $item->getDatePublished('%d-%m-%Y') ?></td>
+        <td width="15">
+                <?php if ($canActivate): ?>
+            <a title="<?php echo $this->admin_tmx->_('activate') ?>" href="<?php echo $this->url(array('action' => 'activate-item', 'id' => $item->getId())) ?>">
+                    <?php endif ?>
+                    <?php if ($item->getActive()): ?>
+                <center><img src="<?php echo $this->baseUrl('/ico/tick-circle.png') ?>" alt="" /></center>
+                    <?php else: ?>
+                <center><img src="<?php echo $this->baseUrl('/ico/minus-circle.png') ?>" alt="" /></center>
+                    <?php endif ?>
+                    <?php if ($canActivate): ?>
+            </a>
+                <?php endif ?>
+        </td>
+        <td width="15">
+                <?php if ($item->getDatePublished() && strtotime($item->getDatePublished()) < time() &&
+                        (!$item->getDateExpired() or $item->getDateExpired() && strtotime($item->getDateExpired()) > time())):
+                    ?>
+            <center><img src="<?php echo $this->baseUrl('/ico/tick-circle.png') ?>" alt="" /></center>
+                <?php else: ?>
+            <center><img src="<?php echo $this->baseUrl('/ico/minus-circle.png') ?>" alt="" /></center>
+                <?php endif ?>
+        </td>
+        <td>
+                <?php if ($canEdit): ?>
+            <a title="<?php echo $this->admin_tmx->_('edit') ?>" href="<?php echo $this->url(array('action' => 'edit', 'id' => $item->getId())) ?>">
+                <?php endif ?><img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+               <?php if ($canEdit): ?></a>
+                <?php endif ?>
+
+                <?php if ($canDelete): ?>
+            <a title="<?php echo $this->admin_tmx->_('edit') ?>" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'delete', 'id' => $item->getId())) ?>');">
+               <?php endif ?> <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+            <?php if ($canDelete): ?> </a>
+                <?php endif ?>
+        </td>
+    </tr>
+    <?php endforeach ?>
+</table>
+
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?>

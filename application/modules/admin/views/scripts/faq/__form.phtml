@@ -1,0 +1,32 @@
+<?php echo $this->render('system/leave.phtml'); ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce.js') ?>
+<?php include('tiny_mce_init.php'); ?>
+
+
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/popup.js') ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+<div id="alert" title="<?php echo $this->admin_tmx->_('formvalidation') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('allfieldsrequired') ?></p>
+</div>
+<div id="tabs">
+	<ul>
+        <li><a href="#tabs-content"><?php echo $this->admin_tmx->_('contentblock') ?>
+			<?php $errors = count($this->messages->getTabMessages('content')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+	</ul>
+    <form name="add" method="post" action="<?php echo $this->url() ?>" enctype="multipart/form-data">
+	<div id="tabs-content">
+		<?php echo $this->render('faq/forms/__content.phtml') ?>
+	</div>
+	</form>
+</div>

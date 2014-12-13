@@ -1,0 +1,78 @@
+<?php $this->headLink()->appendStylesheet('/default/styles/contact.css') ?>
+<?php $this->placeholder('header')->set('contact') ?>
+<?php $this->headTitle($this->tmx->_('hdr.contact')) ?>
+<?php
+$crumbs = '<a href="/nl/home">Home</a> :: Contact';
+$this->placeholder('breadcrumbs')->set($crumbs);
+?>
+
+<div style="float:left; width:45%; margin-right:45px">
+    <?php echo $this->page->getContent(); ?>
+</div>
+
+<div style="float:left; width:100%; ">
+<h1><?php echo $this->tmx->_('hdr.contact') ?></h1>
+
+<?php if ($this->errors): ?>
+<div class="errors" name="result">
+<strong><?php echo $this->tmx->_('hdr.errors') ?></strong>
+<ul>
+    <?php foreach ($this->errors as $errorStack): ?>
+    <?php if (is_array($errorStack)): ?>
+    <?php foreach ($errorStack as $error): ?>
+    <li><?php echo $error ?></li>
+    <?php endforeach ?>
+    <?php endif ?>
+    <?php endforeach ?>
+</ul>
+</div>
+<?php endif ?>
+
+<form name="contact" method="post" action="<?php echo $this->url() ?>" id="contact">
+<table>
+    <tr>
+        <td style="width:150px"><?php echo $this->tmx->_('lbl.name') ?></td>
+        <td style="width:20px">*</td>
+        <td><input type="text" name="name" value="<?php echo $this->contact->getName() ?>" size="35" /></td>
+    </tr>
+    <tr>
+        <td><?php echo $this->tmx->_('lbl.firstname') ?></td>
+        <td>*</td>
+        <td><input type="text" name="fname" value="<?php echo $this->contact->getFirstName() ?>" size="35" /></td>
+    </tr>
+    <tr>
+        <td>Email adres</td>
+        <td>*</td>
+        <td><input type="text" name="email" value="<?php echo $this->contact->getEmail() ?>" size="35" /></td>
+    </tr>
+    <tr>
+        <td><?php echo $this->tmx->_('lbl.phone') ?></td>
+        <td>*</td>
+        <td><input type="text" name="phone" value="<?php echo $this->contact->getPhone() ?>" size="35" /></td>
+    </tr>
+    <tr>
+        <td><?php echo $this->tmx->_('lbl.comments') ?></td>
+        <td>*</td>
+        <td><textarea cols="40" rows="5" name="message"><?php echo $this->contact->getMessage() ?></textarea></td>
+    </tr>
+    <tr>
+    	<td>Code</td>
+        <td></td>
+        <td>
+        <img src="/images/captcha/<?php echo $this->captchaId;?>.png" align="left" style="padding-right:20px" alt="" /> <br /><input type="text" name="captcha[input]" />
+         <input type="hidden" value="<?php echo $this->captchaId ?>" name="captcha[id]"/>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td><input type="submit" value="<?php echo $this->tmx->_('btn.send') ?>" name="submit" /></td>
+    </tr>
+</table>
+</form>
+
+</div>
+<div style="clear:both"></div>
+<div style="float:left; width:50%">
+    <?php echo $this->render('static/route.phtml'); ?>
+</div>

@@ -1,0 +1,27 @@
+<div class="grid_3 alpha">
+    <div class="newsmenu">
+        <h3><?php echo $this->glob_tmx->_('lbl.productfiches') ?></h3>
+        <ul class="submenu">
+            <?php foreach ($this->types as $type) : ?>
+                <li><a href="<?php echo $this->url(array('lng' => $this->lng, 'typename' => $this->Createurl($type['name']), 'typeid' => $type['id']), 'sheets-detail') ?>"><?php echo $type['name']; ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+
+
+<div class="grid_9 omega">
+    <?php echo $this->page->getContent(); ?>
+    <?php if ($this->types): ?>
+        <div class="faq-overview">
+            <ul>
+                <?php foreach ($this->types as $t) : ?>
+                    <li><a href="<?php echo $this->url(array('lng' => $this->lng, 'typename' => $this->Createurl($t['name']), 'typeid' => $t['id']), 'sheets-detail', true); ?>" title="<?php echo $t['name']; ?>"><span class="raquos">&raquo;&raquo;</span> <span class="link"><?php echo $this->glob_tmx->_('lbl.productfiches') ?> <?php echo $t['name']; ?></link></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+</div>
+
+
+

@@ -1,0 +1,161 @@
+<?php
+
+$user = Zend_Auth::getInstance()->getIdentity();
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+$this->headScript()->appendFile($this->baseUrl() . '/js/sortable.js');
+
+$this->headTitle('SxCms - Documentbeheer');
+echo $this->render('system/result.phtml');
+
+$canCreateFolder  = $user->isAllowed('filemanager', 'filemanager.add.file');
+$canUploadFile    = $user->isAllowed('filemanager', 'filemanager.add.folder');
+$canDelete   	  = $user->isAllowed('filemanager', 'filemanager.delete');
+$canEdit     	  = $user->isAllowed('filemanager', 'filemanager.edit');
+
+?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<div id="dialog-dir" title="Map verwijderen" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	Weet u zeker dat u dit deze map, samen met onderliggende bestanden en mappen, wilt verwijderen ?</p>
+</div>
+<div id="dialog-file" title="Bestand verwijderen" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	Weet u zeker dat u dit bestand wilt verwijderen ?</p>
+</div>
+
+<h3>Documenten overzicht</h3>
+<table width="98%">
+	<tr>
+		<th>
+			<a href="<?php echo $this->url(array('controller' => 'filemanager', 'action' => 'index', 'path' => '')) ?>">..</a>
+			<?php foreach($this->showpath as $path) : ?>
+				<?php echo $path ? '/' : '' ?>
+				<a href="<?php echo $this->url(array('controller' => 'filemanager', 'action' => 'index', 'path' => base64_encode($path))) ?>"> <?php echo $path ?></a>
+			<?php endforeach; ?>
+		</th>
+	</tr>
+</table>
+
+<table width="98%" class="sortable">
+	<thead>
+		<tr>
+			<th width="15">T</th>
+			<th>Bestandsnaam</th>
+			<th>Size</th>
+			<th>Laatste wijziging</th>
+			<th>Actie</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php if ($this->path): ?>
+	<tr>
+		<td><img src="<?php echo $this->baseUrl('/images/cms/actions/folder.png') ?>" /></td>
+		<td><a href="<?php echo $this->url(array('controller' => 'filemanager', 'action' => 'index', 'path' => base64_encode($this->topdir))) ?>">..</a></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<?php endif ?>
+	<?php foreach ($this->files as $fileinfo): ?>
+	<?php if($fileinfo->isDot() or $fileinfo->isHidden()) continue; ?>
+	<tr>
+		<td>
+			<img src="<?php echo $this->baseUrl('/images/cms/filetypes/' . $fileinfo->getFileType()) ?>" />
+		</td>
+		<td>
+		<?php $url = base64_encode($this->path . '/' . $fileinfo->getFilename()) ?>
+		<?php if ($fileinfo->isDir()): ?>
+			<a href="<?php echo $this->url(array('controller' => 'filemanager', 'action' => 'index', 'path' => $url)) ?>">
+			<?php echo $fileinfo->getFilename() ?>
+			</a>
+		<?php else: ?>
+			<?php echo $fileinfo->getFilename() ?>
+		<?php endif ?>
+		</td>
+		<td><?php echo $fileinfo->getSizeString() ?></td>
+		<td><?php echo date('d-m-Y H:i:s', $fileinfo->getMTime()) ?></td>
+		<td>
+			<?php $action = $fileinfo->isDir() ? 'dir' : 'file'; ?>
+			<?php if ($canEdit && !$this->full): ?>
+			<a title="Aanpassen" href="<?php echo $this->url(array('controller' => 'filemanager', 'action' => 'edit', 'path' => base64_encode($this->path), $action => $url)) ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="Aanpassen" />
+			</a>
+			<?php endif ?>
+			<?php if ($canDelete && !$this->full): ?>
+			<a title="Verwijderen" href="#" onclick="showDialog('#dialog-file', '<?php echo $this->url(array('controller' => 'filemanager', 'action' => 'delete', 'path' => base64_encode($this->path), $action => $url)) ?>', '<?php echo $action ?>');">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="Verwijderen" />
+			</a>
+			<?php endif ?>
+			<?php if ($this->full && !$fileinfo->isDir()): ?>
+            <a title="Selecteren" href="<?php echo $this->url(array('controller' => 'filemanager', 'action' => 'set-translation', 'file' => $url)) ?>">
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/save_labled_go.png') ?>" alt="selecteren" />
+            </a>
+			<?php endif ?>
+		</td>
+	</tr>
+	<?php endforeach ?>
+	</tbody>
+</table>
+
+<?php if ($user->isAllowed('filemanager', array('filemanager.add.file', 'filemanager.add.folder')) && !$this->full): ?>
+<div id="tabs">
+	<ul>
+		<?php if ($canUploadFile): ?>
+			<li><a href="#tabs-add-file">Bestand toevoegen</a></li>
+		<?php endif ?>
+		<?php if ($canCreateFolder): ?>
+			<li><a href="#tabs-add-folder">Map toevoegen</a></li>
+		<?php endif ?>
+	</ul>
+
+	<?php if ($canUploadFile): ?>
+	<div id="tabs-add-file">
+		<form method="post" enctype="multipart/form-data" action="<?php echo $this->url() ?>">
+		<input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+		<dl>
+			<dt>
+				<label for="file">Bestand:</label>
+			</dt>
+			<dd>
+			    <input type="file" name="filename" id="filename" size="45"  />
+			    <p class="description">
+			        Selecteer het bestand dat u wenst te uploaden
+			    </p>
+
+			    <?php echo $this->messages->getMessagesHtml('file') ?>
+			</dd>
+			<dd style="margin-top: 20px;">
+			    <input class="button" type="submit" value="Opladen" />
+			</dd>
+		</dl>
+		</form>
+	</div>
+	<?php endif ?>
+	<?php if ($canCreateFolder): ?>
+	<div id="tabs-add-folder">
+		<form method="post" action="<?php echo $this->url() ?>">
+		<dl>
+			<dt>
+				<label for="folder">Mapnaam:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="folder" id="folder" size="45" />
+			    <p class="description">
+			        Geef de nieuwe mapnaam op
+			    </p>
+			</dd>
+			<dd style="margin-top: 20px;">
+			    <input class="button" type="submit" value="Aanmaken" />
+			</dd>
+		</dl>
+		</form>
+	</div>
+	<?php endif ?>
+</div>
+<?php endif ?>

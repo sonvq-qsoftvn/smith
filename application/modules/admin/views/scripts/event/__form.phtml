@@ -1,0 +1,94 @@
+<?php echo $this->render('system/leave.phtml'); ?>
+<?php //$this->headScript()->appendFile($this->baseUrl() . '/js/leave.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce_init.js') ?>
+
+<?php $this->headLink()->appendStylesheet('/js/jquery/jquery.autocomplete.css') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/jquery.bgiframe.min.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/jquery.autocomplete.min.js') ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+	$("#dateStart").datepicker({dateFormat: 'dd-mm-yy', minDate: '0' });
+	$("#dateEnd").datepicker({dateFormat: 'dd-mm-yy', minDate: '0' });
+	$('#dateEvent').datepicker({dateFormat: 'dd-mm-yy', minDate: '0' })
+
+    <?php $regions = ''; ?>
+    <?php foreach ($this->regions as $region): ?>
+        <?php $regions .= '%%%' . $region->getRegion() ?>
+    <?php endforeach ?>
+
+    var data = "<?php echo $regions ?>".split("%%%");
+    $("#location").autocomplete(data);
+});
+<?php $this->headScript()->captureEnd() ?>
+<div id="alert" title="<?php echo $this->admin_tmx->_('formvalidation') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('allfieldsrequired') ?></p>
+</div>
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-settings"><?php echo $this->admin_tmx->_('settings') ?>
+			<?php $errors = count($this->messages->getTabMessages('settings')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-event"><?php echo $this->admin_tmx->_('event') ?>
+			<?php $errors = count($this->messages->getTabMessages('event')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-mail"><?php echo $this->admin_tmx->_('email') ?>
+			<?php $errors = count($this->messages->getTabMessages('mail')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-fields"><?php echo $this->admin_tmx->_('fields') ?>
+			<?php $errors = count($this->messages->getTabMessages('fields')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-lists"><?php echo $this->admin_tmx->_('lists') ?>
+			<?php $errors = count($this->messages->getTabMessages('lists')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-save"><?php echo $this->admin_tmx->_('save') ?></a></li>
+	</ul>
+	<form name="add" method="post" action="<?php echo $this->url() ?>">
+	<div id="tabs-settings">
+		<?php echo $this->render('event/forms/__settings.phtml') ?>
+	</div>
+	<div id="tabs-event">
+		<?php echo $this->render('event/forms/__event.phtml') ?>
+	</div>
+	<div id="tabs-mail">
+		<?php echo $this->render('event/forms/__mail.phtml') ?>
+	</div>
+	<div id="tabs-fields">
+		<?php echo $this->render('event/forms/__fields.phtml') ?>
+	</div>
+	<div id="tabs-lists">
+		<?php echo $this->render('event/forms/__lists.phtml') ?>
+	</div>
+	<div id="tabs-save">
+		<dl>
+			<dd>
+			    <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+			</dd>
+		</dl>
+	</div>
+	</form>
+</div>

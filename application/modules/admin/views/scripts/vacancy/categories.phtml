@@ -1,0 +1,57 @@
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js'); ?>
+
+<div id="dialog" title="Categorie verwijderen" style="display: none;">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+    Weet u zeker dat u deze categorie wilt verwijderen? </p>
+</div>
+
+<?php echo $this->render('system/result.phtml') ?>
+
+<h3>Categorie&euml;n overzicht</h3>
+<p><a href="<?php echo $this->url(array('controller' => 'vacancy', 'action' => 'add-category')) ?>">Nieuwe categorie toevoegen</a></p>
+
+<table width="98%">
+    <tr>
+        <th>Naam</th>
+        <th width="30">Actie</th>
+    </tr>
+    <?php foreach ($this->categories as $item): ?>
+    <tr>
+        <td><?php echo $this->escape($item->getName()) ?></td>
+        <td width="60">
+            <a title="Toon vacatures in deze categorie" href="<?php echo $this->url(array('controller' => 'vacancy', 'action' => 'index', 'category' => $item->getId())) ?>">
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/save_labled_go.png') ?>" alt="Toon vacatures" />
+            </a>
+            
+            <a title="Aanpassen" href="<?php echo $this->url(array('controller' => 'vacancy', 'action' => 'edit-category', 'id' => $item->getId())) ?>">
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="Aanpassen" />
+            </a>
+            <?php if ($item->getId()): ?>
+            <a title="Verwijderen" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('controller' => 'vacancy', 'action' => 'delete-category', 'id' => $item->getId())) ?>');">
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="Verwijderen" />
+            </a>
+            <?php endif ?>
+        </td>
+    </tr>
+    
+    <?php foreach ($item->getSubCategories() as $sub): ?>
+    <tr>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;- <?php echo $this->escape($sub->getName()) ?></td>
+        <td width="60">
+            <a title="Toon vacatures in deze categorie" href="<?php echo $this->url(array('controller' => 'vacancy', 'action' => 'index', 'category' => $sub->getId())) ?>">
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/save_labled_go.png') ?>" alt="Toon vacatures" />
+            </a>
+            
+            <a title="Aanpassen" href="<?php echo $this->url(array('controller' => 'vacancy', 'action' => 'edit-category', 'id' => $sub->getId())) ?>">
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="Aanpassen" />
+            </a>
+            <?php if ($item->getId()): ?>
+            <a title="Verwijderen" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('controller' => 'vacancy', 'action' => 'delete-category', 'id' => $sub->getId())) ?>');">
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="Verwijderen" />
+            </a>
+            <?php endif ?>
+        </td>
+    </tr>
+     <?php endforeach ?>
+    <?php endforeach ?>
+</table>

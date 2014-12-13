@@ -1,0 +1,36 @@
+<dl>
+<input type="hidden" name="type" value="1" />
+	<dt>
+    	<label></label>
+    </dt>
+    <dd>
+    	<select name="type">
+        	<option value="0"></option>
+            <?php foreach ($this->types as $type) : ?>
+        	<option value="<?php echo $type->getId() ?>" <?php if ($this->faq->getType() == $type->getId()): ?>selected="selected"<?php endif ?>><?php echo $type->getName() ?></option>
+            <?php endforeach ?>
+        </select>
+        <?php echo $this->messages->getMessagesHtml('type');?>
+    </dd>
+	
+	<dt>
+		<label for="name">Vraag:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="question" id="question"
+	    	value="<?php echo $this->faq->getQuestion() ?>" style="width: 550px;" />
+	    <?php echo $this->messages->getMessagesHtml('question') ?>
+	    <p class="description">
+	        Verplicht in te vullen. Minstens 2 karakters.
+	    </p>
+	</dd>
+    
+      <dt>
+		<label for="answer">Antwoord:</label> 
+                <?php echo $this->messages->getMessagesHtml('answer') ?>
+	</dt>
+	<dd>
+			<textarea name="answer" id="answer" style="width:100%; height: 500px;" rows="50" class="mceEditor"><?php echo $this->escape($this->faq->getAnswer()) ?></textarea>
+	</dd>
+	
+</dl>

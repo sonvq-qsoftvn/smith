@@ -1,0 +1,35 @@
+<?php echo $this->render('system/leave.phtml'); ?>
+<?php echo $this->render('system/result.phtml') ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<h3>Advertentie aanpassen</h3>
+<div id="tabs">
+	<ul>
+		<?php foreach ($this->ads as $key => $zone): ?>
+		<li><a href="#tabs-<?php echo $zone->id ?>"><?php echo $zone->name ?></a></li>
+		<?php endforeach ?>
+	</ul>
+
+	<form name="add" method="post" action="<?php echo $this->url() ?>">
+	<?php foreach ($this->ads as $key => $zone): ?>
+	<div id="tabs-<?php echo $zone->id ?>">
+		<dl>
+			<dt>
+				<label>HTML Code:</label>
+			</dt>
+			<dd>
+				<textarea name="ad[<?php echo $zone->id ?>]" style="width:100%; height: 300px;" rows="50"><?php echo $zone->content ?></textarea>
+			</dd>
+			<dd style="padding-top: 25px;">
+			    <input class="button" type="submit" value="Opslaan" onclick="disableConfirm();" />
+			</dd>
+		</dl>
+	</div>
+	<?php endforeach ?>
+	</form>
+</div>

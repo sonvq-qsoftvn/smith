@@ -1,0 +1,9 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+<?php if ($user->isAllowed('ad', array('ad.edit'))): ?>
+<h3 id="menu-ad"><a href="#">Advertenties</a></h3>
+<div>
+	<ul class="sidemenu">
+        <li><a href="<?php echo $this->url(array('controller' => 'ad', 'action' => 'index')) ?>">Aanpassen</a></li>
+	</ul>
+</div>
+<?php endif ?>

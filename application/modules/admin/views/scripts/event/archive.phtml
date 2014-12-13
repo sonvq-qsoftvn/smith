@@ -1,0 +1,54 @@
+<?php
+
+$user = Zend_Auth::getInstance()->getIdentity();
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+
+$this->headTitle('SxCms - '.$this->admin_tmx->_('eventoverview'));
+echo $this->render('system/result.phtml');
+
+$canEdit    = $user->isAllowed('event', 'event.edit');
+$canDelete  = $user->isAllowed('event', 'event.delete');
+
+?>
+
+<div id="dialog" title="<?php echo $this->admin_tmx->_('deleteevent') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deleteeventconfirm') ?></p>
+</div>
+
+<h3><?php echo $this->admin_tmx->_('eventarchive') ?> [<?php echo $_SESSION['System']['lng'] ?>]</h3>
+<table width="98%">
+	<tr>
+		<th><?php echo $this->admin_tmx->_('title') ?></th>
+		<th><?php echo $this->admin_tmx->_('date') ?></th>
+		<th><?php echo $this->admin_tmx->_('location') ?></th>
+		<th><?php echo $this->admin_tmx->_('action') ?></th>
+	</tr>
+	<?php foreach ($this->paginator as $id => $item): ?>
+	<tr>
+		<td><?php echo $this->escape($item->getTitle()) ?></td>
+		<td><?php echo $this->escape($item->getDateEvent('%d/%m/%Y') . ' ' . $item->getTimeEvent()) ?></td>
+		<td><?php echo $this->escape($item->getLocation()) ?></td>
+		<td>
+			<?php if ($canEdit): ?>
+			<a title="<?php echo $this->admin_tmx->_('edit') ?>" href="<?php echo $this->url(array('action' => 'edit', 'id' => $item->getId())) ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+			</a>
+			<?php endif ?>
+            
+              <a title="<?php echo $this->admin_tmx->_('subscriptions') ?>" href="<?php echo $this->url(array('controller' => 'event_subscription', 'action' => 'list', 'id' => $item->getId())) ?>">
+				<img src="<?php echo $this->baseUrl('/ico/folder-open-document-text.png') ?>" alt="<?php echo $this->admin_tmx->_('subscriptions') ?>" />
+			</a>
+            
+            
+			<?php if ($canDelete): ?>
+			<a title="<?php echo $this->admin_tmx->_('delete') ?>" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'delete', 'id' => $item->getId())) ?>');">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
+			</a>
+			<?php endif ?>
+		</td>
+	</tr>
+	<?php endforeach ?>
+</table>
+
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?>

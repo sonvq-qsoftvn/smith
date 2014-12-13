@@ -1,0 +1,153 @@
+<?php echo $this->page->getContent(); ?>
+<?php if($this->success): ?>
+    <?php echo $this->success; ?>
+<?php endif; ?>
+<form name="add" method="post" action="<?php echo $this->url() ?>" enctype="multipart/form-data">
+    <dl>
+        <dt>
+            <label for="sex">Geslacht:</label>
+        </dt>
+        <dd>
+            <select name="sex" id="sex">
+                <option value="">Kies een geslacht</option>
+                <option value="M" <?php if($this->item->getSex() == 'M'): ?>selected="selected"<?php endif ?>>Man</option>
+                <option value="V" <?php if($this->item->getSex() == 'V'): ?>selected="selected"<?php endif ?>>Vrouw</option>
+            </select>
+            <p class="description"></p>
+        </dd>
+
+        <dt>
+            <label for="name">Naam:</label>
+        </dt>
+        <dd>
+            <input type="text" name="name" id="name"
+                   value="<?php echo $this->item->getName() ?>" style="width: 250px;" />
+                       <?php echo $this->messages->getMessagesHtml('name') ?>
+            <p class="description">
+	        Verplicht in te vullen. Minstens 2 karakters.<br />
+            </p>
+        </dd>
+
+        <dt>
+            <label for="firstname">Voornaam:</label>
+        </dt>
+        <dd>
+            <input type="text" name="firstname" id="firstname"
+                   value="<?php echo $this->item->getFirstName() ?>" style="width: 250px;" />
+                       <?php echo $this->messages->getMessagesHtml('firstname') ?>
+            <p class="description">
+	        Verplicht in te vullen. Minstens 2 karakters.<br />
+            </p>
+        </dd>
+
+        <dt>
+            <label for="company">Bedrijf:</label>
+        </dt>
+        <dd>
+            <input type="text" name="company" id="company"
+                   value="<?php echo $this->item->getCompany() ?>" style="width: 250px;" />
+                       <?php echo $this->messages->getMessagesHtml('company') ?>
+            <p class="description"></p>
+        </dd>
+
+        <dt>
+            <label for="website">Website:</label>
+        </dt>
+        <dd>
+            <input type="text" name="website" id="website"
+                   value="<?php echo $this->item->getWebsite() ?>" style="width: 250px;" />
+                       <?php echo $this->messages->getMessagesHtml('website') ?>
+            <p class="description"></p>
+        </dd>
+
+        <dt>
+            <label for="email">E-mail:</label>
+        </dt>
+        <dd>
+            <input type="text" name="email" id="email"
+                   value="<?php echo $this->item->getEmail() ?>" style="width: 250px;" />
+                       <?php echo $this->messages->getMessagesHtml('email') ?>
+            <p class="description">Verplicht in te vullen, bv: iemand@website.be</p>
+        </dd>
+
+        <dt>
+            <label for="password">Paswoord:</label>
+        </dt>
+        <dd>
+            <input type="text" name="password" id="password"
+                   value="<?php echo $this->item->getPassword() ?>" style="width: 250px;" />
+                       <?php echo $this->messages->getMessagesHtml('password') ?>
+            <p class="description">Verplicht in te vullen, minimaal 6, maximaal 32 karakters</p>
+        </dd>
+
+        <dt>
+            <label for="phone">Telefoon:</label>
+        </dt>
+        <dd>
+            <input type="text" name="phone" id="phone"
+                   value="<?php echo $this->item->getPhone() ?>" style="width: 250px;" />
+                       <?php echo $this->messages->getMessagesHtml('phone') ?>
+            <p class="description"></p>
+        </dd>
+
+        <dt>
+            <label for="fax">Fax:</label>
+        </dt>
+        <dd>
+            <input type="text" name="fax" id="fax"
+                   value="<?php echo $this->item->getFax() ?>" style="width: 250px;" />
+                       <?php echo $this->messages->getMessagesHtml('fax') ?>
+            <p class="description"></p>
+        </dd>
+
+        <dt>
+            <label for="mobilephone">GSM:</label>
+        </dt>
+        <dd>
+            <input type="text" name="mobilephone" id="mobilephone"
+                   value="<?php echo $this->item->getMobilePhone() ?>" style="width: 250px;" />
+                       <?php echo $this->messages->getMessagesHtml('mobilephone') ?>
+            <p class="description"></p>
+        </dd>
+
+        <dt>
+            <label for="Street">Straat + nummer:</label>
+        </dt>
+        <dd>
+            <input type="text" name="street" id="street"
+                   value="<?php echo $this->item->getStreet() ?>" style="width: 180px;" />
+            <input type="text" name="number" id="number"
+                   value="<?php echo $this->item->getNumber() ?>" style="width: 50px; margin-left: 20px;" />
+                       <?php echo $this->messages->getMessagesHtml('street') ?>
+                       <?php echo $this->messages->getMessagesHtml('number') ?>
+            <p class="description"></p>
+        </dd>
+
+        <dt>
+            <label for="postalcode">Postcode + plaats:</label>
+        </dt>
+        <dd>
+            <input type="text" name="postalcode" id="postalcode"
+                   value="<?php echo $this->item->getPostalcode() ?>" style="width: 50px; margin-right: 20px;" />
+            <input type="text" name="place" id="place"
+                   value="<?php echo $this->item->getPlace() ?>" style="width: 180px;" />
+                       <?php echo $this->messages->getMessagesHtml('postalcode') ?>
+                       <?php echo $this->messages->getMessagesHtml('place') ?>
+            <p class="description"></p>
+        </dd>
+
+        <dt>
+            <label for="country">Land:</label>
+        </dt>
+        <dd>
+            <input type="text" name="country" id="country"
+                   value="<?php echo $this->item->getCountry() ?>" style="width: 250px;" />
+                <?php echo $this->messages->getMessagesHtml('country') ?>
+            <p class="description"></p>
+        </dd>
+
+        <dd>
+            <input class="button" type="submit" value="Opslaan" onclick="disableConfirm();" />
+        </dd>
+    </dl>
+</form>

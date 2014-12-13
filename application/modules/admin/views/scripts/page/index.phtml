@@ -1,0 +1,132 @@
+<?php
+
+$this->headScript()->appendFile($this->baseUrl() . '/js/popup.js');
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+$this->headScript()->appendFile($this->baseUrl() . '/js/jquery/table-filter.js');
+
+$this->headTitle('SxCms - '.$this->admin_tmx->_('pageoverview'));
+echo $this->render('system/result.phtml');
+
+?>
+
+<?php $this->headScript()->captureStart() ?>
+var myObject = [];
+var counter = 0;
+$(function() {
+    var theTable = $('#pages')
+
+    $("#filter").keyup(function() {
+        $.uiTableFilter( theTable, this.value );
+    });
+
+    $('#filter-form').submit(function(){
+        theTable.find("tbody > tr:visible > td:eq(1)").mousedown();
+        return false;
+    }).focus();
+
+	$("#loadingScreen").dialog({
+	    autoOpen: false,
+	    dialogClass: "loadingScreenWindow",
+	    closeOnEscape: false,
+	    draggable: false,
+	    width: 500,
+	    minHeight: 50,
+	    modal: true,
+	    buttons: {},
+	    resizable: false,
+	    open: function() {
+	        // scrollbar fix for IE
+	        $('body').css('overflow','hidden');
+	    },
+	    close: function() {
+	        // reset overflow
+	        $('body').css('overflow','auto');
+	    }
+	});
+
+    $("#info").dialog({
+        autoOpen: false,
+        bgiframe: true,
+        resizable: false,
+        title:"<?php echo $this->admin_tmx->_('followingerrors') ?>",
+        width: 800,
+        modal: true,
+        overlay: {
+            backgroundColor: '#000',
+            opacity: 0.5
+        },
+        buttons: {
+            'Bevestigen': function() {
+                $(this).dialog('close');
+            }
+        }
+    });
+});
+
+function brokenLinks()
+{
+    $(".errinfo").remove();
+    counter = 0;
+
+    $.ajax({ url: '<?php echo $this->baseUrl('/admin/report/broken-links') ?>',
+        context: document.body,
+        beforeSend: function() { waitingDialog({title: "<?php echo $this->admin_tmx->_('errorcheckexecuted') ?>", message: "<?php echo $this->admin_tmx->_('errorcheckpages') ?>"}); },
+        complete: function() { closeWaitingDialog(); },
+        success: function(data, textStatus, XMLHttpRequest) {
+            myObject = eval('(' + data + ')');
+			for (var i in myObject) {
+			     $("#page-" + i + " :first").append('<span class="errinfo" onclick="infoDialog(this);"><img src="<?php echo $this->baseUrl('/ico/information-balloon.png') ?>" alt=""  /></span>');
+			     $("#page-" + i).css({'color': '#D50000'});
+			     counter++;
+            }
+        }
+    });
+}
+
+function infoDialog(info) {
+    var data = $(info).parent().parent().attr('id').split('-');
+    var id = data[1];
+
+    $("#info").append('<ul>');
+    for (var i in myObject[id]) {
+        $("#info").append('<li>' + myObject[id][i] + '</li>');
+    }
+
+    $("#info").append('</ul>');
+
+    $("#info").dialog('option', 'buttons', { "Ok": function() { $(this).dialog("<?php echo $this->admin_tmx->_('close') ?>"); } });
+    $("#info").dialog('open');
+}
+
+function waitingDialog(waiting) {
+    $("#loadingScreen").html(waiting.message && '' != waiting.message ? waiting.message : '<?php echo $this->admin_tmx->_('pleasewait') ?>...');
+    $("#loadingScreen").dialog('option', 'title', waiting.title && '' != waiting.title ? waiting.title : '<?php echo $this->admin_tmx->_('loading') ?>');
+    $("#loadingScreen").dialog('open');
+}
+
+function closeWaitingDialog() {
+    $("#loadingScreen").css('background-image','none');
+    $("#loadingScreen").dialog('option', 'title', '<?php echo $this->admin_tmx->_('checkready') ?>');
+    $("#loadingScreen").html( counter + "<?php echo $this->admin_tmx->_('pageserrorcount') ?>");
+    $("#loadingScreen").dialog('option', 'buttons', {
+            'Bevestigen': function() {
+                $(this).dialog('close');
+            }
+        });
+}
+
+<?php $this->headScript()->captureEnd() ?>
+
+<div id="dialog" title="<?php echo $this->admin_tmx->_('deletepage') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deletepageconfirm') ?></p>
+</div>
+
+<div id="locked" title="<?php echo $this->admin_tmx->_('editpage') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deleteactivepage') ?></p>
+</div>
+
+<h3><?php echo $this->admin_tmx->_('pageoverview') ?> [<?php echo $_SESSION['System']['lng'] ?>]</h3>
+
+<?php echo $this->render('page/__list.phtml') ?>

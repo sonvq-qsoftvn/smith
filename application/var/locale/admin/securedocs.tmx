@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+         adminlang="en-us" srclang="en-us" o-tmf="abc">
+	</header>
+	<body>
+		<tu tuid='filedeleted'>
+			<tuv xml:lang="nl"><seg>Het bestand werd succesvol verwijderd!</seg></tuv>
+			<tuv xml:lang="en"><seg>The file has been successfully deleted!</seg></tuv>
+		</tu>
+		<tu tuid='groupcreated'>
+			<tuv xml:lang="nl"><seg>De groep werd succesvol aangemaakt!</seg></tuv>
+			<tuv xml:lang="en"><seg>The group has been successfully created!</seg></tuv>
+		</tu>
+		<tu tuid='groupedited'>
+			<tuv xml:lang="nl"><seg>Groep werd succesvol aangepast!</seg></tuv>
+			<tuv xml:lang="en"><seg>The group has been successfully edited!</seg></tuv>
+		</tu>
+		<tu tuid='groupdeleted'>
+			<tuv xml:lang="nl"><seg>Groep werd succesvol verwijderd!</seg></tuv>
+			<tuv xml:lang="en"><seg>The group has been successfully deleted!</seg></tuv>
+		</tu>
+		<tu tuid='groupname'>
+			<tuv xml:lang="nl"><seg>Groepsnaam</seg></tuv>
+			<tuv xml:lang="en"><seg>Group name</seg></tuv>
+		</tu>
+		<tu tuid='groupnamedescription'>
+			<tuv xml:lang="nl"><seg>Verplicht in te vullen. Minstens 2 karakters.</seg></tuv>
+			<tuv xml:lang="en"><seg>Required, minimum 2 characters.</seg></tuv>
+		</tu>
+		<tu tuid='selectfoldersaccess'>
+			<tuv xml:lang="nl"><seg>Selecteer de mappen waar de groep toegang tot heeft</seg></tuv>
+			<tuv xml:lang="en"><seg>Select the folders the group has access to</seg></tuv>
+		</tu>
+		<tu tuid='allfieldsrequired'>
+			<tuv xml:lang="nl"><seg>Alle velden zijn verplicht in te vullen.</seg></tuv>
+			<tuv xml:lang="en"><seg>All fields are required.</seg></tuv>
+		</tu>
+		<tu tuid='formvalidation'>
+			<tuv xml:lang="nl"><seg>Formulier validatie</seg></tuv>
+			<tuv xml:lang="en"><seg>Validation form</seg></tuv>
+		</tu>
+		<tu tuid='file'>
+			<tuv xml:lang="nl"><seg>Bestand</seg></tuv>
+			<tuv xml:lang="en"><seg>File</seg></tuv>
+		</tu>
+		<tu tuid='save'>
+			<tuv xml:lang="nl"><seg>Opslaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Save</seg></tuv>
+		</tu>
+		<tu tuid='sendautomaticemail'>
+			<tuv xml:lang="nl"><seg>Automatische e-mail sturen</seg></tuv>
+			<tuv xml:lang="en"><seg>Send automatic email</seg></tuv>
+		</tu>
+		<tu tuid='summary'>
+			<tuv xml:lang="nl"><seg>Samenvatting</seg></tuv>
+			<tuv xml:lang="en"><seg>Summary</seg></tuv>
+		</tu>
+		<tu tuid='securedocs'>
+			<tuv xml:lang="nl"><seg>Beveiligd Documentbeheer</seg></tuv>
+			<tuv xml:lang="en"><seg>Secure Documents</seg></tuv>
+		</tu>
+		<tu tuid='overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='adddocs'>
+			<tuv xml:lang="nl"><seg>Documenten toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add documents</seg></tuv>
+		</tu>
+		<tu tuid='groupoverview'>
+			<tuv xml:lang="nl"><seg>Overzicht groepen</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview groups</seg></tuv>
+		</tu>
+		<tu tuid='addgroup'>
+			<tuv xml:lang="nl"><seg>Groep toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add group</seg></tuv>
+		</tu>
+		<tu tuid='adddocto'>
+			<tuv xml:lang="nl"><seg>Beveiligd Document toevoegen aan</seg></tuv>
+			<tuv xml:lang="en"><seg>Add Secure Document to</seg></tuv>
+		</tu>
+		<tu tuid='folder'>
+			<tuv xml:lang="nl"><seg>map</seg></tuv>
+			<tuv xml:lang="en"><seg>folder</seg></tuv>
+		</tu>
+		<tu tuid='mainfolder'>
+			<tuv xml:lang="nl"><seg>hoofdmap</seg></tuv>
+			<tuv xml:lang="en"><seg>main folder</seg></tuv>
+		</tu>
+		<tu tuid='formvalidation'>
+			<tuv xml:lang="nl"><seg>Formulier validatie</seg></tuv>
+			<tuv xml:lang="en"><seg>Validation form</seg></tuv>
+		</tu>
+		<tu tuid='allfieldsrequired'>
+			<tuv xml:lang="nl"><seg>Alle velden zijn verplicht in te vullen.</seg></tuv>
+			<tuv xml:lang="en"><seg>All fields are required.</seg></tuv>
+		</tu>
+		<tu tuid='addsavedoc'>
+			<tuv xml:lang="nl"><seg>Beveiligd Document toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add Secure Document</seg></tuv>
+		</tu>
+		<tu tuid='group'>
+			<tuv xml:lang="nl"><seg>Groep</seg></tuv>
+			<tuv xml:lang="en"><seg>Group</seg></tuv>
+		</tu>
+		<tu tuid='editsecuredoc'>
+			<tuv xml:lang="nl"><seg>Beveiligd Document bewerken</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit Secure Document</seg></tuv>
+		</tu>
+		<tu tuid='editfolder'>
+			<tuv xml:lang="nl"><seg>Map bewerken</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit folder</seg></tuv>
+		</tu>
+		<tu tuid='foldername'>
+			<tuv xml:lang="nl"><seg>Mapnaam</seg></tuv>
+			<tuv xml:lang="en"><seg>Folder name</seg></tuv>
+		</tu>
+		<tu tuid='enterfoldername'>
+			<tuv xml:lang="nl"><seg>Geef de nieuwe mapnaam op</seg></tuv>
+			<tuv xml:lang="en"><seg>Enter the new folder name</seg></tuv>
+		</tu>
+		<tu tuid='edit'>
+			<tuv xml:lang="nl"><seg>Aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit</seg></tuv>
+		</tu>
+		<tu tuid='deletegroup'>
+			<tuv xml:lang="nl"><seg>Groep verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete group</seg></tuv>
+		</tu>
+		<tu tuid='deletegroupdescription'>
+			<tuv xml:lang="nl"><seg>Ben je zeker dat je deze groep wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this group?</seg></tuv>
+		</tu>
+		<tu tuid='action'>
+			<tuv xml:lang="nl"><seg>Actie</seg></tuv>
+			<tuv xml:lang="en"><seg>Action</seg></tuv>
+		</tu>
+		<tu tuid='delete'>
+			<tuv xml:lang="nl"><seg>Verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete</seg></tuv>
+		</tu>
+		<tu tuid='docsoverview'>
+			<tuv xml:lang="nl"><seg>Beveiligd Documenten overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Secure Documents overview</seg></tuv>
+		</tu>
+		<tu tuid='deletefile'>
+			<tuv xml:lang="nl"><seg>Bestand verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete file</seg></tuv>
+		</tu>
+		<tu tuid='deletefileconfirm'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u dit bestand wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this file?</seg></tuv>
+		</tu>
+		<tu tuid='filename'>
+			<tuv xml:lang="nl"><seg>Bestandsnaam</seg></tuv>
+			<tuv xml:lang="en"><seg>File name</seg></tuv>
+		</tu>
+		<tu tuid='size'>
+			<tuv xml:lang="nl"><seg>Grootte</seg></tuv>
+			<tuv xml:lang="en"><seg>Size</seg></tuv>
+		</tu>
+		<tu tuid='lastedit'>
+			<tuv xml:lang="nl"><seg>Laatste wijziging</seg></tuv>
+			<tuv xml:lang="en"><seg>Last edit</seg></tuv>
+		</tu>
+		<tu tuid='addfolder'>
+			<tuv xml:lang="nl"><seg>Map toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add folder</seg></tuv>
+		</tu>
+		<tu tuid='create'>
+			<tuv xml:lang="nl"><seg>Aanmaken</seg></tuv>
+			<tuv xml:lang="en"><seg>Create</seg></tuv>
+		</tu>
+	</body>
+</tmx>

@@ -1,0 +1,97 @@
+<?php $config = Zend_Registry::get('config') ?>
+<div id="header">
+    <span id="slogan">Content Management System</span>
+    <?php $tab = $this->menu['tab'] ?>
+    <ul>
+        <li <?php if ($tab == 'cms') { echo 'id="current"'; } ?>>
+            <a href="<?php echo $this->url(array('controller' => 'page', 'action' => 'index')) ?>">
+                <span>Content Management</span>
+            </a>
+        </li>
+        <?php if ($config->modules->tab->modules && $config->modules->tab->modules != 'false'): ?>
+     
+        <li <?php if ($tab == 'modules') { echo 'id="current"'; } ?>>
+			<?php foreach ($config->modules->enabled as $module => $enabled): ?>
+				<?php if ($enabled && $enabled != 'false'): ?>
+               		<?php $controller = $module; break;?>
+                <?php endif ?>
+            <?php endforeach ?>
+            <a href="<?php echo $this->url(array('controller' => $controller, 'action' => 'index')) ?>">
+                <span>Modules</span>
+            </a>
+        </li>
+        <?php endif ?>
+        <?php if ($config->modules->tab->users && $config->modules->tab->users != 'false'): ?>
+        <li <?php if ($tab == 'account') { echo 'id="current"'; } ?>>
+            <a href="<?php echo $this->url(array('controller' => 'account', 'action' => 'index')) ?>">
+                <span>Account Management</span>
+            </a>
+        </li>
+        <?php endif ?>
+        <?php if ($config->modules->tab->analytics && $config->modules->tab->analytics != 'false'): ?>
+        <li <?php if ($tab == 'analytics') { echo 'id="current"'; } ?>>
+            <a href="<?php echo $this->url(array('controller' => 'analytics', 'action' => 'index')) ?>">
+                <span>Google Analytics</span>
+            </a>
+        </li>
+        <?php endif ?>
+    </ul>
+</div>
+
+<div id="header-logo">
+    <div id="logo">SX<span class="green">CMS</span></div>
+    <div id="welcome">
+        <?php $user = Zend_Auth::getInstance()->getIdentity(); ?>
+        Welcome, <strong><?php echo $user->getFirstName() . ' ' . $user->getLastName() ?></strong>! <a href="<?php echo $this->url(array('controller' => 'account', 'action' => 'logout')) ?>">Logout</a><br />
+        <?php echo $this->placeholder('breadcrumbs') ?>
+    </div>
+</div>
+
+<div id="sidebar">
+    <h1>Menu</h1>
+    <div class="left-box">
+        <div id="menu">
+            <?php $menu = $this->menu['template'] ? $this->menu['template'] : 'page/__menu.phtml'; ?>
+            <?php echo $this->render($menu) ?>
+        </div>
+    </div>
+
+    <?php if (count($this->lngs) > 1) : ?>
+    <h1>Systeemtaal</h1>
+    <div class="left-box">
+        <form name="language" id="language" method="post" action="<?php echo $this->url(array('controller' => 'settings', 'action' => 'set-language'), null, true) ?>" style="padding: 5px;">
+            <?php $alng = $_SESSION['System']['lng'] ?>
+            <select name="language" onchange="document.getElementById('language').submit();">
+            <?php foreach($this->lngs as $key => $lng) : ?>
+                <option value="<?php echo $key ?>" <?php if ($key == $alng) { echo 'selected="selected"'; } ?>><?php echo $lng ?>&nbsp;</option>
+            <?php endforeach; ?>
+            </select>
+            <input type="hidden" name="goto" value="<?php echo $this->url() ?>" />
+            <input type="submit" value="Go" title="Wijzig de systeemtaal" />
+        </form>
+    </div>
+    <?php endif; ?>
+
+    <?php if (count($this->adminlngs) > 1) : ?>
+    <h1>Admintaal</h1>
+    <div class="left-box">
+        <form name="adminlanguage" id="adminlanguage" method="post" action="<?php echo $this->url(array('controller' => 'settings', 'action' => 'set-adminlanguage'), null, true) ?>" style="padding: 5px;">
+            <?php $alng = $_SESSION['SystemAdmin']['lng'] ?>
+            <select name="adminlanguage" onchange="document.getElementById('adminlanguage').submit();">
+            <?php foreach($this->adminlngs as $key => $lng) : ?>
+                <option value="<?php echo $key ?>" <?php if ($key == $alng) { echo 'selected="selected"'; } ?>><?php echo $lng ?>&nbsp;</option>
+            <?php endforeach; ?>
+            </select>
+            <input type="hidden" name="goto" value="<?php echo $this->url() ?>" />
+            <input type="submit" value="Go" title="Wijzig de admintaal" />
+        </form>
+    </div>
+    <?php endif; ?>
+    
+	<div id="sidebar">
+	<h1><a href='/admin/analytics' style='color: white;'>Analytics</a><span style='float: right; padding-right: 5px;'>7 days</span></h1>
+    <?php echo $this->render('analytics/analyticsframe.phtml') ?>
+   	</div>
+
+    <?php echo $this->render('__layout/support.phtml') ?>
+</div>

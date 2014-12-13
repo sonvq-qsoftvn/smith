@@ -1,0 +1,66 @@
+<dl>
+	<dt>
+		<label for="title"><?php echo $this->admin_tmx->_('title') ?>:</label>
+	</dt>
+	<?php if ($this->page->isTranslation() && false): ?>
+	<dd>
+		<input type="checkbox" name="title_fb" id="title_fb" value="nl" />
+		<?php echo $this->admin_tmx->_('usedutchtranslation') ?>
+	</dd>
+	<?php endif ?>
+	<dd>
+	    <input type="text" name="title" id="title" size="45"
+	    	value="<?php echo $this->escape($this->page->getTitle()) ?>" />
+	    <?php echo $this->messages->getMessagesHtml('title') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('titledescription') ?>
+	    </p>
+	</dd>
+	<dt>
+		<label for="summary">Samenvatting:</label>
+	</dt>
+	<?php if ($this->page->isTranslation()): ?>
+	<dd>
+		<input type="checkbox" name="summary_fb" id="summary_fb" value="nl" />
+		<?php echo $this->admin_tmx->_('usedutchtranslation') ?>
+	</dd>
+	<?php endif ?>
+	<dd>
+    <div id="summary_">
+	    <textarea name="summary" id="summary" cols="90"><?php echo $this->escape($this->page->getSummary()) ?></textarea></div>
+	    <?php echo $this->messages->getMessagesHtml('summary') ?>
+	    <p class="description">
+	    	<?php echo $this->admin_tmx->_('briefsummarypageexport') ?>
+	    </p>
+	</dd>
+	<dt>
+		<label for="thumb"><?php echo $this->admin_tmx->_('thumbnail') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="file" name="file" id="file" size="45" value="" />
+	    <?php echo $this->messages->getMessagesHtml('file') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('picturedescription') ?> (70x90)
+	    </p>
+		<?php if ($this->page->getThumb()): ?>
+		<br />
+
+        <?php $thumnail = '/images/thumbs/70X90/' . $this->page->getThumb(); ?>
+		<div id="thumbnail" style="float: left; margin: 5px; width: 70px; height : 90px; background-image: url('<?php echo $thumnail ?>');">
+            <a href="#" onclick="deleteThumbnail('<?php echo $this->page->getId() ?>', '<?php echo base64_encode($this->page->getThumb()) ?>')">
+                <img src="/images/cms/actions/delete.png" style="padding: 70px 0 0 50px" />
+            </a>
+		</div>
+        <div style="clear: both;"></div>
+		<?php endif ?>
+	</dd>
+</dl>
+
+<script type="text/javascript">
+function deleteThumbnail(page, filename) {
+	$.get('/admin/page/delete-thumbnail/page/' + page + '/filename/' + filename, function(data) {
+		  $('#thumbnail').css('background-image', 'none');
+		  $('#thumbnail').html('');
+	});
+}
+</script>

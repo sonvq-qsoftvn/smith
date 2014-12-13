@@ -1,0 +1,90 @@
+<?php if($this->messages) : ?>
+
+<p id="statusmessage"><?php echo $this->messages; ?></p>
+<?php endif; ?>
+<link rel="stylesheet" href="/js/jquery-ui/css/custom-theme/jquery-ui-1.7.2.custom.css" type="text/css" />
+<script type="text/javascript" src="/js/jquery-ui/js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#tabs').tabs();
+});
+</script>
+<table class="sortable">
+	<thead>
+		<tr>
+			<th style="width: 15px; text-align: left;">T</th>
+			<th style="width: 400px; text-align: left;">Filename</th>
+			<th style="width: 65px; text-align: left;">Size</th>
+			<th style="width: 155px; text-align: left;">Last changed</th>
+		</tr>
+	</thead>
+	<tbody>
+
+	<?php if ($this->path): ?>
+	<tr>
+		<td><img src="/images/cms/actions/folder.png" /></td>
+		<td colspan="4">
+			<a href="<?php echo $this->url(array('lng' => $this->lng),'securedocs', true ); ?>">..</a>
+			<?php foreach($this->showpath as $path) : ?>
+				<?php //echo $path ? "/" : "" ?>
+				:: <a href="<?php echo $this->url(array('lng' => $this->lng, 'path' => base64_encode($path['path'])),'securedocs', true ); ?>"> <?php echo $path['name'] ?></a>
+			<?php endforeach; ?>
+		</td>
+	</tr>
+	<?php endif; ?>
+
+	<?php foreach ($this->files as $file): ?>
+		<?php $fileinfo = $this->it->seek($file); ?>
+
+		<?php if ($fileinfo->isDot() or $fileinfo->isHidden()) continue; ?>
+		<?php if ($this->path == '') : ?>
+            <?php if($this->fullAccess == false && !in_array($fileinfo->getFilename(), $this->accessgroups) ) : continue; endif; ?>
+        <?php endif; ?>
+
+		<tr>
+			<td>
+				<img src="/images/cms/filetypes/<?php echo $fileinfo->getFileType() ?>" />
+			</td>
+			<td>
+			<?php $url = base64_encode($this->path . '/' . $fileinfo->getFilename()) ?>
+			<?php if ($fileinfo->isDir()): ?>
+				<a href="<?php echo $this->url(array('lng' => $this->lng, 'path' => $url),'securedocs', true ); ?>"><?php echo $fileinfo->getFilename() ?></a>
+			<?php else: ?>
+				<a href="/securedocs/download/filename/<?php echo $url ?>"><?php echo $fileinfo->getFilename() ?></a>
+			<?php endif ?>
+			</td>
+			<td><?php echo $fileinfo->getSizeString() ?></td>
+			<td><?php echo date('d-m-Y H:i:s', $fileinfo->getMTime()) ?></td>
+		</tr>
+	<?php endforeach ?>
+	</tbody>
+</table>
+
+<?php if ($this->fullAccess && $this->path): ?>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-add-file">Upload file</a></li>
+		<li><a href="#tabs-add-folder">Create map</a></li>
+	</ul>
+
+	<div id="tabs-add-file">
+		<form method="post" enctype="multipart/form-data" action="<?php echo $this->url() ?>">
+			<table>
+				<tr><td>File : </td><td><input type="file" name="filename" id="filename"  /></td></tr>
+                <tr><td>Automatische e-mail sturen : </td><td><input type="checkbox" name="mail" /></td></tr>
+                <tr><td>Samenvatting : </td><td><textarea name="samenvatting"></textarea><td></tr>
+				<tr><td></td><td><input class="button" type="submit" value="Upload" /></td></tr>
+			</table>
+		</form>
+	</div>
+
+	<div id="tabs-add-folder">
+		<form method="post" action="<?php echo $this->url() ?>">
+			<table>
+				<tr><td>Mapname : </td><td><input type="text" name="folder" id="folder" size="45" /></td></tr>
+				<tr><td></td><td><input class="button" type="submit" value="Create" /></td></tr>
+			</table>
+		</form>
+	</div>
+</div>
+<?php endif; ?>

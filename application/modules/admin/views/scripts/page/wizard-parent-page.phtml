@@ -1,0 +1,62 @@
+<?php $this->headTitle('SxCms - Pagina hoofdpagina') ?>
+
+<?php $this->headScript()->appendFile($this->baseUrl('/js/jquery-1.3.2.min.js')) ?>
+<?php $this->headScript()->appendFile($this->baseUrl('/js/jquery/table-filter.js')) ?>
+<?php $this->headScript()->captureStart() ?>
+$(function() {
+	var theTable = $('#pages')
+
+	$("#filter").keyup(function() {
+		$.uiTableFilter( theTable, this.value );
+  	});
+
+	$('#filter-form').submit(function(){
+		theTable.find("tbody > tr:visible > td:eq(1)").mousedown();
+		return false;
+	}).focus();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<h3><?php echo $this->admin_tmx->_('choosehome') ?></h3>
+
+<div style="margin: 10px;">
+	<form name="table-filter" method="post" action="#">
+		<?php echo $this->admin_tmx->_('typepagename') ?><br />
+		<input type="text" name="filter" id="filter" value=""  />
+	</form>
+</div>
+
+<table width="95%" id="pages">
+	<tr>
+		<th><?php echo $this->admin_tmx->_('title') ?></th>
+		<th width="20"><?php echo $this->admin_tmx->_('choose') ?></th>
+	</tr>
+
+<?php foreach ($this->siteTree as $page) : ?>
+<tr>
+	<?php $n = ($page->getLevel() - 1) * 8 ?>
+	<?php $n = $n < 0 ? $n = 0 : $n ?>
+	<td><?php echo str_repeat('&nbsp;', $n) ?>
+		<?php if ($page->getId() === 0): ?>
+			<img src="<?php echo $this->baseUrl('/images/cms/actions/home.png') ?>" alt="" />
+		<?php elseif ($page->getChildren()): ?>
+			<img src="<?php echo $this->baseUrl('/images/cms/actions/folder.png') ?>" alt="" />
+		<?php elseif ($page->getType() == SxCms_Page::EXTERNAL): ?>
+			<img src="<?php echo $this->baseUrl('/images/cms/actions/page_go.png') ?>" alt="" />
+		<?php else: ?>
+			<img src="<?php echo $this->baseUrl('/images/cms/actions/page.png') ?>" alt="" />
+		<?php endif ?>
+		<a href="<?php echo $this->url(array('controller' => 'page', 'action' => 'set-parent', 'page' => $page->getId())) ?>">
+			<?php echo $this->escape($page->getTitle()) ?>
+		</a>
+	</td>
+	<td align="center">
+		<center>
+			<a href="<?php echo $this->url(array('controller' => 'page', 'action' => 'set-parent', 'page' => $page->getId())) ?>">
+			<img src="<?php echo $this->baseUrl('/images/cms/actions/save_labled_go.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+			</a>
+		</center>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>

@@ -1,0 +1,51 @@
+<?php
+echo $this->render('system/leave.phtml'); ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce_init.js') ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+<div id="alert" title="<?php echo $this->admin_tmx->_('formvalidation') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('allfieldsrequired') ?></p>
+</div>
+
+<div id="tabs">
+	<ul>
+    	<li><a href="#tabs-settings"><?php echo $this->admin_tmx->_('settings') ?>
+			<?php $errors = count($this->messages->getTabMessages('settings')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+        <li><a href="#tabs-content"><?php echo $this->admin_tmx->_('content') ?>
+			<?php $errors = count($this->messages->getTabMessages('content')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-save"><?php echo $this->admin_tmx->_('save') ?></a></li>
+	</ul>
+	<form name="add" method="post" action="<?php echo $this->url() ?>" enctype="multipart/form-data">
+	<input type="hidden" name="webtv_id" value="<?php echo $this->item->getId() ?>" />
+    <div id="tabs-settings">
+		<?php echo $this->render('member/forms/mail/__settings.phtml') ?>
+	</div>
+	<div id="tabs-content">
+		<?php echo $this->render('member/forms/mail/__content.phtml') ?>
+	</div>    
+	<div id="tabs-save">
+    
+		<dl>
+			<dd>
+			    <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+			</dd>
+		</dl>
+	</div>
+	</form>
+</div>

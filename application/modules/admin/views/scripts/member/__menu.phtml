@@ -1,0 +1,10 @@
+<h3 id="menu-member"><a href="#"><?php echo $this->admin_menu_tmx->_('mem.members') ?></a></h3>
+<div>
+	<ul class="sidemenu">
+		<li><a href="<?php echo $this->url(array('controller' => 'member', 'action' => 'index'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('mem.overview') ?></a></li>
+      	<li><a href="<?php echo $this->url(array('controller' => 'member', 'action' => 'add'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('mem.add') ?></a></li>
+        <br />
+        <li><a href="<?php echo $this->url(array('controller' => 'member', 'action' => 'indexmail'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('mem.overviewmails') ?></a></li>
+        <li><a href="<?php echo $this->url(array('controller' => 'member', 'action' => 'addemail'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('mem.addemail') ?></a></li>
+    </ul>
+</div>

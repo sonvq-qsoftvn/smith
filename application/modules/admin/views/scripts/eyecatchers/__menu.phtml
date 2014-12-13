@@ -1,0 +1,8 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+<h3 id="menu-eyecatchers"><a href="#"><?php echo $this->admin_menu_tmx->_('ec.eyecatchers') ?></a></h3>
+<div>
+	<ul class="sidemenu">
+        <li><a href="<?php echo $this->url(array('controller' => 'eyecatchers', 'action' => 'index')) ?>"><?php echo $this->admin_menu_tmx->_('ec.overview') ?></a></li>
+	<li><a href="<?php echo $this->url(array('controller' => 'eyecatchers', 'action' => 'add')) ?>"><?php echo $this->admin_menu_tmx->_('ec.add') ?></a></li>
+	</ul>
+</div>

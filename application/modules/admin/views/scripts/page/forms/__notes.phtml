@@ -1,0 +1,42 @@
+<dl>
+	<?php if (/*$this->page->getId() !== */false): ?>
+	<dd>
+		<input type="checkbox" name="revision" value="1"
+			<?php if ($this->revision->isApproved()) { echo 'checked="checked"'; } ?> /> <?php echo $this->admin_tmx->_('makerevisionaskpermission') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('revisionchangesnotautomatic') ?>
+	    </p>
+	</dd>
+	<?php endif ?>
+
+    <?php if ($this->page->getId() !== false and $this->page->getLanguage() == 'nl'): ?>
+    <dd>
+        <input type="checkbox" name="translation" value="1" /> <?php echo $this->admin_tmx->_('markasedit') ?>
+        <p class="description">
+            <?php echo $this->admin_tmx->_('markaseditdescription') ?>
+        </p>
+    </dd>
+    <?php endif ?>
+	
+	<?php $config = Zend_Registry::get('config') ?>
+    <?php if ($this->page->getType() == SxCms_Page::ARTICLE && $config->modules->news->comments->allow != "false"): ?>
+    <dd>
+        <input type="checkbox" name="comments" value="1"
+            <?php if ($this->page->allowComments()) { echo 'checked="checked"'; } ?> /> <?php echo $this->admin_tmx->_('allowcomments') ?>
+        <p class="description">
+            <?php echo $this->admin_tmx->_('allowcommentsdescription') ?>
+        </p>
+    </dd>
+    <?php endif ?>
+
+	<dt>
+		<label for="notes"><?php echo $this->admin_tmx->_('comments') ?>:</label>
+	</dt>
+	<dd>
+		<textarea name="notes" id="notes" cols="90" rows="5"><?php echo $this->revision->getNotes() ?></textarea>
+	    <?php echo $this->messages->getMessagesHtml('notes') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('requiredmin2max255chars') ?>
+	    </p>
+	</dd>
+</dl>

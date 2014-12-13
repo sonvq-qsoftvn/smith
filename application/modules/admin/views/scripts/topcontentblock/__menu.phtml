@@ -1,0 +1,7 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+<h3 id="menu-topblock"><a href="#"><?php echo $this->admin_menu_tmx->_('tcb.topcontentblocks') ?></a></h3>
+<div>
+	<ul class="sidemenu">
+        <li><a href="<?php echo $this->url(array('controller' => 'topcontentblock', 'action' => 'index')) ?>"><?php echo $this->admin_menu_tmx->_('tcb.overview') ?></a></li>
+	</ul>
+</div>

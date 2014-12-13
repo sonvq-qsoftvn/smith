@@ -1,0 +1,94 @@
+<?php
+
+$user = Zend_Auth::getInstance()->getIdentity();
+$canActivate = $user->isAllowed('eyecatchers', 'eyecatchers.activate');
+$canDelete = $user->isAllowed('eyecatchers', 'eyecatchers.delete');
+$canRanking = $user->isAllowed('eyecatchers', 'eyecatchers.ranking');
+
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+
+$this->headTitle('SxCms - '.$this->admin_tmx->_('eyecatchers').' - '.$this->admin_tmx->_('eyecatchersoverview'));
+echo $this->render('system/result.phtml');
+?>
+
+<?php if($canRanking){?>
+<script type="text/javascript">
+$(document).ready(function() {
+var fixHelper = function(e, ui) {
+    ui.children().each(function() {
+        $(this).width($(this).width());
+    });
+    return ui;
+};
+    $('#sort').sortable({
+      helper: fixHelper,
+      handle : '.handle',
+      update : function () {
+        var order = $('#sort').sortable('serialize', 'id');
+        move(order);
+      }
+    }).disableSelection();;
+});
+
+function move(order){
+    var data = order;
+    var url = '/admin/eyecatchers/ranking';
+    var dataType = 'script';
+    var type = 'POST';
+     $.ajax({
+        type: type,
+        url: url,
+        data: data,
+        dataType: dataType,
+        success: function(){
+            location.reload();
+        }
+    });
+}
+</script>
+<?php } ?>
+<div id="dialog" title="<?php echo $this->admin_tmx->_('deleteeyecatcher') ?>" style="display: none;">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deleteeyecatcherconfirm') ?></p>
+</div>
+
+<h3><?php echo $this->admin_tmx->_('eyecatchersoverview') ?> [<?php echo $_SESSION['System']['lng'] ?>]</h3>
+<table width="98%">
+    <tr>
+        <th width="15"></th>
+        <th><?php echo $this->admin_tmx->_('title') ?></th>
+        <th><?php echo $this->admin_tmx->_('subtitle') ?></th>
+        <th width="30"><?php echo $this->admin_tmx->_('status') ?></th>
+        <th><?php echo $this->admin_tmx->_('action') ?></th>
+    </tr>
+    <tbody id="sort">
+    <?php foreach ($this->paginator as $id => $item): ?>
+    <tr id="listItem_<?php echo $item->getId();?>">
+        <td width="15"><img src="<?php echo $this->baseUrl('/images/cms/actions/page.png') ?>" alt="" class="handle"/></td>
+        <td><?php echo $this->escape($item->getTitle()) ?></td>
+        <td><?php echo $this->escape($item->getSubtitle()) ?></td>
+        <td>
+            <?php if($canActivate){?><a title="<?php echo $this->admin_tmx->_('activatedeactivate') ?>" href="<?php echo $this->url(array('action' => 'activate', 'id' => $item->getId())) ?>"><?php }?>
+            <?php if($item->getActive()) : ?>
+                <center><img src="<?php echo $this->baseUrl('/ico/tick-circle.png') ?>" alt="<?php echo $this->admin_tmx->_('deactivate') ?>?" /></center>
+            <?php else : ?>
+                <center><img src="<?php echo $this->baseUrl('/ico/minus-circle.png') ?>" alt="<?php echo $this->admin_tmx->_('activate') ?>?" /></center>
+            <?php endif ?> 
+            </a>
+        </td>
+        <td>
+	    
+            <a title="<?php echo $this->admin_tmx->_('edit') ?>" href="<?php echo $this->url(array('action' => 'edit', 'id' => $item->getId())) ?>">
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+            </a>
+            
+            <?php if($canDelete){?><a title="<?php echo $this->admin_tmx->_('delete') ?>" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'delete', 'id' => $item->getId())) ?>');"><?php } ?>
+                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
+            <?php if($canDelete){ ?></a><?php } ?>
+        </td>
+    </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>
+
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+         adminlang="en-us" srclang="en-us" o-tmf="abc">
+	</header>
+	<body>
+		<tu tuid='statusedited'>
+			<tuv xml:lang="nl"><seg>De status van het item werd succesvol aangepast!</seg></tuv>
+			<tuv xml:lang="en"><seg>The status of the item has successfully been edited!</seg></tuv>
+		</tu>
+		<tu tuid='itemcreated'>
+			<tuv xml:lang="nl"><seg>Item werd succesvol aangemaakt!</seg></tuv>
+			<tuv xml:lang="en"><seg>Item was successfully created!</seg></tuv>
+		</tu>
+		<tu tuid='itemedited'>
+			<tuv xml:lang="nl"><seg>Item werd succesvol aangepast!</seg></tuv>
+			<tuv xml:lang="en"><seg>Item was successfully edited!</seg></tuv>
+		</tu>
+		<tu tuid='itemdeleted'>
+			<tuv xml:lang="nl"><seg>Item werd succesvol verwijderd!</seg></tuv>
+			<tuv xml:lang="en"><seg>Item was successfully deleted!</seg></tuv>
+		</tu>
+		<tu tuid='category'>
+			<tuv xml:lang="nl"><seg>Categorie</seg></tuv>
+			<tuv xml:lang="en"><seg>Category</seg></tuv>
+		</tu>
+		<tu tuid='selecttype'>
+			<tuv xml:lang="nl"><seg>Selecteer een type</seg></tuv>
+			<tuv xml:lang="en"><seg>Select a type</seg></tuv>
+		</tu>
+		<tu tuid='subcategory'>
+			<tuv xml:lang="nl"><seg>Subcategory</seg></tuv>
+			<tuv xml:lang="en"><seg>Subcategory</seg></tuv>
+		</tu>
+		<tu tuid='selectsubcat'>
+			<tuv xml:lang="nl"><seg>Selecteer een subcategorie</seg></tuv>
+			<tuv xml:lang="en"><seg>Select a subcategory</seg></tuv>
+		</tu>
+		<tu tuid='name'>
+			<tuv xml:lang="nl"><seg>Benaming</seg></tuv>
+			<tuv xml:lang="en"><seg>Name</seg></tuv>
+		</tu>
+		<tu tuid='requiredmin2chars'>
+			<tuv xml:lang="nl"><seg>Verplicht in te vullen. Minstens 2 karakters.</seg></tuv>
+			<tuv xml:lang="en"><seg>Required, minimum 2 characters.</seg></tuv>
+		</tu>
+		<tu tuid='shortdescription'>
+			<tuv xml:lang="nl"><seg>Korte omschrijving</seg></tuv>
+			<tuv xml:lang="en"><seg>Short description</seg></tuv>
+		</tu>
+		<tu tuid='file'>
+			<tuv xml:lang="nl"><seg>Bestand</seg></tuv>
+			<tuv xml:lang="en"><seg>File</seg></tuv>
+		</tu>
+		<tu tuid='title'>
+			<tuv xml:lang="nl"><seg>Titel</seg></tuv>
+			<tuv xml:lang="en"><seg>Title</seg></tuv>
+		</tu>
+		<tu tuid='active'>
+			<tuv xml:lang="nl"><seg>Actief</seg></tuv>
+			<tuv xml:lang="en"><seg>Active</seg></tuv>
+		</tu>
+		<tu tuid='formvalidation'>
+			<tuv xml:lang="nl"><seg>Formulier validatie</seg></tuv>
+			<tuv xml:lang="en"><seg>Validation form</seg></tuv>
+		</tu>
+		<tu tuid='allfieldsrequired'>
+			<tuv xml:lang="nl"><seg>Alle velden zijn verplicht in te vullen.</seg></tuv>
+			<tuv xml:lang="en"><seg>All fields are required.</seg></tuv>
+		</tu>
+		<tu tuid='details'>
+			<tuv xml:lang="nl"><seg>Details</seg></tuv>
+			<tuv xml:lang="en"><seg>Details</seg></tuv>
+		</tu>
+		<tu tuid='save'>
+			<tuv xml:lang="nl"><seg>Opslaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Save</seg></tuv>
+		</tu>
+		<tu tuid='addsubtype'>
+			<tuv xml:lang="nl"><seg>Subtype toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add subtype</seg></tuv>
+		</tu>
+		<tu tuid='addsubtypefor'>
+			<tuv xml:lang="nl"><seg>Nieuw subtype toevoegen voor</seg></tuv>
+			<tuv xml:lang="en"><seg>Add subtype for</seg></tuv>
+		</tu>
+		<tu tuid='editsubtypefor'>
+			<tuv xml:lang="nl"><seg>Subtype aanpassen voor</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit subtype for</seg></tuv>
+		</tu>
+		<tu tuid='typeoverview'>
+			<tuv xml:lang="nl"><seg>Types overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Type overview</seg></tuv>
+		</tu>
+		<tu tuid='deletesubtype'>
+			<tuv xml:lang="nl"><seg>Subtype verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete subtype</seg></tuv>
+		</tu>
+		<tu tuid='deletesubtypeconfirm'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u dit type wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this subtype?</seg></tuv>
+		</tu>
+		<tu tuid='addsubtype'>
+			<tuv xml:lang="nl"><seg>Subtype toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add subtype</seg></tuv>
+		</tu>
+		<tu tuid='add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		<tu tuid='namesubtype'>
+			<tuv xml:lang="nl"><seg>Naam subtype (type = </seg></tuv>
+			<tuv xml:lang="en"><seg>Name subtype (type = </seg></tuv>
+		</tu>
+		<tu tuid='active'>
+			<tuv xml:lang="nl"><seg>Actief</seg></tuv>
+			<tuv xml:lang="en"><seg>Active</seg></tuv>
+		</tu>
+		<tu tuid='action'>
+			<tuv xml:lang="nl"><seg>Actie</seg></tuv>
+			<tuv xml:lang="en"><seg>Action</seg></tuv>
+		</tu>
+		<tu tuid='activatedeactivate'>
+			<tuv xml:lang="nl"><seg>Activeren/Deactiveren</seg></tuv>
+			<tuv xml:lang="en"><seg>Activate/Deactivate</seg></tuv>
+		</tu>
+		<tu tuid='deactivate'>
+			<tuv xml:lang="nl"><seg>De-activeer</seg></tuv>
+			<tuv xml:lang="en"><seg>De-activate</seg></tuv>
+		</tu>
+		<tu tuid='activate'>
+			<tuv xml:lang="nl"><seg>Activeren</seg></tuv>
+			<tuv xml:lang="en"><seg>Activate</seg></tuv>
+		</tu>
+		<tu tuid='edit'>
+			<tuv xml:lang="nl"><seg>Aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit</seg></tuv>
+		</tu>
+		<tu tuid='questions'>
+			<tuv xml:lang="nl"><seg>Vragen</seg></tuv>
+			<tuv xml:lang="en"><seg>Questions</seg></tuv>
+		</tu>
+		<tu tuid='backoverview'>
+			<tuv xml:lang="nl"><seg>Terug naar overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Back to overview</seg></tuv>
+		</tu>
+		<tu tuid='addtype'>
+			<tuv xml:lang="nl"><seg>Nieuw type toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add new type</seg></tuv>
+		</tu>
+		<tu tuid='edittype'>
+			<tuv xml:lang="nl"><seg>Type aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit type</seg></tuv>
+		</tu>
+		<tu tuid='deletetype'>
+			<tuv xml:lang="nl"><seg>Type verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete type</seg></tuv>
+		</tu>
+		<tu tuid='deletetypeconfirm'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u dit type wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this type?</seg></tuv>
+		</tu>
+		<tu tuid='deletetypewarning'>
+			<tuv xml:lang="nl"><seg>Opgelet: De bestaande acties van dit type zullen ook verwijderd worden!</seg></tuv>
+			<tuv xml:lang="en"><seg>Warning: The existing actions of this type will be deleted as well!</seg></tuv>
+		</tu>
+		<tu tuid='nametype'>
+			<tuv xml:lang="nl"><seg>Naam type</seg></tuv>
+			<tuv xml:lang="en"><seg>Name type</seg></tuv>
+		</tu>
+		<tu tuid='amountsubtypes'>
+			<tuv xml:lang="nl"><seg>Aantal subtypes</seg></tuv>
+			<tuv xml:lang="en"><seg>Amount of subtypes</seg></tuv>
+		</tu>
+		<tu tuid='addsubtype'>
+			<tuv xml:lang="nl"><seg>Subtype toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add subtype</seg></tuv>
+		</tu>
+		<tu tuid='addfolder'>
+			<tuv xml:lang="nl"><seg>Folder toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add folder</seg></tuv>
+		</tu>
+		<tu tuid='editfolder'>
+			<tuv xml:lang="nl"><seg>Folder aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit folder</seg></tuv>
+		</tu>
+		<tu tuid='sheetsoverview'>
+			<tuv xml:lang="nl"><seg>Folders overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Folders overview</seg></tuv>
+		</tu>
+		<tu tuid='deleteitem'>
+			<tuv xml:lang="nl"><seg>Item verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete item</seg></tuv>
+		</tu>
+		<tu tuid='deleteitemconfirm'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u dit item wilt verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this item?</seg></tuv>
+		</tu>
+		<tu tuid='productsheets'>
+			<tuv xml:lang="nl"><seg>Productfiches</seg></tuv>
+			<tuv xml:lang="en"><seg>Product sheets</seg></tuv>
+		</tu>
+	</body>
+</tmx>

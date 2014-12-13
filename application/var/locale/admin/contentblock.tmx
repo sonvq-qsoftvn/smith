@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+         adminlang="en-us" srclang="en-us" o-tmf="abc">
+	</header>
+	<body>
+		<tu tuid='contentblockcreated'>
+			<tuv xml:lang="nl"><seg>Tekstblok werd succesvol aangemaakt!</seg></tuv>
+			<tuv xml:lang="en"><seg>The content block was successfully created!</seg></tuv>
+		</tu>
+		<tu tuid='contentblockedited'>
+			<tuv xml:lang="nl"><seg>Tekstblok werd succesvol aangepast!</seg></tuv>
+			<tuv xml:lang="en"><seg>The content block was successfully edited!</seg></tuv>
+		</tu>
+		<tu tuid='contentblockdeleted'>
+			<tuv xml:lang="nl"><seg>Contentblock werd succesvol verwijderd!</seg></tuv>
+			<tuv xml:lang="en"><seg>The content block was successfully deleted!</seg></tuv>
+		</tu>
+		<tu tuid='statusitemedited'>
+			<tuv xml:lang="nl"><seg>De status van het item werd succesvol aangepast!</seg></tuv>
+			<tuv xml:lang="en"><seg>The status of the item has successfully been edited!</seg></tuv>
+		</tu>
+		<tu tuid='min2max255chars'>
+			<tuv xml:lang="nl"><seg>Minimum 2 en maximum 255 karakters</seg></tuv>
+			<tuv xml:lang="en"><seg>Minimum 2 and maximum 255 characters</seg></tuv>
+		</tu>
+		<tu tuid='title'>
+			<tuv xml:lang="nl"><seg>Titel</seg></tuv>
+			<tuv xml:lang="en"><seg>Title</seg></tuv>
+		</tu>
+		<tu tuid='content'>
+			<tuv xml:lang="nl"><seg>Inhoud</seg></tuv>
+			<tuv xml:lang="en"><seg>Content</seg></tuv>
+		</tu>
+		<tu tuid='Save'>
+			<tuv xml:lang="nl"><seg>Opslaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Save</seg></tuv>
+		</tu>
+		<tu tuid='allfieldsrequired'>
+			<tuv xml:lang="nl"><seg>Alle velden zijn verplicht in te vullen.</seg></tuv>
+			<tuv xml:lang="en"><seg>All fields are required.</seg></tuv>
+		</tu>
+		<tu tuid='contentblock'>
+			<tuv xml:lang="nl"><seg>Tekstblok</seg></tuv>
+			<tuv xml:lang="en"><seg>Content block</seg></tuv>
+		</tu>
+		<tu tuid='contentblocks'>
+			<tuv xml:lang="nl"><seg>Tekstblokken</seg></tuv>
+			<tuv xml:lang="en"><seg>Content blocks</seg></tuv>
+		</tu>
+		<tu tuid='overview'>
+			<tuv xml:lang="nl"><seg>Overzicht</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview</seg></tuv>
+		</tu>
+		<tu tuid='add'>
+			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add</seg></tuv>
+		</tu>
+		<tu tuid='addcontentblocks'>
+			<tuv xml:lang="nl"><seg>Tekstblokken toevoegen</seg></tuv>
+			<tuv xml:lang="en"><seg>Add content blocks</seg></tuv>
+		</tu>
+		<tu tuid='editcontentblocks'>
+			<tuv xml:lang="nl"><seg>Tekstblokken aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit content blocks</seg></tuv>
+		</tu>
+		<tu tuid='overviewcontentblocks'>
+			<tuv xml:lang="nl"><seg>Overzicht van tekstblokken</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview of content blocks</seg></tuv>
+		</tu>
+		<tu tuid='confirmdeletecontentblock'>
+			<tuv xml:lang="nl"><seg>Weet u zeker dat u deze tekstblok wil verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this content block?</seg></tuv>
+		</tu>
+		<tu tuid='deletefolder'>
+			<tuv xml:lang="nl"><seg>Album verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete folder</seg></tuv>
+		</tu>
+		<tu tuid='blockname'>
+			<tuv xml:lang="nl"><seg>Bloknaam</seg></tuv>
+			<tuv xml:lang="en"><seg>Blockname</seg></tuv>
+		</tu>
+		<tu tuid='action'>
+			<tuv xml:lang="nl"><seg>Actie</seg></tuv>
+			<tuv xml:lang="en"><seg>Action</seg></tuv>
+		</tu>
+		<tu tuid='activate'>
+			<tuv xml:lang="nl"><seg>Activeren</seg></tuv>
+			<tuv xml:lang="en"><seg>Activate</seg></tuv>
+		</tu>
+		<tu tuid='edit'>
+			<tuv xml:lang="nl"><seg>Aanpassen</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit</seg></tuv>
+		</tu>
+		<tu tuid='activatedeactivate'>
+			<tuv xml:lang="nl"><seg>Activeren/Deactiveren</seg></tuv>
+			<tuv xml:lang="en"><seg>Activate/Deactivate</seg></tuv>
+		</tu>
+		<tu tuid='deactivate'>
+			<tuv xml:lang="nl"><seg>De-activeer</seg></tuv>
+			<tuv xml:lang="en"><seg>De-activate</seg></tuv>
+		</tu>
+		<tu tuid='delete'>
+			<tuv xml:lang="nl"><seg>Verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete</seg></tuv>
+		</tu>
+	</body>
+</tmx>

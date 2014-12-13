@@ -1,0 +1,9 @@
+ <div id="header">
+     <a title="Terug naar de homepage" href="/<?php echo $this->lng ?>">
+         <img src="/images/website/logo.jpg" alt="ALT TAG HERNOEMEN!!!" id="logo" />
+     </a>
+     <div id="menu">
+         <?php echo $this->action('multilevelmenu' , 'index' , null , array('page' => $this->page, 'lng' => $this->lng)) ?>
+     </div>
+ </div>
+ <div style="clear: both;"></div>

@@ -1,0 +1,41 @@
+<?php if($this->items) : ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery.carouFredSel-5.5.0-packed.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/caroufredsel-top.js') ?>
+<?php if($this->page->getId() == '0') : $size = "1263X575"; else : $size = "1263X325"; endif; ?>
+<div id="slider-wrap<?php if ($this->page->getId() != '0') : ?>-small<?php endif; ?>">
+    <div id="top-slider" class="center">
+        <?php foreach ($this->items as $item) : ?>
+        <?php 
+        if($item->getUrl()) :
+            $url = $item->getUrl();
+        else : 
+            $url = '';
+        endif; 
+        ?>
+        <div <?php if($url != ''): ?> onclick="location.href='<?php echo $url;?>';" <?php endif; ?> class="item" style="background-image: url('/images/eyecatchers/<?php echo $size; ?>/<?php echo $item->getPicture();?>'); <?php if($url != ''): ?>cursor: pointer;<?php endif; ?>">
+            <div class="slider-wrap">
+                <h4><?php if($url != ''): ?><a href="<?php echo $url; ?>"><?php endif; ?><?php echo $item->getTitle(); ?><?php if($url != ''): ?></a><?php endif; ?></h4>
+                <h5><?php if($url != ''): ?><a href="<?php echo $url; ?>"><?php endif; ?><?php echo $item->getSubtitle(); ?><?php if($url != ''): ?></a><?php endif; ?></h5>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+    <div class="wrap" style="position: relative;"> 
+        <div id="top-prev"></div>
+        <div id="top-next"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<?php else : ?>
+<div id="slider-wrap">
+    <div id="top-slider<?php if ($this->page->getId() != '0') : ?>-small<?php endif; ?>" class="center">
+        <div id="only" class="item" class="center" style="background-image: url('/images/website/slider/bg<?php if ($this->page->getId() != '0') : ?>-small<?php endif; ?>.jpg')">
+        </div>
+    </div>
+    <div class="wrap" style="position: relative;"> 
+        <div id="top-prev"></div>
+        <div id="top-next"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<?php endif; ?>

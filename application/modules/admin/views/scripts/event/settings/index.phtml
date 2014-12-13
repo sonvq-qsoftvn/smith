@@ -1,0 +1,41 @@
+<?php echo $this->render('system/leave.phtml'); ?>
+
+<?php $this->headTitle($this->admin_tmx->_('editeventsettings')) ?>
+
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce_init.js') ?>
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<?php echo $this->render('system/result.phtml') ?>
+<h3><?php echo $this->admin_tmx->_('editeventsettings') ?></h3>
+
+<div id="tabs">
+	<ul>
+		<li>
+			<a href="#tabs-remember"><?php echo $this->admin_tmx->_('reminderemail') ?></a>
+		</li>
+		<li>
+			<a href="#tabs-confirmation"><?php echo $this->admin_tmx->_('confirmationemail') ?></a>
+		</li>
+		<li><a href="#tabs-save"><?php echo $this->admin_tmx->_('save') ?></a></li>
+	</ul>
+	<form name="settings" method="post" action="<?php echo $this->url() ?>">
+		<div id="tabs-remember">
+			<?php echo $this->render('event/settings/forms/__remember.phtml') ?>
+		</div>
+		<div id="tabs-confirmation">
+			<?php echo $this->render('event/settings/forms/__confirmation.phtml') ?>
+		</div>
+		<div id="tabs-save">
+			<dl>
+				<dd>
+		    		<input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+				</dd>
+			</dl>
+		</div>
+	</form>
+</div>

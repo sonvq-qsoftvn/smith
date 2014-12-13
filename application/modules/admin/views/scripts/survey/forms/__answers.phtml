@@ -1,0 +1,77 @@
+<?php $this->headScript()->captureStart() ?>
+$(function() {
+	$("#answertable").load("<?php echo $this->url(array('controller' => 'survey_question_answer', 'action' => 'add-answer')) ?>");
+
+	$('.addanswer').click(function() {
+		key = $("#key").val();
+		questionId = $("#questionId").val();
+		answer = $("#answer").val();
+
+		if(answer.length < 1 || questionId == null) {
+			$("#alert").dialog({
+				bgiframe: true,
+				resizable: false,
+				height: 160,
+				width: 500,
+				modal: true,
+				overlay: {
+					backgroundColor: '#000',
+					opacity: 0.5
+				},
+				buttons: {
+					'Ok': function() {
+						$(this).dialog('destroy');
+					}
+				}
+			});
+		} else {
+			$.ajax({
+				type: 'POST',
+				url: '<?php echo $this->url(array('controller' => 'survey_question_answer', 'action' => 'add-answer')) ?>',
+				data: {'key' : key, 'questionId' : questionId, 'answer' : answer},
+				success: function(msg){
+					$("#answertable").html(msg);
+					$("#key").val("");
+					$("#questionId").val("");
+					$("#answer").val("");
+				}
+			});
+		}
+	});
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<div id="answertable"></div>
+
+<h3>Formulier</h3>
+<dl>
+	<dt>
+		<label for="questionId">Vraag:</label>
+	</dt>
+	<dd>
+		<select name="questionId" id="questionId">
+			<?php foreach($this->survey->getQuestion() as $key => $value): ?>
+				<?php if($value->getType() == 'select' || $value->gettype() == 'multiselect'): ?>
+					<option value="<?php echo $key ?>" <?php if($this->answer->getSurveyQuestionId() == $key) { echo 'selected="selected"'; } ?>><?php echo $value->getQuestion() ?></option>
+				<?php endif; ?>
+			<?php endforeach; ?>
+		</select>
+	</dd>
+
+	<dt>
+		<label for="label">Answer:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="answer" id="answer"
+	    	value="<?php echo $this->answer->getAnswer() ?>" style="width: 250px;" />
+	    <p class="description">
+	        Verplicht in te vullen, minimum 1 karakters
+	    </p>
+	</dd>
+
+	<dd>
+		<input type="hidden" id="key" value="">
+		<?php echo $this->messages->getMessagesHtml('answers') ?>
+	    <input type="button" class="addanswer" value="toevoegen" />
+	</dd>
+</dl>

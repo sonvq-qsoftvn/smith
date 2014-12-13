@@ -1,0 +1,42 @@
+<dl>
+
+    <dt>
+		<label for="from_name"><?php echo $this->admin_tmx->_('sendername') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="from_name" id="from_name"
+	    	value="<?php echo $this->item->getFromName() ?>" style="width: 250px;" />
+	    <?php echo $this->messages->getMessagesHtml('from_name') ?>
+	    <p class="description"><?php echo $this->admin_tmx->_('sendernamedescription') ?></p>
+	</dd>
+
+    <dt>
+		<label for="from_email"><?php echo $this->admin_tmx->_('senderemail') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="from_email" id="from_email"
+	    	value="<?php echo $this->item->getFromEmail() ?>" style="width: 250px;" />
+	    <?php echo $this->messages->getMessagesHtml('from_email') ?>
+	    <p class="description"><?php echo $this->admin_tmx->_('senderemaildescription') ?></p>
+	</dd>
+
+    <dt>
+		<label for="reply_name"><?php echo $this->admin_tmx->_('replytoname') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="reply_name" id="reply_name"
+	    	value="<?php echo $this->item->getReplyName() ?>" style="width: 250px;" />
+	    <?php echo $this->messages->getMessagesHtml('reply_name') ?>
+	    <p class="description"><?php echo $this->admin_tmx->_('replytonamedescription') ?></p>
+	</dd>
+
+    <dt>
+		<label for="reply"><?php echo $this->admin_tmx->_('replytoemail') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="reply" id="reply"
+	    	value="<?php echo $this->item->getReply() ?>" style="width: 250px;" />
+	    <?php echo $this->messages->getMessagesHtml('reply') ?>
+	    <p class="description"><?php echo $this->admin_tmx->_('replytoemaildescription') ?></p>
+	</dd>
+</dl>

@@ -1,0 +1,69 @@
+<?php $this->headTitle($this->admin_tmx->_('subscriptionoverview')) ?>
+<?php echo $this->render('system/leave.phtml'); ?>
+<?php //$this->headScript()->appendFile($this->baseUrl() . '/js/leave.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce_init.js') ?>
+
+<?php $this->headLink()->appendStylesheet('/js/jquery/jquery.autocomplete.css') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/jquery.bgiframe.min.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/jquery.autocomplete.min.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js'); ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<div id="dialog" title="<?php echo $this->admin_tmx->_('deleteevent') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deleteeventconfirm') ?></p>
+</div>
+
+<h3><?php echo $this->admin_tmx->_('subscriptionsforevent') ?> "<?php echo $this->event->getTitle() ?>"</h3>
+
+<div id="tabs">
+<ul>	
+	<li><a href="#tabs-overview"><?php echo $this->admin_tmx->_('overview') ?></a></li>
+    <!--<li><a href="#tabs-refused">Geweigerd</a></li>-->
+    <li><a href="#tabs-export"><?php echo $this->admin_tmx->_('export') ?></a></li>
+</ul>
+<div id="tabs-overview">
+		<table width="95%">
+        	<tr>
+				<?php foreach ($this->fields as $field): ?>
+                 <th><?php echo $field->getLabel() ?></th>
+                <?php endforeach ?>
+                <th width="25"><?php echo $this->admin_tmx->_('status') ?></th>
+                <th width="35"><?php echo $this->admin_tmx->_('action') ?></th>
+            </tr>
+            <?php foreach ($this->subscriptions as $sub) : ?>
+            <tr>
+            	<?php foreach ($this->fields as $field): ?>
+                 <td><?php if (isset($sub[$field->getName()])) echo $sub[$field->getName()] ?></td>
+                <?php endforeach ?>
+                <td>
+				<?php if($sub['status'] == 0) : ?><img src="<?php echo $this->baseUrl('/ico/question.png') ?>" alt="<?php echo $this->admin_tmx->_('waiting') ?>" /><?php endif ?>
+				<?php if($sub['status'] == 1) : ?><img src="<?php echo $this->baseUrl('/ico/tick-circle.png') ?>" alt="<?php echo $this->admin_tmx->_('accepted') ?>" /><?php endif ?>
+                <?php if($sub['status'] == 2) : ?><img src="<?php echo $this->baseUrl('/ico/cross-circle.png') ?>" alt="<?php echo $this->admin_tmx->_('rejected') ?>" /><?php endif ?>
+                </td>
+                <td>
+                 <a title="<?php echo $this->admin_tmx->_('edit') ?>" class="delete" href="<?php echo $this->url(array('controller' => 'event_subscription','action' => 'update', 'id' => $sub['subscription_id'])) ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+				</a>
+                 <a title="<?php echo $this->admin_tmx->_('delete') ?>" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('controller' => 'event_subscription','action' => 'delete', 'id' => $sub['subscription_id'])) ?>');">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
+			</a>
+                </td>
+            </tr>
+            <?php endforeach ?>
+        </table>
+</div>
+<!--<div id="tabs-refused">
+</div>-->
+<div id="tabs-export">
+<form method="get" action="<?php echo $this->url(array('controller' => 'event_subscription','action' => 'export', 'id' => $this->event->getId())) ?>">
+	<input type="submit" value="<?php echo $this->admin_tmx->_('export') ?>" />
+    </form>
+</div>
+</div>

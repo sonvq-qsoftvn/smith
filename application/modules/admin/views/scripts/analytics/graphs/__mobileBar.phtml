@@ -1,0 +1,34 @@
+<h2><?php echo $this->admin_tmx->_('mobilevisitors') ?></h2>
+<div id="mobilebar" style="width: 100%; height: 200px;"></div>
+
+<script type="text/javascript">
+
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawMobileBar);
+
+function drawMobileBar() {
+
+    var data = google.visualization.arrayToDataTable([
+        ['<?php echo $this->admin_tmx->_('mobile') ?>', '<?php echo $this->admin_tmx->_('visits') ?>'],
+        <?php
+        
+        echo "['".$this->admin_tmx->_('yes')."', ".$this->mobile["yes"]."],";
+        echo "['".$this->admin_tmx->_('no')."', ".$this->mobile["no"]."]";
+
+        ?>
+    ]);
+
+    var options = {
+        
+        chartArea: {left: 50, top: 0, width: '75%', height: 140},
+        colors: ['#6A8BAB'],
+        legend: {position: 'none'}
+                
+    };
+
+    var chart = new google.visualization.BarChart(document.getElementById('mobilebar'));
+    chart.draw(data, options);
+
+}
+
+</script>

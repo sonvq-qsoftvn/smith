@@ -1,0 +1,26 @@
+<dl>
+       
+        <dt>
+        <?php echo $this->admin_tmx->_('chooseanalprofile') ?>
+        </dt>
+  
+    <dt>
+        <dd>
+        	<select name='profile'>
+        		<?php foreach ($this->accounts as $account): ?>
+        			<optgroup label='<?php echo $account["accountName"]; ?>'>
+        				<?php foreach ($account["accountProfiles"] as $profile): ?>
+        					<option value='<?php echo $profile["profileId"]; ?>'><?php echo $profile["profileName"]." - ".$profile["webPropertyId"]; ?></option>
+        				<?php endforeach; ?>
+        			</optgroup>
+        		<?php endforeach; ?>
+        	</select>
+        </dd>
+    
+    
+    <br />
+    <dd>
+        <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+    </dd>
+
+</dl>

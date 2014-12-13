@@ -1,0 +1,25 @@
+<?php $this->headTitle('SxCms - Productcategorie') ?>
+
+<h3>Kies de productcategorie</h3>
+<table width="95%">
+	<tr>
+		<th width="15"></th>
+		<th>Titel</th>
+		<th width="20">Kies</th>
+	</tr>
+	<?php foreach ($this->tree as $item) : ?>
+	<?php $n = ($this->xmlMapper->getDepth($item->getId()) - 1) * 8 ?>
+	<?php $n = $n < 0 ? $n = 0 : $n ?>
+	<tr>
+		<td width="15"><img src="<?php echo $this->baseUrl('/images/cms/actions/page.png') ?>" alt="" /></td>
+		<td><?php echo str_repeat('&nbsp;', $n) ?>
+			<?php echo $this->escape($item->getTitle()) ?>
+		</td>
+		<td align="center">
+			<a href="<?php echo $this->url(array('action' => 'set-category', 'category' => $item->getId())) ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/save_labled_go.png') ?>" alt="edit" />
+			</a>
+		</td>
+	</tr>
+	<?php endforeach; ?>
+</table>

@@ -1,0 +1,48 @@
+<?php $identity = Zend_Auth::getInstance()->getIdentity() ?>
+
+<?php if (count($this->submenus) > 0): ?>
+<?php if (!$this->isBot): ?>
+<h1><?php echo $this->section->getTitle() ?></h1>
+<?php endif ?>
+<ul>
+	<?php foreach ($this->submenus as $key => $page): ?>
+	<?php
+	$class = 'default';
+	if (in_array($page->getId(), $this->active)):
+		$class = 'active';
+	endif;
+	?>
+	   <?php if ($page->isAllowed($identity)): ?>
+		<li class="<?php echo $class ?>">
+			<a href="<?php echo $this->url(array('url' => $page->getLink()), 'content', false, false) ?>">
+				<?php if (!$this->isBot): ?>
+					<?php echo  $page->getTitle() ?>
+				<?php endif ?>
+			</a>
+
+			<?php if (isset($this->subsubmenus[$page->getId()]) && $this->subsubmenus[$page->getId()]): ?>
+			</li>
+			<li class="nostyle">
+			<ul>
+				<?php foreach ($this->subsubmenus[$page->getId()] as $page): ?>
+				<?php if ($page->isAllowed($identity)): ?>
+				<li>
+				    <?php if (in_array($page->getId(), $this->active)): ?>
+				    <img class="mnu" src="<?php echo $this->baseUrl('/ico/arrow-000-small.png') ?>" alt="" />
+				    <?php endif ?>
+					<a href="<?php echo $this->url(array('url' => $page->getLink()), 'content', false, false) ?>">
+						<?php if (!$this->isBot): ?>
+							<?php echo $page->getTitle() ?>
+						<?php endif ?>
+					</a>
+				</li>
+				<?php endif ?>
+				<?php endforeach; ?>
+			</ul>
+			</li>
+			<?php endif ?>
+		</li>
+		<?php endif ?>
+	<?php endforeach; ?>
+</ul>
+<?php endif; ?>

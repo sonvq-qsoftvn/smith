@@ -1,0 +1,17 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+<h3 id="menu-vacancy"><a href="#">Vacatures</a></h3>
+<div>
+	<ul class="sidemenu">
+        <li><a href="<?php echo $this->url(array('controller' => 'vacancy', 'action' => 'archive'), null, true) ?>">Archief</a></li>
+		<?php if ($user->isAllowed('vacancy', 'vacancy.index')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'vacancy', 'action' => 'index'), null, true) ?>">Overzicht</a></li>
+		<?php endif ?>
+
+		<?php if ($user->isAllowed('vacancy', 'vacancy.add')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'vacancy', 'action' => 'add'), null, true) ?>">Toevoegen</a></li>
+		<?php endif ?>
+        <?php if ($user->isAllowed('vacancy', 'vacancy.categories')): ?>
+            <li><a href="<?php echo $this->url(array('controller' => 'vacancy', 'action' => 'categories'), null, true) ?>">Categorie&euml;n</a></li>
+        <?php endif ?>
+	</ul>
+</div>

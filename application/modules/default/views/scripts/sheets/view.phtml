@@ -1,0 +1,56 @@
+<div class="grid_3 alpha">
+<div class="newsmenu">
+    <h3><?php echo $this->glob_tmx->_('lbl.productfiches') ?></h3>
+    <ul class="submenu">
+        <?php foreach($this->types as $type) : ?>
+        <li><a <?php if($this->typeid == $type['id']) : ?>class="active"<?php endif; ?> href="<?php echo $this->url(array('lng' => $this->lng, 'typename' => $this->Createurl($type['name']), 'typeid' => $type['id']), 'sheets-detail') ?>"><?php echo $type['name']; ?></a></li> 
+        <?php endforeach; ?>
+    </ul>
+</div>
+</div>
+
+
+<div class="grid_9 omega">
+<?php echo $this->page->getContent(); ?>
+<?php if($this->items): ?>
+<div class="doc-holder">
+<?php $zebra = 0; ?>
+<?php foreach($this->items as $subtypes) : ?>
+<?php if(count($subtypes->getSheets()) != 0) : ?>
+<h3 class="accordionButton"><?php echo $subtypes->getName(); ?></h3>
+<table class="docs accordionContent">
+    <?php foreach($subtypes->getSheets() as $doc) : ?>
+        <tr <?php if($zebra%2 == 0) : ?>class="zebra"<?php endif; ?>>
+            <td class="cel-1"><?php echo $doc->getName(); ?></td>
+            <td class="cel-2"><?php echo $doc->getDesc(); ?></td>
+            <td class="cel-3">
+                <a href="<?php echo $this->url(array('lng' => $this->lng, 'filename' => $doc->getFile(), 'typeid' => $doc->getType(), 'subtypeid' => $doc->getSubtype()), 'sheets-download') ?>" class='download'>Download</a>
+            </td>
+        </tr>
+        <?php $zebra++; ?>
+    <?php endforeach; ?>
+</table>
+<?php endif; ?>
+<?php endforeach; ?>
+</div>
+<?php endif; ?>
+</div>
+<?php $this->headLink()->appendStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/base/jquery-ui.css') ?>
+<?php $this->headScript()->appendFile('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js') ?>
+<?php $this->headScript()->captureStart() ?>
+$(document).ready(function() {
+        $('.accordionContent').hide();
+	$('.accordionButton').click(function() {
+                $(this).next().slideToggle('fast', function() {
+                    if($(this).prev().hasClass('minus')){
+                        $(this).prev().removeClass('minus');
+                    }else{
+                        $(this).prev().addClass('minus');
+                    }
+                });
+        });
+
+});
+<?php $this->headScript()->captureEnd() ?>
+
+

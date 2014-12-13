@@ -1,0 +1,9 @@
+<?php
+$auth = Zend_Auth::getInstance();
+if ($auth->hasIdentity()) :
+	$user = $auth->getIdentity();
+?>
+<div style="background-color:#023401;height:27px;margin:0 -40px 15px 0;padding:9px 0 0px 16px;color:#fff;">
+	Welkom <?php echo $user->getFullName() ?>
+</div>
+<?php endif; ?>

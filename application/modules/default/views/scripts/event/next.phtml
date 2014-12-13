@@ -1,0 +1,19 @@
+<?php if ($this->events): ?>
+<?php if (!$this->isBot): ?>
+<h3 class="calendar"> Agenda</h3>
+<ul>
+<?php foreach ($this->events as $event): ?>
+	<li>
+		<a href="<?php echo $this->url(array('id' => $event->getId()), 'event') ?>"><?php echo $event->getDateEvent("%d-%m-%Y") ?> -
+			<?php echo $event->getTitle() ?>
+		</a>
+	</li>
+<?php endforeach ?>
+</ul>
+<?php endif ?>
+<p class="more-right">
+	<a title="Bekijk de volledige agenda" href="<?php echo $this->url(array(), 'event-calendar') ?>"> <?php echo $this->glob_tmx->_('agenda.more') ?></a>
+</p>
+
+<hr />
+<?php endif ?>

@@ -1,0 +1,29 @@
+<?php
+
+$user = Zend_Auth::getInstance()->getIdentity();
+$this->headScript()->appendFile($this->baseUrl() . '/js/popup.js');
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+
+$this->headTitle('SxCms - '.$this->admin_tmx->_('newsoverview'));
+echo $this->render('system/result.phtml');
+
+$canEdit    = $user->isAllowed('news', 'news.edit');
+$canDelete  = $user->isAllowed('news', 'news.delete');
+$canPrev    = $user->isAllowed('news', 'news.preview');
+$canViewRev = $user->isAllowed('news', 'news.revision.index');
+
+?>
+
+<div id="dialog" title="<?php echo $this->admin_tmx->_('deletenewsarticle') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deletenewsarticleconfirm') ?> </p>
+</div>
+
+<div id="locked" title="<?php echo $this->admin_tmx->_('editpage') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('editactivepage') ?></p>
+</div>
+
+
+<h3><?php echo $this->admin_tmx->_('newsoverview') ?></h3>
+<?php echo $this->render('page/__list.phtml') ?>

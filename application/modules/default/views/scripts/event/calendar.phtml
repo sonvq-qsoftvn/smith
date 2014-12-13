@@ -1,0 +1,32 @@
+<h1><?php echo $this->glob_tmx->_('events') ?></h1>
+<?php
+
+$prevMonth = '';
+if ($this->paginator):
+    foreach ($this->paginator as $event):
+        $url = $this->url(array('id' => $event->getId()), 'event');
+        $curMonth = $event->getDateEvent("%B %Y"); ?>
+
+<?php if ($curMonth != $prevMonth): ?>
+<div class="event-month">
+	<h1><?php echo $curMonth ?></h1>
+</div>
+<?php endif ?>
+
+<div class="event-index">
+	<h2><a href="<?php echo $url ?>"><?php echo $event->getTitle() ?></a></h2>
+	<i>
+	<?php echo htmlentities($event->getDateEvent("%A %d %B %Y"),ENT_NOQUOTES,'UTF-8')  ?> 
+<?php echo $this->glob_tmx->_('at') ?> 
+	<?php echo substr($event->getTimeEvent(), 0, 5) ?> - <?php echo $event->getLocation() ?></i>
+
+	<p><?php echo $this->excerpt($event->getDescription())?></p>
+	<div style="clear: both; padding: 0; margin: 5px 0 5px 0; border-bottom: 1px solid #eeeeee"></div>
+</div>
+
+<?php $prevMonth = $event->getDateEvent("%B %Y"); ?>
+<?php endforeach ?>
+
+<center><?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?></center>
+
+<?php endif ?>

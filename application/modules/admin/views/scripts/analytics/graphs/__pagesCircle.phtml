@@ -1,0 +1,40 @@
+<h2 style='padding: 0 15px;'><?php echo $this->admin_tmx->_('mostvisitedpages') ?><span style='float: right'><a href='/admin/analytics/allpages'>Meer pagina's</a></span></h2>
+<div id="pagescircle" style="width: 100%; height: 150px;"></div>
+
+<script type="text/javascript">
+
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawPagesCircle);
+
+function drawPagesCircle() {
+
+    var data = google.visualization.arrayToDataTable([
+        ['<?php echo $this->admin_tmx->_('page') ?>', '<?php echo $this->admin_tmx->_('visits') ?>'],
+        <?php
+
+        $total = count($this->toppages["titles"]);
+        foreach ($this->toppages["numbers"] AS $key => $value) {
+
+            echo "['".addslashes(substr($this->toppages["titles"][$key], 0, 19))."".(strlen($this->toppages["titles"][$key])>19?"...":"")."', ".$value."]";
+            if ($key < $total-1) echo ",";
+
+        }
+
+        ?>
+    ]);
+
+    var options = {
+        
+        chartArea: {left: 0, top: 0, width: '99%', height: 140},
+        colors: ['#D7E8F7','#BBD0E3', '#9CB7CF', '#6A8BAB', '#375D81'],
+        pieSliceTextStyle: {color: 'darkslategray'},
+        is3D: true
+                
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('pagescircle'));
+    chart.draw(data, options);
+
+}
+
+</script>

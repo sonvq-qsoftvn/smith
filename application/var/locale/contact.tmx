@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+         adminlang="en-us" srclang="en-us" o-tmf="abc">
+	</header>
+	<body>
+		<!-- Headers h1, h2, ... -->
+		<tu tuid='hdr.contact'>
+			<tuv xml:lang="nl"><seg>Contacteer ons</seg></tuv>
+			<tuv xml:lang="fr"><seg>Contactez-nous</seg></tuv>
+			<tuv xml:lang="de"><seg>Name</seg></tuv>
+			<tuv xml:lang="en"><seg>Contact us</seg></tuv>
+		</tu>
+		<tu tuid='hdr.route'>
+			<tuv xml:lang="nl"><seg>Routeplanner</seg></tuv>
+			<tuv xml:lang="fr"><seg>Itinéraire</seg></tuv>
+			<tuv xml:lang="de"><seg>Routenplaner</seg></tuv>
+			<tuv xml:lang="en"><seg>Plan your route</seg></tuv>
+		</tu>
+		<tu tuid='hdr.errors'>
+			<tuv xml:lang="nl"><seg>De volgende fouten zijn opgetreden</seg></tuv>
+			<tuv xml:lang="fr"><seg>Attention !</seg></tuv>
+			<tuv xml:lang="de"><seg>De volgende fouten zijn opgetreden</seg></tuv>
+			<tuv xml:lang="en"><seg>The following errors have occured</seg></tuv>
+		</tu>
+		
+		<!-- Labels -->
+		<tu tuid='lbl.company'>
+			<tuv xml:lang="nl"><seg>Bedrijf</seg></tuv>
+			<tuv xml:lang="fr"><seg>Entreprise</seg></tuv>
+			<tuv xml:lang="de"><seg>--</seg></tuv>
+			<tuv xml:lang="en"><seg>Company</seg></tuv>
+		</tu>
+		<tu tuid='lbl.btw'>
+			<tuv xml:lang="nl"><seg>BTW nummer</seg></tuv>
+			<tuv xml:lang="fr"><seg>TVA</seg></tuv>
+			<tuv xml:lang="de"><seg>--</seg></tuv>
+			<tuv xml:lang="en"><seg>BTW</seg></tuv>
+		</tu>
+		<tu tuid='lbl.nameres'>
+			<tuv xml:lang="nl"><seg>Naam verantwoordelijke</seg></tuv>
+			<tuv xml:lang="fr"><seg>Nom</seg></tuv>
+			<tuv xml:lang="de"><seg>Name</seg></tuv>
+			<tuv xml:lang="en"><seg>Name</seg></tuv>
+		</tu>
+		<tu tuid='lbl.name'>
+			<tuv xml:lang="nl"><seg>Naam</seg></tuv>
+			<tuv xml:lang="fr"><seg>Nom</seg></tuv>
+			<tuv xml:lang="de"><seg>Name</seg></tuv>
+			<tuv xml:lang="en"><seg>Name</seg></tuv>
+		</tu>
+		<tu tuid='lbl.firstname'>
+			<tuv xml:lang="nl"><seg>Voornaam</seg></tuv>
+			<tuv xml:lang="fr"><seg>Prénom</seg></tuv>
+			<tuv xml:lang="de"><seg>Vorname</seg></tuv>
+			<tuv xml:lang="en"><seg>Firstname</seg></tuv>
+		</tu>
+		<tu tuid='lbl.address'>
+			<tuv xml:lang="nl"><seg>Adres</seg></tuv>
+			<tuv xml:lang="fr"><seg>Adresse</seg></tuv>
+			<tuv xml:lang="de"><seg>--</seg></tuv>
+			<tuv xml:lang="en"><seg>Address</seg></tuv>
+		</tu>
+		<tu tuid='lbl.postal'>
+			<tuv xml:lang="nl"><seg>Postcode en gemeente</seg></tuv>
+			<tuv xml:lang="fr"><seg>Code postal et municipalité</seg></tuv>
+			<tuv xml:lang="de"><seg>--</seg></tuv>
+			<tuv xml:lang="en"><seg>Postal code and city</seg></tuv>
+		</tu>
+		<tu tuid='lbl.country'>
+			<tuv xml:lang="nl"><seg>Land</seg></tuv>
+			<tuv xml:lang="fr"><seg>Pays</seg></tuv>
+			<tuv xml:lang="de"><seg>--</seg></tuv>
+			<tuv xml:lang="en"><seg>Country</seg></tuv>
+		</tu>
+		<tu tuid='lbl.email'>
+			<tuv xml:lang="nl"><seg>E-mail</seg></tuv>
+			<tuv xml:lang="fr"><seg>Adresse e-amail</seg></tuv>
+			<tuv xml:lang="de"><seg>E-mail</seg></tuv>
+			<tuv xml:lang="en"><seg>E-mail</seg></tuv>
+		</tu>
+		<tu tuid='lbl.phone'>
+			<tuv xml:lang="nl"><seg>Telefoonnummer</seg></tuv>
+			<tuv xml:lang="fr"><seg>Téléphone</seg></tuv>
+			<tuv xml:lang="de"><seg>Telefon</seg></tuv>
+			<tuv xml:lang="en"><seg>Phone</seg></tuv>
+		</tu>
+			<tu tuid='lbl.fax'>
+			<tuv xml:lang="nl"><seg>Fax</seg></tuv>
+			<tuv xml:lang="fr"><seg>Fax</seg></tuv>
+			<tuv xml:lang="de"><seg>Fax</seg></tuv>
+			<tuv xml:lang="en"><seg>Fax</seg></tuv>
+		</tu>
+		<tu tuid='lbl.comments'>
+			<tuv xml:lang="nl"><seg>Vraag / Opmerking</seg></tuv>
+			<tuv xml:lang="fr"><seg>Question / Commentaire</seg></tuv>
+			<tuv xml:lang="de"><seg>Frage / Kommentare</seg></tuv>
+			<tuv xml:lang="en"><seg>Question / Comment</seg></tuv>
+		</tu>
+		
+		<tu tuid='btn.send'>
+			<tuv xml:lang="nl"><seg>Verzenden</seg></tuv>
+			<tuv xml:lang="fr"><seg>Envoyer</seg></tuv>
+			<tuv xml:lang="de"><seg>Senden</seg></tuv>
+			<tuv xml:lang="en"><seg>Send</seg></tuv>
+		</tu>
+		
+		<!-- Error messages -->
+		<tu tuid='error.name.short'>
+			<tuv xml:lang="nl"><seg>Naam moet minstens %min% karakters bevatten</seg></tuv>
+			<tuv xml:lang="fr"><seg>La taille de nom est supérieur à %max% caractères</seg></tuv>
+			<tuv xml:lang="de"><seg>Naam moet minstens %min% karakters bevatten</seg></tuv>
+			<tuv xml:lang="en"><seg>Name should contain at least %min% characters</seg></tuv>
+		</tu>
+		<tu tuid='error.name.long'>
+			<tuv xml:lang="nl"><seg>Naam mag maximum %max% karakters bevatten</seg></tuv>
+			<tuv xml:lang="fr"><seg>La taille de nom est inférieur à %min% caractères</seg></tuv>
+			<tuv xml:lang="de"><seg>Naam mag maximum %max% karakters bevatten</seg></tuv>
+			<tuv xml:lang="en"><seg>Name cannot contain more than %max% characters</seg></tuv>
+		</tu>
+		<tu tuid='error.firstname.short'>
+			<tuv xml:lang="nl"><seg>Voornaam moet minstens %min% karakters bevatten</seg></tuv>
+			<tuv xml:lang="fr"><seg>La taille de prénom est inférieur à %min% caractères</seg></tuv>
+			<tuv xml:lang="de"><seg>Voornaam moet minstens %min% karakters bevatten</seg></tuv>
+			<tuv xml:lang="en"><seg>Firstname should contain at least %min% characters</seg></tuv>
+		</tu>
+		<tu tuid='error.firstname.long'>
+			<tuv xml:lang="nl"><seg>Voornaam mag maximum %max% karakters bevatten</seg></tuv>
+			<tuv xml:lang="fr"><seg>La taille de prénom est supérieur à %max% caractères</seg></tuv>
+			<tuv xml:lang="de"><seg>Voornaam mag maximum %max% karakters bevatten</seg></tuv>
+			<tuv xml:lang="en"><seg>Firstname cannot contain more than %max% characters</seg></tuv>
+		</tu>
+		<tu tuid='error.email.format'>
+			<tuv xml:lang="nl"><seg>Het opgegeven e-mail adres is niet geldig</seg></tuv>
+			<tuv xml:lang="fr"><seg>E-mail n'est pas valide</seg></tuv>
+			<tuv xml:lang="de"><seg>Het opgegeven e-mail adres is niet geldig</seg></tuv>
+			<tuv xml:lang="en"><seg>The given e-mail address is invalid</seg></tuv>
+		</tu>
+		<tu tuid='error.phone.short'>
+			<tuv xml:lang="nl"><seg>Telefoon / GSM moet minstens %min% karakters bevatten</seg></tuv>
+			<tuv xml:lang="fr"><seg>La taille de téléphone est inférieur à %min% caractères</seg></tuv>
+			<tuv xml:lang="de"><seg>Telefoon / GSM moet minstens %min% karakters bevatten</seg></tuv>
+			<tuv xml:lang="en"><seg>Phone / Mobile should contain at least %min% characters</seg></tuv>
+		</tu>
+		<tu tuid='error.phone.long'>
+			<tuv xml:lang="nl"><seg>Telefoon / GSM mag maximum %max% karakters bevatten</seg></tuv>
+			<tuv xml:lang="fr"><seg>La taille de téléphone est supérieur à %max% caractères</seg></tuv>
+			<tuv xml:lang="de"><seg>Telefoon / GSM mag maximum %max% karakters bevatten</seg></tuv>
+			<tuv xml:lang="en"><seg>Phone / Mobile cannot contain more than %max% characters</seg></tuv>
+		</tu>
+		<tu tuid='error.comments.short'>
+			<tuv xml:lang="nl"><seg>Vraag / Opmerking moet minstens %min% karakters bevatten</seg></tuv>
+			<tuv xml:lang="fr"><seg>La taille de question/commentaire est inférieur à %min% caractères</seg></tuv>
+			<tuv xml:lang="de"><seg>Vraag / Opmerking moet minstens %min% karakters bevatten</seg></tuv>
+			<tuv xml:lang="en"><seg>Question / Comment should contain at least %min% characters</seg></tuv>
+		</tu>
+        <tu tuid='sent.head.title'>
+			<tuv xml:lang="nl"><seg>Bedankt - Uw bericht is verstuurd</seg></tuv>
+			<tuv xml:lang="fr"><seg>Bedankt - Uw bericht is verstuurd</seg></tuv>
+			<tuv xml:lang="de"><seg>Bedankt - Uw bericht is verstuurd</seg></tuv>
+			<tuv xml:lang="en"><seg>Bedankt - Uw bericht is verstuurd</seg></tuv>
+		</tu>
+        <tu tuid='sent.title'>
+			<tuv xml:lang="nl"><seg>Bedankt</seg></tuv>
+			<tuv xml:lang="fr"><seg>Bedankt</seg></tuv>
+			<tuv xml:lang="de"><seg>Bedankt</seg></tuv>
+			<tuv xml:lang="en"><seg>Bedankt</seg></tuv>
+		</tu>
+        <tu tuid='sent.message'>
+			<tuv xml:lang="nl"><seg>Uw bericht is verstuurd. Wij zullen dit zo spoedig mogelijk behandelen.</seg></tuv>
+			<tuv xml:lang="fr"><seg>Uw bericht is verstuurd. Wij zullen dit zo spoedig mogelijk behandelen.</seg></tuv>
+			<tuv xml:lang="de"><seg>Uw bericht is verstuurd. Wij zullen dit zo spoedig mogelijk behandelen.</seg></tuv>
+			<tuv xml:lang="en"><seg>Uw bericht is verstuurd. Wij zullen dit zo spoedig mogelijk behandelen.</seg></tuv>
+		</tu>
+        <tu tuid='breadcrumbs.contact'>
+			<tuv xml:lang="nl"><seg>Contact</seg></tuv>
+			<tuv xml:lang="fr"><seg>Contact</seg></tuv>
+			<tuv xml:lang="de"><seg>Contact</seg></tuv>
+			<tuv xml:lang="en"><seg>Contact</seg></tuv>
+		</tu>
+	</body>
+</tmx>

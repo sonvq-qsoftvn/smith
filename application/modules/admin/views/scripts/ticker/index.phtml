@@ -1,0 +1,23 @@
+<h3>Tickers [<?php echo $_SESSION['System']['lng'] ?>]</h3>
+<table width="98%">
+	<tr>
+		<th>Titel</th>
+		<th width="60">Actie</th>
+	</tr>
+    <?php foreach ($this->paginator as $tick) : ?>
+    <tr>
+		<td><?php echo $tick->getTitle() ?></td>
+		<td><a title="Aanpassen" href="<?php echo $this->baseUrl('/admin/ticker/edit/id/'.$tick->getTickId()) ?>" >
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="Aanpassen" />
+			</a>
+            <a title="Aanpassen" href="<?php echo $this->baseUrl('/admin/ticker/delete/id/'.$tick->getTickId()) ?>" >
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="Verwijderen" />
+			</a>
+             
+          
+            </td>
+	</tr>
+    	
+    <?php endforeach ?>
+    
+</table>

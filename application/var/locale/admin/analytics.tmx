@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header creationtoolversion="1.0.0" datatype="winres" segtype="sentence"
+         adminlang="en-us" srclang="en-us" o-tmf="abc">
+	</header>
+	<body>
+		<tu tuid='emailpasswordempty'>
+			<tuv xml:lang="nl"><seg>Het e-mail adres of wachtwoord is niet ingevuld.</seg></tuv>
+			<tuv xml:lang="en"><seg>You did not enter an email address or password.</seg></tuv>
+		</tu>
+		<tu tuid='logindoesntmatch'>
+			<tuv xml:lang="nl"><seg>De gebruikersnaam en het wachtwoord komen niet overeen.</seg></tuv>
+			<tuv xml:lang="en"><seg>The username and password do not match.</seg></tuv>
+		</tu>
+		<tu tuid='googleloginfirst'>
+			<tuv xml:lang="nl"><seg>Voor Analytics te kunnen zien moet je eerst je logingegevens voor Google Analytics ingeven.</seg></tuv>
+			<tuv xml:lang="en"><seg>To be able to see Analytics, you have to enter your Google Analytics login and password.</seg></tuv>
+		</tu>
+		<tu tuid='ifyoudonotknow'>
+			<tuv xml:lang="nl"><seg>Als je niet weet wat deze gegevens zijn</seg></tuv>
+			<tuv xml:lang="en"><seg>If you do not know what these details are</seg></tuv>
+		</tu>
+		<tu tuid='clickhere'>
+			<tuv xml:lang="nl"><seg>klik dan hier</seg></tuv>
+			<tuv xml:lang="en"><seg>click here</seg></tuv>
+		</tu>
+		<tu tuid='email'>
+			<tuv xml:lang="nl"><seg>E-mail adres</seg></tuv>
+			<tuv xml:lang="en"><seg>Email address</seg></tuv>
+		</tu>
+		<tu tuid='password'>
+			<tuv xml:lang="nl"><seg>Wachtwoord</seg></tuv>
+			<tuv xml:lang="en"><seg>Password</seg></tuv>
+		</tu>
+		<tu tuid='save'>
+			<tuv xml:lang="nl"><seg>Opslaan</seg></tuv>
+			<tuv xml:lang="en"><seg>Save</seg></tuv>
+		</tu>
+		<tu tuid='chooseanalprofile'>
+			<tuv xml:lang="nl"><seg>Kies een analytics profiel.</seg></tuv>
+			<tuv xml:lang="en"><seg>Choose an analytics profile.</seg></tuv>
+		</tu>
+		<tu tuid='deletelink'>
+			<tuv xml:lang="nl"><seg>De link met het Google Analytics account verwijderen</seg></tuv>
+			<tuv xml:lang="en"><seg>Remove the link with your Google Analytics account</seg></tuv>
+		</tu>
+		<tu tuid='deletelinkbutton'>
+			<tuv xml:lang="nl"><seg>Verwijder link</seg></tuv>
+			<tuv xml:lang="en"><seg>Delete link</seg></tuv>
+		</tu>
+		<tu tuid='deletelinkconfirm'>
+			<tuv xml:lang="nl"><seg>Weet je zeker dat je de link wil verwijderen?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete the link?</seg></tuv>
+		</tu>
+		<tu tuid='deletelinkwarning'>
+			<tuv xml:lang="nl"><seg>Opgepast: hierna zal je opnieuw moeten inloggen.</seg></tuv>
+			<tuv xml:lang="en"><seg>Warning: you will have to re-login afterwards.</seg></tuv>
+		</tu>
+		<tu tuid='chooseotherprofile'>
+			<tuv xml:lang="nl"><seg>Een ander profiel kiezen</seg></tuv>
+			<tuv xml:lang="en"><seg>Choose another profile</seg></tuv>
+		</tu>
+		<tu tuid='chooseotherprofiledescription'>
+			<tuv xml:lang="nl"><seg>Klik hier om een ander profiel te kiezen.</seg></tuv>
+			<tuv xml:lang="en"><seg>Click here to choose another profile.</seg></tuv>
+		</tu>
+		<tu tuid='to'>
+			<tuv xml:lang="nl"><seg>Tot</seg></tuv>
+			<tuv xml:lang="en"><seg>To</seg></tuv>
+		</tu>
+		<tu tuid='from'>
+			<tuv xml:lang="nl"><seg>Van</seg></tuv>
+			<tuv xml:lang="en"><seg>From</seg></tuv>
+		</tu>
+		<tu tuid='browsers'>
+			<tuv xml:lang="nl"><seg>Browsers</seg></tuv>
+			<tuv xml:lang="en"><seg>Browsers</seg></tuv>
+		</tu>
+		<tu tuid='mobiledevices'>
+			<tuv xml:lang="nl"><seg>Mobiele toestellen</seg></tuv>
+			<tuv xml:lang="en"><seg>Mobile devices</seg></tuv>
+		</tu>
+		<tu tuid='page'>
+			<tuv xml:lang="nl"><seg>Pagina</seg></tuv>
+			<tuv xml:lang="en"><seg>Page</seg></tuv>
+		</tu>
+		<tu tuid='visits'>
+			<tuv xml:lang="nl"><seg>Bezoeken</seg></tuv>
+			<tuv xml:lang="en"><seg>Visits</seg></tuv>
+		</tu>
+		<tu tuid='device'>
+			<tuv xml:lang="nl"><seg>Toestel</seg></tuv>
+			<tuv xml:lang="en"><seg>device</seg></tuv>
+		</tu>
+		<tu tuid='longitute'>
+			<tuv xml:lang="nl"><seg>Lengtegraad</seg></tuv>
+			<tuv xml:lang="en"><seg>Longitude</seg></tuv>
+		</tu>
+		<tu tuid='latitude'>
+			<tuv xml:lang="nl"><seg>Breedtegraad</seg></tuv>
+			<tuv xml:lang="en"><seg>Latitude</seg></tuv>
+		</tu>
+		<tu tuid='city'>
+			<tuv xml:lang="nl"><seg>Stad</seg></tuv>
+			<tuv xml:lang="en"><seg>City</seg></tuv>
+		</tu>
+		<tu tuid='visits'>
+			<tuv xml:lang="nl"><seg>Bezoeken</seg></tuv>
+			<tuv xml:lang="en"><seg>Visits</seg></tuv>
+		</tu>
+		<tu tuid='mostusedkeywords'>
+			<tuv xml:lang="nl"><seg>Meest gezochte zoekwoorden</seg></tuv>
+			<tuv xml:lang="en"><seg>Most used keywords</seg></tuv>
+		</tu>
+		<tu tuid='medium'>
+			<tuv xml:lang="nl"><seg>Medium</seg></tuv>
+			<tuv xml:lang="en"><seg>Medium</seg></tuv>
+		</tu>
+		<tu tuid='mobilevisitors'>
+			<tuv xml:lang="nl"><seg>Mobiele bezoekers</seg></tuv>
+			<tuv xml:lang="en"><seg>Mobile visitors</seg></tuv>
+		</tu>
+		<tu tuid='mobile'>
+			<tuv xml:lang="nl"><seg>Mobiel</seg></tuv>
+			<tuv xml:lang="en"><seg>Mobile</seg></tuv>
+		</tu>
+		<tu tuid='yes'>
+			<tuv xml:lang="nl"><seg>Ja</seg></tuv>
+			<tuv xml:lang="en"><seg>Yes</seg></tuv>
+		</tu>
+		<tu tuid='no'>
+			<tuv xml:lang="nl"><seg>Nee</seg></tuv>
+			<tuv xml:lang="en"><seg>No</seg></tuv>
+		</tu>
+		<tu tuid='mostvisitedpages'>
+			<tuv xml:lang="nl"><seg>Meest bezochte pagina's</seg></tuv>
+			<tuv xml:lang="en"><seg>Most visited pages</seg></tuv>
+		</tu>
+		<tu tuid='sources'>
+			<tuv xml:lang="nl"><seg>Bronnen</seg></tuv>
+			<tuv xml:lang="en"><seg>Sources</seg></tuv>
+		</tu>
+		<tu tuid='source'>
+			<tuv xml:lang="nl"><seg>Bron</seg></tuv>
+			<tuv xml:lang="en"><seg>Source</seg></tuv>
+		</tu>
+		<tu tuid='dailyvisits'>
+			<tuv xml:lang="nl"><seg>Bezoeken per dag</seg></tuv>
+			<tuv xml:lang="en"><seg>Daily visits</seg></tuv>
+		</tu>
+		<tu tuid='day'>
+			<tuv xml:lang="nl"><seg>Dag</seg></tuv>
+			<tuv xml:lang="en"><seg>Day</seg></tuv>
+		</tu>
+		<tu tuid='country'>
+			<tuv xml:lang="nl"><seg>Land</seg></tuv>
+			<tuv xml:lang="en"><seg>Country</seg></tuv>
+		</tu>
+		<tu tuid='formvalidation'>
+			<tuv xml:lang="nl"><seg>Formulier validatie</seg></tuv>
+			<tuv xml:lang="en"><seg>Form validation</seg></tuv>
+		</tu>
+		<tu tuid='settings'>
+			<tuv xml:lang="nl"><seg>Instellingen</seg></tuv>
+			<tuv xml:lang="en"><seg>Settings</seg></tuv>
+		</tu>
+		<tu tuid='dashboard'>
+			<tuv xml:lang="nl"><seg>Dashboard</seg></tuv>
+			<tuv xml:lang="en"><seg>Dashboard</seg></tuv>
+		</tu>
+		<tu tuid='worldmap'>
+			<tuv xml:lang="nl"><seg>Wereldkaart</seg></tuv>
+			<tuv xml:lang="en"><seg>World map</seg></tuv>
+		</tu>
+		<tu tuid='keywords'>
+			<tuv xml:lang="nl"><seg>Zoekwoorden</seg></tuv>
+			<tuv xml:lang="en"><seg>Keywords</seg></tuv>
+		</tu>
+		<tu tuid='keyword'>
+			<tuv xml:lang="nl"><seg>Zoekwoord</seg></tuv>
+			<tuv xml:lang="en"><seg>Keyword</seg></tuv>
+		</tu>
+		<tu tuid='noframes'>
+			<tuv xml:lang="nl"><seg>Geen frames ondersteuning</seg></tuv>
+			<tuv xml:lang="en"><seg>No frames support</seg></tuv>
+		</tu>
+		<tu tuid='geo'>
+			<tuv xml:lang="nl"><seg>Geo</seg></tuv>
+			<tuv xml:lang="en"><seg>Geo</seg></tuv>
+		</tu>
+		<tu tuid='geolocationsvisitors'>
+			<tuv xml:lang="nl"><seg>Geolocaties van bezoekers</seg></tuv>
+			<tuv xml:lang="en"><seg>Geolocations of visitors</seg></tuv>
+		</tu>
+		<tu tuid='backtoworldmap'>
+			<tuv xml:lang="nl"><seg>Terug naar wereldkaart</seg></tuv>
+			<tuv xml:lang="en"><seg>Back to world map</seg></tuv>
+		</tu>
+		<tu tuid='numbervisits'>
+			<tuv xml:lang="nl"><seg>Aantal bezoeken</seg></tuv>
+			<tuv xml:lang="en"><seg>Number of visits</seg></tuv>
+		</tu>
+		<tu tuid='loginfirst'>
+			<tuv xml:lang="nl"><seg>Log eerst in voor Analytics te kunnen zien.</seg></tuv>
+			<tuv xml:lang="en"><seg>Log in first to be able to see Analytics.</seg></tuv>
+		</tu>
+		<tu tuid='statsblock1'>
+			<tuv xml:lang="nl"><seg>Er waren in deze periode</seg></tuv>
+			<tuv xml:lang="en"><seg>There were</seg></tuv>
+		</tu>
+		<tu tuid='visitsuncap'>
+			<tuv xml:lang="nl"><seg>bezoeken</seg></tuv>
+			<tuv xml:lang="en"><seg>visits</seg></tuv>
+		</tu>
+		<tu tuid='statsblock2'>
+			<tuv xml:lang="nl"><seg>door</seg></tuv>
+			<tuv xml:lang="en"><seg>in this period by</seg></tuv>
+		</tu>
+		<tu tuid='statsblock3'>
+			<tuv xml:lang="nl"><seg>unieke bezoekers</seg></tuv>
+			<tuv xml:lang="en"><seg>unique visitors</seg></tuv>
+		</tu>
+		<tu tuid='statsblock4'>
+			<tuv xml:lang="nl"><seg>Zij bezochten</seg></tuv>
+			<tuv xml:lang="en"><seg>They visited</seg></tuv>
+		</tu>
+		<tu tuid='pagesuncap'>
+			<tuv xml:lang="nl"><seg>pagina's</seg></tuv>
+			<tuv xml:lang="en"><seg>pages</seg></tuv>
+		</tu>
+		<tu tuid='statsblock5'>
+			<tuv xml:lang="nl"><seg>met een gemiddelde van</seg></tuv>
+			<tuv xml:lang="en"><seg>with an average of</seg></tuv>
+		</tu>
+		<tu tuid='statsblock6'>
+			<tuv xml:lang="nl"><seg>pagina's per bezoek</seg></tuv>
+			<tuv xml:lang="en"><seg>pages per visit</seg></tuv>
+		</tu>
+		<tu tuid='statsblock7'>
+			<tuv xml:lang="nl"><seg>De gemiddelde tijd op de website per bezoeker is ongeveer</seg></tuv>
+			<tuv xml:lang="en"><seg>The average time on the website per visitor is approximately</seg></tuv>
+		</tu>
+		<tu tuid='login'>
+			<tuv xml:lang="nl"><seg>Login</seg></tuv>
+			<tuv xml:lang="en"><seg>Log in</seg></tuv>
+		</tu>
+		<tu tuid='statsblockmobile1'>
+			<tuv xml:lang="nl"><seg>In deze periode is uw website</seg></tuv>
+			<tuv xml:lang="en"><seg>In this period, your website has been visited</seg></tuv>
+		</tu>
+		<tu tuid='times'>
+			<tuv xml:lang="nl"><seg>maal</seg></tuv>
+			<tuv xml:lang="en"><seg>times</seg></tuv>
+		</tu>
+		<tu tuid='statsblockmobile2'>
+			<tuv xml:lang="nl"><seg>op een mobiel toestel bezocht.</seg></tuv>
+			<tuv xml:lang="en"><seg>on a mobile device.</seg></tuv>
+		</tu>
+		<tu tuid='statsblockmobile3'>
+			<tuv xml:lang="nl"><seg>Dat is</seg></tuv>
+			<tuv xml:lang="en"><seg>That's</seg></tuv>
+		</tu>
+		<tu tuid='statsblockmobile4'>
+			<tuv xml:lang="nl"><seg>van het totaal aantal bezoeken.</seg></tuv>
+			<tuv xml:lang="en"><seg>of the total amount of visitors.</seg></tuv>
+		</tu>
+	</body>
+</tmx>

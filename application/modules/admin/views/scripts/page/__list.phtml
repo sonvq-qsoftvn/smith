@@ -1,0 +1,164 @@
+<?php
+
+$user = Zend_Auth::getInstance()->getIdentity();
+$canEdit    = $user->isAllowed('page', 'page.edit');
+$canDelete  = $user->isAllowed('page', 'page.delete');
+$canPrev    = $user->isAllowed('page', 'page.preview');
+// $canViewRev = $user->isAllowed('page', 'page.revision.index');
+
+?>
+
+<div id="loadingScreen"></div>
+<div id="info"></div>
+
+<form name="frm_pfilter" method="POST" action="<?php echo $this->url(array('controller' => 'page', 'action' => 'set-filter')) ?>">
+<input type="hidden" name="type" value="<?php echo $this->type ?>" />
+<div style="margin-left: 10px;">
+    <?php $action = Zend_Controller_Front::getInstance()->getRequest()->getActionName() ?>
+    <select name="pfilter">
+        <option value="index" <?php echo $action == 'index' ? 'selected="selected"' : '' ?>><?php echo $this->admin_tmx->_('allpages') ?></option>
+        <option value="report-expired" <?php echo $action == 'report-expired' ? 'selected="selected"' : '' ?>><?php echo $this->admin_tmx->_('expiredpages') ?></option>
+        <option value="report-nearly-expired" <?php echo $action == 'report-nearly-expired' ? 'selected="selected"' : '' ?>><?php echo $this->admin_tmx->_('almostexpiredpages') ?></option>
+       <!-- <option value="report-revisions" <?php echo $action == 'report-revisions' ? 'selected="selected"' : '' ?>>Te reviseren pagina's</option>-->
+        <option value="report-not-published" <?php echo $action == 'report-not-published' ? 'selected="selected"' : '' ?>><?php echo $this->admin_tmx->_('unpublishedpages') ?></option>
+           <option value="report-not-active" <?php echo $action == 'report-not-active' ? 'selected="selected"' : '' ?>><?php echo $this->admin_tmx->_('inactivepages') ?></option>
+        <option value="report-translation-required" <?php echo $action == 'report-translation-required' ? 'selected="selected"' : '' ?>><?php echo $this->admin_tmx->_('pagestotranslate') ?></option>
+    </select>
+    <input type="submit" name="pfilter-btn" value="Filter"  />
+</div>
+</form>
+
+<table width="98%" id="pages">
+    <thead>
+	<tr>
+		<th>Titel
+		    <form name="table-filter" method="post" action="#">
+		        <?php echo $this->admin_tmx->_('typepagename') ?>:<br />
+		        <input type="text" name="filter" id="filter" value=""  />
+		    </form>
+		</th>
+		<th width="15"><img src="<?php echo $this->baseUrl('/images/cms/labels/status.png') ?>" alt="" /></th>
+        <th width="15"><img src="<?php echo $this->baseUrl('/images/cms/labels/active.png') ?>" alt="" /></th>
+		<th width="15"><img src="<?php echo $this->baseUrl('/images/cms/labels/gepubliceerd.png') ?>" alt="" /></th>
+		<!--<th width="15"><img src="<?php echo $this->baseUrl('/images/cms/labels/latest_version.png') ?>" alt="" /></th>-->
+		<th width="80"><input type="button" name="broken-links" value="<?php echo $this->admin_tmx->_('errorcheck') ?>" onclick="brokenLinks();" />
+		</th>
+	</tr>
+	</thead>
+<?php
+$right = array();
+foreach ($this->siteTree as $page) :
+	$expired   = false;
+	$revisions = $page->getRevisions();
+	$lastRev   = array_shift($revisions);
+
+	$class = 'tick-circle.png';
+	if ($page->getDateExpired() && strtotime($page->getDateExpired()) < (time() + 60 * 60 * 24 * 10)) {
+		$class = 'exclamation-octagon.png';
+	}
+
+	if ($page->getDateExpired() && strtotime($page->getDateExpired()) < (time() + 60 * 60 * 24 * 5)) {
+		$class = 'exclamation-octagon.png';
+	}
+
+	if ($page->getDateExpired() && strtotime($page->getDateExpired()) < time()) {
+		$expired = true;
+		$class = 'exclamation-red.png';
+	}
+?>
+
+<tr id="page-<?php echo $page->getId() ?>">
+	<?php $n = ($page->getLevel() - 1) * 8 ?>
+	<?php $n = $n < 0 ? $n = 0 : $n ?>
+	<td class="ptitle"><?php echo str_repeat('&nbsp;', $n) ?>
+		<?php if ($page->getId() === 0): ?>
+			<img src="<?php echo $this->baseUrl('/ico/home.png') ?>" alt="" />
+		<?php elseif ($page->getChildren()): ?>
+			<img src="<?php echo $this->baseUrl('/ico/folder-open-document-text.png') ?>" alt="" />
+		<?php elseif ($page->getType() == SxCms_Page::EXTERNAL): ?>
+			<img src="<?php echo $this->baseUrl('/ico/document-import.png') ?>" alt="" />
+		<?php else: ?>
+			<img src="<?php echo $this->baseUrl('/ico/document-globe.png') ?>" alt="" />
+		<?php endif ?>
+		<?php echo $this->escape($page->getTitle()) ?><br />
+		<?php echo str_repeat('&nbsp;', $n) ?>
+		<span class="perms">
+		<?php if (!$page->getPermissions()): ?>
+            Anoniem
+		<?php endif ?>
+		<?php foreach ($page->getPermissions() as $group): ?>
+            <?php echo $group->getName() . ' '; ?>
+		<?php endforeach ?>
+		</span>
+		<?php if ($page->isLocked()): ?>
+			<img src="<?php echo $this->baseUrl('/ico/lock.png') ?>" alt="" />
+		<?php endif ?>
+	</td>
+	<td class="ico" width="15"><img src="<?php echo $this->baseUrl('/ico/' . $class) ?>" /></td>
+    <td class="ico" width="15">
+		<?php if (!$page->getInvisible()): ?>
+			<center><img src="<?php echo $this->baseUrl('/ico/tick-circle.png') ?>" alt="" /></center>
+		<?php else: ?>
+			<center><img src="<?php echo $this->baseUrl('/ico/minus-circle.png') ?>" alt="" /></center>
+		<?php endif ?>
+	</td>
+	<td class="ico" width="15">
+		<?php if ($page->getDatePublished() && strtotime($page->getDatePublished()) < time() &&
+                 (!$page->getDateExpired() or $page->getDateExpired() && strtotime($page->getDateExpired()) > time())):
+        ?>
+			<center><img src="<?php echo $this->baseUrl('/ico/tick-circle.png') ?>" alt="" /></center>
+		<?php else: ?>
+			<center><img src="<?php echo $this->baseUrl('/ico/minus-circle.png') ?>" alt="" /></center>
+		<?php endif ?>
+	</td>
+	<!--<td class="ico" width="15">
+		<?php if (!$lastRev or ($lastRev && $lastRev->isApproved())): ?>
+			<center><img src="<?php echo $this->baseUrl('/ico/tick-circle.png') ?>" alt="" /></center>
+		<?php else: ?>
+			<center><img src="<?php echo $this->baseUrl('/ico/minus-circle.png') ?>" alt="" /></center>
+		<?php endif ?>
+	</td>-->
+	<td class="ico" width="80">
+		<div class="edit">
+			<?php
+			$goto = '/admin/page/initialize/id/' .
+				  	$page->getId() . '/go/admin.page.quick-edit.lng.' .
+				  	$page->getLanguage();
+
+			$href   = $page->isLocked() ?  '#' : $goto;
+			$dialog = $page->isLocked()
+				    ? "showDialog('#locked', '{$goto}')"
+				    : 'void(0);';
+			?>
+			<?php if ($canPrev): ?>
+			<a title="Preview" href="#" onclick="popup('<?php echo $this->url(array('controller' => 'page', 'action' => 'preview', 'id' => $page->getId(), 'lng' => $page->getLanguage())) ?>', 1024, 600);">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/document-text-image.png') ?>" alt="<?php echo $this->admin_tmx->_('preview') ?>" />
+			</a>
+			<?php endif ?>
+
+
+			<a title="Afbeeldingen" href="/admin/page_picture/browse/id/<?php echo $page->getId(); ?>">
+				<img src="/ico/images.png" alt="<?php echo $this->admin_tmx->_('pictures') ?>" />
+			</a>
+
+
+			<?php if ($canEdit): ?>
+			<a title="Aanpassen" href="<?php echo $this->baseUrl($href) ?>" onclick="<?php echo $dialog ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+			</a>
+			<?php endif ?>
+			<?php //if ($canViewRev): ?>
+			<!--<a title="Revisies" href="<?php echo $this->url(array('controller' => 'page', 'action' => 'initialize', 'id' => $page->getId(), 'go' => 'admin.page.revisions.lng.' . $page->getLanguage())) ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_copy.png') ?>" alt="Revisies" />
+			</a>-->
+			<?php //endif ?>
+			<?php if ($page->getId() && $canDelete): ?>
+			<a title="<?php echo $this->admin_tmx->_('delete') ?>" class="delete" href="javascript:showDialog('#dialog', '<?php echo $this->url(array('controller' => 'page', 'action' => 'initialize', 'id' => $page->getId(), 'go' => 'admin.page.delete')) ?>');">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
+			</a>
+			<?php endif ?>
+		</div>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>

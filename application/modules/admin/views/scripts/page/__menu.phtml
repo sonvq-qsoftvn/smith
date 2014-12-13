@@ -1,0 +1,39 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+
+<?php if ($user->isAllowed('page', array('page.index', 'page.add')) or
+	      $user->isAllowed('news', array('news.index', 'news.add'))
+	   ):
+?>
+<h3 id="menu-page"><a href="#"><?php echo $this->admin_menu_tmx->_('page.content') ?></a></h3>
+<div>
+	<?php if ($user->isAllowed('page', array('page.index', 'page.add'))): ?>
+	<strong><?php echo $this->admin_menu_tmx->_('page.page') ?></strong>
+	<ul class="sidemenu">
+		<?php if ($user->isAllowed('page', 'page.index')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'page', 'action' => 'index'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('page.overview') ?></a></li>
+		<?php endif ?>
+		<?php if ($user->isAllowed('page', 'page.add')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'page', 'action' => 'add', 'reset' => 'true'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('page.add') ?></a></li>
+		<?php endif; ?>
+	</ul>
+	<?php endif ?>
+   <?php $config = Zend_Registry::get('config') ?>
+	<?php if($config->modules->news->enabled == "true") : ?>
+	<?php if ($user->isAllowed('news', array('news.index', 'news.add'))): ?>
+	<strong><?php echo $this->admin_menu_tmx->_('page.news') ?></strong>
+	<ul class="sidemenu">
+		<?php if ($user->isAllowed('news', 'news.index')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'page', 'action' => 'news'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('page.overview') ?></a></li>
+		<?php endif ?>
+		<?php if ($user->isAllowed('news', 'news.add')): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'page', 'action' => 'add-news'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('page.add') ?></a></li>
+		<?php endif ?>
+     
+		<?php if ($user->isAllowed('news', 'news.comments') && $config->modules->news->comments->allow != "false"): ?>
+			<li><a href="<?php echo $this->url(array('controller' => 'page', 'action' => 'comments'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('page.comments') ?></a></li>
+		<?php endif ?>
+	</ul >
+	<?php endif ?>
+    <?php endif ?>
+</div>
+<?php endif ?>

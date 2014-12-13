@@ -1,0 +1,9 @@
+<?php if($this->block) : ?>
+	<section class="column-3 <?php if($this->spacer) : ?>column-3-spacer<?php endif; ?> left">
+	    <h2><?php echo $this->block->getTitle(); ?></h2>
+	
+	    <?php echo $this->block->getContent(); ?>
+	
+	    <?php if($this->block->getUrl()) : ?><a href="<?php echo $this->block->getUrl(); ?>" class="more">meer info</a><?php endif; ?>
+	</section>
+<?php endif; ?>

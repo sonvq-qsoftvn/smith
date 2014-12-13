@@ -1,0 +1,35 @@
+<dl>
+	<dt>
+		<label for="seotitle"><?php echo $this->admin_tmx->_('title') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="seotitle" id="seotitle" size="90"
+	    	value="<?php echo $this->escape($this->page->getSeoTitle()) ?>" />
+	    <?php echo $this->messages->getMessagesHtml('seotitle') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('2to255charsifnotempty') ?>
+	    </p>
+	</dd>
+    <dt>
+		<label for="seotitle"><?php echo $this->admin_tmx->_('metatags') ?>:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="seotags" id="seotags" size="90"
+	    	value="<?php echo $this->escape($this->page->getSeoTags()) ?>" />
+	    <?php echo $this->messages->getMessagesHtml('seotags') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('seotagsdescription') ?>
+	    </p>
+	</dd>
+    
+    <dt>
+		<label for="seodescription"><?php echo $this->admin_tmx->_('metadescription') ?>:</label>
+	</dt>
+	<dd>
+	    <textarea name="seodescription" id="seodescription" cols="90"><?php echo $this->escape($this->page->getSeoDescription()) ?></textarea>
+	    <?php echo $this->messages->getMessagesHtml('seodescription') ?>
+	    <p class="description">
+	    	<?php echo $this->admin_tmx->_('briefsummarypage') ?>
+	    </p>
+	</dd>
+</dl>

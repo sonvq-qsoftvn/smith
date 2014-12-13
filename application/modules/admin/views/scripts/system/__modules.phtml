@@ -1,0 +1,8 @@
+<?php $config = Zend_Registry::get('config') ?>
+<?php foreach ($config->modules->enabled as $module => $enabled): ?>
+    <?php if ($enabled && $enabled != 'false'): ?>
+        <?php echo $this->render($module . '/__menu.phtml') ?>
+    <?php endif ?>
+<?php endforeach ?>
+
+  

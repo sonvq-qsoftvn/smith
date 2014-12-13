@@ -1,0 +1,150 @@
+<?php
+
+$user = Zend_Auth::getInstance()->getIdentity();
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+
+$this->headTitle('SxCms - '.$this->admin_tmx->_('subcat').' - '.$this->admin_tmx->_('overview'));
+echo $this->render('system/result.phtml');
+?>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    var fixHelper = function(e, ui) {
+        ui.children().each(function() {
+            $(this).width($(this).width());
+        });
+        return ui;
+    };
+
+    $('#sort').sortable({
+      helper: fixHelper,
+      handle : '.handle',
+      update : function () {
+        var order = $('#sort').sortable('serialize', 'id');
+        move(order);
+      }
+    }).disableSelection();
+
+    $('.sort').sortable({
+      helper: fixHelper,
+      handle : '.handle2',
+      update : function () {
+        var order = $('.sort').sortable('serialize', 'id');
+        move2(order);
+      }
+    }).disableSelection();
+    
+    $('.clickcat').click(function(){
+    	$(this).closest('tbody').next('.clicksubcat:first').fadeToggle("fast");
+    });
+});
+
+function move(order){
+    var data = order;
+    var url = '/admin/faqcategory/ranking';
+    var dataType = 'script';
+    var type = 'POST';
+     $.ajax({
+        type: type,
+        url: url,
+        data: data,
+        dataType: dataType,
+        success: function(){
+            //location.reload();
+        }
+    });
+}
+
+function move2(order){
+    var data = order;
+    var url = '/admin/faq/ranking';
+    var dataType = 'script';
+    var type = 'POST';
+     $.ajax({
+        type: type,
+        url: url,
+        data: data,
+        dataType: dataType,
+        success: function(){
+            //location.reload();
+        }
+    });
+}
+</script>
+
+<div id="dialog" title="<?php echo $this->admin_tmx->_('deletefaq') ?>" style="display: none;">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deletefaqconfirm') ?></p>
+</div>
+
+<h3><?php echo $this->admin_tmx->_('faqoverview') ?> [<?php echo $_SESSION['System']['lng'] ?>]</h3>
+<table style="width:750px;padding:0;margin:0;">
+    <tbody id="sort">
+    <?php foreach ($this->cats as $id => $item):?>
+        <tr id="listItem_<?php echo $item->getId();?>" style="width:750px;padding:0;margin:0;">
+            <td style="width:30px;margin:0;padding:0;vertical-align:middle;text-align:center;"><img src="<?php echo $this->baseUrl('/ico/arrow-out.png');?>" alt="" class="handle"/></td>
+            <td style="width:720px;margin:0;padding:0;">
+                <table style="width:720px;padding:0;margin:0;position: relative;">
+                    <tr>
+                        <th width="15"></th>
+                        <th width="500"><?php echo $this->admin_tmx->_('title') ?></th>
+                        <th width="30"><?php echo $this->admin_tmx->_('status') ?></th>
+                        <th width="50"><?php echo $this->admin_tmx->_('action') ?></th>
+                    </tr>
+                    <tr>
+                        <td class="clickcat" style="cursor: pointer"><img src="/images/faqcategory/<?php echo $item->getPicture();?>" alt=""/></td>
+                        <td class="clickcat" style="cursor: pointer"><b><?php echo $this->escape($item->getTitle());?></b></td>
+                        <td>
+                            <a title="<?php echo $this->admin_tmx->_('activatedeactivate') ?>" href="<?php echo $this->url(array('action' => 'activate', 'id' => $id)) ?>">
+                            <?php if($item->getActive()):?>
+                                <center><img src="<?php echo $this->baseUrl('/ico/tick-circle.png') ?>" alt="<?php echo $this->admin_tmx->_('deactivate') ?>" /></center>
+                            <?php else:?>
+                                <center><img src="<?php echo $this->baseUrl('/ico/minus-circle.png') ?>" alt="<?php echo $this->admin_tmx->_('activate') ?>" /></center>
+                            <?php endif;?>
+                            </a>
+                        </td>
+                        <td>
+                            <a title="<?php echo $this->admin_tmx->_('edit') ?>" href="<?php echo $this->url(array('action' => 'edit', 'id' => $id));?>">
+                                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+                            </a>
+
+                            <a title="<?php echo $this->admin_tmx->_('delete') ?>" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'delete', 'id' => $id));?>');">
+                                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
+                            </a>
+                        </td>
+                    </tr>
+                    <?php $subcats = $this->subproxy->getAllByParentId($item->getId(),$_SESSION['System']['lng']);?>
+                    <?php if($subcats):?>
+                        <tbody class="sort clicksubcat" id="sort_<?php echo $item->getId();?>" style="display: none;">
+                            <?php foreach($subcats as $id=>$s):?>
+                                <tr id="listItem_<?php echo $s->getId();?>">
+                                    <td width="15"><img src="<?php echo $this->baseUrl('/ico/arrow-switch.png');?>" alt="" class="handle2"/></td>
+                                    <td><?php echo $this->escape($s->getQuestion());?></td>
+                                    <td>
+                                        <a title="<?php echo $this->admin_tmx->_('activatedeactivate') ?>" href="/admin/faq/activate/id/<?php echo $s->getId();?>">
+                                        <?php if($s->getActive()):?>
+                                            <center><img src="<?php echo $this->baseUrl('/ico/tick-circle.png') ?>" alt="<?php echo $this->admin_tmx->_('deactivate') ?>?" /></center>
+                                        <?php else:?>
+                                            <center><img src="<?php echo $this->baseUrl('/ico/minus-circle.png') ?>" alt="<?php echo $this->admin_tmx->_('activate') ?>?" /></center>
+                                        <?php endif;?>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a title="<?php echo $this->admin_tmx->_('edit') ?>" href="/admin/faq/edit/id/<?php echo $s->getId();?>">
+                                            <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+                                        </a>
+
+                                        <a title="<?php echo $this->admin_tmx->_('delete') ?>" class="delete" href="#" onclick="showDialog('#dialog', '/admin/faq/delete/id/<?php echo $s->getId();?>');">
+                                            <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach;?>
+                        </tbody>
+                    <?php endif;?>
+                </table>
+            </td>
+        </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>

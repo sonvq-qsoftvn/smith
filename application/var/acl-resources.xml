@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<acl>
+	<resource id="ad">
+		<name>Advertenties</name>
+		<description></description>
+		<privilege id="ad.edit">
+			<name>wijzigen</name>
+			<description>wijzigen van de advertentiecodes</description>
+		</privilege>
+	</resource>
+	<resource id="topcontentblock">
+		<name>Topcontentblock</name>
+		<description></description>
+		<privilege id="topcontentblock.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van topcontentblock opvragen</description>
+		</privilege>
+		<privilege id="topcontentblock.add">
+			<name>topcontentblock toevoegen</name>
+			<description>toevoegen van topcontentblock</description>
+		</privilege>
+		<privilege id="topcontentblock.edit">
+			<name>topcontentblock wijzigen</name>
+			<description>wijzigen van topcontentblock</description>
+		</privilege>
+	</resource>
+	<resource id="sheets">
+		<name>Sheets</name>
+		<description></description>
+		<privilege id="sheets.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van sheets opvragen</description>
+		</privilege>
+		<privilege id="sheets.add">
+			<name>sheets toevoegen</name>
+			<description>toevoegen van sheets</description>
+		</privilege>
+		<privilege id="sheets.edit">
+			<name>sheets wijzigen</name>
+			<description>wijzigen van sheets</description>
+		</privilege>
+		<privilege id="sheets.delete">
+			<name>sheets verwijderen</name>
+			<description>verwijderen van sheets</description>
+		</privilege>
+		<privilege id="sheets.activate">
+			<name>sheets activeren</name>
+			<description>activeren van sheets</description>
+		</privilege>
+		<privilege id="sheets.ranking">
+			<name>sheets ordenen</name>
+			<description>ordenen van sheets</description>
+		</privilege>
+	</resource>
+	<resource id="eyecatchers">
+		<name>Eyecatchers</name>
+		<description></description>
+		<privilege id="eyecatchers.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van eyecatchers opvragen</description>
+		</privilege>
+		<privilege id="eyecatchers.add">
+			<name>eyecatchers toevoegen</name>
+			<description>toevoegen van eyecatchers</description>
+		</privilege>
+		<privilege id="eyecatchers.edit">
+			<name>eyecatchers wijzigen</name>
+			<description>wijzigen van eyecatchers</description>
+		</privilege>
+		<privilege id="eyecatchers.delete">
+			<name>eyecatchers verwijderen</name>
+			<description>verwijderen van eyecatchers</description>
+		</privilege>
+		<privilege id="eyecatchers.activate">
+			<name>eyecatchers activeren</name>
+			<description>activeren van eyecatchers</description>
+		</privilege>
+		<privilege id="eyecatchers.ranking">
+			<name>eyecatchers ordenen</name>
+			<description>ordenen van eyecatchers</description>
+		</privilege>
+	</resource>
+
+	<resource id="faq">
+		<name>Faq</name>
+		<description></description>
+		<privilege id="faq.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van faq opvragen</description>
+		</privilege>
+		<privilege id="faq.add">
+			<name>faq toevoegen</name>
+			<description>toevoegen van faq onderdelen</description>
+		</privilege>
+		<privilege id="faq.edit">
+			<name>faq wijzigen</name>
+			<description>wijzigen van faq onderdelen</description>
+		</privilege>
+		<privilege id="faq.delete">
+			<name>faq verwijderen</name>
+			<description>verwijderen van faq onderdelen</description>
+		</privilege>
+		<privilege id="faq.activate">
+			<name>faq activeren</name>
+			<description>activeren van faq onderdelen</description>
+		</privilege>
+	</resource>
+
+	<resource id="block">
+		<name>Content Block</name>
+		<description></description>
+		<privilege id="block.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van content blocks opvragen</description>
+		</privilege>
+		<privilege id="block.add">
+			<name>content blocks toevoegen</name>
+			<description>toevoegen van content blocks</description>
+		</privilege>
+		<privilege id="block.edit">
+			<name>content blocks wijzigen</name>
+			<description>content blocks wijzigen</description>
+		</privilege>
+		<privilege id="block.activate">
+			<name>content blocks activeren</name>
+			<description>content blocks activeren</description>
+		</privilege>
+	</resource>
+	<resource id="filemanager">
+		<name>Documentbeheer</name>
+		<description></description>
+		<privilege id="filemanager.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van documenten opvragen</description>
+		</privilege>
+		<privilege id="filemanager.add.file">
+			<name>bestand toevoegen</name>
+			<description>toevoegen van bestanden in een bepaalde map
+			</description>
+		</privilege>
+		<privilege id="filemanager.add.folder">
+			<name>map toevoegen</name>
+			<description>een nieuwe map aanmaken</description>
+		</privilege>
+		<privilege id="filemanager.edit">
+			<name>bestand / map aanpassen</name>
+			<description>een bestand / map of de metadata ervan wijzigen
+			</description>
+		</privilege>
+		<privilege id="filemanager.delete">
+			<name>bestand / map verwijderen</name>
+			<description>een bestand / map verwijderen</description>
+		</privilege>
+	</resource>
+
+	<resource id="securedocs">
+		<name>Beveiligd documentbeheer</name>
+		<description></description>
+		<privilege id="securedocs.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van gegevens opvragen</description>
+		</privilege>
+		<privilege id="securedocs.add">
+			<name>gegevens toevoegen</name>
+			<description>toevoegen van gegevens</description>
+		</privilege>
+		<privilege id="securedocs.edit">
+			<name>gegevens wijzigen</name>
+			<description>wijzigen van gegevens</description>
+		</privilege>
+		<privilege id="securedocs.delete">
+			<name>gegevens verwijderen</name>
+			<description>verwijderen van gegevens</description>
+		</privilege>
+
+	</resource>
+
+	<resource id="survey">
+		<name>Enquêtes</name>
+		<description></description>
+		<module>admin</module>
+		<controller>Survey</controller>
+		<privilege id="survey.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van enquete opvragen</description>
+		</privilege>
+		<privilege id="survey.add">
+			<name>toevoegen</name>
+			<description>een nieuwe enquete aanmaken</description>
+		</privilege>
+		<privilege id="survey.edit">
+			<name>aanpassen</name>
+			<description>een bestaande enquete aanpassen</description>
+		</privilege>
+		<privilege id="survey.delete">
+			<name>verwijderen</name>
+			<description>een bestaande enquete verwijderen</description>
+		</privilege>
+		<privilege id="survey.activate">
+			<name>activeeren / deactiveren</name>
+			<description>een enquete activeren / deactiveren</description>
+		</privilege>
+	</resource>
+
+	<resource id="event">
+		<name>Events</name>
+		<description></description>
+		<privilege id="event.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van events opvragen</description>
+		</privilege>
+		<privilege id="event.archive">
+			<name>archief opvragen</name>
+			<description>lijst van voorbije events opvragen</description>
+		</privilege>
+		<privilege id="event.add">
+			<name>toevoegen</name>
+			<description>een nieuwe event aanmaken</description>
+		</privilege>
+		<privilege id="event.edit">
+			<name>aanpassen</name>
+			<description>een bestaande event aanpassen</description>
+		</privilege>
+
+		<privilege id="event.delete">
+			<name>verwijderen</name>
+			<description>een bestaande event verwijderen</description>
+		</privilege>
+		<privilege id="event.activate">
+			<name>activeeren / deactiveren</name>
+			<description>een event activeren / deactiveren</description>
+		</privilege>
+		<privilege id="event.settings">
+			<name>instellingen beheren</name>
+			<description>algemene instellingen</description>
+		</privilege>
+	</resource>
+	<resource id="subscriptions">
+		<name>Inschrijvingen (Events)</name>
+		<description></description>
+		<privilege id="subscription.list">
+			<name>inschrijvingen bekijken</name>
+			<description>inschrijvingen van het event bekijken</description>
+		</privilege>
+
+		<privilege id="subscription.delete">
+			<name>inschrijvingen verwijderen</name>
+			<description>inschrijvingen van het event verwijderen</description>
+		</privilege>
+
+		<privilege id="subscription.export">
+			<name>inschrijvingen exporteren</name>
+			<description>inschrijvingen van het event exporteren</description>
+		</privilege>
+	</resource>
+
+	<resource id="members">
+		<name>Members</name>
+		<description></description>
+
+		<privilege id="members.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van gebruikers opvragen</description>
+		</privilege>
+		<privilege id="members.add">
+			<name>toevoegen</name>
+			<description>een nieuwe gebruiker aanmaken</description>
+		</privilege>
+		<privilege id="members.edit">
+			<name>aanpassen</name>
+			<description>een bestaande gebruiker aanpassen</description>
+		</privilege>
+		<privilege id="members.activate">
+			<name>activeren</name>
+			<description>een gebruiker activeren</description>
+		</privilege>
+		<privilege id="members.delete">
+			<name>verwijderen</name>
+			<description>een bestaande gebruikers verwijderen</description>
+		</privilege>
+	</resource>
+
+	<resource id="account">
+		<name>Gebruikers</name>
+		<description></description>
+		<module>admin</module>
+		<controller>Account</controller>
+		<privilege id="account.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van gebruikers opvragen</description>
+		</privilege>
+		<privilege id="account.add">
+			<name>toevoegen</name>
+			<description>een nieuwe gebruiker aanmaken</description>
+		</privilege>
+		<privilege id="account.edit">
+			<name>aanpassen</name>
+			<description>een bestaande gebruiker aanpassen</description>
+		</privilege>
+		<privilege id="account.activate">
+			<name>activeren</name>
+			<description>een gebruiker activeren</description>
+		</privilege>
+		<privilege id="account.delete">
+			<name>verwijderen</name>
+			<description>een bestaande gebruikers verwijderen</description>
+		</privilege>
+	</resource>
+
+	<resource id="group">
+		<name>Groepen</name>
+		<description></description>
+		<privilege id="group.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van gebruikersgroepen opvragen</description>
+		</privilege>
+		<privilege id="group.add">
+			<name>toevoegen</name>
+			<description>een nieuwe gebruikersgroep aanmaken</description>
+		</privilege>
+		<privilege id="group.edit">
+			<name>aanpassen</name>
+			<description>een bestaande gebruikersgroep aanpassen</description>
+		</privilege>
+		<privilege id="group.delete">
+			<name>verwijderen</name>
+		</privilege>
+	</resource>
+
+	<resource id="news">
+		<name>Nieuws</name>
+		<description></description>
+		<privilege id="news.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van paginas opvragen</description>
+		</privilege>
+		<privilege id="news.add">
+			<name>toevoegen</name>
+			<description>toevoegen van een nieuwsitem</description>
+		</privilege>
+		<privilege id="news.edit">
+			<name>aanpassen</name>
+			<description>een bestaand nieuwsitem wijzigen</description>
+		</privilege>
+		<privilege id="news.delete">
+			<name>verwijderen</name>
+			<description>een bestaand nieuwsitem verwijderen</description>
+		</privilege>
+		<privilege id="news.comments">
+			<name>overzicht reacties raadplegen</name>
+			<description>een lijst van de reacties op nieuwsberichten
+			</description>
+		</privilege>
+		<privilege id="news.comments.edit">
+			<name>reactie op nieuwsberichten aanpassen / goedkeuren</name>
+			<description>een reactie op nieuwsberichten aanpassen / goedkeuren
+			</description>
+		</privilege>
+		<privilege id="news.comments.delete">
+			<name>reactie op nieuwsberichten verwijderen</name>
+			<description>een reactie op nieuwsberichten verwijderen</description>
+		</privilege>
+		<privilege id="news.activate">
+			<name>activeren</name>
+			<description>een nieuwsbericht activeren</description>
+		</privilege>
+	</resource>
+
+
+	<resource id="page">
+		<name>Pagina</name>
+		<description></description>
+		<privilege id="page.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van paginas opvragen</description>
+		</privilege>
+		<privilege id="page.add">
+			<name>toevoegen</name>
+			<description>toevoegen van een nieuwe pagina</description>
+		</privilege>
+		<privilege id="page.edit">
+			<name>aanpassen</name>
+			<description>een bestaande pagina wijzigen</description>
+		</privilege>
+		<privilege id="page.delete">
+			<name>verwijderen</name>
+			<description>een bestaande pagina verwijderen</description>
+		</privilege>
+		<privilege id="page.preview">
+			<name>preview tonen</name>
+			<description>een preview van de pagina opvragen</description>
+		</privilege>
+		<privilege id="page.revision.index">
+			<name>revisies overzicht</name>
+			<description>een overzicht opvragen van de revisies</description>
+		</privilege>
+		<privilege id="page.revision.preview">
+			<name>revisie preview</name>
+			<description>een preview van de revisie opvragen</description>
+		</privilege>
+	</resource>
+
+	<resource id="poll">
+		<name>Polls</name>
+		<description></description>
+		<module>admin</module>
+		<controller>Poll</controller>
+		<privilege id="poll.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van polls opvragen</description>
+		</privilege>
+		<privilege id="poll.add">
+			<name>toevoegen</name>
+			<description>een nieuwe poll aanmaken</description>
+		</privilege>
+		<privilege id="poll.edit">
+			<name>aanpassen</name>
+			<description>een bestaande poll aanpassen</description>
+		</privilege>
+		<privilege id="poll.delete">
+			<name>verwijderen</name>
+			<description>een bestaande poll verwijderen</description>
+		</privilege>
+		<privilege id="poll.activate">
+			<name>activeeren / deactiveren</name>
+			<description>een poll activeren / deactiveren</description>
+		</privilege>
+	</resource>
+
+	<resource id="vacancy">
+		<name>Vacatures</name>
+		<description></description>
+		<module>admin</module>
+		<controller>Vacancy</controller>
+		<privilege id="vacancy.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van vacatures opvragen</description>
+		</privilege>
+		<privilege id="vacancy.add">
+			<name>toevoegen</name>
+			<description>een nieuwe vacature aanmaken</description>
+		</privilege>
+		<privilege id="vacancy.edit">
+			<name>aanpassen</name>
+			<description>een bestaande vacature aanpassen</description>
+		</privilege>
+		<privilege id="vacancy.delete">
+			<name>verwijderen</name>
+			<description>een bestaande vacature verwijderen</description>
+		</privilege>
+		<privilege id="vacancy.activate">
+			<name>activeeren / deactiveren</name>
+			<description>een vacature activeren / deactiveren</description>
+		</privilege>
+		<privilege id="vacancy.categories">
+			<name>categorieen opvragen</name>
+			<description>lijst van vacature categorieen opvragen</description>
+		</privilege>
+		<privilege id="vacancy.professions">
+			<name>beroepen opvragen</name>
+			<description>lijst van beroepscategorieen opvragen</description>
+		</privilege>
+	</resource>
+	<resource id="webtv">
+		<name>Webtv</name>
+		<description></description>
+		<privilege id="webtv.index">
+			<name>overzicht opvragen</name>
+			<description>lijst van webtv opvragen</description>
+		</privilege>
+		<privilege id="webtv.add">
+			<name>toevoegen</name>
+			<description>toevoegen van een item</description>
+		</privilege>
+		<privilege id="webtv.edit">
+			<name>aanpassen</name>
+			<description>een bestaand item wijzigen</description>
+		</privilege>
+		<privilege id="webtv.delete">
+			<name>verwijderen</name>
+			<description>een bestaand item verwijderen</description>
+		</privilege>
+		<privilege id="webtv.activate">
+			<name>activeren</name>
+			<description>een bestaand item activeren</description>
+		</privilege>
+	</resource>
+</acl>

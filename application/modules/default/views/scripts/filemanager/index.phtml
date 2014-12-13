@@ -1,0 +1,61 @@
+<div id="sidebar" class="sub">
+    <h1>Kies uw apotheek</h1>
+    <ul>
+        <?php foreach ($this->apb as $apb => $folders): ?>
+        <li <?php if ($this->aapb == $apb): ?>class="active"<?php endif ?>><a href="<?php echo $this->url(array('folder' => $apb), 'filemanager') ?>"><?php echo $apb ?></a></li>
+        <?php endforeach ?>
+    </ul>
+</div>
+
+<?php $this->placeholder('breadcrumbs')->captureStart(); ?>
+    <?php $dir = '' ?>
+    <?php foreach($this->showpath as $path) : ?>
+        <?php $dir .= $path . '/' ?>
+        <a href="<?php echo $this->url(array('folder' => $dir), 'filemanager', false, false) ?>"> <?php echo $path ?></a>
+        <?php echo $path ? '/' : '' ?>
+    <?php endforeach; ?>
+<?php $this->placeholder('breadcrumbs')->captureEnd() ?>
+
+<div id="main" class="sub">
+    <?php echo $this->action('breadcrumbs', 'index', null, array('page' => $this->page, 'lng' => $this->lng) ) ?>
+
+    <h1>Documenten overzicht</h1>
+    <br />
+
+    <?php if (!$this->aapb): ?>
+    <p>Gelieve in het linkermenu een apotheek te selecteren.</p>
+    <?php endif ?>
+    <table width="100%" class="filemanager">
+        <tbody>
+        <?php if ($this->topdir): ?>
+        <tr>
+            <td width="25"><img src="<?php echo $this->baseUrl('/images/cms/filetypes/folder.png') ?>" /></td>
+            <td><a title="Ga naar de bovenliggende map" href="<?php echo $this->url(array('folder' => $this->topdir), 'filemanager', false, false) ?>">..</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <?php endif ?>
+        <?php foreach ($this->files as $fileinfo): ?>
+        <?php if($fileinfo->isDot() or $fileinfo->isHidden()) continue; ?>
+        <tr>
+            <td width="25">
+                <img src="<?php echo $this->baseUrl('/images/cms/filetypes/' . $fileinfo->getFileType()) ?>" />
+            </td>
+            <td>
+            <?php if ($fileinfo->isDir()): ?>
+                <a title="Open de map <?php echo $fileinfo->getFilename() ?>" href="<?php echo $this->url(array('folder' => $this->path . '/' . $fileinfo->getFilename()), 'filemanager', false, false) ?>">
+                    <?php echo $fileinfo->getFilename() ?>
+                </a>
+            <?php else: ?>
+                <a title="Download het bestand <?php echo $fileinfo->getFilename() ?>" href="<?php echo $this->url(array('filename' => '/docmanager/' . $this->path . '/' . $fileinfo->getFilename()), 'file-download', false, false) ?>">
+                    <?php echo $fileinfo->getFilename() ?>
+                </a>
+            <?php endif ?>
+            </td>
+            <td width="150"><?php echo $fileinfo->getSizeString() ?></td>
+            <td width="150"><?php echo date('d-m-Y H:i:s', $fileinfo->getMTime()) ?></td>
+        </tr>
+        <?php endforeach ?>
+        </tbody>
+    </table>
+</div>

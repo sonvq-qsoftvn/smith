@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zones>
+  <zone>
+    <id>top</id>
+    <name>Banner bovenaan</name>
+    <content><![CDATA[]]></content>
+  </zone>
+  <zone>
+    <id>sidebar-right</id>
+    <name>Banner rechts</name>
+    <content><![CDATA[]]></content>
+  </zone>
+</zones>

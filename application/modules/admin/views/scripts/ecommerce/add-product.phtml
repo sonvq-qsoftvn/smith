@@ -1,0 +1,10 @@
+<?php echo $this->render('system/leave.phtml'); ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<h3>Product toevoegen</h3>
+<?php echo $this->render('ecommerce/forms/__product.phtml') ?>

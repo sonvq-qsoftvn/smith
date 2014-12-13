@@ -1,0 +1,16 @@
+<link rel="stylesheet" type="text/css" href="/js/shadowbox/shadowbox.css" />
+<script type="text/javascript" src="/js/shadowbox/shadowbox.js"></script>
+<script type="text/javascript">
+    Shadowbox.init();
+</script>
+
+
+<h1><?php echo $this->ref->getTitle() ?></h1>
+<?php echo $this->ref->getDescription() ?>
+<br />
+<?php foreach ($this->pictures as $p) : ?>
+<div style="float:left; width:100px; padding:2px; border:1px solid #AA7226; margin:5px">
+<a rel="shadowbox[ref]" href="/files/refs/ref_<?php echo $p['ref_id'] ?>/600x400/<?php echo $p['file'] ?>"><img src="/files/refs/ref_<?php echo $p['ref_id'] ?>/100x100/<?php echo $p['file'] ?>" 
+			alt="<?php echo $p['text'] ?>" width="100" height="100" style="display:block; border: none;"/></a>
+            </div>
+<?php endforeach ?>

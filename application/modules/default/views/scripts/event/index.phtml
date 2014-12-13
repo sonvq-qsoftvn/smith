@@ -1,0 +1,120 @@
+<?php $this->headTitle($this->event->getTitle()) ?>
+
+<h1><?php echo $this->escape($this->event->getTitle())?></h1>
+<?php if (!$this->isBot): ?>
+<a href="<?php echo $this->url(array(), 'event-calendar') ?>"><?php echo $this->glob_tmx->_('overview.back') ?></a>
+<?php endif ?>
+
+<div id="event">
+    <div class="section">
+        <h2><?php echo $this->glob_tmx->_('date') ?></h2>
+        <div class="sectionContent">
+            <strong><?php echo $this->event->getDateEvent("%d %B %Y") ?></strong> <?php echo $this->glob_tmx->_('at') ?>
+            <?php echo substr($this->event->getTimeEvent(), 0, 5) ?>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+
+    <?php if ($this->event->getDescription()): ?>
+    <div class="section">
+        <h2><?php echo $this->glob_tmx->_('description') ?></h2>
+        <div class="sectionContent">
+            <?php echo $this->event->getDescription() ?>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <?php endif ?>
+
+    <div class="section">
+        <h2><?php echo $this->glob_tmx->_('location') ?></h2>
+        <div class="sectionContent">
+            <?php echo $this->event->getLocation() ?>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+
+
+
+
+<?php if ($this->event->isSubscriptionAllow()): ?>
+<h1>Inschrijven</h1>
+
+<br />
+<?php if($this->errors) : ?>
+ <div class="section" style="border:none; margin: 0; padding:0">
+        <h2>&nbsp;</h2>
+        <div class="sectionContent">
+           <p><strong style="color:#F00">Gelieve alle velden in te vullen</strong></p>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+<?php endif ?>
+<?php if($this->result) : ?>
+ <div class="section" style="border:none; margin: 0; padding:0">
+        <h2>&nbsp;</h2>
+        <div class="sectionContent">
+           <p><strong style="color:#030">Uw inschrijving werd verzonden</strong></p>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+<?php else : ?>
+<form method="post">
+<?php foreach ($this->event->getFields() as $field): ?>
+
+<div class="section" style="border:none; margin: 0; padding:0">
+    <h2><?php echo $field->getLabel() ?></h2>
+    <div class="sectionContent">
+    <!-- Type text -->
+    <?php if($field->getType() == 'text') : ?>
+       <?php echo $this->formText($field->getName(), $this->subscription[$field->getName()]) ?>
+     <!-- Type select -->
+	<?php elseif($field->getType() == 'select') : ?>
+		  <?php 
+		  	   $options =array();
+   			   foreach ($field->getList() as $option): 
+          			 $options[$option->getValue()] = $option->getLabel(); 
+         		endforeach;
+		   ?>
+           <?php echo $this->formSelect($field->getName(), $this->subscription[$field->getName()], null, $options) ?>
+     <!-- Type checkbox -->
+     <?php elseif($field->getType() == 'checkbox') : ?> 
+  		    <?php 
+   			   foreach ($field->getList() as $option): 
+			   		
+			   		if (is_array($this->subscription[$field->getName()]) && in_array($option->getValue(),$this->subscription[$field->getName()]))
+          			 echo $this->formCheckbox($field->getName().'[]', $option->getValue(), array('checked' => true)) . ' ' . $option->getLabel() . '<br />'; 
+					else
+					 echo $this->formCheckbox($field->getName().'[]', $option->getValue()) . ' ' . $option->getLabel() . '<br />';
+         		endforeach;
+		    ?>
+     <!-- Type radio -->
+     <?php elseif($field->getType() == 'radio') : ?>  
+     		  <?php 
+		  	   $options =array();
+   			   foreach ($field->getList() as $option): 
+          			 $options[$option->getValue()] = $option->getLabel(); 
+         		endforeach ;
+		   ?>
+           <?php echo $this->formRadio($field->getName(), $this->subscription[$field->getName()], null, $options) ?>
+     <!-- Type textarea -->
+	<?php elseif($field->getType() == 'textarea') : ?>
+			<?php echo $this->formTextarea($field->getName(), $this->subscription[$field->getName()]) ?> 
+     <?php endif ?>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<?php endforeach ?>
+
+<div class="section" style="border:none; margin: 0; padding:0">
+    <h2>&nbsp;</h2>
+    <div class="sectionContent">
+    	<input type="submit" value="Verzenden" />
+    </div>
+</div>
+
+<input type="hidden" name="event_id" value="<?php echo $this->event->getId() ?>" />
+ </form>
+<?php endif ?>
+<?php endif ?>
+

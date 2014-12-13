@@ -1,0 +1,40 @@
+<dl>
+    <dt>
+	<label for="stop"><?php echo $this->admin_tmx->_('activein') ?> [<?php echo strtoupper($_SESSION['System']['lng']); ?>].</label>
+    </dt>
+    <dd>
+    	<input type="checkbox" name="active" id="active" value="1" <?php if($this->item->getActive() != '0'): ?>checked="checked"<?php endif ?> />
+	<p class="description"></p>
+    </dd>
+         
+    <dt>
+        <label for="title"><?php echo $this->admin_tmx->_('title') ?>:</label>
+    </dt>
+    <dd>
+        <input type="text" name="title" id="title" size="90"
+               value="<?php echo $this->escape($this->item->getTitle()) ?>" />
+               <?php echo $this->messages->getMessagesHtml('title') ?>
+        <p class="description">
+            <?php echo $this->admin_tmx->_('min2max255chars') ?>
+        </p>
+    </dd>
+
+    <dt>
+        <label for="picture"><?php echo $this->admin_tmx->_('picture') ?>:</label>
+    </dt>
+    <dd>
+        <input type="file" name="picture" id="picture" size="90" value="" />
+        <?php echo $this->messages->getMessagesHtml('picture') ?>
+        <?php echo $this->messages->getMessagesHtml('file') ?>
+        <p class="description">
+            <?php if($this->item->getPicture()) : ?>
+            <br />
+            <img src="/images/faqcategory/<?php echo $this->item->getPicture(); ?>" alt=""  />
+            <?php endif; ?>
+        </p>
+    </dd>
+
+    <dd>
+        <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+    </dd>
+</dl>

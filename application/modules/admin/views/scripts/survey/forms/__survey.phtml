@@ -1,0 +1,87 @@
+<dl>
+	<dt>
+		<label for="datetimePublished">Publicatiedatum:</label>
+	</dt>
+	<dd>
+		<?php
+		$datetimeH    = $this->survey->getTimePublished('%H');
+		$datetimeI    = $this->survey->getTimePublished('%M');
+		?>
+		<input type="text" name="datePublished" id="datePublished" 
+			value="<?php echo $this->survey->getDatePublished('%d-%m-%Y') ?>" />
+	    	&nbsp; Om &nbsp;
+	    	<select name="timePublishedH">
+	    		<?php for ($i = 0; $i <= 23; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $datetimeH) { echo 'selected="selected"'; } ?>><?php echo $iformat ?></option>
+	    		<?php endfor ?>
+	    	</select>
+	    	:
+	    	<select name="timePublishedI">
+	    		<?php for ($i = 0; $i <= 59; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $datetimeI) { echo 'selected="selected"'; } ?>><?php echo $iformat ?></option>
+	    		<?php endfor ?>
+	    	</select>
+	    <?php echo $this->messages->getMessagesHtml('datePublished') ?>
+	    <p class="description">
+	        Verplicht in te vullen, datum in de toekomst.
+	    </p>
+	</dd>
+
+	<dt>
+		<label for="datetimeExpired">Vervaldatum:</label>
+	</dt>
+	<dd>
+		<?php
+		$datetimeH    = $this->survey->getTimeExpired('%H');
+		$datetimeI    = $this->survey->getTimeExpired('%M');
+		?>
+		<input type="text" name="dateExpired" id="dateExpired" 
+			value="<?php echo $this->survey->getDateExpired('%d-%m-%Y') ?>" />
+	    	&nbsp; Om &nbsp;
+	    	<select name="timeExpiredH">
+	    		<?php for ($i = 0; $i <= 23; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $datetimeH) { echo 'selected="selected"'; } ?>><?php echo $iformat ?></option>
+	    		<?php endfor ?>
+	    	</select>
+	    	:
+	    	<select name="timeExpiredI">
+	    		<?php for ($i = 0; $i <= 59; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $datetimeI) { echo 'selected="selected"'; } ?>><?php echo $iformat ?></option>
+	    		<?php endfor ?>
+	    	</select>
+	    <?php echo $this->messages->getMessagesHtml('dateExpired') ?>
+	    <p class="description">
+	        Verplicht in te vullen, datum in de toekomst.
+	    </p>
+	</dd>
+
+
+	<dt>
+		<label for="title">Titel:</label>
+	</dt>
+	<dd>
+	    <input type="text" name="title" id="title"
+	    	value="<?php echo $this->survey->getTitle() ?>" style="width: 250px;" />
+	    <?php echo $this->messages->getMessagesHtml('title') ?>
+	    <p class="description">
+	        Verplicht in te vullen, minimum 2 karakters
+	    </p>
+	</dd>
+
+	<dt>
+		<label for="description">Omschrijving:</label>
+	</dt>
+	<dd>
+		<div id="content_">
+			<textarea name="description" id="description" style="width:100%; height: 500px;" rows="50" class="mceEditor"><?php echo $this->escape($this->survey->getDescription()) ?></textarea>
+		</div>
+	    <?php echo $this->messages->getMessagesHtml('description') ?>
+	    <p class="description">
+	        Verplicht in te vullen, minimum 2 karakters
+	    </p>
+	</dd>
+</dl>

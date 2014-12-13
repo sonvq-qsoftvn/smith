@@ -1,0 +1,57 @@
+<?php
+
+$user = Zend_Auth::getInstance()->getIdentity();
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+
+$this->headTitle('SxCms - Vacatures overzicht');
+echo $this->render('system/result.phtml');
+
+?>
+
+<div id="dialog" title="Vacature verwijderen" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	Weet u zeker dat u deze vacature wilt verwijderen?</p>
+</div>
+
+<h3>Vacatures overzicht <?php echo $this->year ? $this->year . ' - ' . strftime("%B", strtotime('2010-' . $this->month . '-01')) : '' ?></h3>
+
+<table width="98%">
+    <tr>
+        <th colspan="6">
+            Tool volgende vacatures:<br />
+            <select name="filter">
+                <option value="">Alles</option>
+            </select>
+            <input type="submit" value="Filter" />
+        </th>
+    </tr>
+	<tr>
+		<th>Functie</th>
+		<th>Regio</th>
+        <th>Tel</th>
+        <th>Werkzoekende</th>
+		<th>Vervaldatum</th>
+		<th width="60">Actie</th>
+	</tr>
+	<?php foreach ($this->paginator as $id => $item): ?>
+	<?php $address = $item->getAddress() ?>
+	<tr>
+		<td><?php echo $this->escape($item->getJobTitle()) ?></td>
+		<td><?php echo $this->escape($address->getRegion()) ?></td>
+        <td><?php echo $this->escape($item->getPhone()) ?></td>
+        <td><?php echo $this->escape($item->getSeekerFullName()) ?></td>
+		<td><?php echo $this->escape($item->getExpireDate('%d/%m/%Y')) ?></td>
+		<td width="60">
+			<a title="Aanpassen" href="<?php echo $this->url(array('action' => 'initialize', 'id' => $item->getId(), 'go' => 'admin.vacancy.edit.page.' . $this->paginator->getCurrentPageNumber())) ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="Aanpassen" />
+			</a>
+			<a title="Verwijderen" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'initialize', 'id' => $item->getId(), 'go' => 'admin.vacancy.delete.page' . $this->paginator->getCurrentPageNumber())) ?>');">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="Verwijderen" />
+			</a>
+		</td>
+	</tr>
+	<?php endforeach ?>
+</table>
+
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?></th>
+

@@ -1,0 +1,69 @@
+<dl>
+
+
+
+	<dt>
+		<label for="date_published"><?php echo $this->admin_tmx->_('publicationdate') ?>:</label>
+	</dt>
+	<dd>
+		<?php
+		$publish    = $this->page->getDatePublished();
+		$publishYmd = $this->page->getDatePublished('%Y/%m/%d');
+		$publishH   = $this->page->getDatePublished('%H');
+		$publishI   = $this->page->getDatePublished('%M');
+		?>
+	    <input type="text" name="date_published" id="date_published" size="10"
+	    	value="<?php echo $publish ? $publishYmd : date('Y/m/d') ?>" />
+	    	&nbsp; <?php echo $this->admin_tmx->_('at') ?> &nbsp;
+	    	<select name="publish_h">
+	    		<?php for ($i = 0; $i <= 23; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $publishH) { echo 'selected="selected"'; } ?>><?php echo $iformat ?>&nbsp;&nbsp;</option>
+	    		<?php endfor ?>
+	    	</select>
+	    	:
+	    	<select name="publish_i">
+	    		<?php for ($i = 0; $i <= 59; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $publishI) { echo 'selected="selected"'; } ?>><?php echo $iformat ?>&nbsp;&nbsp;</option>
+	    		<?php endfor ?>
+	    	</select>
+	    <?php echo $this->messages->getMessagesHtml('date_published') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('datepagepublished') ?>
+	    </p>
+	</dd>
+	<dt>
+		<label for="date_expired"><?php echo $this->admin_tmx->_('expirationdate') ?>:</label>
+	</dt>
+	<dd>
+	<div id="datepicker"></div>
+		<?php
+		$expire    = $this->page->getDateExpired();
+		$expireYmd = $this->page->getDateExpired('%Y/%m/%d');
+		$expireH   = $this->page->getDateExpired('%H');
+		$expireI   = $this->page->getDateExpired('%M');
+		?>
+
+	    <input type="text" name="date_expired" id="date_expired" size="10"
+	    	value="<?php echo $expire ? $expireYmd : '' ?>" />
+	    	&nbsp; <?php echo $this->admin_tmx->_('at') ?> &nbsp;
+	    	<select name="expire_h">
+	    		<?php for ($i = 0; $i <= 23; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $expireH) { echo 'selected="selected"'; } ?>><?php echo $iformat ?>&nbsp;&nbsp;</option>
+	    		<?php endfor ?>
+	    	</select>
+	    	:
+	    	<select name="expire_i">
+	    		<?php for ($i = 0; $i <= 59; $i++): ?>
+	    		<?php $iformat = sprintf('%02d', $i); ?>
+	    		<option value="<?php echo $iformat ?>" <?php if ($iformat == $expireI) { echo 'selected="selected"'; } ?>><?php echo $iformat ?>&nbsp;&nbsp;</option>
+	    		<?php endfor ?>
+	    	</select>
+	    <?php echo $this->messages->getMessagesHtml('date_expired') ?>
+	    <p class="description">
+	        <?php echo $this->admin_tmx->_('expirationdatedescription') ?>
+	    </p>
+	</dd>
+</dl>

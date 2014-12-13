@@ -1,0 +1,10 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+
+<h3 id="menu-subscribe"><a href="#"><?php echo $this->admin_menu_tmx->_('sub.subscribe') ?></a></h3>
+<div>
+	<ul class="sidemenu">
+            <li><a href="<?php echo $this->url(array('controller' => 'subscribe', 'action' => 'indexmail')) ?>"><?php echo $this->admin_menu_tmx->_('sub.managesmails') ?></a></li>
+            <li><a href="<?php echo $this->url(array('controller' => 'subscribe', 'action' => 'addemail')) ?>"><?php echo $this->admin_menu_tmx->_('sub.newmail') ?></a></li>
+            <li><a href="<?php echo $this->url(array('controller' => 'subscribe', 'action' => 'export')) ?>"><?php echo $this->admin_menu_tmx->_('sub.exportsubscribers') ?></a></li>
+	</ul>
+</div>

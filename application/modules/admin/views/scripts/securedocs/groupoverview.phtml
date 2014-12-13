@@ -1,0 +1,35 @@
+<?php
+$this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js');
+$user = Zend_Auth::getInstance()->getIdentity();
+$canDelete = $user->isAllowed('securedocs', 'securedocs.delete');
+$this->headTitle('SxCms - '.$this->admin_tmx->_('securedocs').' - '.$this->admin_tmx->_('groupoverview'));
+echo $this->render('system/result.phtml');
+?>
+
+<div id="dialog" title="<?php echo $this->admin_tmx->_('deletegroup') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deletegroupdescription') ?></p>
+</div>
+<h3><?php echo $this->admin_tmx->_('groupoverview') ?></h3>
+<table width="98%">
+	<tr>
+		<th><?php echo $this->admin_tmx->_('group') ?></th>
+		<th width="70px"><?php echo $this->admin_tmx->_('action') ?></th>
+	</tr>
+	<?php foreach ($this->paginator as $id => $item): ?>
+	<tr>
+		<td><?php echo $this->escape($item->getGroup()) ?></td>
+		<td>
+			<a title="<?php echo $this->admin_tmx->_('edit') ?>" href="<?php echo $this->url(array('action' => 'editgroup', 'id' => $item->getGroupId())) ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+			</a>
+
+			<?php if($canDelete): ?><a title="<?php echo $this->admin_tmx->_('delete') ?>" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'deletegroup', 'id' => $item->getGroupId())) ?>');">
+				<?php endif ?><img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
+			<?php if($canDelete): ?></a><?php endif ?>
+		</td>
+	</tr>
+	<?php endforeach ?>
+</table>
+
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?>

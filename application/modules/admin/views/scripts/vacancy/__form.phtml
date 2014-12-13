@@ -1,0 +1,268 @@
+<?php echo $this->render('system/leave.phtml'); ?>
+
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce_init.js') ?>
+
+<?php $this->headLink()->appendStylesheet('/js/jquery/jquery.autocomplete.css') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/jquery.bgiframe.min.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/jquery.autocomplete.min.js') ?>
+
+
+<?php $this->headScript()->captureStart() ?>
+$(document).ready(function(){
+	$('#tabs').tabs();
+    $("#publication_date").datepicker({ dateFormat: 'dd-mm-yy'});
+	$("#expire_date").datepicker({ dateFormat: 'dd-mm-yy'});
+
+
+    <?php $regions = ''; ?>
+    <?php foreach ($this->regions as $region): ?>
+        <?php $regions .= '%%%' . $region->getRegion() ?>
+    <?php endforeach ?>
+
+    var data = "<?php echo $regions ?>".split("%%%");
+    $("#region").autocomplete(data);
+
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-function">Functie &amp; omschrijving
+			<?php $errors = count($this->messages->getTabMessages('function')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-address">Locatie &amp; Contact
+			<?php $errors = count($this->messages->getTabMessages('location')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-hours">Uren
+			<?php $errors = count($this->messages->getTabMessages('hours')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-notes">Opmerkingen &amp; varia
+			<?php $errors = count($this->messages->getTabMessages('notes')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-save">Opslaan
+			<?php $errors = count($this->messages->getTabMessages('save')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+	</ul>
+	<?php $curCategoryId = $this->job->getCategory()->getId() ?>
+	<form name="vacancy" method="post" action="<?php echo $this->url() ?>">
+	<div id="tabs-function">
+		<dl>
+            <dt>
+                <label for="category">Categorie:</label>
+            </dt>
+            <dd>
+                <select name="category_id" style="width: 180px;">
+                <?php foreach ($this->categories as $category): ?>
+                	<?php if ($category->getSubCategories()): ?>
+                	<optgroup label="<?php echo $category->getName() ?>">
+                	<?php foreach ($category->getSubCategories() as $sub): ?>
+                	<option value="<?php echo $sub->getId() ?>" <?php if ($curCategoryId == $sub->getId()) { echo 'selected="selected"'; } ?>>
+                		&nbsp;&nbsp;&nbsp;<?php echo $sub->getName() ?>
+                	</option>
+                	<?php endforeach ?>
+                	<?php else: ?>
+                    <option value="<?php echo $category->getId() ?>" <?php if ($curCategoryId == $category->getId()) { echo 'selected="selected"'; } ?>>
+                    	<?php echo $category->getName() ?>
+                    </option>
+                    <?php endif ?>
+                    <?php if ($category->getSubCategories()): ?>
+                    </optgroup>
+                    <?php endif ?>
+                <?php endforeach ?>
+                </select>
+                </select>
+            </dd>
+			<dt>
+				<label for="title">Functie:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="title" id="title" size="75"
+			    	value="<?php echo $this->escape($this->job->getJobTitle()) ?>" />
+			    <?php echo $this->messages->getMessagesHtml('title') ?>
+			    <p class="description">
+			        Verplicht in te vullen, minimum 2 en maximum 255 karakters
+			    </p>
+			</dd>
+			<dt>
+				<label for="description">Omschrijving:</label>
+			</dt>
+			<dd>
+			    <textarea class="mceEditor" name="description" id="description" cols="90" rows="15" style="width:100%; height: 500px;"><?php echo $this->escape($this->job->getDescription()) ?></textarea>
+			    <?php echo $this->messages->getMessagesHtml('description') ?>
+			    <p class="description">
+			        Verplicht in te vullen, minimum 2 en maximum 255 karakters
+			    </p>
+			</dd>
+		</dl>
+	</div>
+	<div id="tabs-address">
+		<?php $address = $this->job->getAddress() ?>
+		<dl>
+			<dt>
+				<label for="region">Regio:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="region" id="region" size="45"
+			    	value="<?php echo $this->escape($address->getRegion()) ?>" />
+			    <?php echo $this->messages->getMessagesHtml('region') ?>
+			    <p class="description">
+			        Verplicht in te vullen, minimum 2 en maximum 255 karakters
+			    </p>
+			</dd>
+            <dt>
+                <label for="phone">Telefoonnummer:</label>
+            </dt>
+            <dd>
+                <input type="text" name="phone" id="phone" size="45"
+                    value="<?php echo $this->escape($this->job->getPhone()) ?>" />
+                <?php echo $this->messages->getMessagesHtml('phone') ?>
+                <p class="description">
+                    Minimum een telefoon of een gsm nummer ingeven
+                </p>
+            </dd>
+            <dt>
+                <label for="mobile">GSM nummer:</label>
+            </dt>
+            <dd>
+                <input type="text" name="mobile" id="mobile" size="45"
+                    value="<?php echo $this->escape($this->job->getMobile()) ?>" />
+                <?php echo $this->messages->getMessagesHtml('mobile') ?>
+                <p class="description">
+                    Minimum een telefoon of een gsm nummer ingeven
+                </p>
+            </dd>
+            <dt>
+                <label for="email">E-mail:</label>
+            </dt>
+            <dd>
+                <input type="text" name="email" id="email" size="45"
+                    value="<?php echo $this->escape($this->job->getEmail()) ?>" />
+                <?php echo $this->messages->getMessagesHtml('email') ?>
+                <p class="description">
+                    Verplicht in te vullen, een geldig email adres
+                </p>
+            </dd>
+		</dl>
+	</div>
+	<div id="tabs-hours">
+		<dl>
+			<dt>
+				<label for="hours">Aantal uren:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="hours" size="45" value="<?php echo $this->escape($this->job->getHours()) ?>" />
+			    <p class="description">
+			        Verplicht in te vullen, minimum 2 en maximum 255 karakters
+			    </p>
+			</dd>
+            <dt>
+                <label for="hours">Full- / Parttime:</label>
+            </dt>
+            <dd>
+                <select name="term">
+                    <option value="<?php echo SxCms_Job::TERM_NONE ?>" <?php if ($this->job->getTerm() == SxCms_Job::TERM_NONE) { echo 'selected="selected"'; } ?>>
+                        ...  &nbsp;
+                    </option>
+                    <option value="<?php echo SxCms_Job::TERM_FULLTIME ?>" <?php if ($this->job->getTerm() == SxCms_Job::TERM_FULLTIME) { echo 'selected="selected"'; } ?>>
+                    	Voltijds  &nbsp;
+                    </option>
+                    <option value="<?php echo SxCms_Job::TERM_PARTTIME ?>" <?php if ($this->job->getTerm() == SxCms_Job::TERM_PARTTIME) { echo 'selected="selected"'; } ?>>
+                    	Deeltijds  &nbsp;
+                    </option>
+                    <option value="<?php echo SxCms_Job::TERM_REPLACEMENT ?>" <?php if ($this->job->getTerm() == SxCms_Job::TERM_REPLACEMENT) { echo 'selected="selected"'; } ?>>
+                    	Vervanging  &nbsp;
+                    </option>
+                    <option value="<?php echo SxCms_Job::TERM_FULLTIME_OR_PARTTIME ?>" <?php if ($this->job->getTerm() == SxCms_Job::TERM_FULLTIME_OR_PARTTIME) { echo 'selected="selected"'; } ?>>
+                    	Voltijds of deeltijds  &nbsp;
+                    </option>
+                    <option value="<?php echo SxCms_Job::TERM_TRAINING ?>" <?php if ($this->job->getTerm() == SxCms_Job::TERM_TRAINING) { echo 'selected="selected"'; } ?>>
+                        Vakantiewerk  &nbsp;
+                    </option>
+                </select>
+
+                <p class="description">
+                    Verplicht in te vullen, minimum 2 en maximum 255 karakters
+                </p>
+            </dd>
+		</dl>
+	</div>
+	<div id="tabs-notes">
+		<dl>
+			<dt>
+				<label for="notes">Opmerkingen:</label>
+			</dt>
+			<dd>
+			    <textarea name="notes" id="notes" cols="90" rows="15"><?php echo $this->escape($this->job->getNotes()) ?></textarea>
+			    <p class="description">
+			        Verplicht in te vullen, minimum 2 en maximum 255 karakters
+			    </p>
+			</dd>
+
+            <dt>
+                <label for="seeker_name">Naam werkzoekende:</label>
+            </dt>
+            <dd>
+                <input type="text" name="seeker_name" id="seeker_name" size="45"
+                 value="<?php echo $this->job->getSeekerName() ?>" />
+            </dd>
+            <dt>
+                <label for="seeker_fname">Voornaam werkzoekende:</label>
+            </dt>
+            <dd>
+                <input type="text" name="seeker_fname" id="seeker_fname" size="45"
+                  value="<?php echo $this->job->getSeekerFirstName() ?>" />
+            </dd>
+		</dl>
+	</div>
+	<div id="tabs-save">
+		<dl>
+            <dt>
+                <label for="publication_date">Publicatiedatum:</label>
+            </dt>
+            <dd>
+                <input type="text" name="date_published" id="publication_date" readonly="readonly"
+                    value="<?php echo $this->job->getPublicationDate() ? $this->job->getPublicationDate('%d-%m-%Y') : date('d-m-Y') ?>" />
+                <?php echo $this->messages->getMessagesHtml('publication_date') ?>
+                <p class="description">
+                    Verplicht in te vullen, datum groter of gelijk aan vandaag
+                </p>
+            </dd>
+			<dt>
+				<label for="expire_date">Vervaldatum:</label>
+			</dt>
+			<dd>
+			    <input type="text" name="date_expired" id="expire_date" readonly="readonly"
+			    	value="<?php echo $this->job->getExpireDate() ? $this->job->getExpireDate('%d-%m-%Y') : date('d-m-Y', strtotime('+3 month'))?>" />
+			    <?php echo $this->messages->getMessagesHtml('expire_date') ?>
+			    <p class="description">
+			        Verplicht in te vullen, datum groter of gelijk aan vandaag
+			    </p>
+			</dd>
+			<dd style="margin-top: 20px;">
+			    <input class="button" type="submit" value="Opslaan" onclick="disableConfirm();" />
+			</dd>
+		</dl>
+	</div>
+	</form>
+</div>

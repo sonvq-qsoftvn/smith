@@ -1,0 +1,48 @@
+<?php echo $this->render('system/leave.phtml'); ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce.js') ?>
+<?php include('tiny_mce_init.php'); ?>
+
+<?php $this->headLink()->appendStylesheet('/js/jquery/jquery.autocomplete.css') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/jquery.bgiframe.min.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/jquery.autocomplete.min.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/popup.js') ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+    $("#start").datepicker({ dateFormat: 'yy/mm/dd' });
+	 $("#stop").datepicker({ dateFormat: 'yy/mm/dd' });
+});
+
+
+<?php $this->headScript()->captureEnd() ?>
+<div id="alert" title="Formulier validatie" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	Alle velden zijn verplicht in te vullen.</p>
+</div>
+
+<div id="tabs">
+	<ul>
+    	<li><a href="#tabs-details">Details
+			<?php $errors = count($this->messages->getTabMessages('details')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-save">Opslaan</a></li>
+	</ul>
+	<form name="add" method="post" action="<?php echo $this->url() ?>" enctype="multipart/form-data">
+	<input type="hidden" name="action_id" value="<?php echo $this->type->getId() ?>" />
+    <div id="tabs-details">
+		<?php echo $this->render('faq/type/forms/__details.phtml') ?>
+	</div>
+	<div id="tabs-save">
+		<dl>
+			<dd>
+			    <input class="button" type="submit" value="Opslaan" onclick="disableConfirm();" />
+			</dd>
+		</dl>
+	</div>
+	</form>
+</div>

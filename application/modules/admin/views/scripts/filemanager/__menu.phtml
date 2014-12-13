@@ -1,0 +1,12 @@
+<?php $user = Zend_Auth::getInstance()->getIdentity() ?>
+
+<?php if ($user->isAllowed('filemanager', array('filemanager.index'))): ?>
+<h3 id="menu-filemanager"><a href="#">Documentbeheer</a></h3>
+<div>
+	<ul class="sidemenu">
+		<li><a href="<?php echo $this->url(array('controller' => 'filemanager', 'action' => 'index'), null, true) ?>">
+		  Overzicht</a>
+		 </li>
+	</ul>
+</div>
+<?php endif ?>

@@ -1,0 +1,13 @@
+<h3 id="menu-action"><a href="#"><?php echo $this->admin_menu_tmx->_('sh.actions') ?></a></h3>
+<div>
+<strong><?php echo $this->admin_menu_tmx->_('sh.actions') ?></strong>
+	<ul class="sidemenu">
+		<li><a href="<?php echo $this->url(array('controller' => 'action', 'action' => 'index'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('sh.overview') ?></a></li>
+      	<li><a href="<?php echo $this->url(array('controller' => 'action', 'action' => 'add'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('sh.add') ?></a></li>
+	</ul>
+<strong><?php echo $this->admin_menu_tmx->_('sh.types') ?></strong>
+	<ul class="sidemenu">
+		<li><a href="<?php echo $this->url(array('controller' => 'action_type', 'action' => 'index'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('sh.overview') ?></a></li>
+      	<li><a href="<?php echo $this->url(array('controller' => 'action_type', 'action' => 'add'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('sh.add') ?></a></li>
+	</ul>
+</div>

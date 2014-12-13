@@ -1,0 +1,17 @@
+<dl>
+     <dt>
+    <label for="picture"><?php echo $this->admin_tmx->_('picture') ?>:</label>
+    </dt>
+    <dd>
+        <input type="file" name="picture" id="picture" size="90" value="" />
+        <?php echo $this->messages->getMessagesHtml('picture') ?>
+        <?php echo $this->messages->getMessagesHtml('file') ?>
+        <p class="description">
+            <?php echo $this->admin_tmx->_('picturesizerestrictions') ?>
+            <?php if($this->item->getPicture()) : ?>
+            <br />
+            <img src="/images/news/253X115/<?php echo $this->item->getPicture(); ?>" alt=""  />
+            <?php endif; ?>
+        </p>
+    </dd>
+</dl>

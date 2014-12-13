@@ -1,0 +1,72 @@
+<dl>
+    <?php if ($this->hidden != 'hidden') : ?>
+    
+        <dt>
+        <label for="blockname"><?php echo $this->admin_tmx->_('blockname') ?>:</label>
+        </dt>
+        <dd>
+            <input type="text" name="blockname" id="blockname" size="90"
+                   value="<?php echo $this->escape($this->block->getBlockname()) ?>" />
+                   <?php echo $this->messages->getMessagesHtml('blockname') ?>
+            <p class="description">
+                <?php echo $this->admin_tmx->_('min2max255chars') ?>
+            </p>
+        </dd>
+    <?php endif; ?>
+    <dt>
+    <label for="title"><?php echo $this->admin_tmx->_('title') ?>:</label>
+    </dt>
+    <dd>
+        <input type="text" name="title" id="title" size="90"
+               value="<?php echo $this->escape($this->block->getTitle()) ?>" />
+               <?php echo $this->messages->getMessagesHtml('title') ?>
+        <p class="description">
+            <?php echo $this->admin_tmx->_('min2max255chars') ?>
+        </p>
+    </dd>
+
+    <dt class="editor">
+    <label for="content"><?php echo $this->admin_tmx->_('content') ?></label>
+    </dt>
+    <dd>
+        <textarea name="content" id="content" style="width:100%; height: 500px;" rows="50" class="mceEditor"><?php echo $this->escape($this->block->getContent()) ?></textarea>
+        <?php echo $this->messages->getMessagesHtml('content') ?>
+
+    </dd>
+    <dt>
+    <label for="url"><?php echo $this->admin_tmx->_('url') ?>:</label>
+    </dt>
+    <dd>
+        <input type="text" class="mceFocus" onchange="selectByValue(this.form,'linklisthref',this.value);" name="url" id="href" size="90"
+               value="<?php echo $this->escape($this->block->getUrl()) ?>" />
+               <?php echo $this->messages->getMessagesHtml('url') ?>
+        <p class="description">
+            <a href="#" onclick="return popup('/admin/page/tinymce-link');">
+                <i><strong><?php echo $this->admin_tmx->_('clickselectinternal') ?></strong></i>
+            </a><br />
+            <?php echo $this->admin_tmx->_('clickselectinternaldescription') ?>
+        </p>
+    </dd>
+     <dt>
+    <label for="picture"><?php echo $this->admin_tmx->_('picture') ?>:</label>
+    </dt>
+    <dd>
+        <input type="file" name="picture" id="picture" size="90" value="" />
+        <?php echo $this->messages->getMessagesHtml('picture') ?>
+        <?php echo $this->messages->getMessagesHtml('file') ?>
+        <p class="description">
+            <?php echo $this->admin_tmx->_('picturesizerestrictions') ?>
+            <?php if($this->block->getPicture()) : ?>
+            <br />
+            <img src="/images/topcontentblock/253X115/<?php echo $this->block->getPicture(); ?>" alt=""  />
+            <?php endif; ?>
+        </p>
+    </dd>
+    
+    
+    <br />
+    <dd>
+        <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+    </dd>
+
+</dl>

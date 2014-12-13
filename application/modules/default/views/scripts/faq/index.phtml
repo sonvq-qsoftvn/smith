@@ -1,0 +1,18 @@
+<div id="faq">
+<?php /*<h2 class="header">FAQ</h2>*/?>
+<?php foreach($this->cats as $ckey=>$c):?>
+    <?php if(isset($this->faqs[$ckey])):?>
+        <h2 class="header"><img src="/images/faqcategory/<?php echo $c->getPicture();?>" alt=""/> <?php echo $c->getTitle();?></h2>
+        <div class="faqgroup boxshadow" style="padding-left: 15px;">
+            <?php $t=0;?>
+            <?php foreach($this->faqs[$ckey] as $fkey => $f):?>
+                <div class="faq<?php if($t==0):?> first<?php endif;?>">
+                    <h3 class="question"><?php echo $f->getQuestion();?></h3>
+                    <div class="answer"><?php echo $f->getAnswer();?></div>
+                </div>
+                <?php $t++;?>
+            <?php endforeach;?>
+        </div>
+    <?php endif;?>
+<?php endforeach;?>
+</div>

@@ -1,0 +1,49 @@
+<?php $this->headScript()->captureStart() ?>
+$(function() {
+	$('.deletequestion').click(function() {
+		key = $(this).attr('id');
+		$.ajax({
+			type: 'POST',
+			url: '<?php echo $this->url(array('controller' => 'survey_question', 'action' => 'remove-question')) ?>',
+			data: {'key' : key },
+			success: function(msg) {
+				$("#questiontable").html(msg);
+				reload();
+				$("#answertable").load("/admin/survey_question_answer/add-answer")
+			}
+		});
+	});
+	$('.editquestion').click(function() {
+		key = $(this).attr("id");
+		$("#key").val(key);
+		$.getJSON('<?php echo $this->url(array('controller' => 'survey_question', 'action' => 'get-question')) ?>', {'key' : key},
+			function(data){
+				$("#question").val(data["_question"]);
+				$("#type").val(data["_type"]);
+				$("#comment").val(data["_comment"]);
+			}
+		);
+	});
+});
+<?php $this->headScript()->captureEnd() ?>
+
+<h3>Vragen</h3>
+<table width="95%" id="table">
+	<tr>
+		<th>Vraag</th>
+		<th>Type</th>
+		<th>Comment</th>
+		<th style="width: 60px;"></th>
+	</tr>
+	<?php foreach($this->survey->getQuestion() as $key => $question): ?>
+	<tr>
+		<td><?php echo $question->getQuestion() ?></td>
+		<td><?php echo $question->getType() ?></td>
+		<td><?php echo $question->getComment() ?></td>
+		<td>
+			<img src="<?php echo $this->baseUrl('/images/cms/actions/delete.png') ?>" class="deletequestion" id="<?php echo $key ?>"  alt="" />
+			<img src="<?php echo $this->baseUrl('/images/cms/actions/page_edit.png') ?>" class="editquestion" id="<?php echo $key ?>" alt="" />
+		</td>
+	</tr>
+	<?php endforeach; ?>
+</table>

@@ -1,0 +1,40 @@
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js'); ?>
+<?php echo $this->render('system/result.phtml') ?>
+
+<div id="dialog" title="Enqu&#234;te verwijderen" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('deletecommentconfirm') ?></p>
+</div>
+
+<h3>Comments overzicht</h3>
+<p><a href="<?php echo $this->url(array('controller' => 'page', 'action' => 'comments', 'type' => null)) ?>"><?php echo $this->admin_tmx->_('commentsneedapproved') ?></a> |
+   <a href="<?php echo $this->url(array('controller' => 'page', 'action' => 'comments', 'type' => 'all')) ?>"><?php echo $this->admin_tmx->_('allcomments') ?></a>
+</p>
+
+<table width="98%">
+	<tr>
+		<th><?php echo $this->admin_tmx->_('date') ?></th>
+		<th><?php echo $this->admin_tmx->_('author') ?></th>
+		<th><?php echo $this->admin_tmx->_('message') ?></th>
+		<th width="40"><?php echo $this->admin_tmx->_('action') ?></th>
+	</tr>
+	<?php foreach ($this->comments as $id => $item): ?>
+	<?php $author = $item->getCommenter(); ?>
+	<tr>
+		<td width="140"><?php echo $this->escape($item->getDatePosted()) ?></td>
+		<td width="140"><a href="mailto:<?php echo $this->escape($author->getEmail()) ?>">
+			<?php echo $this->escape($author->getName()) ?>
+			</a>
+		</td>
+		<td><?php echo $this->escape($item->getMessage()) ?></td>
+		<td>
+			<a title="<?php echo $this->admin_tmx->_('editcontent') ?>" href="<?php echo $this->url(array('controller' => 'page', 'action' => 'comment-edit', 'id' => $item->getId())) ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="edit" />
+			</a>
+			<a title="<?php echo $this->admin_tmx->_('delete') ?>" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('controller' => 'page', 'action' => 'comment-delete', 'id' => $item->getId())) ?>');">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="edit" />
+			</a>
+		</td>
+	</tr>
+	<?php endforeach ?>
+</table>

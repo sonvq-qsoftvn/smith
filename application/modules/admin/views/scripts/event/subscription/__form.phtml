@@ -1,0 +1,53 @@
+<?php echo $this->render('system/leave.phtml'); ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/tiny_mce/tiny_mce_init.js') ?>
+
+<?php $this->headLink()->appendStylesheet('/js/jquery/jquery.autocomplete.css') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/jquery.bgiframe.min.js') ?>
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/jquery/jquery.autocomplete.min.js') ?>
+
+<?php $this->headScript()->captureStart() ?>
+$(function(){
+	$('#tabs').tabs();
+});
+<?php $this->headScript()->captureEnd() ?>
+<div id="alert" title="<?php echo $this->admin_tmx->_('formvalidation') ?>" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	<?php echo $this->admin_tmx->_('allfieldsrequired') ?></p>
+</div>
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-details"><?php echo $this->admin_tmx->_('details') ?>
+			<?php $errors = count($this->messages->getTabMessages('details')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-status"><?php echo $this->admin_tmx->_('status') ?>
+			<?php $errors = count($this->messages->getTabMessages('status')) ?>
+			<?php if ($errors): ?>
+				<span class="errcount">(<?php echo $errors ?>)</span>
+			<?php endif ?>
+			</a>
+		</li>
+		<li><a href="#tabs-save"><?php echo $this->admin_tmx->_('save') ?></a></li>
+	</ul>
+	<form name="add" method="post" action="<?php echo $this->url() ?>">
+	<div id="tabs-details">
+		<?php echo $this->render('event/subscription/forms/__details.phtml') ?>
+	</div>
+    <div id="tabs-status">
+		<?php echo $this->render('event/subscription/forms/__status.phtml') ?>
+	</div>
+
+	<div id="tabs-save">
+		<dl>
+			<dd>
+			    <input class="button" type="submit" value="<?php echo $this->admin_tmx->_('save') ?>" onclick="disableConfirm();" />
+			</dd>
+		</dl>
+	</div>
+	</form>
+</div>

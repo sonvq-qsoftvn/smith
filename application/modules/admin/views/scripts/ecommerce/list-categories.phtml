@@ -1,0 +1,39 @@
+<?php $this->headScript()->appendFile($this->baseUrl() . '/js/dialog.js'); ?>
+<?php echo $this->render('system/result.phtml') ?>
+
+<div id="dialog" title="Categorie verwijderen" style="display: none;">
+	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+	Weet u zeker dat u deze categorie wilt verwijderen? Alle onderliggende producten zullen
+	tevens verwijderd worden.</p>
+</div>
+
+<h3>Categorie&euml;n overzicht</h3>
+<table width="98%">
+	<tr>
+		<th>Naam</th>
+		<th width="60">Actie</th>
+	</tr>
+	<?php foreach ($this->tree as $item) : ?>
+	<?php $n = ($item->getLevel() - 1) * 6 ?>
+	<?php $n = $n < 0 ? $n = 0 : $n ?>
+	<tr>
+		<td><?php echo str_repeat('&nbsp;', $n) ?>
+			-
+			<?php echo $this->escape($item->getTitle()) ?>
+		</td>
+		<td width="60">
+			<a title="Toon producten" href="<?php echo $this->url(array('action' => 'list-products', 'category' => $item->getId())) ?>">
+				<img src="<?php echo $this->baseUrl('/ico/magnifier-medium-left.png') ?>" alt="Toon producten" />
+			</a>
+			<a title="Aanpassen" href="<?php echo $this->url(array('action' => 'initialize.category', 'id' => $item->getId(), 'go' => 'admin.ecommerce.edit-category')) ?>">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="Aanpassen" />
+			</a>
+			<?php if ($item->getId()): ?>
+			<a title="Verwijderen" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'initialize.category', 'id' => $item->getId(), 'go' => 'admin.ecommerce.delete-category')) ?>');">
+				<img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="Verwijderen" />
+			</a>
+			<?php endif ?>
+		</td>
+	</tr>
+	<?php endforeach ?>
+</table>

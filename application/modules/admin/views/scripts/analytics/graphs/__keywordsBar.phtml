@@ -1,0 +1,39 @@
+<h2><?php echo $this->admin_tmx->_('mostusedkeywords') ?><span style='float: right'><a href='/admin/analytics/allkeywords'>Meer zoekwoorden</a></span></h2>
+<div id="pagesbar" style="width: 100%; height: 200px;"></div>
+
+<script type="text/javascript">
+
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawPagesBar);
+
+function drawPagesBar() {
+
+    var data = google.visualization.arrayToDataTable([
+        ['<?php echo $this->admin_tmx->_('page') ?>', '<?php echo $this->admin_tmx->_('visits') ?>'],
+        <?php
+        
+        $total = count($this->keywords["keyword"]);
+        foreach ($this->keywords["searches"] AS $key => $value) {
+
+            echo "['".addslashes($this->keywords["keyword"][$key])."', ".$value."]";
+            if ($key < $total-1) echo ",";
+
+        }
+
+        ?>
+    ]);
+
+    var options = {
+        
+        chartArea: {left: 130, top: 15, width: '82%', height: 140},
+        colors: ['#6A8BAB'],
+        legend: {position: 'none'}
+                
+    };
+
+    var chart = new google.visualization.BarChart(document.getElementById('pagesbar'));
+    chart.draw(data, options);
+
+}
+
+</script>

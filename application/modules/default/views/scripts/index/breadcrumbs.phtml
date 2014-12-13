@@ -1,0 +1,11 @@
+<?php if(strlen($this->placeholder('breadcrumbs'))): ?>
+    <div id="breadcrumbs">
+        <?php echo $this->placeholder('breadcrumbs') ?>
+    </div>
+<?php elseif($this->breadcrumbs): ?>
+	<div id="breadcrumbs">
+		<?php foreach($this->breadcrumbs as $key => $breadcrumb): echo $key == 0 ? '' : '>' ?>
+		    <a href="<?php echo $this->url(array('url' => $breadcrumb->getLink()), 'content', false, false) ?>"><?php echo $breadcrumb->getTitle() ?></a>
+		<?php endforeach; ?>
+	</div>
+<?php endif ?>

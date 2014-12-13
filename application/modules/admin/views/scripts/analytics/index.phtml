@@ -1,0 +1,28 @@
+<?php
+
+echo $this->render('analytics/__js.phtml');
+
+$user = Zend_Auth::getInstance()->getIdentity();
+
+$this->headTitle('SxCms - Analytics - '.$this->admin_tmx->_('dashboard'));
+
+?>
+
+<div style='float: left;'><h3>Analytics - <?php echo $this->admin_tmx->_('dashboard') ?></h3></div>
+
+<div style='float: right;'><?php echo $this->render('analytics/forms/__top.phtml'); ?></div>
+<div style='clear: both'></div>
+
+<div style='width: 95%; border: 3px solid white; outline: 2px solid whitesmoke; background-color: whitesmoke; font-size: 1.1em; text-align: center; padding: 4px 0; margin-left: 20px;'>
+	<h2 style='text-transform: none;'>
+		<?php echo $this->admin_tmx->_('statsblock1') ?> <span style='font-size: 14px;'><?php echo number_format($this->totals["visits"], 0, ',', '.'); ?> <?php echo $this->admin_tmx->_('visitsuncap') ?></span> <?php echo $this->admin_tmx->_('statsblock2') ?> <span style='font-size: 14px;'><?php echo number_format($this->unique["unique"], 0, ',', '.'); ?> <?php echo $this->admin_tmx->_('statsblock3') ?></span>.<br />
+		<?php echo $this->admin_tmx->_('statsblock4') ?> <span style='font-size: 14px;'><?php echo number_format($this->totals["pageviews"], 0, ',', '.'); ?> <?php echo $this->admin_tmx->_('pagesuncap') ?></span> <?php echo $this->admin_tmx->_('statsblock5') ?> <span style='font-size: 14px;'><?php echo $this->pageviews["average"]; ?> <?php echo $this->admin_tmx->_('statsblock6') ?></span>.<br />
+		<?php echo $this->admin_tmx->_('statsblock7') ?> <span style='font-size: 14px;'><?php echo $this->totals["averagetime"]; ?></span>.
+	</h2>
+</div>
+
+<?php echo $this->render('analytics/graphs/__visitsLine.phtml'); ?>
+
+<div style='float: left; width: 50%;'><?php echo $this->render('analytics/graphs/__browsersCircle.phtml'); ?></div>
+<div style='float: left; width: 50%;'><?php echo $this->render('analytics/graphs/__pagesCircle.phtml'); ?></div>
+<div style='clear: both;'></div>

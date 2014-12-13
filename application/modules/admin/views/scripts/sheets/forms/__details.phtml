@@ -1,0 +1,71 @@
+<dl>
+    <input type="hidden" name="type" value="1" />
+    <dt>
+    <label for="category"><?php echo $this->admin_tmx->_('category') ?>:</label>
+    </dt>
+    <dd>
+        <select name="type" id="type">
+            <option style="font-weight: bold;" value=""><?php echo $this->admin_tmx->_('selecttype') ?>
+            <?php foreach ($this->types as $type) : ?>
+                <?php if(count($type->getSubtypes()) > 0) : ?>
+                <option value="<?php echo $type->getId() ?>" <?php if ($this->item->getType() == $type->getId()): ?>selected="selected"<?php endif ?>><?php echo $type->getName() ?> </option>
+                <?php endif; ?>
+            <?php endforeach ?>
+        </select>
+        <?php echo $this->messages->getMessagesHtml('type') ?>
+    </dd>
+
+    <dt>
+    <label for="subcategory"><?php echo $this->admin_tmx->_('subcategory') ?>:</label>
+    </dt>
+    <dd>
+        <select name="subtype" id="subtype">
+            <option style="font-weight: bold;" value=""><?php echo $this->admin_tmx->_('selectsubcat') ?></option>
+            <?php foreach ($this->subcat as $subcat) : ?>
+                <option value="<?php echo $subcat->getId() ?>"
+                <?php if ($this->item->getSubtype() == $subcat->getId()) {
+                    echo "selected='selected'";
+                }
+                ?>><?php echo $subcat->getName(); ?></option>
+        <?php endforeach; ?>
+        </select>
+<?php echo $this->messages->getMessagesHtml('subtype') ?>
+    </dd>
+
+    <dt>
+    <label for="name"><?php echo $this->admin_tmx->_('name') ?>:</label>
+    </dt>
+    <dd>
+        <input type="text" name="name" id="name"
+               value="<?php echo $this->item->getName() ?>" style="width: 550px;" />
+<?php echo $this->messages->getMessagesHtml('name') ?>
+        <p class="description">
+            <?php echo $this->admin_tmx->_('requiredmin2chars') ?>
+        </p>
+    </dd>
+
+    <dt>
+    <label for="desc"><?php echo $this->admin_tmx->_('shortdescription') ?>:</label> 
+    </dt>
+    <dd>
+        <textarea name="desc" id="desc" style="width:100%; height: 50px;" rows="5" ><?php echo $this->escape($this->item->getDesc()) ?></textarea>
+<?php echo $this->messages->getMessagesHtml('desc') ?>
+    </dd>
+
+    <dt>
+    <label for="file"><?php echo $this->admin_tmx->_('file') ?>:</label>
+    </dt>
+    <dd>
+        <input type="file" name="file[]" id="file" size="90" />
+        <input type="hidden" name="hiddenfile" value="<?php echo $this->item->getFile() ?>" />
+        <?php if ($this->item->getFile()) : ?>
+            <br />
+            <a href="/securedocs/<?php echo $this->item->getType(); ?>/<?php echo $this->item->getSubtype(); ?>/<?php echo $this->item->getFile() ?>" target="_blank"><?php echo $this->item->getFile() ?></a>
+        <?php endif; ?>
+
+<?php echo $this->messages->getMessagesHtml('file') ?>
+        <p class="description">
+            <?php echo $this->admin_tmx->_('requiredmin2chars') ?>
+        </p>
+    </dd>
+</dl>

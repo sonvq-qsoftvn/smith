@@ -1,0 +1,23 @@
+<?php $identity = Zend_Auth::getInstance()->getIdentity() ?>
+<?php $i = 1; ?>
+<?php foreach ($this->children as $child): ?>
+<?php if ($child->isAllowed($identity)): ?>
+<div class="block <?php if ($i % 2 == 0) echo 'right'; ?>">
+	<h2><a href="<?php echo $this->url(array('url' => $child->getLink()), 'content', false, false) ?>">
+			<?php echo $child->getTitle() ?>
+		</a>
+	</h2>
+	<a href="<?php echo $this->url(array('url' => $child->getLink()), 'content', false, false) ?>">
+		<?php if ($child->getThumb()): ?>
+		<img src="<?php echo $this->baseUrl('/images/thumbs/70X90/' . $child->getThumb()) ?>" alt="" style="float: left; padding: 4px 10px 5px 0" align="top" />
+		<?php endif ?>
+	</a>
+
+	<?php echo $child->getSummary() ?>
+</div>
+<?php if ($i % 2 == 0):?>
+<div style="clear: both; margin-bottom: 15px;">&nbsp;</div>
+<?php endif ?>
+<?php $i++; ?>
+<?php endif ?>
+<?php endforeach ?>
