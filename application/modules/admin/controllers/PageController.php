@@ -13,6 +13,8 @@ class Admin_PageController extends Zend_Controller_Action
 	{
 		$system = new Zend_Session_Namespace('System');
 		$wizard = new Zend_Session_Namespace('Cms_PageWizard');
+        $system->lng = 'en';
+        
 		if (!isset($wizard->page)) {
 			$wizard->page = new SxCms_Page();
 			$wizard->page->setLanguage($system->lng);

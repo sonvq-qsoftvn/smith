@@ -16,16 +16,18 @@
             <div class="menu-container container_12">
                 <?php echo $this->action('multilevelmenu' , 'index' , null , array('page' => $this->page, 'lng' => $this->lng)) ?>
             </div>
-            <div id="pt-main" class="pt-perspective">
-                <div class="pt-page pt-page-1">
-                    <?php echo $this->page->getContent(); ?>
-                    <?php echo $this->page->getContent(); ?>
-                    <?php echo $this->page->getContent(); ?>
-                   
-                    <?php echo $this->render('__layout/footer.phtml'); ?>
+            <div id="pt-main" class="pt-perspective container_12">
+                <div class="pt-page pt-page-1 grid_12">
+                    <div class="home-content-container">
+                        <div class="header-text">
+                            <?php echo $this->page->getContent(); ?>
+                        </div>
+                        <img class="home-work" src="<?php echo $this->baseUrl("/images/website/home-work.png"); ?>"/>
+                    </div>
                 </div>
+                <div class="clear"></div>
             </div>
-            
+            <?php echo $this->render('__layout/footer.phtml'); ?>
         </div>
         
 	</body>

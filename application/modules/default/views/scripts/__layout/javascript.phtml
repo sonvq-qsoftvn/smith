@@ -4,4 +4,26 @@
     $this->headScript()->appendFile($this->baseUrl('/js/jquery.dlmenu.js'));
     $this->headScript()->appendFile($this->baseUrl('/js/pagetransitions.js'));		
     echo $this->headScript();
+    
 ?>
+
+<script>
+$(document).ready(function() {    
+
+    function responsive() {
+        console.log ($('html').height());
+        console.log ($(window).height());
+        if($('html').height() > $(window).height()) {
+            $('body').css('overflow-x', "hidden");
+            $('body').css('overflow-y', "scroll");
+        } else {
+            $('body').css('overflow-x', "hidden");
+            $('body').css('overflow-y', "hidden");
+        }
+        var heightOfHtml = $('html').css('height');
+        $('body').css('height', heightOfHtml);
+    }
+    
+    window.onload = window.onresize = responsive;
+});
+</script>

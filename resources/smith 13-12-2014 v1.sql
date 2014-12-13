@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.8.2
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 13, 2014 at 03:53 AM
--- Server version: 5.1.65
--- PHP Version: 5.3.29
+-- Generation Time: Dec 12, 2014 at 11:33 PM
+-- Server version: 5.5.37-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `thieusm_smith`
+-- Database: `pas466_training`
 --
 
 -- --------------------------------------------------------
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `Category` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   PRIMARY KEY (`category_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -553,6 +553,17 @@ CREATE TABLE IF NOT EXISTS `MemberGroups` (
   `group_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `MemberGroups`
+--
+
+INSERT INTO `MemberGroups` (`member_id`, `group_id`) VALUES
+(24, 1),
+(24, 12),
+(2, 2),
+(2, 9),
+(24, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -661,14 +672,17 @@ CREATE TABLE IF NOT EXISTS `Page` (
   PRIMARY KEY (`page_id`),
   KEY `author_id` (`author_id`),
   KEY `parent_id` (`parent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `Page`
 --
 
 INSERT INTO `Page` (`page_id`, `parent_id`, `author_id`, `layout`, `type`, `navigation`, `sitemap`, `comments`, `thumb`, `locked_by`, `date_locked`, `date_created`, `date_updated`, `date_published`, `date_expired`) VALUES
-(0, 0, 1, 'homepage', 0, 1, 0, 0, '', 0, '0000-00-00 00:00:00', '2009-08-01 00:00:00', '2013-11-21 00:12:11', '2009-08-01 00:00:00', NULL);
+(0, 0, 1, 'homepage', 0, 1, 0, 0, '', 0, '0000-00-00 00:00:00', '2009-08-01 00:00:00', '2014-12-12 23:26:02', '2009-08-01 00:00:00', NULL),
+(1, 0, 1, 'default', 0, 1, 1, 0, NULL, 0, '0000-00-00 00:00:00', '2014-12-12 23:26:38', '2014-12-12 23:26:38', '2014-12-12 07:00:00', NULL),
+(2, 0, 1, 'default', 0, 1, 1, 0, NULL, 0, '0000-00-00 00:00:00', '2014-12-12 23:27:17', '2014-12-12 23:27:17', '2014-12-12 07:00:00', NULL),
+(3, 0, 1, 'default', 0, 1, 1, 0, NULL, 0, '0000-00-00 00:00:00', '2014-12-12 23:28:15', '2014-12-12 23:28:15', '2014-12-13 07:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -765,7 +779,17 @@ CREATE TABLE IF NOT EXISTS `PageRev` (
   KEY `page_id` (`page_id`),
   KEY `author_id` (`author_id`),
   KEY `reviewer_id` (`reviewer_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=93 ;
+
+--
+-- Dumping data for table `PageRev`
+--
+
+INSERT INTO `PageRev` (`revision_id`, `page_id`, `language`, `author_id`, `reviewer_id`, `notes`, `approved`, `title`, `title_fb`, `summary`, `summary_fb`, `content`, `content_fb`, `source`, `source_fb`, `link`, `link_fb`, `date_created`, `date_revised`, `invisible`, `seotitle`, `seotags`, `seodescription`) VALUES
+(89, 0, 'en', 1, 1, 'Page edited', 1, 'HOME', 0, 'home', 0, '<p>Nullam venenatis, dui vel auctor tristique, est dui cursus enim, eget aliquam libero lectus ac nulla. In volutpat, ante in placerat dignissim, enim elit sodales mi, ac dictum erat est sit amet est. Suspendisse luctus laoreet velit, non accumsan quam fringilla sit amet. Nunc mauris magna, imperdiet ut dignissim et, vestibulum sit amet erat. Sed ac sem orci, nec commodo augue. Curabitur aliquet nibh ut lectus auctor ut viverra metus commodo. Nam semper blandit lacus quis aliquet. In et egestas purus. Sed auctor volutpat lacus. Sed sed eros in lorem pulvinar gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida, augue ut cursus placerat, magna leo ornare diam, eu malesuada nunc enim in velit. Sed id consequat nibh. In velit dui, tristique ut faucibus pulvinar, molestie at quam. Maecenas imperdiet dictum justo in suscipit. Ut vel mi at quam aliquam convallis. Duis pharetra rhoncus elit ac tempus.</p>\r\n<p>Nullam eget dui tincidunt ante sollicitudin tincidunt. Phasellus a egestas lacus. Duis id urna orci, sit amet luctus justo. Nam euismod dignissim ultrices. Praesent non dolor nec nisl sodales congue. Nunc lacus arcu, adipiscing id egestas id, lacinia adipiscing nunc. Praesent sed luctus sapien. Ut sodales, mauris vel ultricies fermentum, erat diam facilisis tellus, non adipiscing dolor justo nec nunc. Cras vel nibh dolor. Morbi venenatis enim nec ipsum dapibus vel commodo augue dignissim.</p>', 0, '', 0, NULL, 0, '2014-12-12 23:26:02', '2014-12-12 23:26:02', 0, '', '', ''),
+(90, 1, 'en', 1, 1, 'New page created', 1, 'WORK', 0, 'work summary', 0, '<p>work content</p>', 0, '', 0, 'work', 0, '2014-12-12 23:26:38', '2014-12-12 23:26:38', 0, '', '', ''),
+(91, 2, 'en', 1, 1, 'New page created', 1, 'ABOUT', 0, 'about summary', 0, '<p>about content</p>', 0, '', 0, 'about', 0, '2014-12-12 23:27:17', '2014-12-12 23:27:17', 0, '', '', ''),
+(92, 3, 'en', 1, 1, 'New page created', 1, 'CONTACT', 0, 'contact summary', 0, '<p>contact content</p>', 0, '', 0, 'contact', 0, '2014-12-12 23:28:15', '2014-12-12 23:28:15', 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -813,9 +837,12 @@ CREATE TABLE IF NOT EXISTS `PageTsl` (
 
 INSERT INTO `PageTsl` (`page_id`, `language`, `title`, `title_fb`, `summary`, `summary_fb`, `source`, `source_fb`, `content`, `content_fb`, `link`, `link_fb`, `final`, `invisible`, `seotitle`, `seotags`, `seodescription`) VALUES
 (0, 'nl', 'home', 0, 'home', 0, '', 0, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut tellus neque. Cras volutpat mattis ligula, nec egestas felis consectetur vitae. Mauris id dolor mauris, a feugiat libero. Cras ut interdum neque. Mauris posuere fermentum justo, vel dictum mauris imperdiet eget. Mauris hendrerit, mauris vitae varius volutpat, quam tortor adipiscing lacus, ac ullamcorper velit odio sit amet justo. Etiam id ligula et nulla accumsan adipiscing. Nulla varius neque non magna varius suscipit. Aliquam leo mauris, pretium tristique hendrerit id, dictum vitae turpis. Cras quis sodales velit. Nullam vel mauris a erat commodo tempus id ut ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer lacinia fringilla leo, sit amet ornare lacus ullamcorper eu.</p>\r\n<p>Mauris nisl nulla, vehicula eu blandit non, porttitor id lacus. Nullam velit erat, volutpat sed tristique eu, ultricies non sapien. Nam sed dui condimentum tellus blandit mollis. Aliquam iaculis, ipsum sed ornare convallis, leo purus adipiscing dui, eu vulputate neque augue sed diam. Praesent malesuada libero varius lorem mollis tempor. Nullam bibendum tempor turpis, et vestibulum lorem blandit a. Quisque luctus pellentesque massa eu ultricies. Fusce et tortor eu ligula eleifend vulputate. Fusce faucibus gravida elementum. Vestibulum lacus diam, pellentesque a convallis a, aliquam at lacus. Morbi semper urna nec lacus interdum accumsan.</p>', 0, NULL, 0, 0, 0, 'Home', 'test', 'test'),
-(0, 'fr', 'home', 0, 'home', 0, '', 0, '<p>Mauris nisl nulla, vehicula eu blandit non, porttitor id lacus. Nullam velit erat, volutpat sed tristique eu, ultricies non sapien. Nam sed dui condimentum tellus blandit mollis. Aliquam iaculis, ipsum sed ornare convallis, leo purus adipiscing dui, eu vulputate neque augue sed diam. Praesent malesuada libero varius lorem mollis tempor. Nullam bibendum tempor turpis, et vestibulum lorem blandit a. Quisque luctus pellentesque massa eu ultricies. Fusce et tortor eu ligula eleifend vulputate. Fusce faucibus gravida elementum. Vestibulum lacus diam, pellentesque a convallis a, aliquam at lacus. Morbi semper urna nec lacus interdum accumsan. Morbi mattis dui et est luctus in volutpat urna volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum malesuada viverra massa, fermentum vehicula lorem sodales tempor. Curabitur massa purus, dapibus sed bibendum nec, tincidunt at enim. Aliquam porta, enim at rhoncus consectetur, ipsum nisl dapibus odio, ac consectetur eros ipsum iaculis quam. Phasellus tristique rutrum dolor non feugiat. Cras id tortor nunc. Cras laoreet vehicula neque non malesuada. Proin urna risus, scelerisque sit amet semper ac, varius at nisi.</p>\r\n<p>Nullam venenatis, dui vel auctor tristique, est dui cursus enim, eget aliquam libero lectus ac nulla. In volutpat, ante in placerat dignissim, enim elit sodales mi, ac dictum erat est sit amet est. Suspendisse luctus laoreet velit, non accumsan quam fringilla sit amet. Nunc mauris magna, imperdiet ut dignissim et, vestibulum sit amet erat. Sed ac sem orci, nec commodo augue. Curabitur aliquet nibh ut lectus auctor ut viverra metus commodo. Nam semper blandit lacus quis aliquet. In et egestas purus. Sed auctor volutpat lacus. Sed sed eros in lorem pulvinar gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida, augue ut cursus placerat, magna leo ornare diam, eu malesuada nunc enim in velit. Sed id consequat nibh. In velit dui, tristique ut faucibus pulvinar, molestie at quam. Maecenas imperdiet dictum justo in suscipit. Ut vel mi at quam aliquam convallis. Duis pharetra rhoncus elit ac tempus.</p>', 0, NULL, 0, 0, 0, '', '', ''),
-(0, 'en', 'home', 0, 'home', 0, '', 0, '<p>Nullam venenatis, dui vel auctor tristique, est dui cursus enim, eget aliquam libero lectus ac nulla. In volutpat, ante in placerat dignissim, enim elit sodales mi, ac dictum erat est sit amet est. Suspendisse luctus laoreet velit, non accumsan quam fringilla sit amet. Nunc mauris magna, imperdiet ut dignissim et, vestibulum sit amet erat. Sed ac sem orci, nec commodo augue. Curabitur aliquet nibh ut lectus auctor ut viverra metus commodo. Nam semper blandit lacus quis aliquet. In et egestas purus. Sed auctor volutpat lacus. Sed sed eros in lorem pulvinar gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida, augue ut cursus placerat, magna leo ornare diam, eu malesuada nunc enim in velit. Sed id consequat nibh. In velit dui, tristique ut faucibus pulvinar, molestie at quam. Maecenas imperdiet dictum justo in suscipit. Ut vel mi at quam aliquam convallis. Duis pharetra rhoncus elit ac tempus.</p>\r\n<p>Nullam eget dui tincidunt ante sollicitudin tincidunt. Phasellus a egestas lacus. Duis id urna orci, sit amet luctus justo. Nam euismod dignissim ultrices. Praesent non dolor nec nisl sodales congue. Nunc lacus arcu, adipiscing id egestas id, lacinia adipiscing nunc. Praesent sed luctus sapien. Ut sodales, mauris vel ultricies fermentum, erat diam facilisis tellus, non adipiscing dolor justo nec nunc. Cras vel nibh dolor. Morbi venenatis enim nec ipsum dapibus vel commodo augue dignissim.</p>', 0, NULL, 0, 0, 0, '', '', ''),
-(0, 'de', 'home', 0, 'home', 0, NULL, 0, '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>\r\n\r\n<p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>', 0, NULL, 0, 0, 0, '', '', '');
+(0, 'fr', 'home', 0, 'home', 0, '', 0, '<p>Mauris nisl nulla, vehicula eu blandit non, porttitor id lacus. Nullam velit erat, volutpat sed tristique eu, ultricies non sapien. Nam sed dui condimentum tellus blandit mollis. Aliquam iaculis, ipsum sed ornare convallis, leo purus adipiscing dui, eu vulputate neque augue sed diam. Praesent malesuada libero varius lorem mollis tempor. Nullam bibendum tempor turpis, et vestibulum lorem blandit a. Quisque luctus pellentesque massa eu ultricies. Fusce et tortor eu ligula eleifend vulputate. Fusce faucibus gravida elementum. Vestibulum lacus diam, pellentesque a convallis a, aliquam at lacus. Morbi semper urna nec lacus interdum accumsan. Morbi mattis dui et est luctus in volutpat urna volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum malesuada viverra massa, fermentum vehicula lorem sodales tempor. Curabitur massa purus, dapibus sed bibendum nec, tincidunt at enim. Aliquam porta, enim at rhoncus consectetur, ipsum nisl dapibus odio, ac consectetur eros ipsum iaculis quam. Phasellus tristique rutrum dolor non feugiat. Cras id tortor nunc. Cras laoreet vehicula neque non malesuada. Proin urna risus, scelerisque sit amet semper ac, varius at nisi.</p>\r\n<p>Nullam venenatis, dui vel auctor tristique, est dui cursus enim, eget aliquam libero lectus ac nulla. In volutpat, ante in placerat dignissim, enim elit sodales mi, ac dictum erat est sit amet est. Suspendisse luctus laoreet velit, non accumsan quam fringilla sit amet. Nunc mauris magna, imperdiet ut dignissim et, vestibulum sit amet erat. Sed ac sem orci, nec commodo augue. Curabitur aliquet nibh ut lectus auctor ut viverra metus commodo. Nam semper blandit lacus quis aliquet. In et egestas purus. Sed auctor volutpat lacus. Sed sed eros in lorem pulvinar gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida, augue ut cursus placerat, magna leo ornare diam, eu malesuada nunc enim in velit. Sed id consequat nibh. In velit dui, tristique ut faucibus pulvinar, molestie at quam. Maecenas imperdiet dictum justo in suscipit. Ut vel mi at quam aliquam convallis. Duis pharetra rhoncus elit ac tempus.</p>', 0, NULL, 0, 1, 0, '', '', ''),
+(0, 'en', 'HOME', 0, 'home', 0, '', 0, '<p>Nullam venenatis, dui vel auctor tristique, est dui cursus enim, eget aliquam libero lectus ac nulla. In volutpat, ante in placerat dignissim, enim elit sodales mi, ac dictum erat est sit amet est. Suspendisse luctus laoreet velit, non accumsan quam fringilla sit amet. Nunc mauris magna, imperdiet ut dignissim et, vestibulum sit amet erat. Sed ac sem orci, nec commodo augue. Curabitur aliquet nibh ut lectus auctor ut viverra metus commodo. Nam semper blandit lacus quis aliquet. In et egestas purus. Sed auctor volutpat lacus. Sed sed eros in lorem pulvinar gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida, augue ut cursus placerat, magna leo ornare diam, eu malesuada nunc enim in velit. Sed id consequat nibh. In velit dui, tristique ut faucibus pulvinar, molestie at quam. Maecenas imperdiet dictum justo in suscipit. Ut vel mi at quam aliquam convallis. Duis pharetra rhoncus elit ac tempus.</p>\r\n<p>Nullam eget dui tincidunt ante sollicitudin tincidunt. Phasellus a egestas lacus. Duis id urna orci, sit amet luctus justo. Nam euismod dignissim ultrices. Praesent non dolor nec nisl sodales congue. Nunc lacus arcu, adipiscing id egestas id, lacinia adipiscing nunc. Praesent sed luctus sapien. Ut sodales, mauris vel ultricies fermentum, erat diam facilisis tellus, non adipiscing dolor justo nec nunc. Cras vel nibh dolor. Morbi venenatis enim nec ipsum dapibus vel commodo augue dignissim.</p>', 0, NULL, 0, 0, 0, '', '', ''),
+(0, 'de', 'home', 0, 'home', 0, NULL, 0, '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>\r\n\r\n<p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>', 0, NULL, 0, 1, 0, '', '', ''),
+(1, 'en', 'WORK', 0, 'work summary', 0, '', 0, '<p>work content</p>', 0, 'work', 0, 0, 0, '', '', ''),
+(2, 'en', 'ABOUT', 0, 'about summary', 0, '', 0, '<p>about content</p>', 0, 'about', 0, 0, 0, '', '', ''),
+(3, 'en', 'CONTACT', 0, 'contact summary', 0, '', 0, '<p>contact content</p>', 0, 'contact', 0, 0, 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1212,6 +1239,7 @@ CREATE TABLE IF NOT EXISTS `User` (
 --
 
 INSERT INTO `User` (`user_id`, `email`, `password`, `active`, `first_name`, `last_name`, `date_created`, `date_updated`) VALUES
+(0, 'info@sanmax.be', '3b3108ab8c18aa16565db860a7cb70b4ee04e1f7', 1, 'Sanmax', 'Consultancy', '2009-01-01 00:00:00', '2010-03-02 00:00:00'),
 (1, 'thieusmith@gmail.com', '3bf264855de091c7c87ff95bc1710d1fe6dd08c9', 1, 'Thieu', 'Smith', '2013-05-23 00:00:00', NULL);
 
 -- --------------------------------------------------------
@@ -1231,6 +1259,7 @@ CREATE TABLE IF NOT EXISTS `UserGroup` (
 --
 
 INSERT INTO `UserGroup` (`user_id`, `group_id`) VALUES
+(0, 1),
 (1, 1);
 
 -- --------------------------------------------------------
