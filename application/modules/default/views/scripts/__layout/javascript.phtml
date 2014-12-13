@@ -11,8 +11,6 @@
 $(document).ready(function() {    
 
     function responsive() {
-        console.log ($('html').height());
-        console.log ($(window).height());
         if($('html').height() > $(window).height()) {
             $('body').css('overflow-x', "hidden");
             $('body').css('overflow-y', "scroll");
