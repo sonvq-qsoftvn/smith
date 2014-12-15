@@ -17,7 +17,7 @@ class ContactController extends Zend_Controller_Action
     {
         $this->_helper->layout->setLayout('full');
         
-		$lang = $this->_getParam('lng', 'nl');
+		$lang = $this->_getParam('lng', 'en');
 
 		$fname = APPLICATION_ROOT . '/application/var/locale/contact.tmx';
 		$tmx   = new Zend_Translate('tmx', $fname, $lang);

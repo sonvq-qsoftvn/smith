@@ -9,7 +9,7 @@ class FaqController extends Zend_Controller_Action
         $this->view->lng = $_SESSION['System']['lng'];
 
         $proxy = new SxCms_Page_Proxy();
-        $this->view->page  = $proxy->getPageByUrl('faq', null, $this->_getParam('lng', 'nl'));
+        $this->view->page  = $proxy->getPageByUrl('faq', null, $this->_getParam('lng', 'en'));
 
         $this->view->glob_tmx = new Zend_Translate('tmx', APPLICATION_ROOT . '/application/var/locale/global.tmx', $_SESSION['System']['lng']);
 

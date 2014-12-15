@@ -17,7 +17,7 @@ class MemberController extends Zend_Controller_Action
 
 	public function forgottenAction() {
 		$proxy = new SxCms_Page_Proxy();
-		$this->view->page = $proxy->getPageById('27', null, $this->_getParam('lng', 'nl'));
+		$this->view->page = $proxy->getPageById('27', null, $this->_getParam('lng', 'en'));
 
 		if($this->getRequest()->isPost()) {
 			$email = $this->_getParam('email');
@@ -37,7 +37,7 @@ class MemberController extends Zend_Controller_Action
 	public function loginAction() {
 		//get page content
 		$proxy = new SxCms_Page_Proxy();
-		$this->view->page = $proxy->getPageById('27', null, $this->_getParam('lng', 'nl'));
+		$this->view->page = $proxy->getPageById('27', null, $this->_getParam('lng', 'en'));
 
 		//create object
 		$member = new SxModule_Members();
@@ -80,7 +80,7 @@ class MemberController extends Zend_Controller_Action
 				//forward
 				$this->_forward('quick', 'index', null, array(
 					'id' => '6',
-					'lng' => $this->_getParam('lng', 'nl')
+					'lng' => $this->_getParam('lng', 'en')
 				));
 			}
 
@@ -102,7 +102,7 @@ class MemberController extends Zend_Controller_Action
 
 	public function registerAction() {
 		$proxy = new SxCms_Page_Proxy();
-		$this->view->page = $proxy->getPageById('27', null, $this->_getParam('lng', 'nl'));
+		$this->view->page = $proxy->getPageById('27', null, $this->_getParam('lng', 'en'));
 
 		//enable groups if they can choose them
 		/*
@@ -144,7 +144,7 @@ class MemberController extends Zend_Controller_Action
 
 	public function profileAction() {
 		$proxy = new SxCms_Page_Proxy();
-		$this->view->page = $proxy->getPageById('29', null, $this->_getParam('lng', 'nl'));
+		$this->view->page = $proxy->getPageById('29', null, $this->_getParam('lng', 'en'));
 
 		//enable groups if they can choose them
 		/*

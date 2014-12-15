@@ -22,7 +22,10 @@
                         <div class="header-text">
                             <?php echo $this->page->getContent(); ?>
                         </div>
-                        <img class="home-work" src="<?php echo $this->baseUrl("/images/website/home-work.png"); ?>"/>
+                        <div class="img-work-container grid_12">
+                            <img class="home-work" src="<?php echo $this->baseUrl("/images/website/home-work.png"); ?>"/>
+                            <a class="curl-top-left shadow-radial home-work-hover" href="<?php echo $this->url(array('lng' => $this->lng), 'work-overview', true); ?>"></a> 
+                        </div>
                     </div>
                 </div>
                 <div class="clear"></div>

@@ -20,7 +20,7 @@ class IndexController extends Zend_Controller_Action
 
 		$url   = $this->_getParam('url');
 		$proxy = new SxCms_Page_Proxy();
-		$page  = $proxy->getPageByUrl($url, null, $this->_getParam('lng', 'nl'));
+		$page  = $proxy->getPageByUrl($url, null, $this->_getParam('lng', 'en'));
 		if ($page->getId() === false) {
 			throw new Zend_Controller_Action_Exception('Page not found', 404);
 		}
@@ -50,7 +50,7 @@ class IndexController extends Zend_Controller_Action
 		$this->_helper->layout->setLayout($page->getLayout());
 
 		if ($page->getType() == SxCms_Page::SUMMARY) {
-			$children = $proxy->getPagesByParentId($page->getId(), null, $this->_getParam('lng', 'nl'), true, true);
+			$children = $proxy->getPagesByParentId($page->getId(), null, $this->_getParam('lng', 'en'), true, true);
 			$childrenArr = array();
 			foreach ($children as $child) {
 				$pageFallback = false;
@@ -137,11 +137,11 @@ class IndexController extends Zend_Controller_Action
 		$this->_helper->redirector
 			->setCode(303)
 			->setExit(false)
-			->gotoRoute(array('url' => $page->getLink(), 'lng' => $this->_getParam('lng', 'nl')), 'content', false, false);
+			->gotoRoute(array('url' => $page->getLink(), 'lng' => $this->_getParam('lng', 'en')), 'content', false, false);
 	}
 
 	public function menuAction() {
-        $nav = new SxCms_Nav($this->_getParam('lng', 'nl'));
+        $nav = new SxCms_Nav($this->_getParam('lng', 'en'));
         $nav->setBounds(0, 2);
 
         if (true == ($page = $this->_getParam('page'))) {
@@ -153,7 +153,7 @@ class IndexController extends Zend_Controller_Action
 	}
 	
 	public function multilevelmenuAction() {
-        $nav = new SxCms_Nav($this->_getParam('lng', 'nl'));
+        $nav = new SxCms_Nav($this->_getParam('lng', 'en'));
         $nav->setBounds(0, 4);
 
         if (true == ($page = $this->_getParam('page'))) {
@@ -177,23 +177,23 @@ class IndexController extends Zend_Controller_Action
 
 		$cTree = array();
 		$tree  = $pageProxy->getPagesByParentId($page->getId());
-		$breadcrumbs = $page->getBreadcrumbs($this->_getParam('lng', 'nl'), true, false);
+		$breadcrumbs = $page->getBreadcrumbs($this->_getParam('lng', 'en'), true, false);
 
 		$active = array();
 		$active[] = $page->getId();
 
 		if (isset($breadcrumbs[1])) {
 			$active[] = $breadcrumbs[1]['page_id'];
-			$tree = $pageProxy->getPagesByParentId($breadcrumbs[1]['page_id'], null, $this->_getParam('lng', 'nl'), true, true);
+			$tree = $pageProxy->getPagesByParentId($breadcrumbs[1]['page_id'], null, $this->_getParam('lng', 'en'), true, true);
 			$cTree = array($breadcrumbs[1]['page_id'] => $tree);
 		}
 
 		if (isset($breadcrumbs[0])) {
 			$active[] = $breadcrumbs[0]['page_id'];
-			$tree = $pageProxy->getPagesByParentId($breadcrumbs[0]['page_id'], null, $this->_getParam('lng', 'nl') , true, true);
+			$tree = $pageProxy->getPagesByParentId($breadcrumbs[0]['page_id'], null, $this->_getParam('lng', 'en') , true, true);
 		}
 
-		$section = $pageProxy->getPageById($breadcrumbs[0]['page_id'], $this->_getParam('lng', 'nl'));
+		$section = $pageProxy->getPageById($breadcrumbs[0]['page_id'], $this->_getParam('lng', 'en'));
 
 		$submenus = array();
 		foreach ($tree as $item) {
@@ -217,7 +217,7 @@ class IndexController extends Zend_Controller_Action
 
 
 	public function breadcrumbsAction() {
-        $nav = new SxCms_Nav($this->_getParam('lng', 'nl'));
+        $nav = new SxCms_Nav($this->_getParam('lng', 'en'));
         if (true == ($page = $this->_getParam('page'))) {
             $nav->setActivePage($page);
         }
@@ -231,7 +231,7 @@ class IndexController extends Zend_Controller_Action
 		
 		$breadcrumbs = '';
 		if (true == ($page = $this->_getParam('page'))) {
-            $breadcrumbs = $page->getBreadcrumbs($this->_getParam('lng', 'nl'), true);
+            $breadcrumbs = $page->getBreadcrumbs($this->_getParam('lng', 'en'), true);
 			
 			if($page->getSeoTitle())
 	            $seotitle = $page->getSeoTitle();
@@ -271,7 +271,7 @@ class IndexController extends Zend_Controller_Action
 	public function sitemapAction()  {
 		$this->view->page = new SxCms_Page();
 
-		$nav = new SxCms_Nav($this->_getParam('lng', 'nl'));
+		$nav = new SxCms_Nav($this->_getParam('lng', 'en'));
         $nav->setBounds(1, 3);
 
         $this->view->lng = $this->_getParam('lng');

@@ -153,6 +153,7 @@ class SxCms_Controller_Plugin_Bootstrap extends Zend_Controller_Plugin_Abstract 
             'webtv'    => 'webtv',
             'login'    => 'login',
             'profile'  => 'edit-profile',
+            'work'     => 'work' 
         );
 
         $fr = array(
@@ -165,6 +166,7 @@ class SxCms_Controller_Plugin_Bootstrap extends Zend_Controller_Plugin_Abstract 
 	        'webtv'    => 'webtv',
 	        'login'    => 'login',
 	        'profile'  => 'edit-profile',
+            'work'     => 'work'
         );
         
         $en = array(
@@ -177,6 +179,7 @@ class SxCms_Controller_Plugin_Bootstrap extends Zend_Controller_Plugin_Abstract 
 	        'webtv'    => 'webtv',
 	        'login'    => 'login',
 	        'profile'  => 'profile',
+            'work'     => 'work'
         );
 
         $translator = new Zend_Translate('array', $en, 'en');
@@ -221,6 +224,17 @@ class SxCms_Controller_Plugin_Bootstrap extends Zend_Controller_Plugin_Abstract 
         $router->addRoute('content', $localeRoute->chain($contentRoute, '/'));
 
 
+        $workRoute = new Zend_Controller_Router_Route(
+            '@work/*', array(
+                'controller' => 'work',
+                'action'  => 'index',
+            ),
+            '%s'
+        );
+
+        $workChainedRoute = $localeRoute->chain($workRoute, '/');
+        $router->addRoute('work-overview', $workChainedRoute);
+        
         $newsRoute = new Zend_Controller_Router_Route(
             '@news/*', array(
                 'controller' => 'news',

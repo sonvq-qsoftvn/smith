@@ -6,7 +6,7 @@ $inMenu = true;
 $inSubMenu = true;
 
 ?>
-<ul>
+<ul class="cl-effect-1">
 	<?php
 
 	do {
@@ -41,7 +41,7 @@ $inSubMenu = true;
 			endif;
 	
 			$inMenu = $page->isInNavigation();
-	
+            
 			if($inMenu): ?>
 		   		 <li><a class="<?php echo $class; ?>" href="<?php echo $url ?>" <?php echo $target?>><?php echo $page->getTitle() ?></a></li>
 		         <?php continue;

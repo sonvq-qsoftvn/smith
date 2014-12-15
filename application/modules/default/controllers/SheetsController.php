@@ -18,7 +18,7 @@ class SheetsController extends Zend_Controller_Action {
 
     public function indexAction() {
         $proxy = new SxCms_Page_Proxy();
-        $this->view->page = $proxy->getPageById('286', null, $this->_getParam('lng', 'nl'));
+        $this->view->page = $proxy->getPageById('286', null, $this->_getParam('lng', 'en'));
 
         $proxy = new SxModule_Sheets_Type_Proxy();
         $types = $proxy->getAllActive();
@@ -44,7 +44,7 @@ class SheetsController extends Zend_Controller_Action {
         $this->view->items = "";
 
         $proxy = new SxCms_Page_Proxy();
-        $this->view->page = $proxy->getPageById('286', null, $this->_getParam('lng', 'nl'));
+        $this->view->page = $proxy->getPageById('286', null, $this->_getParam('lng', 'en'));
 
         $proxy = new SxModule_Sheets_Type_Proxy();
         $types = $proxy->getAllActive();
@@ -82,7 +82,7 @@ class SheetsController extends Zend_Controller_Action {
 
         if (!Zend_Auth::getInstance()->hasIdentity()) {
             $_SESSION['goto'] = '/file/download/filename/' . $this->_getParam('filename');
-            $this->_forward('quick', 'index', null, array('id' => '286', 'lng' => $this->_getParam('lng', 'nl')));
+            $this->_forward('quick', 'index', null, array('id' => '286', 'lng' => $this->_getParam('lng', 'en')));
         } else {
             unset($_SESSION['goto']);
         }
@@ -115,7 +115,7 @@ class SheetsController extends Zend_Controller_Action {
             exit;
         } catch (Exception $e) {
             header_remove();
-            $this->_forward('quick', 'index', null, array('id' => '286', 'lng' => $this->_getParam('lng', 'nl')));
+            $this->_forward('quick', 'index', null, array('id' => '286', 'lng' => $this->_getParam('lng', 'en')));
         }
     }
 
