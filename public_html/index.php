@@ -3,6 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once '../application/init.php';
+require_once '../application/modules/default/controllers/phpmailer/class.phpmailer.php';
 
 $front = Zend_Controller_Front::getInstance();
 $front->registerPlugin(new SxCms_Controller_Plugin_Bootstrap(APPLICATION_ENV))

@@ -364,17 +364,48 @@ class SxCms_Contact
 		// $tr = new Zend_Mail_Transport_Smtp('10.10.0.1');
 		// Zend_Mail::setDefaultTransport($tr);
 
-        $mail = new Zend_Mail('utf-8');
-        $mail->setSubject('ThieuSmith Email Contact')
-            ->setFrom($this->getEmail(), $this->getEmail());
-		
-$body = 'Date : '   . date('Y-m-d H:i:s') . '
-Email : '     . $this->getEmail() . '
-Message : ' . $this->getMessage();
-		
-		$mail->setBodyText($body);
-		$mail->addTo('vuquangson1610@gmail.com');
-        //$mail->addTo(Zend_Registry::get('config')->contact->to);
-        return $mail->send();
+//        $mail = new Zend_Mail('utf-8');
+//        $mail->setSubject('ThieuSmith Email Contact')
+//            ->setFrom($this->getEmail(), $this->getEmail());
+//		
+//$body = 'Date : '   . date('Y-m-d H:i:s') . '
+//Email : '     . $this->getEmail() . '
+//Message : ' . $this->getMessage();
+//		
+//		$mail->setBodyText($body);
+//		$mail->addTo('vuquangson1610@gmail.com');
+//        //$mail->addTo(Zend_Registry::get('config')->contact->to);
+//        return $mail->send();
+//        
+        $mail             = new PHPMailer();
+
+        $mail->IsSMTP(); // telling the class to use SMTP
+        $mail->Host       = "mail.yourdomain.com"; // SMTP server
+        $mail->SMTPDebug  = 2;                     // enables SMTP debug information (for testing)
+                                                   // 1 = errors and messages
+                                                   // 2 = messages only
+        $mail->SMTPAuth   = true;                  // enable SMTP authentication
+        $mail->SMTPSecure = "tls";                 // sets the prefix to the servier
+        $mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
+        $mail->Port       = 587;                   // set the SMTP port for the GMAIL server
+        $mail->Username   = "thieusmith.noreply@gmail.com";  // GMAIL username
+        $mail->Password   = "convit123";            // GMAIL password
+
+        $mail->SetFrom($this->getEmail(), 'Customer');
+
+        $mail->AddReplyTo($this->getEmail(), "Customer");
+
+        $mail->Subject    = "ThieuSmith Email Contact";
+        $body = 'Hello Thieu Smith<br>I am ' . $this->getEmail() . '<br>And I want to: <br>' . $this->getMessage();
+        $mail->MsgHTML($body);
+
+        $mail->AddAddress('thieusmith@gmail.com', 'Thieu Smith');
+
+        if(!$mail->Send()) {
+          echo "Mailer Error: " . $mail->ErrorInfo;
+        } else {
+          echo "Message sent!";
+        }
+    
     }
 }
