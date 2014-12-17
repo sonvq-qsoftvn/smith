@@ -1,5 +1,5 @@
 tinyMCE.init({
-	language : 'nl',
+	language : 'en',
 	theme : "advanced",
     mode : "textareas",
     editor_selector : "mceEditor",

@@ -1,28 +1,33 @@
-<?php echo $this->Doctype('HTML5'); ?>
-<!--[if lt IE 7 ]> <html lang="nl" class="ie6"> <![endif]-->
-<!--[if IE 7 ]> <html lang="nl" class="ie7"> <![endif]-->
-<!--[if IE 8 ]> <html lang="nl" class="ie8"> <![endif]-->
-<!--[if IE 9 ]> <html lang="nl" class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="nl"> <!--<![endif]-->
-<head>
-	<?php echo $this->action('head' , 'index' , null , array('page' => $this->page, 'lng' => $this->lng)) ?>
-</head>
-<body>
-
-<div id="container">
-	<div id="wrap">
-        <?php echo $this->render('__layout/headerfull.phtml') ?>
-		<div id="content">
-			<div id="main" class="full">
-				<?php echo $this->action('breadcrumbs', 'index', null, array('page' => $this->page, 'lng' => $this->lng) ) ?>
-				<?php echo $this->layout()->content ?>
-			</div>
-
-			<div style="clear: both;"></div>
-		</div>
-
-		<?php echo $this->render('__layout/footer.phtml') ?>
-	</div>
-</div>
-</body>
+<?php
+    $basePathLanguage = '/' . $this->lng; 
+    $basePath = '/'; 
+?>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<?php echo $this->action('head' , 'index' , null , array('page' => $this->page, 'lng' => $this->lng)) ?>
+	</head>
+	<body>	
+        <div id="main-container">
+            <hr class="top-hr"></hr>
+            <div class ="logo-container container_12">
+                <a href="<?php echo $this->baseUrl($basePathLanguage); ?>" class="logo"></a>
+            </div>
+            <div class="menu-container container_12">
+                <?php echo $this->action('multilevelmenu' , 'index' , null , array('page' => $this->page, 'lng' => $this->lng)) ?>
+            </div>
+            <div id="pt-main" class="pt-perspective container_12">
+                <div class="pt-page pt-page-1 grid_12">
+                    <div class="default-content-container">
+                        <div class="header-text">
+                            <?php echo $this->layout()->content ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <?php echo $this->render('__layout/footer.phtml'); ?>
+        </div>
+        
+	</body>
 </html>

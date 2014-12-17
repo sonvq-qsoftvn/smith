@@ -5,7 +5,23 @@ require_once 'Zend/Controller/Action.php';
 class ContactController extends Zend_Controller_Action
 {
 	public function init() {
-		$this->view->lng = $this->_getParam('lng','nl');
+        $identity = Zend_Auth::getInstance()->getIdentity();
+		$config = Zend_Registry::get('config');
+        $_SESSION['System']['lng'] = $this->_getParam('lng', $config->system->defaults->language);
+        $this->view->lng = $_SESSION['System']['lng'];
+		
+        $fname = APPLICATION_ROOT . '/application/var/locale/contact.tmx';
+        $gfname = APPLICATION_ROOT . '/application/var/locale/global.tmx';
+		$tmx   = new Zend_Translate('tmx', $fname, $_SESSION['System']['lng']);
+        $gtmx = new Zend_Translate('tmx', $gfname, $_SESSION['System']['lng']);
+        
+		$this->view->tmx = $tmx;
+        $this->view->glob_tmx = $gtmx;
+        
+        $pageProxy = new SxCms_Page_Proxy();
+        $page = $pageProxy->getPageById(4);
+        $this->view->page = $page;
+        $this->view->identity = $identity;
 	}
 
     public function sentAction()
@@ -13,63 +29,54 @@ class ContactController extends Zend_Controller_Action
         $this->_helper->layout->setLayout('full');
     }
     
-    public function formAction()
+    public function indexAction()
     {
         $this->_helper->layout->setLayout('full');
+    }
+    
+    public function formAction()
+    {
+        $lang = $this->_getParam('lng', 'en');
         
-		$lang = $this->_getParam('lng', 'en');
-
-		$fname = APPLICATION_ROOT . '/application/var/locale/contact.tmx';
-		$tmx   = new Zend_Translate('tmx', $fname, $lang);
-
-	
-		$this->view->tmx = $tmx;
+        $this->_helper->layout->setLayout('full');
+        $fname = APPLICATION_ROOT . '/application/var/locale/contact.tmx';
+        $gfname = APPLICATION_ROOT . '/application/var/locale/global.tmx';
+		$tmx   = new Zend_Translate('tmx', $fname, $_SESSION['System']['lng']);
+        $gtmx = new Zend_Translate('tmx', $gfname, $_SESSION['System']['lng']);
         
 		$proxy = new SxCms_Page_Proxy();
-		$page = $proxy->getPageByUrl('contact', null, $lang);
+		$page = $proxy->getPageByUrl('contact', null, $_SESSION['System']['lng']);
 		$this->view->page = $page;
-		
-        if ($this->getRequest()->isGet()) {
-            $contact = new SxCms_Contact();
-			$this->view->captchaId = $this->generateCaptcha();
-            $this->view->contact   = $contact;
-        }
+        
+        $contact = new SxCms_Contact();
+        $contact->setTmx($tmx);
 
         if ($this->getRequest()->isPost()) {
-            $contact = new SxCms_Contact();
-            $contact->setTmx($tmx);
+            $request = $this->getRequest()->getPost();
+            if (isset($request['submit'])) {
+                if ($request['submit'] == "contact") {
+                    $contact->setEmail($this->_getParam('email'))
+                        ->setMessage($this->_getParam('message'));
 
-            $contact->setName($this->_getParam('name'))
-                ->setFirstName($this->_getParam('fname'))
-                ->setEmail($this->_getParam('email'))
-                ->setPhone($this->_getParam('phone'))
-                ->setMessage($this->_getParam('message'));
-			
-			if ($this->_getParam('captcha')) {
-				$captcha = $this->_getParam('captcha');
-				if ($this->validateCaptcha($captcha) ) {
-					if (true === ($result = $contact->isValid())) {
-						$test = $contact->send();
-						
-						//var_dump($test);die();
+                    $errors = array();
+                    
+                    if ((true === ($result = $contact->isValid()))) {
+                        $test = $contact->send();
+                        $this->_helper->redirector->gotoUrl('/' . $_SESSION['System']['lng'] . '/contact/verzonden');
+                    } else {
+                        if(is_array($result)) {
+                            $this->view->errors  = array_merge($errors, $result);
+                        } else {
+                            $this->view->errors  = $errors;
+                        }
+                    }
 
-                        $this->_helper->redirector->gotoUrl('/nl/contact/verzonden');
-					} else {
-					
-						$this->view->errors  = $result;
-						$this->view->contact = $contact;
-				
-					    $this->view->captchaId = $this->generateCaptcha();
-					}
-				} else {
-					$errors = array();
-					$errors['captcha']['code'] = "De code werd verkeerd overgenomen.";
-					$this->view->errors = $errors;
-					$this->view->captchaId = $this->generateCaptcha();
-					$this->view->contact = $contact;
-				}
-			}
+                }
+            }
         }
+        
+        $this->view->contact = $contact;
+        $this->view->captchaId = $this->generateCaptcha();
     }
 
 	public function generateCaptcha()

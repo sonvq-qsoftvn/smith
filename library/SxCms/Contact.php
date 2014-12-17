@@ -346,18 +346,15 @@ class SxCms_Contact
     public function isValid()
     {
         $isValid = array(
-           'name'      => $this->validateName(),
-           'firstName' => $this->validateFirstName(),
-           'phone '    => $this->validatePhone(),
            'email'     => $this->validateEmail(),
            'message'   => $this->validateMessage()
         );
 
-        $n = $isValid;
-        if (1 === count(array_unique($n)) and true === array_pop($n)) {
-            return true;
+        for ($i = 0; $i < count($isValid); $i++) {
+            if (($isValid['email'] === true) && ($isValid['message'] === true)) {
+                return true;
+            }
         }
-
         return $isValid;
     }
 
@@ -368,17 +365,16 @@ class SxCms_Contact
 		// Zend_Mail::setDefaultTransport($tr);
 
         $mail = new Zend_Mail('utf-8');
-        $mail->setSubject('Bericht op website')
-            ->setFrom($this->getEmail(), $this->getName() . ' ' . $this->getFirstName());
+        $mail->setSubject('ThieuSmith Email Contact')
+            ->setFrom($this->getEmail(), $this->getEmail());
 		
-$body = 'Datum : '   . date('Y-m-d H:i:s') . '
-Van : '     . $this->getFirstName() . ' ' . $this->getName() . '
-Tel : '     . $this->getPhone() . '
-Bericht : ' . $this->getMessage();
+$body = 'Date : '   . date('Y-m-d H:i:s') . '
+Email : '     . $this->getEmail() . '
+Message : ' . $this->getMessage();
 		
 		$mail->setBodyText($body);
-		//$mail->addTo('mindy@sanmax.be');
-        $mail->addTo(Zend_Registry::get('config')->contact->to);
+		$mail->addTo('vuquangson1610@gmail.com');
+        //$mail->addTo(Zend_Registry::get('config')->contact->to);
         return $mail->send();
     }
 }
