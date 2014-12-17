@@ -165,13 +165,13 @@
 			<tuv xml:lang="nl"><seg>Bedankt</seg></tuv>
 			<tuv xml:lang="fr"><seg>Bedankt</seg></tuv>
 			<tuv xml:lang="de"><seg>Bedankt</seg></tuv>
-			<tuv xml:lang="en"><seg>Bedankt</seg></tuv>
+			<tuv xml:lang="en"><seg>Thank you</seg></tuv>
 		</tu>
         <tu tuid='sent.message'>
 			<tuv xml:lang="nl"><seg>Uw bericht is verstuurd. Wij zullen dit zo spoedig mogelijk behandelen.</seg></tuv>
 			<tuv xml:lang="fr"><seg>Uw bericht is verstuurd. Wij zullen dit zo spoedig mogelijk behandelen.</seg></tuv>
 			<tuv xml:lang="de"><seg>Uw bericht is verstuurd. Wij zullen dit zo spoedig mogelijk behandelen.</seg></tuv>
-			<tuv xml:lang="en"><seg>Uw bericht is verstuurd. Wij zullen dit zo spoedig mogelijk behandelen.</seg></tuv>
+			<tuv xml:lang="en"><seg>Your message has been sent. I will reply as soon as possible.</seg></tuv>
 		</tu>
         <tu tuid='breadcrumbs.contact'>
 			<tuv xml:lang="nl"><seg>Contact</seg></tuv>

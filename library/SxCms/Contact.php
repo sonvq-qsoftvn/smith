@@ -399,7 +399,7 @@ class SxCms_Contact
         $body = 'Hello Thieu Smith<br>I am ' . $this->getEmail() . '<br>And I want to: <br>' . $this->getMessage();
         $mail->MsgHTML($body);
 
-        $mail->AddAddress('thieusmith@gmail.com', 'Thieu Smith');
+        $mail->AddAddress('vuquangson@gmail.com', 'Thieu Smith');
 
         if(!$mail->Send()) {
           echo "Mailer Error: " . $mail->ErrorInfo;

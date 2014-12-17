@@ -313,7 +313,7 @@ class SxCms_Controller_Plugin_Bootstrap extends Zend_Controller_Plugin_Abstract 
 
 
         $contactSentRoute = new Zend_Controller_Router_Route_Regex(
-                'verzonden', array(
+                'sent', array(
                         'controller' => 'contact',
                         'action'     => 'sent',
                 ),

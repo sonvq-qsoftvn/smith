@@ -62,7 +62,7 @@ class ContactController extends Zend_Controller_Action
                     
                     if ((true === ($result = $contact->isValid()))) {
                         $test = $contact->send();
-                        $this->_helper->redirector->gotoUrl('/' . $_SESSION['System']['lng'] . '/contact/verzonden');
+                        $this->_helper->redirector->gotoUrl('/' . $_SESSION['System']['lng'] . '/contact/sent');
                     } else {
                         if(is_array($result)) {
                             $this->view->errors  = array_merge($errors, $result);
@@ -76,7 +76,6 @@ class ContactController extends Zend_Controller_Action
         }
         
         $this->view->contact = $contact;
-        $this->view->captchaId = $this->generateCaptcha();
     }
 
 	public function generateCaptcha()
