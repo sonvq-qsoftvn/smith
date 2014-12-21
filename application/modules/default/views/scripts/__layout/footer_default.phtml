@@ -1,0 +1,11 @@
+	<div id="footer-default">
+		<div class="container_12">
+			<div class="footer-content">
+			<?php echo $this->action('view', 'contentblock', null, array('name' => 'footer_contact', 
+                'block' => $this->block, 'page' => $this->page, 'lng' => $this->lng)) ?>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<?php echo $this->render('__layout/javascript.phtml') ?>

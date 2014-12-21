@@ -69,7 +69,8 @@ var PageTransitions = (function () {
         });
         $(window).load(function () {
             
-            nextPage(Math.floor((Math.random() * 67) + 1));
+            //nextPage(Math.floor((Math.random() * 67) + 1));
+            nextPage(34);
             $("#footer").hide();
             setTimeout(function() {
                 $("#footer").slideToggle("slow");

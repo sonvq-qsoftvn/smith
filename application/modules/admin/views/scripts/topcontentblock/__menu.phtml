@@ -2,6 +2,7 @@
 <h3 id="menu-topblock"><a href="#"><?php echo $this->admin_menu_tmx->_('tcb.topcontentblocks') ?></a></h3>
 <div>
 	<ul class="sidemenu">
-        <li><a href="<?php echo $this->url(array('controller' => 'topcontentblock', 'action' => 'index')) ?>"><?php echo $this->admin_menu_tmx->_('tcb.overview') ?></a></li>
+        <li><a href="<?php echo $this->url(array('controller' => 'topcontentblock', 'action' => 'index'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('tcb.overview') ?></a></li>
+        <li><a href="<?php echo $this->url(array('controller' => 'topcontentblock', 'action' => 'add'), null, true) ?>"><?php echo $this->admin_menu_tmx->_('tcb.add') ?></a></li>
 	</ul>
 </div>

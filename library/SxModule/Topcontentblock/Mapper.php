@@ -10,7 +10,8 @@ class SxModule_Topcontentblock_Mapper extends Base_Mapper
 			'title' => array('type' => 'string', 'set' => 'setTitle'),
 			'content' => array('type' => 'string', 'set' => 'setContent'),
 			'url' => array('type' => 'string', 'set' => 'setUrl'),
-			'picture' => array('type' => 'string', 'set' => 'setPicture')
+			'picture' => array('type' => 'string', 'set' => 'setPicture'),
+            'thumb' => array('type' => 'string', 'set' => 'setThumb'),
 		);
 
 		$flag = ($instance == false) ? 'new' : 'existing';
@@ -30,7 +31,8 @@ class SxModule_Topcontentblock_Mapper extends Base_Mapper
 			'title' => $item->getTitle(),
 			'content' => $item->getContent(),
 			'url' => $item->getUrl(),
-			'picture' => $item->getPicture()
+			'picture' => $item->getPicture(),
+            'thumb' => $item->getThumb()
 		);
 
 		if($type == 'item') return $data;

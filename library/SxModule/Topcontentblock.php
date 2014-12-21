@@ -11,6 +11,7 @@ class SxModule_Topcontentblock
 	protected $_lng;
 	protected $_url;
 	protected $_picture;
+    protected $_thumb;
 
 	public function setTmx($tmx) {
 		$this->_tmx = $tmx;
@@ -72,6 +73,13 @@ class SxModule_Topcontentblock
 		return $this;
 	}
 
+    public function getThumb() {
+		return $this->_thumb;
+	}
+	public function setThumb($thumb) {
+		$this->_thumb = $thumb;
+		return $this;
+	}
 
 
 

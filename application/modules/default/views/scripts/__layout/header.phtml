@@ -1,6 +1,6 @@
- <div id="header">
-     <a title="Terug naar de homepage" href="/<?php echo $this->lng ?>">
-         <img src="/images/website/logo.jpg" alt="ALT TAG HERNOEMEN!!!" id="logo" />
+<div id="header">
+     <a title="Thieu Smith designer homepage" href="/<?php echo $this->lng ?>">
+         <img src="<?php echo $this->baseUrl("/images/website/logo.jpg"); ?>" alt="Thieu Smith designer homepage" id="logo" />
      </a>
      <div id="menu">
          <?php echo $this->action('multilevelmenu' , 'index' , null , array('page' => $this->page, 'lng' => $this->lng)) ?>

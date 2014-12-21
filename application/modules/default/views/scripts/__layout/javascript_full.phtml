@@ -1,0 +1,63 @@
+<?php
+    $this->headScript()->appendFile($this->baseUrl('/js/jquery.carouFredSel-6.2.1-packed.js'));
+    $this->headScript()->appendFile($this->baseUrl('/js/modernizr.custom.js'));
+    $this->headScript()->appendFile($this->baseUrl('/js/jquery.dlmenu.js'));
+    $this->headScript()->appendFile($this->baseUrl('/js/pagetransitions.js'));
+    $this->headScript()->appendFile($this->baseUrl('/js/loader/masonry.pkgd.min.js'));
+    $this->headScript()->appendFile($this->baseUrl('/js/loader/imagesloaded.js'));
+    $this->headScript()->appendFile($this->baseUrl('/js/loader/classie.js'));
+    $this->headScript()->appendFile($this->baseUrl('/js/loader/AnimOnScroll.js'));
+    $this->headScript()->appendFile($this->baseUrl('/js/fancybox/jquery.fancybox.pack.js'));
+    $this->headScript()->appendFile($this->baseUrl('/js/fancybox/helpers/jquery.fancybox-thumbs.js'));
+    echo $this->headScript();
+?>
+
+<script>
+$(document).ready(function() {
+    
+    $('.fancy-gallery').fancybox({
+		openEffect: 'elastic',
+		closeEffect: 'elastic',
+		prevEffect: 'fade',
+		nextEffect: 'fade',
+		padding: 8,
+		helpers: {
+			overlay: {
+			  locked: false
+			},
+			title	: {
+				type: 'inside'
+			},
+			thumbs	: {
+				width	: 58,
+				height	: 58
+			}
+		},
+		afterShow: function(current, previous) {
+			
+		}
+	});
+
+    function responsive() {
+        if($('html').height() > $(window).height()) {
+            $('body').css('overflow-x', "hidden");
+            $('body').css('overflow-y', "scroll");
+        } else {
+            $('body').css('overflow-x', "hidden");
+            $('body').css('overflow-y', "hidden");
+        }
+        var heightOfHtml = $('html').css('height');
+        $('body').css('height', heightOfHtml);
+    }
+    
+    window.onload = window.onresize = responsive;
+});
+</script>
+
+<script>
+    new AnimOnScroll( document.getElementById( 'grid' ), {
+        minDuration : 0.4,
+        maxDuration : 0.7,
+        viewportFactor : 0.2
+    } );
+</script>

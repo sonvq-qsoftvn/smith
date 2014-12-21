@@ -17,21 +17,19 @@ echo $this->render('system/result.phtml');
 <table width="98%">
     <tr>
         <th><?php echo $this->admin_tmx->_('blockname') ?></th>
-        <th><?php echo $this->admin_tmx->_('title') ?></th>
         <th><?php echo $this->admin_tmx->_('action') ?></th>
     </tr>
     <?php foreach ($this->paginator as $id => $item): ?>
     <tr>
         <td><?php echo $this->escape($item->getBlockname()) ?></td>
-        <td><?php echo $this->escape($item->getTitle()) ?></td>
         <td>
             <a title="<?php echo $this->admin_tmx->_('edit') ?>" href="<?php echo $this->url(array('action' => 'edit', 'id' => $item->getId())) ?>">
                 <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
             </a>
-            <!--
+            
             <a title="<?php echo $this->admin_tmx->_('delete') ?>" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'delete', 'id' => $item->getId())) ?>');">
                 <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
-            </a>-->
+            </a>
         </td>
     </tr>
     <?php endforeach ?>

@@ -11,11 +11,11 @@ function showDialog(win, link) {
 			opacity: 0.5
 		},
 		buttons: {
-			'Bevestigen': function() {
+			'Yes': function() {
 				window.location = link;
 				$(this).dialog('close');
 			},
-			Annuleren: function() {
+			No: function() {
 				$(this).dialog('destroy');
 			}
 		}

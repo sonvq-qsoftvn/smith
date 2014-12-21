@@ -9,7 +9,7 @@ class SxModule_Topcontentblock_Proxy extends Base_Proxy
 		$this->_mapper = new SxModule_Topcontentblock_Mapper();
 	}
 
-	public function getById($id, $lng = 'nl', $cache = true) {
+	public function getById($id, $lng = 'en', $cache = true) {
 		if($cache == true) {
 			$cacheId = $this->generateCacheId(get_class($this) . '_' . __FUNCTION__, func_get_args());
 			$cache = Zend_Registry::get('cache');
@@ -27,7 +27,7 @@ class SxModule_Topcontentblock_Proxy extends Base_Proxy
 		
 		$block = new SxModule_Topcontentblock();
 		$block = $this->_mapper->toObject(is_array($result) ? $result : array());
-
+        
 		if($cache == true) {
 			$cacheTags = $this->generateCacheTags(get_class($this) . '_' . __FUNCTION__, array(
 				get_class($this) . '_' . __FUNCTION__ . '_Id' . $id
@@ -38,7 +38,7 @@ class SxModule_Topcontentblock_Proxy extends Base_Proxy
 		return $block;
 	}
 
-	public function getByBlockname($blockname, $lng = 'nl') {
+	public function getByBlockname($blockname, $lng = 'en') {
 		$db = Zend_Registry::get('db');
 		$select = $db->select()
 			->from(array('a' => 'TopcontentBlocks'), array('a.*'))

@@ -12,7 +12,7 @@ strong { font-weight: bold; }
 
 /** Site css **/
 html {
-    background: url(../images/website/image-bg-one.png) no-repeat center center fixed;  
+    background: url(../images/website/bg-home.jpg) no-repeat center center fixed;  
     -webkit-background-size: cover; 
     -webkit-font-smoothing: antialiased; 
     -moz-background-size: cover;
@@ -63,6 +63,16 @@ h4, h4 a { font-size: 42px; line-height: 35px; color: #FFF; text-transform: capi
 
 #footer { width:100%; height: 87px;  clear:both; background: black;  position: fixed; bottom: 0;  }
 #footer h2 { font-size: 20px; color: #8A8379; margin-bottom: 10px; }
+
+#footer-default { width:100%; height: 87px;  clear:both; background: black; }
+#footer-default h2 { font-size: 20px; color: #8A8379; margin-bottom: 10px; }
+#footer .footer-content, #footer-default .footer-content { 
+    text-align: center;
+    padding-top: 40px;
+    font-family: "Arial";
+    font-size: 13px;
+    color: rgba( 255, 255, 255, 0.3 );
+}
 /** Header **/
 .wrap { width: 940px; margin-left: 10px; margin-right: 10px; margin: auto; }
 
@@ -321,4 +331,44 @@ a.home-work-hover:hover {
 	-webkit-transform: translateX(0px);
 	-moz-transform: translateX(0px);
 	transform: translateX(0px);
+}
+
+/* CSS3 EFFECTS */
+
+.view-effect .mask {
+    position:absolute; /* Center the mask */
+    top:100px;
+    left:100px;
+    cursor:pointer;
+    border-radius: 60px;
+    border-width: 60px;
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    border: 60px solid rgba(0, 0, 0, 0.7);
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    opacity:1;
+    visibility:visible;
+    -moz-transform:scale(4);
+    -webkit-transform:scale(4);
+    -o-transform:scale(4);
+    -ms-transform:scale(4);
+    transform:scale(4);
+    -moz-transition:all 0.3s ease-in-out;
+    -webkit-transition:all 0.3s ease-in-out;
+    -o-transition:all 0.3s ease-in-out;
+    -ms-transition:all 0.3s ease-in-out;
+    transition:all 0.3s ease-in-out;
+}
+.view-effect:hover .mask {
+   opacity: 0;
+   border:0px solid rgba(0,0,0,0.7);
+   visibility:hidden;
+}
+
+ul li.view-effect a {
+    overflow: hidden;
+    position: relative;
 }

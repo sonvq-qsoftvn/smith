@@ -49,6 +49,10 @@
 			<tuv xml:lang="nl"><seg>Afbeelding</seg></tuv>
 			<tuv xml:lang="en"><seg>Picture</seg></tuv>
 		</tu>
+                <tu tuid='thumb'>
+			<tuv xml:lang="nl"><seg>Thumb</seg></tuv>
+			<tuv xml:lang="en"><seg>Thumb</seg></tuv>
+		</tu>
 		<tu tuid='picturesizerestrictions'>
 			<tuv xml:lang="nl"><seg>De afbeelding is best groter dan 1263x565. Afbeelding moet kleiner zijn dan 1MB!</seg></tuv>
 			<tuv xml:lang="en"><seg>Optimally, the picture should be bigger then 1263x565. It has to be smaller then 1MB.</seg></tuv>
@@ -67,11 +71,11 @@
 		</tu>
 		<tu tuid='contentblock'>
 			<tuv xml:lang="nl"><seg>Tekstblok</seg></tuv>
-			<tuv xml:lang="en"><seg>Content block</seg></tuv>
+			<tuv xml:lang="en"><seg>Work Gallery</seg></tuv>
 		</tu>
 		<tu tuid='topcontentblocks'>
 			<tuv xml:lang="nl"><seg>Top Tekstblokken</seg></tuv>
-			<tuv xml:lang="en"><seg>Top Content Blocks</seg></tuv>
+			<tuv xml:lang="en"><seg>Work Gallery</seg></tuv>
 		</tu>
 		<tu tuid='add'>
 			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
@@ -83,19 +87,19 @@
 		</tu>
 		<tu tuid='textblockshomepageadd'>
 			<tuv xml:lang="nl"><seg>Tekstblokken homepagina toevoegen</seg></tuv>
-			<tuv xml:lang="en"><seg>Add content blocks to homepage</seg></tuv>
+			<tuv xml:lang="en"><seg>Add new work to work page</seg></tuv>
 		</tu>
 		<tu tuid='textblockshomepageedit'>
 			<tuv xml:lang="nl"><seg>Tekstblokken homepagina aanpassen</seg></tuv>
-			<tuv xml:lang="en"><seg>Edit content blocks on homepage</seg></tuv>
+			<tuv xml:lang="en"><seg>Edit work on work page</seg></tuv>
 		</tu>
 		<tu tuid='hometextblocks'>
 			<tuv xml:lang="nl"><seg>Tekstblokken Homepagina</seg></tuv>
-			<tuv xml:lang="en"><seg>Textblocks Homepage</seg></tuv>
+			<tuv xml:lang="en"><seg>Work Gallery</seg></tuv>
 		</tu>
 		<tu tuid='overviewhometextblocks'>
 			<tuv xml:lang="nl"><seg>Overzicht van tekstblokjes op de homepage</seg></tuv>
-			<tuv xml:lang="en"><seg>Overview of content blocks on homepage</seg></tuv>
+			<tuv xml:lang="en"><seg>Overview of work gallery on work page</seg></tuv>
 		</tu>
 		<tu tuid='deletefolder'>
 			<tuv xml:lang="nl"><seg>Album verwijderen</seg></tuv>
@@ -103,15 +107,15 @@
 		</tu>
 		<tu tuid='deletefolderconfirm'>
 			<tuv xml:lang="nl"><seg>Weet u zeker dat u deze top tekstblok wilt verwijderen?</seg></tuv>
-			<tuv xml:lang="en"><seg>Are you sure you want to delete this top content block?</seg></tuv>
+			<tuv xml:lang="en"><seg>Are you sure you want to delete this work?</seg></tuv>
 		</tu>
 		<tu tuid='textblockshomepageoverview'>
 			<tuv xml:lang="nl"><seg>Tekstblokken homepagina overzicht</seg></tuv>
-			<tuv xml:lang="en"><seg>Content blocks homepage overview</seg></tuv>
+			<tuv xml:lang="en"><seg>Work Gallery overview</seg></tuv>
 		</tu>
 		<tu tuid='blockname'>
 			<tuv xml:lang="nl"><seg>Bloknaam</seg></tuv>
-			<tuv xml:lang="en"><seg>Blockname</seg></tuv>
+			<tuv xml:lang="en"><seg>Workname</seg></tuv>
 		</tu>
 		<tu tuid='title'>
 			<tuv xml:lang="nl"><seg>Titel</seg></tuv>

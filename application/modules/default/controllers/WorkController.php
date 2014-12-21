@@ -10,9 +10,14 @@ class WorkController extends Zend_Controller_Action {
     }
 
     public function indexAction() {
-        $this->_helper->layout->setLayout('default');
+        $this->_helper->layout->setLayout('work');
         
 		$lang = $this->_getParam('lng', 'en');
+        
+        $proxyWork = new SxModule_Topcontentblock_Proxy();
+		$blocks = $proxyWork->getAll('en', false, 1, 1, false);
+
+		$this->view->blocks = $blocks;
         
         $proxy = new SxCms_Page_Proxy();
 		$page = $proxy->getPageById(1, $lang);

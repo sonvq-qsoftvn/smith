@@ -29,14 +29,13 @@ class Admin_TopcontentblockController extends Zend_Controller_Action
 	public function indexAction() {
 		SxCms_Acl::requireAcl('topcontentblock', 'topcontentblock.index');
 		$proxy = new SxModule_Topcontentblock_Proxy();
-		$blocks = $proxy->getAll($_SESSION['System']['lng'], true, $this->_getParam('page', 1), 25);
+		$blocks = $proxy->getAll('en', true, $this->_getParam('page', 1), 25, false);
 
 		$this->view->paginator = $blocks;
 	}
 
 	protected function _imageResizeAndSave($object) {
 		$path = APPLICATION_ROOT . '/public_html/images/topcontentblock/';
-		$system->lng = $this->_getParam('lng');
 		$adapter = new Zend_File_Transfer_Adapter_Http();
 		$adapter->setDestination($path);
 		$adapter->setOptions(array('ignoreNoFile' => true));
@@ -49,52 +48,39 @@ class Admin_TopcontentblockController extends Zend_Controller_Action
 		if($object->getPicture() == null) {
 			$object->setPicture('');
 		}
+        
+        if($object->getThumb() == null) {
+			$object->setThumb('');
+		}
 
 		$files = $adapter->getFileInfo();
-		foreach($files as $file) {
-			if(!$file['tmp_name']) {
-				continue;
-			}
-
-			$path0 = $path . "253X115/";
-			$path1 = $path . "1263X575/";
-			$path2 = $path . "1263X325/";
-			$filename = $object->createThumbName($file['name']) . '_' . time() . '.jpg';
-
-			$image = new Imagick($file['tmp_name']);
-			$image->cropThumbnailImage(253, 115);
-			$image->setCompression(Imagick::COMPRESSION_JPEG);
-			$image->setImageCompressionQuality(100);
-			$image->setImageFormat('jpeg');
-			$image->writeImage($path0 . $filename);
-			$image->clear();
-			$image->destroy();
-
-			$image = new Imagick($file['tmp_name']);
-			$image->cropThumbnailImage(1263, 575);
-			$image->setCompression(Imagick::COMPRESSION_JPEG);
-			$image->setImageCompressionQuality(75);
-			$image->setImageFormat('jpeg');
-			$image->writeImage($path1 . $filename);
-			$image->clear();
-			$image->destroy();
-
-			$image = new Imagick($file['tmp_name']);
-			$image->cropThumbnailImage(1263, 325);
-			$image->setCompression(Imagick::COMPRESSION_JPEG);
-			$image->setImageCompressionQuality(75);
-			$image->setImageFormat('jpeg');
-			$image->writeImage($path2 . $filename);
-			$image->clear();
-			$image->destroy();
-
-			unlink($file['tmp_name']);
-			$object->setPicture($filename);
+        
+        
+		foreach($files as $key => $file) {
+            if ($key == "picture") {
+                if(!$file['tmp_name']) {
+                    continue;
+                }
+                $path0 = $path . "large/";
+                $filename = $object->createThumbName($file['name']) . '_' . time() . '.jpg';
+                rename($file['tmp_name'], $path0.$filename);
+                unlink($file['tmp_name']);
+                $object->setPicture($filename);
+            } else if ($key == "thumb") {
+                if(!$file['tmp_name']) {
+                    continue;
+                }
+                $path1 = $path . "thumb/";
+                $filename = $object->createThumbName($file['name']) . '_' . time() . '.jpg';
+                rename($file['tmp_name'], $path1.$filename);
+                unlink($file['tmp_name']);
+                $object->setThumb($filename);
+            }
 		}
 	}
 
 	public function _editablefields() {
-		return array('title', 'content', 'url', 'picture', 'blockname');
+		return array('picture', 'thumb', 'blockname');
 	}
 
 	public function addAction() {
@@ -104,21 +90,23 @@ class Admin_TopcontentblockController extends Zend_Controller_Action
 
 		if($this->getRequest()->isPost()) {
 			$mapper = new SxModule_Topcontentblock_Mapper();
+            
 			$fields = $mapper->fromInput($this->_getAllParams(), $this->_editablefields());
 			$data = $mapper->toObject($fields);
 			$data->setTmx($this->tmx);
 
+            $this->_imageResizeAndSave($data);
+            
 			/* validate post */
 			$validator = new SxModule_Topcontentblock_Validator();
-
 			if($validator->validate($data)) {
-				$this->_imageResizeAndSave($data);
-				$data->save();
+                
+                $data->save();
 
-				$flashMessenger = $this->_helper->getHelper('FlashMessenger');
-				$flashMessenger->addMessage($this->admin_tmx->_('itemcreated'));
+                $flashMessenger = $this->_helper->getHelper('FlashMessenger');
+                $flashMessenger->addMessage($this->admin_tmx->_('itemcreated'));
 
-				$this->_helper->redirector->gotoSimple('index', 'topcontentblock');
+                $this->_helper->redirector->gotoSimple('index', 'topcontentblock');
 			}
 
 			$block = $data;
@@ -165,10 +153,17 @@ class Admin_TopcontentblockController extends Zend_Controller_Action
 	}
 
 	public function deleteAction() {
-		SxCms_Acl::requireAcl('topcontentblock', 'topcontentblock.delete');
 
+        $path = APPLICATION_ROOT . '/public_html/images/topcontentblock/';
+        
 		$proxy = new SxModule_Topcontentblock_Proxy();
-		$item = $proxy->getById( (int) $this->_getParam('id') );
+		$item = $proxy->getById( (int) $this->_getParam('id'), 'en', false );
+        
+        $thumb = $item->getThumb();
+        $picture = $item->getPicture();
+        
+        unlink($path . 'thumb/' . $thumb);
+        unlink($path . 'large/' . $picture);
 		$item->delete();
 
 		$flashMessenger = $this->_helper->getHelper('FlashMessenger');

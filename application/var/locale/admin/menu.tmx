@@ -20,7 +20,7 @@
 		
 		<tu tuid='tcb.topcontentblocks'>
 			<tuv xml:lang="nl"><seg>Top Tekstblokken</seg></tuv>
-			<tuv xml:lang="en"><seg>Top Content Blocks</seg></tuv>
+			<tuv xml:lang="en"><seg>Work Gallery</seg></tuv>
 		</tu>
 		<tu tuid='tcb.add'>
 			<tuv xml:lang="nl"><seg>Toevoegen</seg></tuv>
