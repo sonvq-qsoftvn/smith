@@ -209,6 +209,9 @@ ul.site-map li a { font-family: "Ropa sans", tahoma, sans-serif; font-size: 17px
     word-spacing: 6px;
 }
 #pt-main .pt-page .default-content-container h1 {
+    text-shadow: none; 
+    -moz-text-shadow: none; 
+    -webkit-text-shadow: none;
     margin-bottom: 30px;
 }
 #pt-main .pt-page h3 {
