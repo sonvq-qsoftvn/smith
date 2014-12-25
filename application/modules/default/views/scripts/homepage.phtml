@@ -20,11 +20,12 @@
                 <div class="pt-page pt-page-1 grid_12">
                     <div class="home-content-container">
                         <div class="header-text">
+                           
                             <?php echo $this->page->getContent(); ?>
                         </div>
                         <div class="img-work-container grid_12">
-                            <img class="home-work" src="<?php echo $this->baseUrl("/images/website/home-work.png"); ?>"/>
-                            <a class="curl-top-left shadow-radial home-work-hover" href="<?php echo $this->url(array('lng' => $this->lng), 'work-overview', true); ?>"></a> 
+                            <div class="home-work"></div>
+                            <a class="shadow-radial home-work-hover" href="<?php echo $this->url(array('lng' => $this->lng), 'work-overview', true); ?>"></a> 
                         </div>
                     </div>
                 </div>

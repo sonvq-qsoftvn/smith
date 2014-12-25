@@ -1,10 +1,44 @@
+<script>
+// Edit to suit your needs.
+var ADAPT_CONFIG = {
+  // Where is your CSS?
+  path: '/css/assets/',
+
+  // false = Only run once, when page first loads.
+  // true = Change on window resize and page tilt.
+  dynamic: true,
+
+  // First range entry is the minimum.
+  // Last range entry is the maximum.
+  // Separate ranges by "to" keyword.
+  range: [
+    '0px    to 750px  = mobile.css',
+    '750px  to 962px  = 720.css',
+    '962px  to 1280px = 960.css',
+    '1280px to 1600px = 960.css',
+    '1600px to 1920px = 960.css',
+    '1940px to 2540px = 960.css',
+    '2540px           = 960.css'
+  ]
+};
+</script>
+
 <?php
     $this->headScript()->appendFile($this->baseUrl('/js/jquery.carouFredSel-6.2.1-packed.js'));
     $this->headScript()->appendFile($this->baseUrl('/js/modernizr.custom.js'));
     $this->headScript()->appendFile($this->baseUrl('/js/jquery.dlmenu.js'));
     $this->headScript()->appendFile($this->baseUrl('/js/pagetransitions.js'));
-    echo $this->headScript();
     
+    if(!preg_match("/(?i)msie [1-8]\./",$_SERVER['HTTP_USER_AGENT'])) {
+        $this->headScript()->appendFile($this->baseUrl('/js/adapt.min.js'));
+    }
+
+    $this->headScript()->appendFile($this->baseUrl('/js/matchMedia.addListener.js'));
+    $this->headScript()->appendFile($this->baseUrl('/js/matchMedia.js'));
+    $this->headScript()->appendFile($this->baseUrl('/js/enquire.min.js'));
+    $this->headScript()->appendFile($this->baseUrl('/js/css3-mediaqueries.js'));
+    
+    echo $this->headScript();
 ?>
 
 <script>
