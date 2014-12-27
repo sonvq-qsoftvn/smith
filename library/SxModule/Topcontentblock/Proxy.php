@@ -66,6 +66,7 @@ class SxModule_Topcontentblock_Proxy extends Base_Proxy
 		$db = Zend_Registry::get('db');
 		$select = $db->select()->from(array('a' => 'TopcontentBlocks'), array('a.*'))
 			->join(array('t' => 'TopcontentBlocksTsl'), 'a.id = t.b_id', array('t.*'))
+            ->order(array('position ASC'))
 			->where('t.lng = ?', $lng);
 
 		if($paginator === true) {

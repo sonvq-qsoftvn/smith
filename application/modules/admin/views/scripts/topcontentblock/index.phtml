@@ -8,6 +8,42 @@ echo $this->render('system/result.phtml');
 
 ?>
 
+
+<script type="text/javascript">
+$(document).ready(function() {
+var fixHelper = function(e, ui) {
+    ui.children().each(function() {
+        $(this).width($(this).width());
+    });
+    return ui;
+};
+    $('#sort').sortable({
+      helper: fixHelper,
+      handle : '.handle',
+      update : function () {
+        var order = $('#sort').sortable('serialize', 'id');
+        move(order);
+      }
+    }).disableSelection();;
+});
+
+function move(order){
+    var data = order;
+    var url = '/admin/topcontentblock/ranking';
+    var dataType = 'script';
+    var type = 'POST';
+     $.ajax({
+        type: type,
+        url: url,
+        data: data,
+        dataType: dataType,
+        success: function(){
+            /*location.reload();*/
+        }
+    });
+}
+</script>
+
 <div id="dialog" title="<?php echo $this->admin_tmx->_('deletefolder') ?>" style="display: none;">
     <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
 	<?php echo $this->admin_tmx->_('deletefolderconfirm') ?></p>
@@ -16,23 +52,27 @@ echo $this->render('system/result.phtml');
 <h3><?php echo $this->admin_tmx->_('textblockshomepageoverview') ?> [<?php echo $_SESSION['System']['lng'] ?>]</h3>
 <table width="98%">
     <tr>
+        <th width="30"></th>
         <th><?php echo $this->admin_tmx->_('blockname') ?></th>
         <th><?php echo $this->admin_tmx->_('action') ?></th>
     </tr>
+    <tbody id="sort">
     <?php foreach ($this->paginator as $id => $item): ?>
-    <tr>
-        <td><?php echo $this->escape($item->getBlockname()) ?></td>
-        <td>
-            <a title="<?php echo $this->admin_tmx->_('edit') ?>" href="<?php echo $this->url(array('action' => 'edit', 'id' => $item->getId())) ?>">
-                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
-            </a>
-            
-            <a title="<?php echo $this->admin_tmx->_('delete') ?>" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'delete', 'id' => $item->getId())) ?>');">
-                <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
-            </a>
-        </td>
-    </tr>
-    <?php endforeach ?>
+        <tr id="listItem_<?php echo $item->getId();?>">
+            <td style="width:30px;margin:0;padding:0;vertical-align:middle;text-align:center;"><img src="<?php echo $this->baseUrl('/ico/arrow-out.png');?>" alt="" class="handle"/></td>
+            <td><?php echo $this->escape($item->getBlockname()) ?></td>
+            <td>
+                <a title="<?php echo $this->admin_tmx->_('edit') ?>" href="<?php echo $this->url(array('action' => 'edit', 'id' => $item->getId())) ?>">
+                    <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_edit.png') ?>" alt="<?php echo $this->admin_tmx->_('edit') ?>" />
+                </a>
+
+                <a title="<?php echo $this->admin_tmx->_('delete') ?>" class="delete" href="#" onclick="showDialog('#dialog', '<?php echo $this->url(array('action' => 'delete', 'id' => $item->getId())) ?>');">
+                    <img src="<?php echo $this->baseUrl('/images/cms/actions/page_white_delete.png') ?>" alt="<?php echo $this->admin_tmx->_('delete') ?>" />
+                </a>
+            </td>
+        </tr>
+        <?php endforeach ?>
+    </tbody>
 </table>
 
 <?php echo $this->paginationControl($this->paginator, 'Sliding', 'system/pagination.phtml'); ?>

@@ -185,4 +185,14 @@ class Admin_TopcontentblockController extends Zend_Controller_Action
 
 		$this->_helper->redirector->gotoSimple('index', 'topcontentblock');
 	}
+    
+    public function rankingAction() {
+        $proxy = new SxModule_Topcontentblock_Proxy();
+        foreach ($_POST['listItem'] as $position => $item) :
+            $topContentBlock = $proxy->getById((int) $item);
+            $topContentBlock->updateRank($position);
+        endforeach;
+        die;
+    }
+
 }

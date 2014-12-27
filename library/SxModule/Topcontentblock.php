@@ -141,5 +141,12 @@ class SxModule_Topcontentblock
 
 		return true;
 	}
+    
+    public function updateRank($rank) {
+        $db = Zend_Registry::get('db');
+        $rank++;
+        $place = array('position' => $rank);
+        $db->update('TopcontentBlocks', $place, 'id =' . $this->getId());
+    }
 
 }
