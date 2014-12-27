@@ -4,8 +4,8 @@
             <?php foreach ($this->blocks as $block) : ?>
                 <li class="view-effect">
                     <a class="fancy-gallery" href="<?php echo $this->baseUrl("/images/topcontentblock/large/" . $block->getPicture()); ?>">
-                        <img src="<?php echo $this->baseUrl("/images/topcontentblock/thumb/" . $block->getThumb()); ?>">
-                        <div class="mask"></div>
+                        <img class="color-image" src="<?php echo $this->baseUrl("/images/topcontentblock/thumb/" . $block->getThumb()); ?>">
+                        <img class="grayscale-image" src="<?php echo $this->baseUrl("/images/topcontentblock/blackthumb/" . $block->getThumb()); ?>">
                     </a>
                 </li>
             <?php endforeach; ?>

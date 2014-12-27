@@ -64,17 +64,30 @@ class Admin_TopcontentblockController extends Zend_Controller_Action
                 $path0 = $path . "large/";
                 $filename = $object->createThumbName($file['name']) . '_' . time() . '.jpg';
                 rename($file['tmp_name'], $path0.$filename);
-                unlink($file['tmp_name']);
+                //unlink($file['tmp_name']);
                 $object->setPicture($filename);
             } else if ($key == "thumb") {
                 if(!$file['tmp_name']) {
                     continue;
                 }
                 $path1 = $path . "thumb/";
+                $path2 = $path . "blackthumb/";
                 $filename = $object->createThumbName($file['name']) . '_' . time() . '.jpg';
+                
+                $im = imagecreatefromjpeg($file['tmp_name']);
+                if($im && imagefilter($im, IMG_FILTER_GRAYSCALE))
+                {
+                    imagejpeg($im, $path2.$filename);
+                }
+                else
+                {
+                    echo 'Conversion to grayscale failed.';
+                }
+                
                 rename($file['tmp_name'], $path1.$filename);
-                unlink($file['tmp_name']);
+                //unlink($file['tmp_name']);
                 $object->setThumb($filename);
+                
             }
 		}
 	}
@@ -163,6 +176,7 @@ class Admin_TopcontentblockController extends Zend_Controller_Action
         $picture = $item->getPicture();
         
         unlink($path . 'thumb/' . $thumb);
+        unlink($path . 'blackthumb/' . $thumb);
         unlink($path . 'large/' . $picture);
 		$item->delete();
 

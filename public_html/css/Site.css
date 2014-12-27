@@ -403,8 +403,8 @@ a.home-work-hover:hover {
 
 /* CSS3 EFFECTS */
 
-.view-effect .mask {
-    position:absolute; /* Center the mask */
+/*.view-effect .mask {
+    position:absolute;
     top:100px;
     left:100px;
     cursor:pointer;
@@ -434,11 +434,55 @@ a.home-work-hover:hover {
    opacity: 0;
    border:0px solid rgba(0,0,0,0.7);
    visibility:hidden;
+}*/
+.view-effect .mask {
+    position:absolute;  
+    top:0px;
+    left:0px;
+    cursor:pointer;
+    display: inline-block;
+    height: 296px;
+    width: 296px;
+    
+    opacity: 0;
+    overflow:visible;
+    border:0px solid rgba(0,0,0,0.7);
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+.view-effect:hover .mask {
+    opacity: 1;
+    border:150px solid rgba(0,0,0,0.7);
 }
 
 ul li.view-effect a {
     overflow: hidden;
     position: relative;
+}
+
+.view-effect .fancy-gallery {
+    position: relative;
+}
+
+.view-effect .fancy-gallery .grayscale-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+.view-effect .fancy-gallery:hover .grayscale-image {
+    opacity: 0
 }
 @media screen and (max-width: 767px) and (min-width: 380px) {
 
