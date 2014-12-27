@@ -49,23 +49,16 @@ var ADAPT_CONFIG = {
 
 <script>
 $(document).ready(function() {
-    
+          
     $('.fancy-gallery').fancybox({
 		openEffect: 'elastic',
 		closeEffect: 'elastic',
 		prevEffect: 'fade',
 		nextEffect: 'fade',
-		padding: 8,
+		padding: 0,
 		helpers: {
 			overlay: {
 			  locked: false
-			},
-			title	: {
-				type: 'inside'
-			},
-			thumbs	: {
-				width	: 58,
-				height	: 58
 			}
 		},
 		afterShow: function(current, previous) {

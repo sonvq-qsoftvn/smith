@@ -167,7 +167,7 @@ ul.site-map li a { font-family: "Ropa sans", tahoma, sans-serif; font-size: 17px
 .menu-container ul { 
     display: block; 
     list-style-type: none; 
-    width: 620px; 
+    width: 515px;
     margin: 0 auto; 
     -webkit-user-select: none; /* Chrome/Safari */        
     -moz-user-select: none; /* Firefox */
@@ -179,7 +179,7 @@ ul.site-map li a { font-family: "Ropa sans", tahoma, sans-serif; font-size: 17px
 }
 .menu-container ul li { 
     float: left; 
-    margin-right: 40px; 
+    margin-right: 12px;
     display: inline;
     -webkit-user-select: none; /* Chrome/Safari */        
     -moz-user-select: none; /* Firefox */
@@ -210,6 +210,10 @@ ul.site-map li a { font-family: "Ropa sans", tahoma, sans-serif; font-size: 17px
 .menu-container ul li a.active { color: #85c343; }
 .menu-container ul li a:hover { text-decoration: none; }
 
+#pt-main .pt-page .default-content-container p.contact-content a{
+    color: #80d944;
+}
+    
 #pt-main .pt-page h1 { 
     font-size: 91px; 
     color: #ffffff; 
@@ -219,6 +223,25 @@ ul.site-map li a { font-family: "Ropa sans", tahoma, sans-serif; font-size: 17px
     -moz-text-shadow: 0px 6px 0px rgba(0,0,0,0.15); 
     -webkit-text-shadow: 0px 6px 0px rgba(0,0,0,0.15); 
     text-transform: none;
+    opacity: 0;
+    -webkit-transform: translate(0, 30px);
+    -moz-transform: translate(0, 30px);
+    -ms-transform: translate(0, 30px);
+    -o-transform: translate(0, 30px);
+    transform: translate(0, 30px);
+}
+#pt-main .pt-page .home-content-container.show-animation h1, #pt-main .pt-page .default-content-container.show-animation h1{ 
+    -ms-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    opacity: 1;
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    -o-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
 }
 #pt-main .pt-page h2 {
     font-family: 'Neuelight'; 
@@ -228,6 +251,25 @@ ul.site-map li a { font-family: "Ropa sans", tahoma, sans-serif; font-size: 17px
     text-shadow: 0px 6px 0px rgba(0,0,0,0.15); 
     -moz-text-shadow: 0px 6px 0px rgba(0,0,0,0.15); 
     -webkit-text-shadow: 0px 6px 0px rgba(0,0,0,0.15); 
+     opacity: 0;
+    -webkit-transform: translate(0, 60px);
+    -moz-transform: translate(0, 60px);
+    -ms-transform: translate(0, 60px);
+    -o-transform: translate(0, 60px);
+    transform: translate(0, 60px);
+}
+#pt-main .pt-page .home-content-container.show-animation h2 { 
+    -ms-transition: all 2s ease;
+    -webkit-transition: all 2s ease;
+    -moz-transition: all 2s ease;
+    -o-transition: all 2s ease;
+    transition: all 2s ease;
+    opacity: 1;
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    -o-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
 }
 #pt-main .pt-page .home-content-container {
     margin-top: 90px; 
@@ -468,6 +510,27 @@ ul li.view-effect a {
 
 .view-effect .fancy-gallery {
     position: relative;
+}
+
+.fancybox-nav {
+    width: 60px;       
+}
+
+.fancybox-nav span {
+    visibility: visible;
+    opacity: 0.5;
+}
+
+.fancybox-nav:hover span {
+    opacity: 1;
+}
+
+.fancybox-next {
+    right: -60px;
+}
+
+.fancybox-prev {
+    left: -60px;
 }
 
 .view-effect .fancy-gallery .grayscale-image {

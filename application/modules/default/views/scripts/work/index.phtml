@@ -3,7 +3,7 @@
         <ul class="grid effect-2" id="grid">
             <?php foreach ($this->blocks as $block) : ?>
                 <li class="view-effect">
-                    <a class="fancy-gallery" href="<?php echo $this->baseUrl("/images/topcontentblock/large/" . $block->getPicture()); ?>">
+                    <a class="fancy-gallery" rel="gallery1" href="<?php echo $this->baseUrl("/images/topcontentblock/large/" . $block->getPicture()); ?>">
                         <img class="color-image" src="<?php echo $this->baseUrl("/images/topcontentblock/thumb/" . $block->getThumb()); ?>">
                         <img class="grayscale-image" src="<?php echo $this->baseUrl("/images/topcontentblock/blackthumb/" . $block->getThumb()); ?>">
                     </a>

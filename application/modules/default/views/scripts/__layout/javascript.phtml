@@ -42,8 +42,13 @@ var ADAPT_CONFIG = {
 ?>
 
 <script>
-$(document).ready(function() {    
-
+    setTimeout(function() {
+      $('.home-content-container').addClass( "show-animation" );
+      $('.default-content-container').addClass( "show-animation" );
+    }, 1000);
+$(document).ready(function() {   
+    
+    
     function responsive() {
         if($('html').height() > $(window).height()) {
             $('body').css('overflow-x', "hidden");
