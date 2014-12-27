@@ -321,15 +321,15 @@ ul.site-map li a { font-family: "Ropa sans", tahoma, sans-serif; font-size: 17px
     line-height: 30px; 
     color: #fff;
 }
-#pt-main .pt-page ul li:first-child {
+#pt-main .pt-page ul.work-list li:first-child {
     background: none;
 }
-#pt-main .pt-page ul li { 
+#pt-main .pt-page ul.work-list li { 
     line-height: 42px;
     background: url(../images/website/li-separator.png) no-repeat;
     background-position: 50% 0px;
 }
-#pt-main .pt-page ul li a {
+#pt-main .pt-page ul.work-list li a {
     color: #80df67;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
@@ -337,7 +337,7 @@ ul.site-map li a { font-family: "Ropa sans", tahoma, sans-serif; font-size: 17px
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
-#pt-main .pt-page ul li a:hover {
+#pt-main .pt-page ul.work-list li a:hover {
     text-decoration: none;
     color: #fff;
     -webkit-transition: all 0.5s ease-in-out;
