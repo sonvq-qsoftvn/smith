@@ -63,10 +63,10 @@ h4, h4 a { font-size: 42px; line-height: 35px; color: #FFF; text-transform: capi
 
 #header { position: relative; background: url(../images/website/pattern.jpg); padding-bottom: 20px; }
 
-#footer { width:100%; height: 87px;  clear:both; background: black;  position: fixed; bottom: 0; opacity: 0.8  }
+#footer { width:100%; height: 87px;  clear:both; background: black;  position: fixed; bottom: 0; opacity: 0.8; border-top: 1px solid rgba(255,255,255,0.2);  }
 #footer h2 { font-size: 20px; color: #8A8379; margin-bottom: 10px; }
 
-#footer-default { width:100%; height: 87px;  clear:both; background: black; opacity: 0.8}
+#footer-default { width:100%; height: 87px;  clear:both; background: black; opacity: 0.8; border-top: 1px solid rgba(255,255,255,0.2); }
 #footer-default h2 { font-size: 20px; color: #8A8379; margin-bottom: 10px; }
 #footer .footer-content, #footer-default .footer-content { 
     text-align: center;
@@ -321,14 +321,30 @@ ul.site-map li a { font-family: "Ropa sans", tahoma, sans-serif; font-size: 17px
     line-height: 30px; 
     color: #fff;
 }
+#pt-main .pt-page ul li:first-child {
+    background: none;
+}
 #pt-main .pt-page ul li { 
     line-height: 42px;
+    background: url(../images/website/li-separator.png) no-repeat;
+    background-position: 50% 0px;
 }
 #pt-main .pt-page ul li a {
     color: #80df67;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 #pt-main .pt-page ul li a:hover {
-    text-decoration: underline; 
+    text-decoration: none;
+    color: #fff;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 #pt-main .pt-page .home-content-container h1 { 
     margin-bottom: 5px; 
