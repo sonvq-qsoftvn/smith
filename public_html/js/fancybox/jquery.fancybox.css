@@ -98,13 +98,17 @@
 }
 
 .fancybox-close {
-	position: absolute;
-	top: -18px;
-	right: -18px;
+	position: fixed;
+        top: 32px;
+        right: 32px;
 	width: 36px;
 	height: 36px;
 	cursor: pointer;
 	z-index: 8040;
+        background-image: url('close-btn.png') !important;
+        background-repeat: no-repeat;
+        width: 29px;
+        height: 30px;
 }
 
 .fancybox-nav {
@@ -140,12 +144,20 @@
 
 .fancybox-prev span {
 	left: 10px;
-	background-position: 0 -36px;
+	//background-position: 0 -36px;
+        background-image: url('prev-btn.png') !important;
+        background-repeat: no-repeat;
+        width: 14px;
+        height: 32px;
 }
 
 .fancybox-next span {
 	right: 10px;
-	background-position: 0 -72px;
+	//background-position: 0 -72px;
+        background-image: url('next-btn.png') !important;
+        background-repeat: no-repeat;
+        width: 14px;
+        height: 32px;
 }
 
 .fancybox-nav:hover span {
