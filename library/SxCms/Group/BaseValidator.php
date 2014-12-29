@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Development by Sanmax Consultancy BVBA
- * @version $Id: BaseValidator.php 8218 2010-05-31 07:20:30Z andries $
+ * Development by thieusmith
+ * @version $Id: Acl.php 8179 2010-05-28 07:58:13Z andries $
  *
  * LICENSE
  *
  * Warranty on source code, and templates, expires upon modifications, made by
- * either customer, or third party providers. Sanmax Consultancy can not be
+ * either customer, or third party providers. thieusmith can not be
  * held responsible for such modifications.
  *
  * Client assumes all responsibility for additional time and cost requirements
@@ -17,9 +17,10 @@
 
 /**
  * @category   SxCms
- * @package    SxCms_Group_BaseValidator
- * @copyright  Copyright (c) 2009-2010 Sanmax Consultancy BVBA. (http://www.sanmax.be)
+ * @package    SxCms_Acl
+ * @copyright  Copyright (c) 2015 thieusmith. (thieusmith@gmail.com)
  */
+
 class SxCms_Group_BaseValidator
 {
 	protected $_group;

@@ -51,9 +51,9 @@
             <tuv xml:lang="en"><seg>privacy policy</seg></tuv>
         </tu>
         <tu tuid='footer.text-sanmax-website'>
-            <tuv xml:lang="nl"><seg>webdesign © sanmax</seg></tuv>
-            <tuv xml:lang="fr"><seg>webdesign © sanmax</seg></tuv>
-            <tuv xml:lang="en"><seg>webdesign © sanmax</seg></tuv>
+            <tuv xml:lang="nl"><seg>thieusmith © 2015</seg></tuv>
+            <tuv xml:lang="fr"><seg>thieusmith © 2015</seg></tuv>
+            <tuv xml:lang="en"><seg>thieusmith © 2015</seg></tuv>
         </tu>
         <tu tuid='breadcrumbs.homepage'>
             <tuv xml:lang="nl"><seg>home</seg></tuv>

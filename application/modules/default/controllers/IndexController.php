@@ -256,7 +256,7 @@ class IndexController extends Zend_Controller_Action
 
 
 
-		$this->view->headMeta()->setName('author', 'Sanmax Consultancy BVBA');
+		$this->view->headMeta()->setName('author', 'Thieusmith © 2015');
 		$this->view->headMeta()->setName('robots', 'index, follow, noarchive');
 		$this->view->headMeta()->setName('googlebot', 'noarchive');
 	}

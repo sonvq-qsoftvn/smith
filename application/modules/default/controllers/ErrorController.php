@@ -14,7 +14,7 @@ class ErrorController extends Zend_Controller_Action
 			if(is_writable($file) && ($error_reporting == '' || (isset($error_reporting['last_email']) && $error_reporting['last_email'] < time()-3600) )) {
 				$mail = new Zend_Mail('utf-8');
 				$mail->setSubject('Geen database connectie')
-					->setFrom('no-reply@sanmax.be', 'Sanmax');
+					->setFrom('vuquangson1610@gmail.com', 'Vu Quang Son');
 
         		$user = Zend_Auth::getInstance()->hasIdentity() ? Zend_Auth::getInstance()->getIdentity()->getEmail() : 'anonymous';
 
@@ -33,9 +33,9 @@ class ErrorController extends Zend_Controller_Action
 
 				$mail->setBodyHtml($body);
 
-				$mail->addTo('tech@sanmax.be')
-					->addCc('kurt@sanmax.be')
-					->addCc('gwen@sanmax.be');
+				$mail->addTo('thieusmith@gmail.com')
+					->addCc('thieusmith@gmail.com')
+					->addCc('thieusmith@gmail.com');
 
 				$mail->send();
 

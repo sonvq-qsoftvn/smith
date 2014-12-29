@@ -210,7 +210,7 @@ Ext.ux.ImageMapPanel = Ext.extend(Ext.Panel, {
 							}.bind(this)
 						}
                 	},
-					/* START EDIT BY SANMAX */
+					
 					new Ext.form.ComboBox({
 						fieldLabel: 'Link',
 						name: 'img_href',
@@ -241,7 +241,7 @@ Ext.ux.ImageMapPanel = Ext.extend(Ext.Panel, {
 							}.bind(this)
 						}
                 	},*/
-					/* STOP EDIT BY SANMAX */
+					
 					{
                     	fieldLabel: 'Alt',
                     	name: 'img_alt',
@@ -254,7 +254,7 @@ Ext.ux.ImageMapPanel = Ext.extend(Ext.Panel, {
 							}.bind(this)
 						}
                 	},
-					/* START EDIT BY SANMAX */
+					
     				{
                     	fieldLabel: 'Target',
                     	name: 'img_target',
