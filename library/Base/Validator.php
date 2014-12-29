@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @Author: Kurt Aerts <kurt@sanmax.be>
- * @Copyright: 2012 © Sanmax
- * @Link: http://www.sanmax.be/
- */
 class Base_Validator
 {
 	protected $tmx;

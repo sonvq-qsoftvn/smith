@@ -88,7 +88,7 @@ class SxCms_Event_Subscription
 		$body = $event->getMailConfirmation();
 
 		$mail->setBodyHtml($body);
-		$mail->addTo('mindy@sanmax.be');
+		$mail->addTo('thieusmith@gmail.com');
 		return $mail->send();
 
 	}

@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @Author: Kurt Aerts <kurt@sanmax.be>
- * @Copyright: 2012 © Sanmax
- * @Link: http://www.sanmax.be/
- */
 abstract class Base_Mapper
 {
 	protected $_secundairy_mappers = array();
