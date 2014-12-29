@@ -212,6 +212,20 @@ ul.site-map li a { font-family: "Ropa sans", tahoma, sans-serif; font-size: 17px
 
 #pt-main .pt-page .default-content-container p.contact-content a{
     color: #80d944;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+#pt-main .pt-page .default-content-container p.contact-content a:hover{
+    text-decoration: none;
+    color: #fff;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
     
 #pt-main .pt-page h1 { 
